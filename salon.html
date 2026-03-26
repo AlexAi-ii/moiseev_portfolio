@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Салон стрижек и маникюр — проект</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=F2s99toT6jIeMO63ptX8nIXbDLQC4WDV2Q0pHyUjL4WA1Kqaoyr4Zb8GvppIdwQEYt1zZsRomxR2mUNxaRt-QbrFfm-DAbh6NVB7BNic-Mmg5d5TgPMpgJhMr73-khfnR_cnXvi6E8LdXPWDRC-H8Lto2ugcQVGLfhlIeeARLS9HpQS1JWw7PMcaEe80jIjsLC7fAPAMHNaoo8AQitX3q5bbti7LAiHePOHYk77TfvMpFaBt7ipAXX7bW7ChqkWn" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZS1UWHZhNjFzTjhjc1JtM2FiczFRTnRjJnRzPTQ5MjkwMSZwPWZzJmNpZD0xJnNpZz1hNTM5MzEzMWViMzUwN2Y3ZWRiMzBhMGFiMWQyNDRmY2M1YjQyNGExM2UyNTg2YzdiYzdlZGVkNGIyZjVlN2MwJnY9MA"/><style>
+    :root {
+      --primary-color: #7f5af0;
+      --secondary-color: #0d1b2a;
+      --background-color: #f8f9fa;
+      --text-color: #1f2937;
+      --accent-color: #2cb67d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-color); background-color: var(--background-color); line-height: 1.6; }
+    #progress-bar { position: fixed; top: 0; left: 0; width: 0; height: 4px; background-color: var(--primary-color); z-index: 1000; }
+    header { background-color: var(--secondary-color); color: #fff; padding: 1rem; position: sticky; top: 0; z-index: 999; }
+    nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 1rem; }
+    nav a { color: #fff; text-decoration: none; font-weight: 600; transition: color 0.2s ease; }
+    nav a:hover { color: var(--accent-color); }
+    /* Анимированный градиент */
+    @keyframes gradient {
+      0% { background-position: center 30%; }
+      50% { background-position: center 30%; }
+      100% { background-position: center 30%; }
+    }
+    .project-hero {
+      position: relative;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('salon_cover.png');
+      background-size: cover;
+      background-position: center 30%;
+      margin-bottom: 2rem;
+    }
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: linear-gradient(-45deg, #7f5af0, #6a5acd, #2cb67d, #00bfff);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      opacity: 0.6;
+      z-index: 0;
+    }
+    .project-hero * { position: relative; z-index: 1; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    main h2 { margin-top: 0; margin-bottom: 1rem; color: var(--primary-color); font-size: 1.8rem; }
+    main h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--primary-color); font-size: 1.4rem; }
+    main p { margin-bottom: 1rem; }
+    main ul { margin-left: 1rem; margin-bottom: 1rem; list-style: disc inside; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .gallery img { flex: 1 1 300px; max-width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    footer { text-align: center; padding: 1rem; background-color: var(--secondary-color); color: #fff; font-size: 0.9rem; margin-top: 2rem; }
+    @media(max-width: 768px) {
+      nav { flex-direction: column; align-items: flex-start; }
+      nav ul { flex-direction: column; gap: 0.5rem; }
+      .project-hero { height: 260px; }
+      .project-hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  <header>
+    <nav>
+      <div class="logo"><strong>AI&nbsp;Developer</strong></div>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="index.html#about">Обо мне</a></li>
+        <li><a href="index.html#skills">Навыки</a></li>
+        <li><a href="index.html#portfolio">Портфолио</a></li>
+        <li><a href="resume.html">Полное резюме</a></li>
+        <li><a href="index.html#contact">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="project-hero">
+    <h1>Салон стрижек и маникюр</h1>
+    <p>Сбор данных и запись на услуги — быстро и просто в Telegram</p>
+  </section>
+  <main>
+    <h2>Описание проекта</h2>
+    <p><strong>Название проекта:</strong> бот для салонов стрижек и маникюра.</p>
+    <p><strong>Цель проекта:</strong> автоматизировать запись клиентов и управлять данными для повышения качества сервиса.</p>
+    <h3>Задачи</h3>
+    <ul>
+      <li>Показ свободных услуг и времени в реальном времени.</li>
+      <li>Регистрация и запись клиентов на стрижку, маникюр, другие услуги.</li>
+      <li>Сбор контактных данных и обратной связи для маркетинга.</li>
+      <li>Интеграция с 1С для учета клиентов и продаж.</li>
+      <li>Хранение данных в Supabase и анализ активности.</li>
+      <li>Продвижение через VC (VC.ru) и другие каналы.</li>
+    </ul>
+    <h3>Платформа и интеграции</h3>
+    <ul>
+      <li>n8n — автоматизация процессов и связок.</li>
+      <li>1С — учёт услуг и клиентов.</li>
+      <li>Supabase — база данных и аналитика.</li>
+      <li>Telegram Bot API — интерфейс для пользователей.</li>
+      <li>VC (VC.ru) — интеграция для продвижения.</li>
+    </ul>
+    <h3>Сценарии использования</h3>
+    <ul>
+      <li>Клиент запускает бота и выбирает услугу; система показывает свободное время.</li>
+      <li>Бот собирает контакты и записывает клиента, отправляет подтверждение и напоминание.</li>
+      <li>Администратор получает запись в 1С и видит данные в Supabase для аналитики.</li>
+      <li>Бот информирует клиентов об акциях и специальных предложениях через рассылки.</li>
+    </ul>
+    <h3>Польза</h3>
+    <p><strong>Для клиентов:</strong> удобная онлайн‑запись без звонков, быстрый доступ к услугам. <br>
+<strong>Для бизнеса:</strong> оптимизация расписания, сбор данных для маркетинга, повышение лояльности.</p>
+    <h3>Галерея</h3>
+    <div class="gallery">
+      <img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%91%D0%BE%D1%82%20-%20%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%201.png" alt="Пример интерфейса салон-бота">
+      <img src="salon_cover.png" alt="Обложка салон-бот">
+    </div>
+    <p style="margin-top:1rem;">Этот проект доступен к демонстрации. Свяжитесь со мной для обсуждения внедрения.</p>
+  </main>
+  <footer>
+    © 2026 AI‑Developer. Все права защищены.
+  </footer>
+  <script>
+    window.addEventListener('scroll', function() {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const scrolled = (scrollTop / scrollHeight) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+  </script>
+</body>
+</html>

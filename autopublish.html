@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Авто‑публикация в Telegram — проект</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=FiI-Zsg0jvVmkwKaqqJZc94XSEIcjREetLBqb2nZ2enHkmfmuY85WInydra6gY_EtmQec4qZbA9o2uJPuPh8ha3HMTymyH6ivCggc7fWa7p0qz7KpfbOgLz6A8WQ5r8tPqzlqlx73AoLX_XjaRbSaf5GOBdEkve2ofzw_SZJI8fpQZ4qHy0O0d9-C7L1E25dN86dheFQxD9HggEOBNHhff-DpwJfSqvEmWZdwdLeQSzj9QZtHEl7SNHdpOgwJms3" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZS1HVDN4cG9ZR0dkMkRyZ3ZMUkhSRXNNJnRzPTQ5MjkwMSZwPWZzJmNpZD0xJnNpZz0zNWI0ZDJlNzMyNTFkZGM5ZmM4YWJjZjc5MzY4NjllNDlmZmRiMTUwNGFkOGRhZDg3YTRkMzE3ODVjMDVlN2YxJnY9MA"/><style>
+    :root {
+      --primary-color: #7f5af0;
+      --secondary-color: #0d1b2a;
+      --background-color: #f8f9fa;
+      --text-color: #1f2937;
+      --accent-color: #2cb67d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-color); background-color: var(--background-color); line-height: 1.6; }
+    #progress-bar { position: fixed; top: 0; left: 0; width: 0; height: 4px; background-color: var(--primary-color); z-index: 1000; }
+    header { background-color: var(--secondary-color); color: #fff; padding: 1rem; position: sticky; top: 0; z-index: 999; }
+    nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 1rem; }
+    nav a { color: #fff; text-decoration: none; font-weight: 600; transition: color 0.2s ease; }
+    nav a:hover { color: var(--accent-color); }
+    .project-hero {
+      position: relative;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D0%B2%D1%82%D0%BE%E2%80%91%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20Telegram%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png');
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 2rem;
+    }
+    .project-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .project-hero p { font-size: 1.2rem; max-width: 800px; }
+    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    main h2 { margin-top: 0; margin-bottom: 1rem; color: var(--primary-color); font-size: 1.8rem; }
+    main h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--primary-color); font-size: 1.4rem; }
+    main p { margin-bottom: 1rem; }
+    main ul { margin-left: 1rem; margin-bottom: 1rem; list-style: disc inside; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .gallery img { flex: 1 1 300px; max-width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    footer { text-align: center; padding: 1rem; background-color: var(--secondary-color); color: #fff; font-size: 0.9rem; margin-top: 2rem; }
+    @media(max-width: 768px) {
+      nav { flex-direction: column; align-items: flex-start; }
+      nav ul { flex-direction: column; gap: 0.5rem; }
+      .project-hero { height: 260px; }
+      .project-hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  <header>
+    <nav>
+      <div class="logo"><strong>AI&nbsp;Developer</strong></div>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="index.html#about">Обо мне</a></li>
+        <li><a href="index.html#skills">Навыки</a></li>
+        <li><a href="index.html#portfolio">Портфолио</a></li>
+        <li><a href="resume.html">Полное резюме</a></li>
+        <li><a href="index.html#contact">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="project-hero">
+    <h1>Авто‑публикация в Telegram</h1>
+    <p>Сервис, который по ссылке создаёт контент и автоматически публикует его в ваш канал</p>
+  </section>
+  <main>
+    <h2>Описание проекта</h2>
+    <p><strong>Описание:</strong> Система, позволяющая по одной ссылке подготовить полноценный пост: формирует статью, генерирует промпт для изображения и в несколько кликов публикует материал в Telegram‑канале. Пользователь контролирует процесс и утверждает результат перед публикацией.</p>
+    <h3>Основные возможности</h3>
+    <ul>
+      <li><strong>Импорт по ссылке:</strong> сервис принимает ссылку на статью или новость и извлекает ключевой контент.</li>
+      <li><strong>Генерация статьи:</strong> формирует краткую и читабельную версию материала с помощью AI‑алгоритмов.</li>
+      <li><strong>Создание изображения:</strong> генерирует описание для нейросети (DALL·E/Midjourney) и получает картинку, соответствующую теме.</li>
+      <li><strong>Предпросмотр и согласование:</strong> отправляет пользователю черновик текста и картинки для одобрения или правки.</li>
+      <li><strong>Автопубликация:</strong> после утверждения пост автоматически появляется в Telegram‑канале, включая прикреплённое изображение.</li>
+    </ul>
+    <h3>Технический стек</h3>
+    <ul>
+      <li>n8n — автоматизация шагов и интеграций.</li>
+      <li>ChatGPT / OpenAI — анализ текста и генерация статьи.</li>
+      <li>Модели генерации изображений — создание иллюстрации на основе промпта.</li>
+      <li>Telegram Bot API — размещение постов в канале.</li>
+    </ul>
+    <h3>Галерея</h3>
+    <div class="gallery">
+      <img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D0%B2%D1%82%D0%BE%E2%80%91%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20Telegram%20-%201.png" alt="Первый пример автопубликации">
+      <img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D0%B2%D1%82%D0%BE%E2%80%91%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20Telegram%20-%202.png" alt="Второй пример автопубликации">
+    </div>
+    <p style="margin-top:1rem;">Сервис можно адаптировать под разные форматы: новости, статьи, подборки. Готов показать прототип и обсудить интеграцию под ваш канал.</p>
+  </main>
+  <footer>
+    © 2026 AI‑Developer. Все права защищены.
+  </footer>
+  <script>
+    window.addEventListener('scroll', function() {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const scrolled = (scrollTop / scrollHeight) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+  </script>
+</body>
+</html>
