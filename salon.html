@@ -3,144 +3,234 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Салон стрижек и маникюр — проект</title>
+  <meta name="theme-color" content="#7f5af0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=gRdmlmIAhWBrPNHysbUXGjO7zwhke5-EhjODssIR_QY9XW9dexYN4ebUch71mPch6HYmDW-43okJXvYhN5XUwyVPgc3CM-J8A2zC5jukjS82E8shB-HakoD73lMP1yx1sghbMxJabBCACPQoJkh2-ihfEuJ8oXBXwLkwChcgjcDZuSD926Ql1fGdHP52QzzaDT7ZJ4jxB57EjcQqRk60-7y0bHAd8Y20VS7I6KBnvCei9O4E6kXOQ-hbFmdzRgOIJuTn6_iGkgsYEAmbxvAZ7w" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDgxZDg3MWY2YWMxM2FlMDUxOThiNGYzNSZ0cz00OTI5NDQmcD1mcyZjaWQ9MSZzaWc9Zjc1N2ZmYzgwMTU4NjRkNjM2ZDdlYTcxYTBjYWNmMzA3OWQxNWU3YzY4ZDMxZGJiODU4MzMwN2U2ZWQwODcyNCZ2PTA"/><style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=YtZQpqlut4tCREB63MSlPp8_3stKD1QF14vp2E02DNrCbe0geJrk9NEXKjwBmBEuH9VMSHdD_pqhWEOZe50qMXINqu7-M-wFzXD9moBK9j42G89ekJO8rI7LCqxyFMDVXfULtKr9SDZOZ4uqrHCslvARDFpZncTZ679rZc9FDXOcn0c5C5ak-6LSfRc2BVJPx4zfdOSt6TGPeFvWY34wpCPulw0uv9NsHoyn2grARXuLRW4C8GO02yqAOzZCX_lLcWDAJslMpm2DCNuEZz2nwQ" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDllMDg3MjJmYWE4ODVlYjQ1YjY0M2RmNCZ0cz00OTI5NDQmcD1mcyZjaWQ9MSZzaWc9Mjc2YWI0ZjRhNzk5Yjc2YmM1MjRiYjA1NjliMzNlMTUzYTU1ZWU2ZTQzZGYwZWViMGEwNjY4OTA0MmE5NmE1OCZ2PTA"/><style>
     :root {
-      --primary-color: #7f5af0;
-      --secondary-color: #0d1b2a;
-      --background-color: #f8f9fa;
-      --text-color: #1f2937;
-      --accent-color: #2cb67d;
+      --bg: #f6f8fc;
+      --surface: #ffffff;
+      --surface-2: #eef3ff;
+      --text: #182230;
+      --muted: #5b6472;
+      --primary: #7f5af0;
+      --primary-2: #5a37d8;
+      --accent: #2cb67d;
+      --accent-2: #00b7ff;
+      --dark: #0d1b2a;
+      --line: rgba(24, 34, 48, 0.08);
+      --shadow: 0 18px 45px rgba(24, 34, 48, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --container: 1160px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Manrope', sans-serif; color: var(--text-color); background-color: var(--background-color); line-height: 1.6; }
-    #progress-bar { position: fixed; top: 0; left: 0; width: 0; height: 4px; background-color: var(--primary-color); z-index: 1000; }
-    header { background-color: var(--secondary-color); color: #fff; padding: 1rem; position: sticky; top: 0; z-index: 999; }
-    nav { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    nav ul { list-style: none; display: flex; gap: 1rem; }
-    nav a { color: #fff; text-decoration: none; font-weight: 600; transition: color 0.2s ease; }
-    nav a:hover { color: var(--accent-color); }
-    /* Анимированный градиент */
-    @keyframes gradient {
-      0% { background-position: center 22%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top left, rgba(127,90,240,0.08), transparent 26%),
+                  radial-gradient(circle at top right, rgba(0,183,255,0.10), transparent 24%),
+                  var(--bg);
+      line-height: 1.6;
     }
-      50% { background-position: center 30%; }
-      100% { background-position: center 30%; }
+    a { color: inherit; }
+    #progress-bar {
+      position: fixed; top: 0; left: 0; width: 0; height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent-2)); z-index: 1001;
     }
-    .project-hero {
-      position: relative;
-      height: 320px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      text-align: center;
-      background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png');
-      background-size: cover;
-      background-position: center 30%;
-      margin-bottom: 2rem;
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(16px);
+      background: rgba(13, 27, 42, 0.84); border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .project-hero::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      background: linear-gradient(-45deg, #7f5af0, #6a5acd, #2cb67d, #00bfff);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-      opacity: 0.6;
-      z-index: 0;
+    nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; flex-direction: column; text-decoration: none; color: #fff; min-width: 220px; }
+    .brand strong { font-size: 1.05rem; letter-spacing: 0.02em; }
+    .brand span { color: rgba(255,255,255,0.72); font-size: 0.85rem; margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; list-style: none; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { text-decoration: none; color: rgba(255,255,255,0.90); font-weight: 600; font-size: 0.96rem; transition: color .2s ease; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta, .btn, .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      text-decoration: none; border-radius: 999px; padding: 12px 18px; font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
-    .project-hero * { position: relative; z-index: 1; }
-    main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    main h2 { margin-top: 0; margin-bottom: 1rem; color: var(--primary-color); font-size: 1.8rem; }
-    main h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--primary-color); font-size: 1.4rem; }
-    main p { margin-bottom: 1rem; }
-    main ul { margin-left: 1rem; margin-bottom: 1rem; list-style: disc inside; }
-    .gallery { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
-    .gallery img {
-      width: 100%;
-      min-height: 260px;
-      object-fit: cover;
-      object-position: center top;
-      transition: transform .24s ease, box-shadow .24s ease; flex: 1 1 300px; max-width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    footer { text-align: center; padding: 1rem; background-color: var(--secondary-color); color: #fff; font-size: 0.9rem; margin-top: 2rem; }
-    @media(max-width: 768px) {
-      nav { flex-direction: column; align-items: flex-start; }
-      nav ul { flex-direction: column; gap: 0.5rem; }
-      .project-hero { height: 260px; }
-      .project-hero h1 { font-size: 2rem; }
+    .nav-cta, .btn { background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; box-shadow: 0 8px 22px rgba(127, 90, 240, 0.25); }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--line); }
+    .nav-cta:hover, .btn:hover, .btn-secondary:hover { transform: translateY(-2px); }
+
+    .page-wrap { padding: 28px 0 40px; }
+    .cover-strip {
+      height: 176px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow);
+      background-size: cover; background-position: center; position: relative;
+    }
+    .cover-strip::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(13,27,42,0.70), rgba(127,90,240,0.28), rgba(0,183,255,0.18));
+    }
+    .hero-card {
+      position: relative; margin: -42px auto 0; width: min(1060px, calc(100% - 32px));
+      background: rgba(255,255,255,0.96); border: 1px solid var(--line); border-radius: var(--radius-xl);
+      box-shadow: var(--shadow); padding: 28px;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 999px;
+      background: var(--surface-2); color: var(--primary); font-weight: 800; font-size: 0.86rem;
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px;
+    }
+    .hero-title { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; flex-wrap: wrap; }
+    .hero-title h1 { font-size: clamp(2rem, 3.5vw, 3.2rem); line-height: 1.05; margin-bottom: 12px; }
+    .hero-title p { color: var(--muted); max-width: 760px; font-size: 1.06rem; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+    .chip-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .chip {
+      padding: 10px 14px; border-radius: 999px; background: var(--surface-2);
+      color: var(--text); font-weight: 700; font-size: 0.92rem;
+    }
+
+    .content-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; margin-top: 26px; }
+    .main-grid { display: grid; gap: 18px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px;
+      box-shadow: 0 10px 28px rgba(24, 34, 48, 0.06);
+    }
+    .card h2, .card h3 { margin-bottom: 12px; line-height: 1.12; }
+    .card h2 { font-size: 1.55rem; }
+    .card h3 { font-size: 1.18rem; }
+    .card p, .card li { color: var(--muted); }
+    .card p + p { margin-top: 12px; }
+    .list { list-style: none; display: grid; gap: 10px; }
+    .list li::before { content: '— '; color: var(--primary); font-weight: 800; }
+    .stack-list { display: grid; gap: 10px; }
+    .stack-item {
+      padding: 12px 14px; border-radius: 16px; background: var(--surface-2); color: var(--text); font-weight: 700;
+    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .gallery-grid img {
+      width: 100%; border-radius: 18px; object-fit: cover; min-height: 220px; background: #dce6ff;
+      box-shadow: 0 12px 26px rgba(24,34,48,0.10);
+    }
+    .cta-strip {
+      display: grid; grid-template-columns: 1.2fr auto; gap: 20px; align-items: center;
+      padding: 28px; margin-top: 22px; background: linear-gradient(135deg, rgba(127, 90, 240, 0.08), rgba(0,183,255,0.08), rgba(44,182,125,0.08)), var(--surface);
+      border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: var(--shadow);
+    }
+    .cta-strip h2 { font-size: 1.8rem; margin-bottom: 8px; }
+    .cta-strip p { color: var(--muted); }
+    footer {
+      margin-top: 28px; background: rgba(13, 27, 42, 0.96); color: rgba(255,255,255,0.8);
+      padding: 18px 0; font-size: 0.95rem;
+    }
+    footer .container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    /* Resume */
+    .resume-top {
+      display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center;
+    }
+    .resume-photo {
+      width: 100%; max-width: 220px; aspect-ratio: 1; object-fit: cover; border-radius: 28px;
+      box-shadow: 0 16px 38px rgba(24, 34, 48, 0.16);
+    }
+    .resume-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .resume-meta span { padding: 10px 14px; border-radius: 999px; background: var(--surface-2); font-weight: 700; color: var(--text); }
+    .resume-content h2 { font-size: 1.6rem; margin: 28px 0 12px; }
+    .resume-content h3, .resume-content h4, .resume-content h5 { margin: 18px 0 8px; }
+    .resume-content p { color: var(--muted); margin-bottom: 12px; }
+    .resume-content ul { list-style: none; display: grid; gap: 8px; margin-bottom: 14px; }
+    .resume-content li { color: var(--muted); }
+    .resume-content li::before { content: '— '; color: var(--primary); font-weight: 800; }
+
+    @media (max-width: 980px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .cta-strip { grid-template-columns: 1fr; }
+      .resume-top { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 12px; }
+      .nav-cta { width: 100%; }
+      .hero-card { width: calc(100% - 24px); padding: 22px; }
+      .cover-strip { height: 150px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-title { flex-direction: column; }
+      .resume-photo { max-width: 180px; }
+      footer .container { flex-direction: column; }
     }
   </style>
+</head>
+<title>Салон стрижек и маникюр — Александр Моисеев</title>
 </head>
 <body>
   <div id="progress-bar"></div>
   <header>
-    <nav>
-      <div class="logo"><strong>AI&nbsp;Developer</strong></div>
-      <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="index.html#about">Обо мне</a></li>
-        <li><a href="index.html#skills">Навыки</a></li>
-        <li><a href="index.html#portfolio">Портфолио</a></li>
-        <li><a href="resume.html">Полное резюме</a></li>
-        <li><a href="index.html#contact">Контакты</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <nav>
+        <a class="brand" href="index.html">
+          <strong>Александр Моисеев</strong>
+          <span>AI-боты и автоматизация бизнеса</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html#about">Обо мне</a></li>
+          <li><a href="index.html#services">Услуги</a></li>
+          <li><a href="index.html#skills">Навыки</a></li>
+          <li><a href="index.html#portfolio">Портфолио</a></li>
+          <li><a href="resume.html">Резюме</a></li>
+        </ul>
+        <a class="nav-cta" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+      </nav>
+    </div>
   </header>
-  <section class="project-hero">
-    <h1>Салон стрижек и маникюр</h1>
-    <p>Онлайн‑запись, сбор клиентских данных и автоматизация сервиса для бьюти‑бизнеса</p>
-  </section>
-  <main>
-    <h2>Описание проекта</h2>
-    <p><strong>Название проекта:</strong> бот для салонов стрижек и маникюра.</p>
-    <p><strong>Цель проекта:</strong> автоматизировать запись клиентов и управлять данными для повышения качества сервиса.</p>
-    <h3>Задачи</h3>
-    <ul>
-      <li>Показ свободных услуг и времени в реальном времени.</li>
-      <li>Регистрация и запись клиентов на стрижку, маникюр, другие услуги.</li>
-      <li>Сбор контактных данных и обратной связи для маркетинга.</li>
-      <li>Интеграция с 1С для учета клиентов и продаж.</li>
-      <li>Хранение данных в Supabase и анализ активности.</li>
-      <li>Продвижение через VC (VC.ru) и другие каналы.</li>
-    </ul>
-    <h3>Платформа и интеграции</h3>
-    <ul>
-      <li>n8n — автоматизация процессов и связок.</li>
-      <li>1С — учёт услуг и клиентов.</li>
-      <li>Supabase — база данных и аналитика.</li>
-      <li>Telegram Bot API — интерфейс для пользователей.</li>
-      <li>VC (VC.ru) — интеграция для продвижения.</li>
-    </ul>
-    <h3>Сценарии использования</h3>
-    <ul>
-      <li>Клиент запускает бота и выбирает услугу; система показывает свободное время.</li>
-      <li>Бот собирает контакты и записывает клиента, отправляет подтверждение и напоминание.</li>
-      <li>Администратор получает запись в 1С и видит данные в Supabase для аналитики.</li>
-      <li>Бот информирует клиентов об акциях и специальных предложениях через рассылки.</li>
-    </ul>
-    <h3>Польза</h3>
-    <p><strong>Для клиентов:</strong> удобная онлайн‑запись без звонков, быстрый доступ к услугам. <br>
-<strong>Для бизнеса:</strong> оптимизация расписания, сбор данных для маркетинга, повышение лояльности.</p>
-    <h3>Галерея</h3>
-    <div class="gallery">
-      <img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%201.png" alt="Галерея проекта">
-      <img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png" alt="Галерея проекта">
+  <div class="page-wrap">
+    <div class="container">
+      <div class="cover-strip" style="background-image:url('https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png')"></div>
     </div>
-    <p style="margin-top:1rem;">Этот проект доступен к демонстрации. Свяжитесь со мной для обсуждения внедрения.</p>
-      <div style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
-      <a href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:14px;text-decoration:none;font-weight:800;background:linear-gradient(135deg,#7f5af0,#2cb67d);color:#fff;box-shadow:0 12px 28px rgba(3,10,30,.18);">Обсудить этот проект в Telegram</a>
-      <span style="color:#5e6b86; font-size:14px;">@avmoiseevspb</span>
+    <section class="hero-card">
+      <div class="eyebrow">Портфолио / кейс</div>
+      <div class="hero-title">
+        <div>
+          <h1>Салон стрижек и маникюр</h1>
+          <p>Бот для записи на услуги и управления клиентским потоком в бьюти-сфере.</p>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Обсудить похожий проект</a>
+        <a class="btn-secondary" href="index.html#portfolio">Вернуться к портфолио</a>
+      </div>
+      <div class="chip-row"><span class="chip">Telegram</span><span class="chip">1С</span><span class="chip">Supabase</span><span class="chip">VC</span><span class="chip">n8n</span></div>
+    </section>
+    <div class="container">
+      <div class="content-grid">
+        <div class="main-grid">
+          <section class="card"><h2>О проекте</h2><p>Проект разработан для салонов, которым нужно быстро собирать заявки, записывать клиентов на услуги и держать данные в порядке без лишней ручной работы.</p><p>Бот помогает выстроить современный клиентский сервис: запись, подтверждение, напоминание и дальнейшая работа с базой клиентов происходят в одной логике.</p></section>
+          <section class="card"><h2>Задачи</h2><ul class="list"><li>Показ доступных услуг и свободного времени.</li><li>Запись клиентов на стрижку, маникюр и сопутствующие услуги.</li><li>Сбор контактных данных и информации для маркетинга.</li><li>Передача данных в 1С и хранение истории в Supabase.</li></ul></section><section class="card"><h2>Сценарии использования</h2><ul class="list"><li>Клиент выбирает услугу и свободное окно.</li><li>Бот записывает, подтверждает запись и отправляет напоминание.</li><li>Салон получает структурированные данные по заявкам и клиентам.</li><li>Можно запускать повторные коммуникации и акции на текущую базу.</li></ul></section>
+          <section class="card"><h2>Скриншоты и материалы</h2><div class="gallery-grid"><img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%201.png" alt="Интерфейс бота для салона"><img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png" alt="Обложка проекта"></div></section>
+        </div>
+        <div class="main-grid">
+          <section class="card"><h2>Платформа и интеграции</h2><div class="stack-list"><div class="stack-item">n8n — автоматизация сценариев</div><div class="stack-item">1С — учёт и операционные данные</div><div class="stack-item">Supabase — база клиентов и заявок</div><div class="stack-item">Telegram — интерфейс записи</div><div class="stack-item">VC — продвижение и трафик</div></div></section><section class="card"><h2>Польза для бизнеса</h2><p>Это решение снижает хаос в записи, помогает не терять клиентов и делает коммуникацию более современной. Для бьюти-бизнеса это особенно важно: скорость записи и удобство общения напрямую влияют на загрузку мастеров.</p></section>
+          <section class="card">
+            <h2>Что получает бизнес</h2>
+            <p>В результате проект превращается не просто в удобный интерфейс для клиента, а в рабочий инструмент продаж, сервиса и автоматизации. Такие решения снимают рутину, ускоряют коммуникацию и дают понятную точку входа для клиента.</p>
+            <p>Если нужно, адаптирую механику под ваш процесс: запись, воронка, оплата, уведомления, CRM, 1С, Google-экосистема, аналитика и сопровождение.</p>
+          </section>
+        </div>
+      </div>
+      <section class="cta-strip">
+        <div>
+          <h2>Нужен похожий проект для вашего бизнеса?</h2>
+          <p>Напишите мне в Telegram — разберём задачу, предложу архитектуру и подскажу, как это лучше реализовать без лишней сложности.</p>
+        </div>
+        <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+      </section>
     </div>
-  </main>
+  </div>
   <footer>
-    © 2026 AI‑Developer. Все права защищены.
+    <div class="container">
+      <div>© 2026 Александр Моисеев</div>
+      <div>AI-боты, ассистенты и автоматизация бизнеса под ключ</div>
+    </div>
   </footer>
   <script>
     window.addEventListener('scroll', function() {
