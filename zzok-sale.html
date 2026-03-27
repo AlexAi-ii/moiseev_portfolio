@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7f5af0">
+  <title>ZZOK Sale — ассистент-продавец с прогревом в WhatsApp и Bitrix24 — Александр Моисеев</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #f6f8fc;
+  --surface: #ffffff;
+  --surface-2: #eef3ff;
+  --text: #182230;
+  --muted: #5b6472;
+  --primary: #7f5af0;
+  --primary-2: #5a37d8;
+  --accent: #2cb67d;
+  --accent-2: #00b7ff;
+  --dark: #0d1b2a;
+  --line: rgba(24, 34, 48, 0.08);
+  --shadow: 0 18px 45px rgba(24, 34, 48, 0.12);
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --container: 1160px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, rgba(127,90,240,0.08), transparent 26%),
+              radial-gradient(circle at top right, rgba(0,183,255,0.10), transparent 24%),
+              var(--bg);
+  line-height: 1.6;
+}
+a { color: inherit; }
+#progress-bar {
+  position: fixed; top: 0; left: 0; width: 0; height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent-2)); z-index: 1001;
+}
+.container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+header {
+  position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(16px);
+  background: rgba(13, 27, 42, 0.84); border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.brand { display: flex; flex-direction: column; text-decoration: none; color: #fff; min-width: 220px; }
+.brand strong { font-size: 1.05rem; letter-spacing: 0.02em; }
+.brand span { color: rgba(255,255,255,0.72); font-size: 0.85rem; margin-top: 2px; }
+.nav-links { display: flex; align-items: center; list-style: none; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.nav-links a { text-decoration: none; color: rgba(255,255,255,0.90); font-weight: 600; font-size: 0.96rem; transition: color .2s ease; }
+.nav-links a:hover { color: #fff; }
+.nav-cta, .btn, .btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  text-decoration: none; border-radius: 999px; padding: 12px 18px; font-weight: 800;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.nav-cta, .btn { background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; box-shadow: 0 8px 22px rgba(127, 90, 240, 0.25); }
+.btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--line); }
+.nav-cta:hover, .btn:hover, .btn-secondary:hover { transform: translateY(-2px); }
+.page-wrap { padding: 28px 0 40px; }
+.cover-strip {
+  height: 176px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow);
+  position: relative; background-size: cover; background-position: center;
+  background-image: linear-gradient(135deg, rgba(127,90,240,0.90), rgba(0,183,255,0.76));
+}
+.cover-strip::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(13,27,42,0.64), rgba(127,90,240,0.22), rgba(0,183,255,0.14));
+}
+.cover-label {
+  position: absolute; left: 28px; bottom: 24px; z-index: 1; color: #fff;
+  font-weight: 800; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.hero-card {
+  position: relative; margin: -42px auto 0; width: min(1060px, calc(100% - 32px));
+  background: rgba(255,255,255,0.96); border: 1px solid var(--line); border-radius: var(--radius-xl);
+  box-shadow: var(--shadow); padding: 28px;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 999px;
+  background: var(--surface-2); color: var(--primary); font-weight: 800; font-size: 0.86rem;
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px;
+}
+.hero-title { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; flex-wrap: wrap; }
+.hero-title h1 { font-size: clamp(2rem, 3.5vw, 3.2rem); line-height: 1.05; margin-bottom: 12px; }
+.hero-title p { color: var(--muted); max-width: 760px; font-size: 1.06rem; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+.chip-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.chip {
+  padding: 10px 14px; border-radius: 999px; background: var(--surface-2);
+  color: var(--text); font-weight: 700; font-size: 0.92rem;
+}
+.content-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; margin-top: 26px; }
+.main-grid { display: grid; gap: 18px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px;
+  box-shadow: 0 10px 28px rgba(24, 34, 48, 0.06);
+}
+.card h2, .card h3 { margin-bottom: 12px; line-height: 1.12; }
+.card h2 { font-size: 1.55rem; }
+.card h3 { font-size: 1.18rem; }
+.card p, .card li { color: var(--muted); }
+.card p + p { margin-top: 12px; }
+.list { list-style: none; display: grid; gap: 10px; }
+.list li::before { content: '— '; color: var(--primary); font-weight: 800; }
+.stack-list { display: grid; gap: 10px; }
+.stack-item { padding: 12px 14px; border-radius: 16px; background: var(--surface-2); color: var(--text); font-weight: 700; }
+.gallery-note {
+  min-height: 160px; display: grid; place-items: center; text-align: center; padding: 22px;
+  border-radius: 18px; background: linear-gradient(135deg, rgba(127,90,240,0.07), rgba(0,183,255,0.08));
+  color: var(--muted); border: 1px dashed rgba(127,90,240,0.25);
+}
+.doc-link {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 18px; border-radius: 18px; text-decoration: none; background: var(--surface-2);
+  border: 1px solid rgba(127, 90, 240, 0.14); transition: transform .2s ease, box-shadow .2s ease;
+}
+.doc-link:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(24,34,48,0.08); }
+.doc-link strong { display: block; color: var(--text); }
+.doc-link span { color: var(--muted); font-size: 0.95rem; }
+.cta-strip {
+  display: grid; grid-template-columns: 1.2fr auto; gap: 20px; align-items: center;
+  padding: 28px; margin-top: 22px; background: linear-gradient(135deg, rgba(127, 90, 240, 0.08), rgba(0,183,255,0.08), rgba(44,182,125,0.08)), var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius-xl); box-shadow: var(--shadow);
+}
+.cta-strip h2 { font-size: 1.8rem; margin-bottom: 8px; }
+.cta-strip p { color: var(--muted); }
+footer {
+  margin-top: 28px; background: rgba(13, 27, 42, 0.96); color: rgba(255,255,255,0.8);
+  padding: 18px 0; font-size: 0.95rem;
+}
+footer .container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+@media (max-width: 980px) {
+  .content-grid { grid-template-columns: 1fr; }
+  .cta-strip { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
+  .nav-links { gap: 12px; }
+  .nav-cta { width: 100%; }
+  .hero-card { width: calc(100% - 24px); padding: 22px; }
+  .cover-strip { height: 150px; }
+  .hero-title { flex-direction: column; }
+  footer .container { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="index.html">
+          <strong>Александр Моисеев</strong>
+          <span>AI-боты и автоматизация бизнеса</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html#about">Обо мне</a></li>
+          <li><a href="index.html#services">Услуги</a></li>
+          <li><a href="index.html#skills">Навыки</a></li>
+          <li><a href="index.html#portfolio">Портфолио</a></li>
+          <li><a href="resume.html">Резюме</a></li>
+        </ul>
+        <a class="nav-cta" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+      </nav>
+    </div>
+  </header>
+  <div class="page-wrap">
+    <div class="container">
+      <div class="cover-strip" style="background-image:linear-gradient(135deg, #ff4f8b, #7f5af0 50%, #00b7ff)"><div class="cover-label">Портфолио / кейс</div></div>
+    </div>
+    <section class="hero-card">
+      <div class="eyebrow">Портфолио / кейс</div>
+      <div class="hero-title">
+        <div>
+          <h1>ZZOK Sale — ассистент-продавец с прогревом в WhatsApp и Bitrix24</h1>
+          <p>Бот-продавец для прогрева и доведения клиента до сделки: рассылки, диалоги, этапы воронки и фиксация результата в Bitrix24.</p>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Обсудить похожий проект</a>
+        <a class="btn-secondary" href="index.html#portfolio">Вернуться к портфолио</a>
+      </div>
+      <div class="chip-row"><span class="chip">ZZOK</span><span class="chip">Продажи</span><span class="chip">WhatsApp</span><span class="chip">Bitrix24</span></div>
+    </section>
+    <div class="container">
+      <div class="content-grid">
+        <div class="main-grid">
+          <section class="card"><h2>О проекте</h2><p>Этот проект ориентирован на продажи через диалог: бот информирует о новых поступлениях, прогревает аудиторию в WhatsApp, отвечает на вопросы и движет клиента к сделке. Сейчас сценарии реализованы для направлений «диваны» и «трековые светильники».</p><p>Логика строится вокруг поэтапной коммуникации: сначала интерес, затем уточнение потребности, далее аргументация, работа с возражениями и передача в Bitrix24 как оформленного лида или сделки.</p></section>
+          <section class="card"><h2>Что делает решение</h2><ul class="list"><li>Делает прогревающие и информационные касания через WhatsApp.</li><li>Ведёт диалог по воронке продаж и уточняет параметры интереса.</li><li>Поддерживает консультативный формат и помогает клиенту выбрать товар.</li><li>Фиксирует результат в Bitrix24 и помогает менеджерам работать уже с прогретым контактом.</li><li>Адаптируется под разные товарные категории без полной переработки ядра.</li></ul></section>
+          <section class="card"><h2>Как это работает</h2><ul class="list"><li>Клиент получает входящий прогрев или сам инициирует диалог по товару.</li><li>Бот уточняет, что именно интересно: модель, формат, параметры, сроки, бюджет.</li><li>По ходу разговора бот даёт ответы, удерживает интерес и готовит клиента к следующему шагу.</li><li>Информация синхронизируется с Bitrix24, чтобы продажа продолжалась без потери контекста.</li></ul></section>
+          <section class="card"><h2>Скриншоты и материалы</h2><div class="gallery-note"><div><strong style="display:block;margin-bottom:8px;color:var(--text)">Визуальные материалы добавим следующим шагом</strong><span>Страница уже готова по структуре: после загрузки скриншотов и обложки просто добавлю галерею, лайтбокс и финальные карточки.</span></div></div></section>
+        </div>
+        <div class="main-grid">
+          <section class="card"><h2>Платформа и интеграции</h2><div class="stack-list"><div class="stack-item">WhatsApp</div><div class="stack-item">Bitrix24</div><div class="stack-item">AI-диалоги</div><div class="stack-item">Прогревающие сценарии</div><div class="stack-item">Товарные категории</div></div></section>
+          <section class="card"><h2>Польза для бизнеса</h2><p>Решение усиливает отдел продаж: контакт не остаётся без внимания, прогрев не требует ручного ведения каждого клиента, а менеджеры получают уже подготовленные диалоги и лиды.</p></section>
+          
+          <section class="card">
+            <h2>Что получает бизнес</h2>
+            <p>В результате проект превращается в рабочий инструмент продаж, сервиса или внутренней автоматизации. Такие решения снимают рутину, ускоряют коммуникацию и позволяют масштабировать процесс без лишнего ручного труда.</p>
+            <p>При необходимости адаптирую архитектуру под ваш стек: Telegram, WhatsApp, Bitrix24, 1С, Supabase, Google-экосистема, платежи, AI-модели, аналитика и сопровождение.</p>
+          </section>
+        </div>
+      </div>
+      <section class="cta-strip">
+        <div>
+          <h2>Нужен похожий проект для вашего бизнеса?</h2>
+          <p>Напишите мне в Telegram — разберём задачу, предложу архитектуру и подскажу, как лучше реализовать решение без лишней сложности.</p>
+        </div>
+        <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+      </section>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div>© 2026 Александр Моисеев</div>
+      <div>AI-боты, ассистенты и автоматизация бизнеса под ключ</div>
+    </div>
+  </footer>
+  
+<script>
+window.addEventListener('scroll', function() {
+  const doc = document.documentElement;
+  const scrollTop = doc.scrollTop;
+  const scrollHeight = doc.scrollHeight - doc.clientHeight;
+  const scrolled = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  document.getElementById('progress-bar').style.width = scrolled + '%';
+});
+</script>
+
+</body>
+</html>
