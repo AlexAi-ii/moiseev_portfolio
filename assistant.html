@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#7f5af0">
+  <title>Личный помощник через ТГ — Александр Моисеев</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=J-hksAqoaBzY5iEggivmjBTfNCLYZqvIoDDaicq7h5scX-hc1DVUvEGgE9nHLZE9wV1-QXJNb8yFncCYf3YxuOk1glBnbq1Di67Yt3236PbavhQ8krS3O3YGexb2l9kIt0HqF2K9xMTuZMdfY7ksQRXJL0lkeErksOOKXJsytyKm8nDConVgewP6ANvJlr9CAbsktNv7dBYmvrs2XfjzQdmbCHcO1YgwOAjNxHsJj7Q1XdSW0F-jcRfC1qvdFt3gyaeUR5xxCDgzmFpSajzx_g" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDNiNTQ3MjJmOTIxMWIyZjdjZDVhOTg5NCZ0cz00OTI5NDQmcD1mcyZjaWQ9MSZzaWc9OTkyMDFjNDZiZTBjYTZjYjJiNDNkNWE4ZDQ3MzkyZmE3MTNhNjU5MjM0ZmY4MWRiOTAyYWU2NzU0YjQ3MzQyMCZ2PTA"/><style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Bw6lnuRnYFGKHX9Y4wQdcZrXsOt8bKZYuKQx9Gy3tD9GKxyqDNFRtJlybjxC5pttrjOTFh-CENkN9cRGxayETbMk38Dh-_nrMiCDV3FQpVJPtErYoIb8ZQ6q2c5H2XNLGpttJg8bgym1oGhg90qeoB-isDnsoCEH-9B5HWxi1Ybt-YiIkXEGICTG3GZRS7sOFbgvFKG59IB2WDpz_cWrzrPyoolI7_zmVuIfwJ9F_gox5zXlDUgBANkVUlH8Mf9LDz3Ck-jthrw0o4UMeXVbyw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDFhYzQ3MjJmOTRiOWI0MzA0OGI1N2U0YiZ0cz00OTI5NDUmcD1mcyZjaWQ9MSZzaWc9MzcwYWQxYjY0YzAzM2ZiODNhODE1Y2E0Zjg1MDc1NTc3ZmM3ZmUwYTU4N2UzMWNkZjU4MmQ2NGQ4NTUxMjIxNSZ2PTA"/><style>
     :root {
       --bg: #f6f8fc;
       --surface: #ffffff;
@@ -37,6 +38,7 @@
       line-height: 1.6;
     }
     a { color: inherit; }
+    img { display:block; }
     #progress-bar {
       position: fixed; top: 0; left: 0; width: 0; height: 4px;
       background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent-2)); z-index: 1001;
@@ -57,6 +59,7 @@
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       text-decoration: none; border-radius: 999px; padding: 12px 18px; font-weight: 800;
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      border: none; cursor: pointer;
     }
     .nav-cta, .btn { background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; box-shadow: 0 8px 22px rgba(127, 90, 240, 0.25); }
     .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--line); }
@@ -109,10 +112,22 @@
       padding: 12px 14px; border-radius: 16px; background: var(--surface-2); color: var(--text); font-weight: 700;
     }
     .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-    .gallery-grid img {
-      width: 100%; border-radius: 18px; object-fit: cover; min-height: 220px; background: #dce6ff;
-      box-shadow: 0 12px 26px rgba(24,34,48,0.10);
+    .gallery-button {
+      border: none; padding: 0; background: transparent; cursor: zoom-in; text-align: left;
+      border-radius: 18px; overflow: hidden; position: relative; box-shadow: 0 12px 26px rgba(24,34,48,0.10);
     }
+    .gallery-button::after {
+      content: 'Открыть'; position: absolute; right: 12px; bottom: 12px; padding: 7px 10px;
+      border-radius: 999px; background: rgba(13,27,42,0.78); color: #fff; font-size: 0.78rem; font-weight: 800;
+      opacity: 0; transform: translateY(6px); transition: all .2s ease;
+    }
+    .gallery-button:hover::after { opacity: 1; transform: translateY(0); }
+    .gallery-button img {
+      width: 100%; border-radius: 18px; object-fit: cover; min-height: 220px; background: #dce6ff;
+      transition: transform .25s ease;
+    }
+    .gallery-button:hover img { transform: scale(1.02); }
+    .gallery-note { font-size: 0.92rem; color: var(--muted); margin-bottom: 14px; }
     .cta-strip {
       display: grid; grid-template-columns: 1.2fr auto; gap: 20px; align-items: center;
       padding: 28px; margin-top: 22px; background: linear-gradient(135deg, rgba(127, 90, 240, 0.08), rgba(0,183,255,0.08), rgba(44,182,125,0.08)), var(--surface);
@@ -126,27 +141,33 @@
     }
     footer .container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 
-    /* Resume */
-    .resume-top {
-      display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center;
+    dialog.lightbox {
+      width: min(1100px, calc(100vw - 32px));
+      border: none; padding: 0; border-radius: 24px; overflow: hidden;
+      background: transparent;
+      box-shadow: 0 30px 70px rgba(0,0,0,.35);
     }
-    .resume-photo {
-      width: 100%; max-width: 220px; aspect-ratio: 1; object-fit: cover; border-radius: 28px;
-      box-shadow: 0 16px 38px rgba(24, 34, 48, 0.16);
+    dialog.lightbox::backdrop { background: rgba(10, 16, 28, 0.82); backdrop-filter: blur(4px); }
+    .lightbox-shell {
+      background: #0f1726; color: #fff; position: relative;
     }
-    .resume-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-    .resume-meta span { padding: 10px 14px; border-radius: 999px; background: var(--surface-2); font-weight: 700; color: var(--text); }
-    .resume-content h2 { font-size: 1.6rem; margin: 28px 0 12px; }
-    .resume-content h3, .resume-content h4, .resume-content h5 { margin: 18px 0 8px; }
-    .resume-content p { color: var(--muted); margin-bottom: 12px; }
-    .resume-content ul { list-style: none; display: grid; gap: 8px; margin-bottom: 14px; }
-    .resume-content li { color: var(--muted); }
-    .resume-content li::before { content: '— '; color: var(--primary); font-weight: 800; }
+    .lightbox-toolbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      padding: 14px 18px; background: rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .lightbox-title { font-size: 0.98rem; color: rgba(255,255,255,0.88); font-weight: 700; }
+    .lightbox-close {
+      border: none; background: rgba(255,255,255,0.12); color: #fff; width: 40px; height: 40px;
+      border-radius: 999px; cursor: pointer; font-size: 1.1rem; font-weight: 800;
+    }
+    .lightbox-body { padding: 16px; }
+    .lightbox-body img {
+      width: 100%; max-height: 78vh; object-fit: contain; border-radius: 18px; background: #111b2d;
+    }
 
     @media (max-width: 980px) {
       .content-grid { grid-template-columns: 1fr; }
       .cta-strip { grid-template-columns: 1fr; }
-      .resume-top { grid-template-columns: 1fr; }
     }
     @media (max-width: 760px) {
       nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
@@ -156,12 +177,10 @@
       .cover-strip { height: 150px; }
       .gallery-grid { grid-template-columns: 1fr; }
       .hero-title { flex-direction: column; }
-      .resume-photo { max-width: 180px; }
       footer .container { flex-direction: column; }
+      .lightbox-body { padding: 10px; }
     }
-  </style>
-</head>
-<title>Личный помощник через ТГ — Александр Моисеев</title>
+</style>
 </head>
 <body>
   <div id="progress-bar"></div>
@@ -192,7 +211,7 @@
       <div class="hero-title">
         <div>
           <h1>Личный помощник через ТГ</h1>
-          <p>Интеллектуальный ассистент в Telegram, который работает с календарём, письмами, контактами и поиском.</p>
+          <p>Персональный AI-ассистент в Telegram для календаря, почты, контактов и быстрых действий.</p>
         </div>
       </div>
       <div class="hero-actions">
@@ -204,23 +223,26 @@
     <div class="container">
       <div class="content-grid">
         <div class="main-grid">
-          <section class="card"><h2>О проекте</h2><p>Это персональный AI-ассистент в Telegram, который объединяет голосовое и текстовое общение, помогает планировать день, работать с календарём, письмами и контактами и быстро находить нужную информацию.</p><p>Проект показывает, как Telegram может стать удобной оболочкой для личной операционной системы: одна точка входа для задач, коммуникаций и быстрых действий.</p></section>
-          <section class="card"><h2>Основной функционал</h2><ul class="list"><li>Голосовые и текстовые команды в одном интерфейсе.</li><li>Работа с календарём: создание, перенос и удаление событий.</li><li>Интеграция с почтой для отправки и просмотра писем.</li><li>Доступ к контактам и быстрый поиск нужных людей.</li><li>Поиск информации в интернете и генерация коротких ответов.</li></ul></section><section class="card"><h2>Возможности расширения</h2><ul class="list"><li>Подключение задач из Notion и Trello.</li><li>Управление умным домом и устройствами.</li><li>Платёжные сценарии и сервисные действия.</li><li>Персональные напоминания и автоматические отчёты.</li></ul></section>
-          <section class="card"><h2>Скриншоты и материалы</h2><div class="gallery-grid"><img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%A2%D0%93%20-%20n8n.png" alt="Схема автоматизации личного помощника"></div></section>
+          <section class="card"><h2>О проекте</h2><p>Это персональный AI-ассистент в Telegram, который объединяет голосовое и текстовое общение, помогает планировать день, работать с календарём, письмами и контактами и быстро находить нужную информацию.</p><p>Проект показывает, как Telegram может стать удобной оболочкой для личной операционной системы: одна точка входа для задач, коммуникаций и быстрых действий.</p></section><section class="card"><h2>Основной функционал</h2><ul class="list"><li>Голосовые и текстовые команды в одном интерфейсе.</li><li>Работа с календарём: создание, перенос и удаление событий.</li><li>Интеграция с почтой для отправки и просмотра писем.</li><li>Доступ к контактам и быстрый поиск нужных людей.</li><li>Поиск информации в интернете и генерация коротких ответов.</li></ul></section><section class="card"><h2>Возможности расширения</h2><ul class="list"><li>Подключение задач из Notion и Trello.</li><li>Управление умным домом и устройствами.</li><li>Платёжные сценарии и сервисные действия.</li><li>Персональные напоминания и автоматические отчёты.</li></ul></section>
+          <section class="card">
+            <h2>Скриншоты и материалы</h2>
+            <p class="gallery-note">Нажмите на изображение, чтобы открыть его крупно.</p>
+            <div class="gallery-grid"><button class="gallery-button" type="button" onclick="openLightbox('https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%A2%D0%93%20-%20n8n.png','Схема автоматизации личного помощника')"><img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%A2%D0%93%20-%20n8n.png" alt="Схема автоматизации личного помощника"></button></div>
+          </section>
         </div>
         <div class="main-grid">
           <section class="card"><h2>Технический стек</h2><div class="stack-list"><div class="stack-item">n8n — оркестрация сценариев</div><div class="stack-item">OpenAI / Whisper — обработка речи и ответов</div><div class="stack-item">Telegram Bot API — интерфейс общения</div><div class="stack-item">Google Calendar, Gmail, Contacts — интеграции</div></div></section><section class="card"><h2>Практический эффект</h2><p>Такой ассистент упрощает ежедневную рутину: меньше переключений между приложениями, меньше ручных действий и больше скорости в коммуникации. Это особенно полезно для предпринимателей и специалистов, которые хотят держать управление в одном удобном канале.</p></section>
           <section class="card">
             <h2>Что получает бизнес</h2>
-            <p>В результате проект превращается не просто в удобный интерфейс для клиента, а в рабочий инструмент продаж, сервиса и автоматизации. Такие решения снимают рутину, ускоряют коммуникацию и дают понятную точку входа для клиента.</p>
+            <p>Такой ассистент можно использовать как ядро персональной автоматизации для руководителя или как основу для внутреннего корпоративного помощника.</p>
             <p>Если нужно, адаптирую механику под ваш процесс: запись, воронка, оплата, уведомления, CRM, 1С, Google-экосистема, аналитика и сопровождение.</p>
           </section>
         </div>
       </div>
       <section class="cta-strip">
         <div>
-          <h2>Нужен похожий проект для вашего бизнеса?</h2>
-          <p>Напишите мне в Telegram — разберём задачу, предложу архитектуру и подскажу, как это лучше реализовать без лишней сложности.</p>
+          <h2>Нужен похожий проект для бизнеса?</h2>
+          <p>Опишете задачу — предложу логику, интеграции и формат реализации под ваш процесс.</p>
         </div>
         <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
       </section>
@@ -228,18 +250,61 @@
   </div>
   <footer>
     <div class="container">
-      <div>© 2026 Александр Моисеев</div>
-      <div>AI-боты, ассистенты и автоматизация бизнеса под ключ</div>
+      <span>© 2026 Александр Моисеев</span>
+      <span>AI-боты, AI-ассистенты и автоматизация бизнеса</span>
     </div>
   </footer>
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+    <div class="lightbox-shell">
+      <div class="lightbox-toolbar">
+        <div class="lightbox-title" id="lightbox-title">Скриншот проекта</div>
+        <button class="lightbox-close" type="button" aria-label="Закрыть" onclick="closeLightbox()">×</button>
+      </div>
+      <div class="lightbox-body">
+        <img id="lightbox-image" src="" alt="">
+      </div>
+    </div>
+  </dialog>
+
   <script>
     window.addEventListener('scroll', function() {
       const doc = document.documentElement;
       const scrollTop = doc.scrollTop;
       const scrollHeight = doc.scrollHeight - doc.clientHeight;
-      const scrolled = (scrollTop / scrollHeight) * 100;
+      const scrolled = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
       document.getElementById('progress-bar').style.width = scrolled + '%';
     });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxTitle = document.getElementById('lightbox-title');
+
+    function openLightbox(src, alt) {
+      lightboxImage.src = src;
+      lightboxImage.alt = alt || 'Скриншот проекта';
+      lightboxTitle.textContent = alt || 'Скриншот проекта';
+      if (typeof lightbox.showModal === 'function') {
+        lightbox.showModal();
+      } else {
+        lightbox.setAttribute('open', 'open');
+      }
+    }
+
+    function closeLightbox() {
+      if (typeof lightbox.close === 'function') {
+        lightbox.close();
+      } else {
+        lightbox.removeAttribute('open');
+      }
+      lightboxImage.src = '';
+    }
+
+    lightbox?.addEventListener('click', (event) => {
+      const rect = lightbox.getBoundingClientRect();
+      const inDialog = rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width;
+      if (!inDialog) closeLightbox();
+    });
   </script>
+
 </body>
 </html>

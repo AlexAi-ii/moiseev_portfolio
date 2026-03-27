@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#7f5af0">
+  <title>AUDIO MinusPlus | AMP — Александр Моисеев</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=xQ1uyynQ82lO5agGfCy8_gLYebrAoT92tNkqBVqH0_xCsGtJ5u7KDsGsOv7fk5GWczDaZ6V9cw7xq-d-SEyAMlI6RPhGQbI_WYOcviYE4U_ni9bJ15ibQcga1ZgxBCwtvBldMjYqRrHWkgtVZNWRBQtuzNV2H1clis9QXc_lhLPF8qYM3lEdCe9KKc2iqykUYT_9LJeUddVyQLbJwImUEczTtmSwVhm4pyNOX8Zex1ZrPUDuVgIWmKb1brqyyKrCArb4exMvzUmAhyaZU_VJ3w" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMGRjYjA3MWY1OWJlNGMwMTNhZjYzYTc2OSZ0cz00OTI5NDQmcD1mcyZjaWQ9MSZzaWc9MTczYzkzZTdjMmRkZTI0OTBhMDE1NTZjODI2MWEzOWUxNmE4ZWVmYjM0MDNiYTZhNTVjYzE3NDNiMmE1MGZhYyZ2PTA"/><style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=fgkh1M0LS65WDeTKuvyx9gW1lhkCntqySGB5FVbvDHvTvl78IZyg2O7geGid5wFuGnTCm8NFex_iLExYezJ3uzoKppOW286TUxVA7_SajvhApGdawWGXQHHxqaRVxFq1N2d1x8iOq4MB2JnNsLbskfY7qjSD2Iz5RSWOQ92QFF6Wwgzg_OLvwuyaIAEgUlLhlujzh4I7sqn9vNccTVErzxI8UVKJq-K7hcyf4qcgzzUqVt9nwkENFp_tA2SErHOPT4WGsSALCHLchNFl5JolRw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jaGF0Z3B0LmNvbS9iYWNrZW5kLWFwaS9lc3R1YXJ5L2NvbnRlbnQ_aWQ9ZmlsZV8wMDAwMDAwMDVjNGM3MjJmOTQ4MWM0N2VlZDE0ZGE2YSZ0cz00OTI5NDUmcD1mcyZjaWQ9MSZzaWc9N2E1ZWNkMDA3MjRiOWU4MzNhNTVmZjc1NGE5ZDlmNDU1YWMwZjI5YTRkMjA1OTUxNzQ4ZGU0MThlM2M3OGM5ZiZ2PTA"/><style>
     :root {
       --bg: #f6f8fc;
       --surface: #ffffff;
@@ -37,6 +38,7 @@
       line-height: 1.6;
     }
     a { color: inherit; }
+    img { display:block; }
     #progress-bar {
       position: fixed; top: 0; left: 0; width: 0; height: 4px;
       background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent-2)); z-index: 1001;
@@ -57,6 +59,7 @@
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       text-decoration: none; border-radius: 999px; padding: 12px 18px; font-weight: 800;
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      border: none; cursor: pointer;
     }
     .nav-cta, .btn { background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; box-shadow: 0 8px 22px rgba(127, 90, 240, 0.25); }
     .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--line); }
@@ -109,10 +112,22 @@
       padding: 12px 14px; border-radius: 16px; background: var(--surface-2); color: var(--text); font-weight: 700;
     }
     .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-    .gallery-grid img {
-      width: 100%; border-radius: 18px; object-fit: cover; min-height: 220px; background: #dce6ff;
-      box-shadow: 0 12px 26px rgba(24,34,48,0.10);
+    .gallery-button {
+      border: none; padding: 0; background: transparent; cursor: zoom-in; text-align: left;
+      border-radius: 18px; overflow: hidden; position: relative; box-shadow: 0 12px 26px rgba(24,34,48,0.10);
     }
+    .gallery-button::after {
+      content: 'Открыть'; position: absolute; right: 12px; bottom: 12px; padding: 7px 10px;
+      border-radius: 999px; background: rgba(13,27,42,0.78); color: #fff; font-size: 0.78rem; font-weight: 800;
+      opacity: 0; transform: translateY(6px); transition: all .2s ease;
+    }
+    .gallery-button:hover::after { opacity: 1; transform: translateY(0); }
+    .gallery-button img {
+      width: 100%; border-radius: 18px; object-fit: cover; min-height: 220px; background: #dce6ff;
+      transition: transform .25s ease;
+    }
+    .gallery-button:hover img { transform: scale(1.02); }
+    .gallery-note { font-size: 0.92rem; color: var(--muted); margin-bottom: 14px; }
     .cta-strip {
       display: grid; grid-template-columns: 1.2fr auto; gap: 20px; align-items: center;
       padding: 28px; margin-top: 22px; background: linear-gradient(135deg, rgba(127, 90, 240, 0.08), rgba(0,183,255,0.08), rgba(44,182,125,0.08)), var(--surface);
@@ -126,27 +141,33 @@
     }
     footer .container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 
-    /* Resume */
-    .resume-top {
-      display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center;
+    dialog.lightbox {
+      width: min(1100px, calc(100vw - 32px));
+      border: none; padding: 0; border-radius: 24px; overflow: hidden;
+      background: transparent;
+      box-shadow: 0 30px 70px rgba(0,0,0,.35);
     }
-    .resume-photo {
-      width: 100%; max-width: 220px; aspect-ratio: 1; object-fit: cover; border-radius: 28px;
-      box-shadow: 0 16px 38px rgba(24, 34, 48, 0.16);
+    dialog.lightbox::backdrop { background: rgba(10, 16, 28, 0.82); backdrop-filter: blur(4px); }
+    .lightbox-shell {
+      background: #0f1726; color: #fff; position: relative;
     }
-    .resume-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-    .resume-meta span { padding: 10px 14px; border-radius: 999px; background: var(--surface-2); font-weight: 700; color: var(--text); }
-    .resume-content h2 { font-size: 1.6rem; margin: 28px 0 12px; }
-    .resume-content h3, .resume-content h4, .resume-content h5 { margin: 18px 0 8px; }
-    .resume-content p { color: var(--muted); margin-bottom: 12px; }
-    .resume-content ul { list-style: none; display: grid; gap: 8px; margin-bottom: 14px; }
-    .resume-content li { color: var(--muted); }
-    .resume-content li::before { content: '— '; color: var(--primary); font-weight: 800; }
+    .lightbox-toolbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      padding: 14px 18px; background: rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .lightbox-title { font-size: 0.98rem; color: rgba(255,255,255,0.88); font-weight: 700; }
+    .lightbox-close {
+      border: none; background: rgba(255,255,255,0.12); color: #fff; width: 40px; height: 40px;
+      border-radius: 999px; cursor: pointer; font-size: 1.1rem; font-weight: 800;
+    }
+    .lightbox-body { padding: 16px; }
+    .lightbox-body img {
+      width: 100%; max-height: 78vh; object-fit: contain; border-radius: 18px; background: #111b2d;
+    }
 
     @media (max-width: 980px) {
       .content-grid { grid-template-columns: 1fr; }
       .cta-strip { grid-template-columns: 1fr; }
-      .resume-top { grid-template-columns: 1fr; }
     }
     @media (max-width: 760px) {
       nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
@@ -156,12 +177,10 @@
       .cover-strip { height: 150px; }
       .gallery-grid { grid-template-columns: 1fr; }
       .hero-title { flex-direction: column; }
-      .resume-photo { max-width: 180px; }
       footer .container { flex-direction: column; }
+      .lightbox-body { padding: 10px; }
     }
-  </style>
-</head>
-<title>AUDIO MinusPlus | AMP — Александр Моисеев</title>
+</style>
 </head>
 <body>
   <div id="progress-bar"></div>
@@ -192,7 +211,7 @@
       <div class="hero-title">
         <div>
           <h1>AUDIO MinusPlus | AMP</h1>
-          <p>Бот для разделения музыки, AI-коммуникации и оплаты цифрового сервиса.</p>
+          <p>Бот-сервис для обработки аудио, выдачи результата и монетизации через Telegram.</p>
         </div>
       </div>
       <div class="hero-actions">
@@ -204,23 +223,26 @@
     <div class="container">
       <div class="content-grid">
         <div class="main-grid">
-          <section class="card"><h2>О проекте</h2><p>Этот проект объединяет сервис обработки аудио и удобный пользовательский сценарий в Telegram. Пользователь может загружать музыку, получать разделение на дорожки, взаимодействовать с AI и оплачивать доступ к результату.</p><p>По сути это пример монетизируемого цифрового продукта, где бот выступает интерфейсом продаж, поддержки и выдачи результата.</p></section>
-          <section class="card"><h2>Задачи</h2><ul class="list"><li>Приём аудио от пользователя.</li><li>Разделение трека на минус и вокальную дорожку.</li><li>Выдача результата через удобные ссылки и хранилища.</li><li>Приём оплаты через Robokassa.</li><li>Учёт заказов и активности в таблицах и базе.</li></ul></section><section class="card"><h2>Сценарии использования</h2><ul class="list"><li>Пользователь отправляет трек и выбирает обработку.</li><li>Бот запускает сценарий, подготавливает результат и предлагает оплату.</li><li>После оплаты пользователь получает готовые материалы.</li><li>Сервис сохраняет данные для статистики, поддержки и повторных продаж.</li></ul></section>
-          <section class="card"><h2>Скриншоты и материалы</h2><div class="gallery-grid"><img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%201.png" alt="Интерфейс AMP — пример 1"><img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%202.png" alt="Интерфейс AMP — пример 2"><img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png" alt="Обложка AMP"></div></section>
+          <section class="card"><h2>О проекте</h2><p>Этот проект объединяет сервис обработки аудио и удобный пользовательский сценарий в Telegram. Пользователь может загружать музыку, получать разделение на дорожки, взаимодействовать с AI и оплачивать доступ к результату.</p><p>По сути это пример монетизируемого цифрового продукта, где бот выступает интерфейсом продаж, поддержки и выдачи результата.</p></section><section class="card"><h2>Задачи</h2><ul class="list"><li>Приём аудио от пользователя.</li><li>Разделение трека на минус и вокальную дорожку.</li><li>Выдача результата через удобные ссылки и хранилища.</li><li>Приём оплаты через Robokassa.</li><li>Учёт заказов и активности в таблицах и базе.</li></ul></section><section class="card"><h2>Сценарии использования</h2><ul class="list"><li>Пользователь отправляет трек и выбирает обработку.</li><li>Бот запускает сценарий, подготавливает результат и предлагает оплату.</li><li>После оплаты пользователь получает готовые материалы.</li><li>Сервис сохраняет данные для статистики, поддержки и повторных продаж.</li></ul></section>
+          <section class="card">
+            <h2>Скриншоты и материалы</h2>
+            <p class="gallery-note">Нажмите на изображение, чтобы открыть его крупно.</p>
+            <div class="gallery-grid"><button class="gallery-button" type="button" onclick="openLightbox('https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%201.png','Интерфейс AMP — пример 1')"><img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%201.png" alt="Интерфейс AMP — пример 1"></button><button class="gallery-button" type="button" onclick="openLightbox('https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%202.png','Интерфейс AMP — пример 2')"><img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%202.png" alt="Интерфейс AMP — пример 2"></button></div>
+          </section>
         </div>
         <div class="main-grid">
           <section class="card"><h2>Платформа и интеграции</h2><div class="stack-list"><div class="stack-item">Telegram — интерфейс сервиса</div><div class="stack-item">Supabase — база заказов и пользователей</div><div class="stack-item">S3 и Google Drive — хранение файлов</div><div class="stack-item">Google Sheets — статистика и контроль</div><div class="stack-item">Robokassa — оплата</div><div class="stack-item">n8n — orchestration сценариев</div></div></section><section class="card"><h2>Польза для бизнеса</h2><p>Проект показывает, как можно упаковать сложную техническую услугу в понятный и удобный бот-продукт. Для владельца это прозрачный процесс оплаты, хранения файлов и сопровождения клиентов без ручной рутины.</p></section>
           <section class="card">
             <h2>Что получает бизнес</h2>
-            <p>В результате проект превращается не просто в удобный интерфейс для клиента, а в рабочий инструмент продаж, сервиса и автоматизации. Такие решения снимают рутину, ускоряют коммуникацию и дают понятную точку входа для клиента.</p>
+            <p>Владелец сервиса получает понятную и монетизируемую логику: обработка, оплата, хранение материалов и повторное взаимодействие с пользователем в одном канале.</p>
             <p>Если нужно, адаптирую механику под ваш процесс: запись, воронка, оплата, уведомления, CRM, 1С, Google-экосистема, аналитика и сопровождение.</p>
           </section>
         </div>
       </div>
       <section class="cta-strip">
         <div>
-          <h2>Нужен похожий проект для вашего бизнеса?</h2>
-          <p>Напишите мне в Telegram — разберём задачу, предложу архитектуру и подскажу, как это лучше реализовать без лишней сложности.</p>
+          <h2>Нужен похожий проект для бизнеса?</h2>
+          <p>Опишете задачу — предложу логику, интеграции и формат реализации под ваш процесс.</p>
         </div>
         <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
       </section>
@@ -228,18 +250,61 @@
   </div>
   <footer>
     <div class="container">
-      <div>© 2026 Александр Моисеев</div>
-      <div>AI-боты, ассистенты и автоматизация бизнеса под ключ</div>
+      <span>© 2026 Александр Моисеев</span>
+      <span>AI-боты, AI-ассистенты и автоматизация бизнеса</span>
     </div>
   </footer>
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+    <div class="lightbox-shell">
+      <div class="lightbox-toolbar">
+        <div class="lightbox-title" id="lightbox-title">Скриншот проекта</div>
+        <button class="lightbox-close" type="button" aria-label="Закрыть" onclick="closeLightbox()">×</button>
+      </div>
+      <div class="lightbox-body">
+        <img id="lightbox-image" src="" alt="">
+      </div>
+    </div>
+  </dialog>
+
   <script>
     window.addEventListener('scroll', function() {
       const doc = document.documentElement;
       const scrollTop = doc.scrollTop;
       const scrollHeight = doc.scrollHeight - doc.clientHeight;
-      const scrolled = (scrollTop / scrollHeight) * 100;
+      const scrolled = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
       document.getElementById('progress-bar').style.width = scrolled + '%';
     });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxTitle = document.getElementById('lightbox-title');
+
+    function openLightbox(src, alt) {
+      lightboxImage.src = src;
+      lightboxImage.alt = alt || 'Скриншот проекта';
+      lightboxTitle.textContent = alt || 'Скриншот проекта';
+      if (typeof lightbox.showModal === 'function') {
+        lightbox.showModal();
+      } else {
+        lightbox.setAttribute('open', 'open');
+      }
+    }
+
+    function closeLightbox() {
+      if (typeof lightbox.close === 'function') {
+        lightbox.close();
+      } else {
+        lightbox.removeAttribute('open');
+      }
+      lightboxImage.src = '';
+    }
+
+    lightbox?.addEventListener('click', (event) => {
+      const rect = lightbox.getBoundingClientRect();
+      const inDialog = rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width;
+      if (!inDialog) closeLightbox();
+    });
   </script>
+
 </body>
 </html>
