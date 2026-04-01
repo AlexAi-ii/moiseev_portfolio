@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Все проекты Александра Моисеева — 17+ реализованных проектов">
+  <meta name="theme-color" content="#7f5af0">
+  <title>Все проекты — Александр Моисеев</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #1a1f2e; --surface: #252b3d; --surface-2: #2d3548;
+      --text: #ffffff; --muted: #a0aec0; --primary: #7f5af0;
+      --primary-2: #5a37d8; --accent: #2cb67d; --accent-2: #00b7ff;
+      --dark: #0f141f; --line: rgba(127, 90, 240, 0.2);
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 20px 60px rgba(127, 90, 240, 0.25);
+      --shadow-xl: 0 30px 80px rgba(127, 90, 240, 0.35);
+      --glow: 0 0 40px rgba(127, 90, 240, 0.4);
+      --radius-xl: 28px; --radius-lg: 20px; --radius-md: 14px;
+      --container: 1200px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', sans-serif; color: var(--text);
+      background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 20%, rgba(0,183,255,0.12) 0%, transparent 50%),
+                  radial-gradient(ellipse at 50% 80%, rgba(44,182,125,0.1) 0%, transparent 50%),
+                  var(--bg);
+      line-height: 1.6; overflow-x: hidden;
+    }
+    .bg-particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+    .particle { position: absolute; width: 4px; height: 4px; background: var(--primary); border-radius: 50%; opacity: 0.3; animation: float 20s infinite ease-in-out; }
+    @keyframes float { 0%, 100% { transform: translateY(0); opacity: 0.3; } 50% { transform: translateY(-100px); opacity: 0.6; } }
+    #progress-bar { position: fixed; top: 0; left: 0; width: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent-2)); z-index: 1001; box-shadow: 0 0 20px var(--primary); }
+    header { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(20px) saturate(180%); background: rgba(26,31,46,0.85); border-bottom: 1px solid var(--line); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+    nav { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 0 30px; max-width: var(--container); margin: 0 auto; }
+    .brand { display: flex; flex-direction: column; text-decoration: none; color: #fff; }
+    .brand strong { font-size: 1.1rem; background: linear-gradient(135deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .brand span { color: var(--muted); font-size: 0.8rem; }
+    .nav-links { display: flex; align-items: center; list-style: none; gap: 24px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-weight: 600; transition: all .3s ease; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width .3s ease; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { width: 100%; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; border-radius: 999px; padding: 14px 28px; font-weight: 800; transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); }
+    .btn:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 50px rgba(127, 90, 240, 0.5); }
+    .page-hero { padding: 100px 30px 60px; text-align: center; max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+    .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin-bottom: 20px; background: linear-gradient(135deg, #fff, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 40px rgba(127, 90, 240, 0.5)); }
+    .page-hero p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin: 0 auto; line-height: 1.8; }
+    .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: var(--container); margin: 0 auto 60px; padding: 0 30px; }
+    .stat-card { background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 32px 24px; text-align: center; box-shadow: var(--shadow); backdrop-filter: blur(10px); transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .stat-card:hover { transform: translateY(-12px) scale(1.03); box-shadow: var(--shadow-xl), var(--glow); border-color: rgba(127, 90, 240, 0.4); }
+    .stat-number { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 12px; }
+    .stat-label { color: var(--muted); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+    .filter-section { max-width: var(--container); margin: 0 auto 40px; padding: 0 30px; }
+    .filter-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .filter-btn { padding: 12px 24px; border-radius: 999px; border: 2px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); color: var(--text); font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .filter-btn:hover { border-color: var(--primary); background: rgba(127, 90, 240, 0.15); transform: translateY(-3px); }
+    .filter-btn.active { background: linear-gradient(135deg, var(--primary), var(--primary-2)); color: #fff; border-color: var(--primary); box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: var(--container); margin: 0 auto; padding: 0 30px 60px; }
+    .project-card { background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+    .project-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(127,90,240,0.2) 100%); opacity: 0; transition: opacity .4s ease; z-index: 1; }
+    .project-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: var(--shadow-xl), var(--glow); }
+    .project-card:hover::before { opacity: 1; }
+    .category-badge { position: absolute; top: 14px; right: 14px; padding: 6px 14px; border-radius: 999px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; z-index: 10; }
+    .category-badge.ai-bot { background: linear-gradient(135deg, #7f5af0, #5a37d8); }
+    .category-badge.hr { background: linear-gradient(135deg, #2cb67d, #1a9466); }
+    .category-badge.payment { background: linear-gradient(135deg, #f5a623, #d97706); }
+    .category-badge.integration { background: linear-gradient(135deg, #00b7ff, #0095cc); }
+    .category-badge.app { background: linear-gradient(135deg, #f05a5a, #d83737); }
+    .card-image { width: 100%; height: 380px; overflow: hidden; background: linear-gradient(145deg, rgba(127,90,240,0.1), rgba(0,183,255,0.08)); flex-shrink: 0; }
+    .card-image img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform .5s ease; }
+    .project-card:hover .card-image img { transform: scale(1.1); }
+    .card-content { padding: 18px; flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end; position: relative; z-index: 2; background: linear-gradient(0deg, rgba(10,14,26,0.95) 0%, transparent 100%); }
+    .card-content h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; color: var(--text); transition: color .3s ease; }
+    .project-card:hover .card-content h3 { color: var(--primary); }
+    .card-content p { color: var(--muted); font-size: 0.82rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-metric { margin-top: auto; padding: 12px; border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(127, 90, 240, 0.15), rgba(0, 183, 255, 0.1)); border: 1px solid rgba(127, 90, 240, 0.2); }
+    .metric-value { font-size: 0.95rem; font-weight: 800; color: var(--primary); line-height: 1.2; }
+    footer { background: rgba(15, 20, 31, 0.9); color: var(--muted); padding: 30px 0; border-top: 1px solid var(--line); text-align: center; }
+    footer .container { max-width: var(--container); margin: 0 auto; padding: 0 30px; }
+    .scroll-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; border: none; font-size: 1.5rem; cursor: pointer; opacity: 0; visibility: hidden; transition: all .4s ease; box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); z-index: 999; }
+    .scroll-top.visible { opacity: 1; visibility: visible; }
+    .scroll-top:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 20px 50px rgba(127, 90, 240, 0.6); }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; flex-direction: column; }
+      .nav-links { gap: 16px; }
+      .page-hero { padding: 80px 20px 40px; }
+      .projects-grid { grid-template-columns: 1fr; padding: 0 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-particles" id="bgParticles"></div>
+  <div id="progress-bar"></div>
+
+  <header>
+    <nav>
+      <a class="brand" href="index.html">
+        <strong>Александр Моисеев</strong>
+        <span>AI-боты и автоматизация</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="index.html#about">Обо мне</a></li>
+        <li><a href="resume-full.html">Резюме</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Связаться</a>
+    </nav>
+  </header>
+
+  <section class="page-hero" data-aos="fade-down">
+    <h1>Все проекты</h1>
+    <p>15+ реализованных проектов по автоматизации бизнеса: от AI-ботов до комплексных интеграций</p>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="0" data-tilt data-tilt-max="5"><div class="stat-number">15+</div><div class="stat-label">Проектов</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5"><div class="stat-number">5</div><div class="stat-label">Категории</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5"><div class="stat-number">1166+</div><div class="stat-label">Часов экономии</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5"><div class="stat-number">100%</div><div class="stat-label">Результат</div></div>
+  </div>
+
+  <div class="filter-section" data-aos="fade-up">
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">Все проекты</button>
+      <button class="filter-btn" data-filter="ai-bot">🤖 AI-боты</button>
+      <button class="filter-btn" data-filter="hr">👥 HR</button>
+      <button class="filter-btn" data-filter="payment">💰 Платежи</button>
+      <button class="filter-btn" data-filter="integration">🏢 Интеграции</button>
+      <button class="filter-btn" data-filter="app">📱 Приложения</button>
+    </div>
+  </div>
+
+  <div class="projects-grid" id="projectsGrid"></div>
+
+  <footer id="contact">
+    <div class="container">
+      <p>© 2026 Александр Моисеев. AI-боты, ассистенты и автоматизация бизнеса под ключ</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop">↑</button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+    if (typeof VanillaTilt !== 'undefined') {
+      VanillaTilt.init(document.querySelectorAll('[data-tilt]'), { max: 5, speed: 400, glare: true, 'max-glare': 0.2 });
+    }
+    (function() {
+      const container = document.getElementById('bgParticles');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+        container.appendChild(particle);
+      }
+    })();
+    window.addEventListener('scroll', function() {
+      const doc = document.documentElement;
+      const scrolled = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+      const btn = document.getElementById('scrollTop');
+      if (btn) btn.classList[doc.scrollTop > 500 ? 'add' : 'remove']('visible');
+    });
+    document.getElementById('scrollTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    const projects = [
+      { name: 'Бильярд бот', desc: 'Telegram-бот для бронирования столов в клубе', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BB%D1%8C%D1%8F%D1%80%D0%B4%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/billiard.html', category: 'ai-bot', metric: 'Снижение нагрузки на 40%' },
+      { name: 'Личный помощник', desc: 'AI-планировщик в Telegram с голосовым управлением', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%A2%D0%93%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/assistant.html', category: 'ai-bot', metric: 'Экономия 2+ часов в день' },
+      { name: 'Авто-публикация', desc: 'Посты в Telegram из ссылок автоматически', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D0%B2%D1%82%D0%BE%E2%80%91%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20Telegram%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/autopublish.html', category: 'ai-bot', metric: 'Экономия 5 часов в неделю' },
+      { name: 'AUDIO MinusPlus', desc: 'Разделение треков на стемы с оплатой', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/amp.html', category: 'payment', metric: 'Полная автоматизация' },
+      { name: 'Нейросотрудник HR', desc: '8000+ откликов, 1166 часов экономии HR', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%20HR%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/hr-neuro.html', category: 'hr', metric: '8000+ откликов, 1166 ч' },
+      { name: 'Аюрпак', desc: 'Бот-консультант для производителя пакетов', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%8E%D1%80%D0%BF%D0%B0%D0%BA%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/aurpak.html', category: 'integration', metric: 'Быстрый входящий контур' },
+      { name: 'Ленремонт', desc: 'AI-консультант по ремонту с калькулятором', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%81%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20(%D0%9B%D0%B5%D0%BD%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82)%20-%201.png', link: 'projects/lenremont.html', category: 'ai-bot', metric: 'Меньше потерянных заявок' },
+      { name: 'МЧС', desc: 'Ассистент для подготовки КП', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9C%D0%A7%D0%A1%20%D0%A1%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/mchs.html', category: 'ai-bot', metric: 'Быстрее КП, меньше ошибок' },
+      { name: 'ZZOK Sale', desc: 'Бот-продавец для прогрева клиентов', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FZZOK%20Sale%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/zzok-sale.html', category: 'ai-bot', metric: 'Прогретые лиды' },
+      { name: 'ZZOK HR', desc: 'База знаний и тесты для сотрудников', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%BE%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BA%D0%B0%D0%B4%D1%80%D0%BE%D0%B2%20(ZZok%20HR)%20-%201.png', link: 'projects/zzok-hr.html', category: 'hr', metric: 'Ускорение адаптации' },
+      { name: 'SMM-бот', desc: 'Контент-календарь для beauty-мастеров', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FSMM%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/smm-bot.html', category: 'hr', metric: 'Экономия 10 часов в неделю' },
+      { name: 'Биохакинг', desc: 'AI-консультант с базой знаний по биохакингу', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BE%D1%85%D0%B0%D0%BA%D0%B8%D0%BD%D0%B3%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/biohacking.html', category: 'ai-bot', metric: 'Монетизация экспертизы' },
+      { name: 'Салон красоты', desc: 'Запись клиентов + интеграция с 1С', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/salon.html', category: 'integration', metric: 'Сокращение работы админа' },
+      { name: 'Контроль платежей', desc: 'Напоминания о долгах в Telegram/WhatsApp', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9E%D1%82%D1%81%D0%BB%D0%B5%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/payments.html', category: 'payment', metric: 'Снижение просрочки' },
+      { name: 'День с молитвой', desc: 'Вырицкий молитвослов — ежедневное приложение', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BE%D1%85%D0%B0%D0%BA%D0%B8%D0%BD%D0%B3%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/holy-scriptures.html', category: 'app', metric: 'Ежедневная молитва' }
+    ];
+
+    const grid = document.getElementById('projectsGrid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    function renderProjects(filter = 'all') {
+      grid.innerHTML = '';
+      const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+      filtered.forEach((p, i) => {
+        const card = document.createElement('a');
+        card.className = 'project-card';
+        card.href = p.link;
+        card.setAttribute('data-tilt', '');
+        card.setAttribute('data-aos', 'fade-up');
+        card.setAttribute('data-aos-delay', (i * 50).toString());
+        const labels = { 'ai-bot': 'AI-боты', 'hr': 'HR', 'payment': 'Платежи', 'integration': 'Интеграции', 'app': 'Приложения' };
+        card.innerHTML = `
+          <span class="category-badge ${p.category}">${labels[p.category]}</span>
+          <div class="card-image"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+          <div class="card-content">
+            <h3>${p.name}</h3>
+            <p>${p.desc}</p>
+            <div class="card-metric"><div class="metric-value">${p.metric}</div></div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+      if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll('.project-card[data-tilt]'), { max: 3, speed: 400, glare: true, 'max-glare': 0.15 });
+      }
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        renderProjects(this.dataset.filter);
+      });
+    });
+
+    renderProjects();
+  </script>
+</body>
+</html>
