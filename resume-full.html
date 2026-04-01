@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Полное резюме Александра Моисеева — 29 лет опыта в ИТ">
+  <meta name="theme-color" content="#7f5af0">
+  <title>Резюме — Александр Моисеев</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #1a1f2e; --surface: #252b3d; --surface-2: #2d3548;
+      --text: #ffffff; --muted: #a0aec0; --primary: #7f5af0;
+      --primary-2: #5a37d8; --accent: #2cb67d; --accent-2: #00b7ff;
+      --dark: #0f141f; --line: rgba(127, 90, 240, 0.2);
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 20px 60px rgba(127, 90, 240, 0.25);
+      --shadow-xl: 0 30px 80px rgba(127, 90, 240, 0.35);
+      --glow: 0 0 40px rgba(127, 90, 240, 0.4);
+      --radius-xl: 28px; --radius-lg: 20px; --radius-md: 14px;
+      --container: 1100px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', sans-serif; color: var(--text);
+      background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 20%, rgba(0,183,255,0.12) 0%, transparent 50%),
+                  radial-gradient(ellipse at 50% 80%, rgba(44,182,125,0.1) 0%, transparent 50%),
+                  var(--bg);
+      line-height: 1.6; overflow-x: hidden;
+    }
+    .bg-particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+    .particle { position: absolute; width: 4px; height: 4px; background: var(--primary); border-radius: 50%; opacity: 0.3; animation: float 20s infinite ease-in-out; }
+    @keyframes float { 0%, 100% { transform: translateY(0); opacity: 0.3; } 50% { transform: translateY(-100px); opacity: 0.6; } }
+    #progress-bar { position: fixed; top: 0; left: 0; width: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent-2)); z-index: 1001; box-shadow: 0 0 20px var(--primary); }
+    header { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(20px) saturate(180%); background: rgba(26,31,46,0.85); border-bottom: 1px solid var(--line); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+    nav { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 0 30px; max-width: var(--container); margin: 0 auto; }
+    .brand { display: flex; flex-direction: column; text-decoration: none; color: #fff; }
+    .brand strong { font-size: 1.1rem; background: linear-gradient(135deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .brand span { color: var(--muted); font-size: 0.8rem; }
+    .nav-links { display: flex; align-items: center; list-style: none; gap: 24px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-weight: 600; transition: all .3s ease; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width .3s ease; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { width: 100%; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; border-radius: 999px; padding: 14px 28px; font-weight: 800; transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); }
+    .btn:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 50px rgba(127, 90, 240, 0.5); }
+    .btn-back { background: transparent; color: var(--text); border: 2px solid var(--line); }
+    .resume-hero { padding: 80px 30px 40px; max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-weight: 600; margin-bottom: 24px; transition: all .3s ease; padding: 10px 20px; background: rgba(255,255,255,0.05); border-radius: 999px; border: 1px solid var(--line); }
+    .back-link:hover { color: var(--primary); background: rgba(127, 90, 240, 0.1); border-color: var(--primary); }
+    .resume-header { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: start; margin-top: 20px; }
+    .resume-photo { width: 220px; height: 220px; border-radius: var(--radius-xl); object-fit: cover; box-shadow: var(--shadow-xl), var(--glow); border: 2px solid rgba(127, 90, 240, 0.3); }
+    .resume-title h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 12px; background: linear-gradient(135deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .resume-title .subtitle { font-size: 1.1rem; color: var(--muted); margin-bottom: 16px; }
+    .resume-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .meta-tag { padding: 8px 16px; border-radius: 999px; background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border: 1px solid var(--line); color: var(--text); font-weight: 700; font-size: 0.85rem; }
+    .resume-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .resume-content { max-width: var(--container); margin: 0 auto; padding: 0 30px 60px; display: grid; gap: 32px; position: relative; z-index: 1; }
+    .section-card { background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow); backdrop-filter: blur(10px); }
+    .section-card h2 { font-size: 1.6rem; font-weight: 900; margin-bottom: 30px; color: var(--text); display: flex; align-items: center; gap: 15px; }
+    .section-card h2 .icon { font-size: 2rem; filter: drop-shadow(0 0 15px var(--primary)); }
+    .job { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+    .job:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .job-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+    .job h3 { font-size: 1.2rem; font-weight: 800; color: var(--text); }
+    .job .company { font-size: 1rem; color: var(--primary); font-weight: 700; }
+    .job .period { font-size: 0.9rem; color: var(--muted); font-weight: 600; padding: 6px 14px; background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border-radius: 8px; border: 1px solid var(--line); }
+    .job .position { font-size: 0.95rem; color: var(--muted); margin-bottom: 12px; font-style: italic; }
+    .job ul { list-style: none; display: grid; gap: 10px; }
+    .job ul li { padding-left: 28px; position: relative; color: var(--text); }
+    .job ul li::before { content: '•'; position: absolute; left: 0; color: var(--primary); font-weight: 900; font-size: 1.2rem; text-shadow: 0 0 10px var(--primary); }
+    .edu-item { margin-bottom: 20px; padding: 20px; background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border-radius: var(--radius-lg); border: 1px solid var(--line); }
+    .edu-item h3 { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+    .edu-item .school { color: var(--primary); font-weight: 700; margin-bottom: 6px; }
+    .edu-item .year { font-size: 0.9rem; color: var(--muted); font-weight: 600; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .skill-item { background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); padding: 20px; border-radius: var(--radius-lg); border-left: 4px solid var(--primary); transition: all .3s ease; }
+    .skill-item:hover { transform: translateX(8px); border-left-color: var(--accent); box-shadow: 0 5px 20px rgba(127, 90, 240, 0.2); }
+    .skill-item h4 { font-weight: 800; margin-bottom: 10px; color: var(--text); }
+    .skill-item p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+    .personal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .personal-item { background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--line); }
+    .personal-item h4 { font-weight: 800; margin-bottom: 12px; color: var(--primary); }
+    .personal-item p { color: var(--muted); font-size: 0.95rem; margin-bottom: 8px; }
+    .cta-box { background: linear-gradient(145deg, rgba(127, 90, 240, 0.15), rgba(0, 183, 255, 0.1)); border: 2px solid var(--primary); border-radius: var(--radius-xl); padding: 50px; text-align: center; margin-top: 20px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+    .cta-box::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(127,90,240,0.1) 0%, transparent 70%); animation: rotate 30s linear infinite; }
+    @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .cta-box h3 { font-size: 1.8rem; font-weight: 900; margin-bottom: 15px; position: relative; z-index: 1; }
+    .cta-box p { color: var(--muted); margin-bottom: 25px; position: relative; z-index: 1; }
+    .cta-box .btn { position: relative; z-index: 1; }
+    footer { background: rgba(15, 20, 31, 0.9); color: var(--muted); padding: 30px 0; border-top: 1px solid var(--line); text-align: center; }
+    footer .container { max-width: var(--container); margin: 0 auto; padding: 0 30px; }
+    .scroll-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; border: none; font-size: 1.5rem; cursor: pointer; opacity: 0; visibility: hidden; transition: all .4s ease; box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); z-index: 999; }
+    .scroll-top.visible { opacity: 1; visibility: visible; }
+    .scroll-top:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 20px 50px rgba(127, 90, 240, 0.6); }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; flex-direction: column; }
+      .nav-links { gap: 16px; }
+      .resume-header { grid-template-columns: 1fr; text-align: center; }
+      .resume-photo { width: 180px; height: 180px; margin: 0 auto; }
+      .resume-meta { justify-content: center; }
+      .resume-actions { justify-content: center; }
+      .section-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-particles" id="bgParticles"></div>
+  <div id="progress-bar"></div>
+
+  <header>
+    <nav>
+      <a class="brand" href="index.html">
+        <strong>Александр Моисеев</strong>
+        <span>AI-боты и автоматизация</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="index.html#portfolio">Портфолио</a></li>
+        <li><a href="projects-new.html">Проекты</a></li>
+      </ul>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Связаться</a>
+    </nav>
+  </header>
+
+  <main class="resume-hero">
+    <a href="index.html" class="back-link" data-aos="fade-right">← На главную</a>
+    <div class="resume-header" data-aos="fade-down">
+      <img class="resume-photo" src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2FMoiseev.JPG" alt="Александр Моисеев" data-tilt data-tilt-max="5">
+      <div class="resume-title">
+        <h1>Александр Моисеев</h1>
+        <p class="subtitle">AI-боты и автоматизация бизнеса</p>
+        <p style="color: var(--muted); margin-bottom: 16px; line-height: 1.8;">Разработчик и аналитик с более чем 29-летним опытом в ИТ. Специализация — AI-боты, ассистенты, автоматизация бизнес-процессов, интеграции и проектирование решений под задачи бизнеса.</p>
+        <div class="resume-meta">
+          <span class="meta-tag">29 лет в ИТ</span>
+          <span class="meta-tag">1С — 20+ лет</span>
+          <span class="meta-tag">n8n — 2+ года</span>
+          <span class="meta-tag">Supabase • OpenAI • Bitrix24</span>
+        </div>
+        <div class="resume-actions">
+          <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+          <a class="btn btn-back" href="index.html#portfolio">Смотреть проекты</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="resume-content">
+    <section class="section-card" data-aos="fade-up">
+      <h2><span class="icon">💼</span> Опыт работы</h2>
+      <div class="job">
+        <div class="job-header">
+          <div><h3>Разработчик / аналитик</h3><p class="company">Фриланс</p></div>
+          <span class="period">Ноябрь 2024 — н.в.</span>
+        </div>
+        <p class="position">Создание AI-решений для бизнеса</p>
+        <ul>
+          <li>Разработка чат-ботов для Telegram и WhatsApp</li>
+          <li>Создание AI-агентов и AI-помощников с интеграцией LLM</li>
+          <li>Автоматизация бизнес-процессов на платформе n8n</li>
+          <li>Промпт-инженерия: разработка и оптимизация промптов для LLM</li>
+          <li>Интеграции с внешними API (OpenAI, DeepSeek, GigaChat, Qwen, YandexGPT, Gemini)</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-header">
+          <div><h3>Аналитик-консультант</h3><p class="company">КодерЛайн</p></div>
+          <span class="period">Дек 2024 — Янв 2025</span>
+        </div>
+        <ul><li>Участие в проектах по внедрению 1С:ERP</li></ul>
+      </div>
+      <div class="job">
+        <div class="job-header">
+          <div><h3>Руководитель направления</h3><p class="company">ООО «Трисс логистика»</p></div>
+          <span class="period">Ноя 2023 — Ноя 2024</span>
+        </div>
+        <ul>
+          <li>Организация бизнес-направления по замороженной продукции и кормовым добавкам</li>
+          <li>Управление поставками, логистикой и складским учётом</li>
+          <li>Продажи через тендерные процедуры: 44-ФЗ и 223-ФЗ</li>
+          <li>Создание систем учёта и контроля (1С, Мегаплан, Excel)</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-header">
+          <div><h3>Руководитель ИТ-отдела</h3><p class="company">ООО «РТК»</p></div>
+          <span class="period">Июль 2015 — Окт 2023</span>
+        </div>
+        <p class="position">Численность более 5000 чел.</p>
+        <ul>
+          <li>Проект: Внедрение 1С:Предприятие 8 (ERP) для холдинга</li>
+          <li>Консолидация данных в единой системе 1С для сквозного учёта</li>
+          <li>Электронный документооборот на десяти складах</li>
+          <li>Внедрение системы казначейства для бюджетного контроля</li>
+          <li>Автоматизация кадрового учёта и расчёта заработной платы</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-header">
+          <div><h3>Руководитель ИТ-отдела</h3><p class="company">ООО «Немецкая марка»</p></div>
+          <span class="period">Янв 2008 — Июль 2015</span>
+        </div>
+        <ul>
+          <li>Проект: Внедрение 1С:Предприятие 8.1 (УПП, БУ) для холдинга</li>
+          <li>Внедрена интегрированная система 1С для управленческого и бухгалтерского учёта</li>
+          <li>Реализована система бюджетирования и управления денежными потоками</li>
+          <li>Введён электронный документооборот на трёх складах</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-header">
+          <div><h3>Руководитель проекта</h3><p class="company">ООО «Контакт»</p></div>
+          <span class="period">Апр 2007 — Дек 2007</span>
+        </div>
+        <ul>
+          <li>Проект: Внедрение 1С:Предприятие 8 (УПП)</li>
+          <li>Создание ИТ-отдела с нуля</li>
+          <li>Автоматизация производства от пиления до выпуска готовой продукции</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-header">
+          <div><h3>Руководитель проектов</h3><p class="company">ООО «Петродиск»</p></div>
+          <span class="period">Фев 2005 — Март 2007</span>
+        </div>
+        <ul>
+          <li>Проект: Внедрение 1С:Предприятие 7.7 (УТ)</li>
+          <li>Оптимизация учёта для розничной сети (8 магазинов)</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-header">
+          <div><h3>Генеральный директор</h3><p class="company">ООО «911С» (1С:Франчайзи)</p></div>
+          <span class="period">Фев 1998 — Янв 2005</span>
+        </div>
+        <ul>
+          <li>Запуск компании 1С:Франчайзи с нуля</li>
+          <li>Управление командой от 5 до 11 человек</li>
+          <li>Консалтинг и анализ бизнес-процессов</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-header">
+          <div><h3>Менеджер по продажам, программист</h3><p class="company">ООО «Трэйкер»</p></div>
+          <span class="period">Ноя 1996 — Дек 1997</span>
+        </div>
+        <ul><li>Программирование в 1С:Бухгалтерия 6.0</li></ul>
+      </div>
+    </section>
+
+    <section class="section-card" data-aos="fade-up">
+      <h2><span class="icon">🎓</span> Образование</h2>
+      <div class="edu-item">
+        <h3>Экономист-менеджер по специальности «Экономика и управление на предприятии связи»</h3>
+        <p class="school">Санкт-Петербургский государственный университет телекоммуникаций им. проф. М.А. Бонч-Бруевича</p>
+        <p class="year">1998</p>
+      </div>
+    </section>
+
+    <section class="section-card" data-aos="fade-up">
+      <h2><span class="icon">📚</span> Повышение квалификации</h2>
+      <div class="edu-item">
+        <h3>Тендеры и госзакупки (44-ФЗ и 223-ФЗ)</h3>
+        <p class="school">ИП Иванова Т.Н.</p>
+        <p class="year">2024</p>
+      </div>
+      <div class="edu-item">
+        <h3>Менеджер по финансам и экономике</h3>
+        <p class="school">Академия науки и бизнеса</p>
+        <p class="year">1996</p>
+      </div>
+    </section>
+
+    <section class="section-card" data-aos="fade-up">
+      <h2><span class="icon">🛠️</span> Навыки и компетенции</h2>
+      <div class="skills-grid">
+        <div class="skill-item"><h4>Платформы и инструменты</h4><p>n8n, Supabase, Google API, Python, 1С:Предприятие 8 (Бух, УТ, УПП, ERP)</p></div>
+        <div class="skill-item"><h4>LLM и AI</h4><p>OpenAI, Claude, DeepSeek, LLama, GigaChat, Qwen, YandexGPT, Gemini, промпт-инженерия</p></div>
+        <div class="skill-item"><h4>Автоматизация</h4><p>Чат-боты для Telegram и WhatsApp, AI-агенты, интеграции API, RAG-системы</p></div>
+        <div class="skill-item"><h4>Анализ и проектирование</h4><p>Описание и анализ бизнес-процессов, оформление технической документации</p></div>
+        <div class="skill-item"><h4>Управление</h4><p>Опыт управления командами до 150+ сотрудников</p></div>
+        <div class="skill-item"><h4>Финансы и учёт</h4><p>Глубокое понимание финансового и бухгалтерского учётов, бюджетирование</p></div>
+      </div>
+    </section>
+
+    <section class="section-card" data-aos="fade-up">
+      <h2><span class="icon">📋</span> Дополнительная информация</h2>
+      <div class="personal-grid">
+        <div class="personal-item">
+          <h4>О себе</h4>
+           <p>Живу в любви, 3 детей, без вредных привычек.</p>
+        </div>
+        <div class="personal-item">
+          <h4>Личные качества</h4>
+          <p>С чувством юмора, позитивный, трудолюбивый, честный, внимателен к деталям.</p>
+        </div>
+        <div class="personal-item">
+          <h4>Водительские права</h4>
+          <p>Категория B</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-box" data-aos="zoom-in">
+      <h3>🤝 Готов обсудить ваш проект</h3>
+      <p>Могу подключиться как разработчик, аналитик или архитектор решения: от идеи до внедрения.</p>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">✈️ Написать в Telegram</a>
+    </div>
+  </div>
+
+  <button class="scroll-top" id="scrollTop">↑</button>
+  <footer><div class="container">© 2026 Александр Моисеев. AI-боты, ассистенты и автоматизация бизнеса под ключ</div></footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+    if (typeof VanillaTilt !== 'undefined') {
+      VanillaTilt.init(document.querySelectorAll('[data-tilt]'), { max: 5, speed: 400, glare: true, 'max-glare': 0.2 });
+    }
+    (function() {
+      const container = document.getElementById('bgParticles');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+        container.appendChild(particle);
+      }
+    })();
+    window.addEventListener('scroll', function() {
+      const doc = document.documentElement;
+      const scrolled = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+      const btn = document.getElementById('scrollTop');
+      if (btn) btn.classList[doc.scrollTop > 500 ? 'add' : 'remove']('visible');
+    });
+    document.getElementById('scrollTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

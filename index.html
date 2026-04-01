@@ -3,331 +3,458 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфолио — AI‑разработчик & аналитик</title>
-  <!-- Google Fonts -->
+  <meta name="description" content="Александр Моисеев — AI-разработчик и аналитик. Создание чат-ботов, AI-агентов и автоматизация бизнеса на n8n">
+  <meta name="theme-color" content="#7f5af0">
+  <title>Александр Моисеев — AI-разработчик & аналитик</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
   <style>
     :root {
-      --primary-color: #007ACC;
-      --secondary-color: #282C34;
-      --background-color: #F5F5F5;
-      --text-color: #333;
-      --accent-color: #00A86B;
+      --bg: #1a1f2e; --surface: #252b3d; --surface-2: #2d3548;
+      --text: #ffffff; --muted: #a0aec0; --primary: #7f5af0;
+      --primary-2: #5a37d8; --accent: #2cb67d; --accent-2: #00b7ff;
+      --dark: #0f141f; --line: rgba(127, 90, 240, 0.2);
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 20px 60px rgba(127, 90, 240, 0.25);
+      --shadow-xl: 0 30px 80px rgba(127, 90, 240, 0.35);
+      --glow: 0 0 40px rgba(127, 90, 240, 0.4);
+      --radius-xl: 28px; --radius-lg: 20px; --radius-md: 14px;
+      --container: 1200px;
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text-color);
-      background-color: var(--background-color);
-      line-height: 1.6;
+      font-family: 'Manrope', sans-serif; color: var(--text);
+      background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,0.15) 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 20%, rgba(0,183,255,0.12) 0%, transparent 50%),
+                  radial-gradient(ellipse at 50% 80%, rgba(44,182,125,0.1) 0%, transparent 50%),
+                  var(--bg);
+      line-height: 1.6; overflow-x: hidden;
     }
-    header {
-      background-color: var(--secondary-color);
-      color: #fff;
-      padding: 2rem 1rem;
-    }
-    nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-    nav a:hover {
-      color: var(--accent-color);
-    }
-    .hero {
-      text-align: center;
-      padding: 4rem 1rem;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-    }
-    section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 1rem;
-    }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--primary-color);
-    }
-    .about p {
-      margin-bottom: 1rem;
-    }
-    .contact {
-      background-color: var(--secondary-color);
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    .contact p {
-      margin: 0.5rem 0;
-    }
-    /* Skills */
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .skill-category {
-      flex: 1 1 300px;
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .skill-category h3 {
-      margin-bottom: 0.5rem;
-      color: var(--accent-color);
-    }
-    .skill-category ul {
-      list-style: disc inside;
-    }
-    /* Portfolio */
-    .portfolio-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .portfolio-item {
-      flex: 1 1 300px;
-      background-color: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-    }
-    .portfolio-item img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .portfolio-item .content {
-      padding: 1rem;
-      flex-grow: 1;
-    }
-    .portfolio-item h3 {
-      margin-bottom: 0.5rem;
-      color: var(--primary-color);
-    }
-    .portfolio-item p {
-      font-size: 0.9rem;
-    }
-    /* Resume */
-    .resume {
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .job {
-      margin-bottom: 2rem;
-    }
-    .job h4 {
-      margin-bottom: 0.25rem;
-      color: var(--primary-color);
-    }
-    .job h5 {
-      margin: 0.25rem 0;
-      font-weight: 600;
-    }
-    .job ul {
-      list-style: disc inside;
-    }
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: var(--secondary-color);
-      color: #fff;
-      font-size: 0.9rem;
-    }
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
+    .bg-particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+    .particle { position: absolute; width: 4px; height: 4px; background: var(--primary); border-radius: 50%; opacity: 0.3; animation: float 20s infinite ease-in-out; }
+    @keyframes float { 0%, 100% { transform: translateY(0); opacity: 0.3; } 50% { transform: translateY(-100px); opacity: 0.6; } }
+    #progress-bar { position: fixed; top: 0; left: 0; width: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--primary), var(--accent-2)); z-index: 1001; box-shadow: 0 0 20px var(--primary); }
+    header { position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(20px) saturate(180%); background: rgba(10,14,26,0.85); border-bottom: 1px solid var(--line); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+    nav { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 0 30px; max-width: var(--container); margin: 0 auto; }
+    .brand { display: flex; flex-direction: column; text-decoration: none; color: #fff; }
+    .brand strong { font-size: 1.1rem; background: linear-gradient(135deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .brand span { color: var(--muted); font-size: 0.8rem; }
+    .nav-links { display: flex; align-items: center; list-style: none; gap: 24px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-weight: 600; transition: all .3s ease; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width .3s ease; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { width: 100%; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; border-radius: 999px; padding: 14px 28px; font-weight: 800; transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); }
+    .btn:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 50px rgba(127, 90, 240, 0.5); }
+    .btn-secondary { background: transparent; color: var(--text); border: 2px solid var(--line); }
+    .hero { text-align: center; padding: 120px 20px 80px; max-width: var(--container); margin: 0 auto; position: relative; }
+    .hero::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(127,90,240,0.2) 0%, transparent 70%); filter: blur(60px); z-index: -1; animation: pulse 8s infinite ease-in-out; }
+    @keyframes pulse { 0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; } 50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; } }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -0.02em; filter: drop-shadow(0 0 40px rgba(127, 90, 240, 0.5)); }
+    .hero p { font-size: 1.3rem; color: var(--muted); max-width: 700px; margin: 0 auto 40px; line-height: 1.8; }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: var(--container); margin: 0 auto 60px; padding: 0 30px; }
+    .stat-card { background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 32px 24px; text-align: center; box-shadow: var(--shadow); backdrop-filter: blur(10px); transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .stat-card:hover { transform: translateY(-12px) scale(1.03); box-shadow: var(--shadow-xl), var(--glow); border-color: rgba(127, 90, 240, 0.4); }
+    .stat-number { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 12px; }
+    .stat-label { color: var(--muted); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+    section { max-width: var(--container); margin: 0 auto; padding: 100px 30px; position: relative; z-index: 1; }
+    section h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; margin-bottom: 50px; text-align: center; background: linear-gradient(135deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; position: relative; }
+    section h2::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 100px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 2px; box-shadow: 0 0 20px var(--primary); }
+    .about-content { display: grid; grid-template-columns: 320px 1fr; gap: 50px; align-items: center; background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 50px; box-shadow: var(--shadow); backdrop-filter: blur(10px); }
+    .about-photo-wrapper { position: relative; perspective: 1000px; }
+    .about-photo { width: 320px; height: 320px; border-radius: var(--radius-xl); object-fit: cover; box-shadow: var(--shadow-lg), 0 0 0 1px rgba(127, 90, 240, 0.2); transition: all .5s cubic-bezier(0.4, 0, 0.2, 1); }
+    .about-photo-wrapper:hover .about-photo { transform: rotateY(10deg) rotateX(5deg) scale(1.02); box-shadow: var(--shadow-xl), var(--glow); }
+    .about-text p { color: var(--text); margin-bottom: 20px; font-size: 1.1rem; line-height: 1.9; }
+    .about-text strong { color: var(--primary); position: relative; }
+    .about-text strong::after { content: ''; position: absolute; bottom: 2px; left: 0; width: 100%; height: 8px; background: rgba(127, 90, 240, 0.3); z-index: -1; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .skill-category { background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); backdrop-filter: blur(10px); transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .skill-category::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary)); background-size: 200% 100%; transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
+    .skill-category:hover { transform: translateY(-10px) scale(1.02); box-shadow: var(--shadow-xl), var(--glow); border-color: rgba(127, 90, 240, 0.4); }
+    .skill-category:hover::before { transform: scaleX(1); animation: shimmer 2s infinite linear; }
+    @keyframes shimmer { 0% { background-position: 0% 0%; } 100% { background-position: 200% 0%; } }
+    .skill-category h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; color: var(--text); display: flex; align-items: center; gap: 12px; }
+    .skill-category h3 span { font-size: 2rem; filter: drop-shadow(0 0 10px var(--primary)); }
+    .skill-category ul { list-style: none; display: grid; gap: 12px; }
+    .skill-category ul li { padding-left: 28px; position: relative; color: var(--muted); transition: all .3s ease; }
+    .skill-category ul li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 900; font-size: 1.1rem; text-shadow: 0 0 10px var(--accent); }
+    .skill-category ul li:hover { color: var(--text); transform: translateX(8px); }
+    .portfolio-section { position: relative; overflow: hidden; }
+    .portfolio-carousel { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 20px 0; scroll-behavior: smooth; }
+    .portfolio-carousel::-webkit-scrollbar { display: none; }
+    .portfolio-item { flex: 0 0 280px; scroll-snap-align: start; background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+    .portfolio-item::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(127,90,240,0.2) 100%); opacity: 0; transition: opacity .4s ease; z-index: 1; }
+    .portfolio-item:hover { transform: translateY(-12px) scale(1.02); box-shadow: var(--shadow-xl), var(--glow); }
+    .portfolio-item:hover::before { opacity: 1; }
+    .portfolio-image-wrapper { position: relative; width: 100%; height: 380px; overflow: hidden; background: linear-gradient(145deg, rgba(127,90,240,0.1), rgba(0,183,255,0.08)); flex-shrink: 0; }
+    .portfolio-item img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform .5s ease; }
+    .portfolio-item:hover img { transform: scale(1.1); }
+    .portfolio-item .content { padding: 18px; flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end; position: relative; z-index: 2; background: linear-gradient(0deg, rgba(10,14,26,0.95) 0%, transparent 100%); }
+    .portfolio-item h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; color: var(--text); transition: color .3s ease; line-height: 1.3; }
+    .portfolio-item:hover h3 { color: var(--primary); }
+    .portfolio-item p { color: var(--muted); font-size: 0.82rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .portfolio-nav { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; align-items: center; }
+    .slider-container { width: 100%; max-width: 700px; display: flex; align-items: center; gap: 0; }
+    .slider-icon { font-size: 1.2rem; color: var(--muted); opacity: 0.6; }
+    .carousel-slider { -webkit-appearance: none; width: 100%; height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--primary), var(--accent)); outline: none; cursor: pointer; opacity: 0.8; transition: opacity .3s ease; }
+    .carousel-slider:hover { opacity: 1; }
+    .carousel-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 0; height: 0; }
+    .carousel-slider::-moz-range-thumb { width: 0; height: 0; border: none; }
+    .carousel-drag-hint { color: var(--muted); font-size: 0.85rem; text-align: center; opacity: 0.8; }
+    .contact { background: linear-gradient(145deg, rgba(127, 90, 240, 0.1), rgba(0, 183, 255, 0.08)); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 60px 40px; text-align: center; margin-top: 80px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+    .contact::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(127,90,240,0.1) 0%, transparent 70%); animation: rotate 20s linear infinite; }
+    @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .contact h2 { margin-bottom: 40px; position: relative; z-index: 1; }
+    .social-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px; position: relative; z-index: 1; }
+    .social-link { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 999px; background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); color: #fff; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid var(--line); position: relative; overflow: hidden; }
+    .social-link::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1), transparent); transform: translateX(-100%); transition: transform .5s ease; }
+    .social-link:hover::before { transform: translateX(100%); }
+    .social-link:hover { transform: translateY(-6px) scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .social-link.telegram:hover { background: #0088cc; border-color: #0088cc; box-shadow: 0 10px 40px rgba(0, 136, 204, 0.5); }
+    .social-link.vk:hover { background: #0077FF; border-color: #0077FF; box-shadow: 0 10px 40px rgba(0, 119, 255, 0.5); }
+    .contact-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; position: relative; z-index: 1; }
+    footer { text-align: center; padding: 40px; background: rgba(5, 8, 16, 0.9); color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--line); position: relative; z-index: 1; }
+    .scroll-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; border: none; font-size: 1.5rem; cursor: pointer; opacity: 0; visibility: hidden; transition: all .4s ease; box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); z-index: 999; }
+    .scroll-top.visible { opacity: 1; visibility: visible; }
+    .scroll-top:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 20px 50px rgba(127, 90, 240, 0.6); }
+    @media (max-width: 900px) {
+      .about-content { grid-template-columns: 1fr; padding: 30px; text-align: center; }
+      .about-photo-wrapper { margin: 0 auto; }
+      .about-photo { width: 280px; height: 280px; }
+      nav { padding: 0 20px; }
+      .hero { padding: 80px 20px 50px; }
+      section { padding: 60px 20px; }
+      .portfolio-item { flex: 0 0 260px; }
     }
   </style>
 </head>
 <body>
+  <div class="bg-particles" id="bgParticles"></div>
+  <div id="progress-bar"></div>
+
   <header>
     <nav>
-      <div class="logo"><strong>AI&nbsp;Developer</strong></div>
-      <ul>
+      <a class="brand" href="index.html">
+        <strong>Александр Моисеев</strong>
+        <span>AI-боты и автоматизация</span>
+      </a>
+      <ul class="nav-links">
         <li><a href="#about">Обо мне</a></li>
         <li><a href="#skills">Навыки</a></li>
         <li><a href="#portfolio">Портфолио</a></li>
-        <li><a href="#resume">Резюме</a></li>
+        <li><a href="resume-full.html">Резюме</a></li>
         <li><a href="#contact">Контакты</a></li>
       </ul>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Связаться</a>
     </nav>
-    <div class="hero">
-      <h1>AI‑разработчик &amp; аналитик</h1>
-      <p>Создаю умных помощников, чат‑ботов и автоматизирую процессы с помощью n8n, Python и нейросетей.</p>
-    </div>
   </header>
 
-  <section id="about" class="about">
+  <div class="hero" data-aos="fade-down">
+    <h1>AI‑разработчик & аналитик</h1>
+    <p>Создаю умных помощников, чат‑ботов и автоматизирую процессы с помощью n8n, Python и нейросетей</p>
+    <div class="hero-buttons">
+      <a href="projects.html" class="btn">📂 Все проекты</a>
+      <a href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">✈️ Telegram</a>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="0" data-tilt data-tilt-max="5" data-tilt-speed="400">
+      <div class="stat-number">15+</div>
+      <div class="stat-label">Проектов реализовано</div>
+    </div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5" data-tilt-speed="400">
+      <div class="stat-number">1166+</div>
+      <div class="stat-label">Часов сэкономлено</div>
+    </div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5" data-tilt-speed="400">
+      <div class="stat-number">8000+</div>
+      <div class="stat-label">Откликов обработано</div>
+    </div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5" data-tilt-speed="400">
+      <div class="stat-number">29</div>
+      <div class="stat-label">Лет опыта в ИТ</div>
+    </div>
+  </div>
+
+  <section id="about" data-aos="fade-up">
     <h2>Обо мне</h2>
-    <p>Привет! Я разработчик и аналитик с 28‑летним опытом в ИТ‑индустрии. Основные компетенции — создание чат‑ботов, AI‑агентов и AI‑помощников. Специализируюсь на интеграции систем, автоматизации рабочих процессов и внедрении нейросетевых решений.</p>
-    <p>Мой главный инструмент — платформа n8n, которая позволяет быстро соединять разные сервисы и модели. Также работаю с API различных LLM‑моделей, включая ChatGPT, DeepSeek, LLama, GigaChat, Qwen, YandexGPT и Gemini.</p>
-    <p>Помимо разработки я занимаюсь аналитикой, проектированием архитектур и оптимизацией взаимодействия с нейронными моделями. Всегда стараюсь находить оптимальное решение задачи и уделяю особое внимание безопасности данных.</p>
+    <div class="about-content">
+      <div class="about-photo-wrapper" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
+        <img class="about-photo" src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2FMoiseev.JPG" alt="Александр Моисеев">
+      </div>
+      <div class="about-text">
+        <p>Привет! Я разработчик и аналитик с <strong>29‑летним опытом</strong> в ИТ‑индустрии. Основные компетенции — создание чат‑ботов, AI‑агентов и AI‑помощников. Специализируюсь на интеграции систем, автоматизации рабочих процессов и внедрении нейросетевых решений.</p>
+        <p>Мой главный инструмент — платформа <strong>n8n</strong>, которая позволяет быстро соединять разные сервисы и модели по API и через MCP. Для ускорения разработки использую <strong>Claude Code</strong> — интеллектуальный помощник для написания и рефакторинга кода.</p>
+        <p>Помимо разработки я занимаюсь аналитикой, проектированием архитектур и оптимизацией взаимодействия с нейронными моделями. Всегда стараюсь находить оптимальное решение задачи и уделяю особое внимание безопасности данных. Много времени уделяю тестированию — довожу каждый проект до полного завершения, постоянно держу фокус на качестве.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="skills" class="skills">
+  <section id="skills" data-aos="fade-up">
     <h2>Навыки</h2>
-    <div class="skills-list">
-      <div class="skill-category">
-        <h3>Чат‑боты в Telegram</h3>
+    <div class="skills-grid">
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="0" data-tilt data-tilt-max="3" data-tilt-speed="400">
+        <h3><span>🤖</span> Чат‑боты</h3>
         <ul>
-          <li>Создание информационных ботов и сообществ</li>
-          <li>Бронь и запись, напоминания и рассылки</li>
-          <li>Воронки продаж и выдача лид‑магнитов</li>
-          <li>Оплата, статистика и подключение AI для диалога</li>
+          <li>Telegram, VK, MAX, WhatsApp боты</li>
+          <li>С базами данных</li>
+          <li>Парсинг данных, автопостинг</li>
+          <li>Воронки продаж, бронирование</li>
+          <li>Приём оплаты</li>
         </ul>
       </div>
-      <div class="skill-category">
-        <h3>AI‑ассистенты</h3>
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="3" data-tilt-speed="400">
+        <h3><span>🧠</span> AI‑ассистенты, AI-консультанты</h3>
         <ul>
-          <li>Интеллектуальные помощники с базой знаний (RAG)</li>
-          <li>Генерация статей и авторазмещение в блоге</li>
-          <li>Консультанты и служба поддержки на основе LLM</li>
-          <li>Анализ звонков и создание сводок встреч</li>
+          <li>Помощники и ассистенты с базой знаний (RAG)</li>
+          <li>Генерация статей, автопостинг в блог</li>
+          <li>Консультанты, поддержка на LLM</li>
+          <li>Анализ звонков, саммари встреч</li>
+          <li>Интеграции с CRM, 1С</li>
         </ul>
       </div>
-      <div class="skill-category">
-        <h3>Промпт‑инженерия</h3>
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="3" data-tilt-speed="400">
+        <h3><span>⚡</span> Промпт‑инженерия</h3>
         <ul>
-          <li>Разработка и оптимизация промптов для LLM</li>
-          <li>Настройка и квантование моделей, LoRA</li>
-          <li>Повышение эффективности и уменьшение затрат</li>
-          <li>Тестирование гипотез и улучшение существующих решений</li>
+          <li>Разработка и оптимизация промптов</li>
+          <li>Повышение эффективности LLM</li>
+          <li>Тестирование гипотез, A/B тесты</li>
+          <li>Системные промпты для AI-ассистентов</li>
         </ul>
       </div>
-      <div class="skill-category">
-        <h3>Технологии</h3>
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="3" data-tilt-speed="400">
+        <h3><span>🔧</span> Интеграции</h3>
         <ul>
-          <li>n8n, Supabase, Google API</li>
-          <li>Python и интеграция с API</li>
-          <li>Работа с OpenAI, DeepSeek, LLama, GigaChat, Qwen, YandexGPT, Gemini</li>
-          <li>Оптимизация поиска и точность ответов</li>
+          <li>CRM: Битрикс24</li>
+          <li>1С, hh.ru, Авито</li>
+          <li>Платежные системы (Робокасса, Юкасса, CloudPayments, Prodamus)</li>
+          <li>Внешние API, вебхуки, MCP</li>
+        </ul>
+      </div>
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="400" data-tilt data-tilt-max="3" data-tilt-speed="400">
+        <h3><span>🗄️</span> Базы данных</h3>
+        <ul>
+          <li>Supabase (PostgreSQL)</li>
+          <li>Vector Store (векторный поиск), RAG</li>
+          <li>Google Sheets, Google Drive</li>
+          <li>Хранение: пользователей, диалогов, контекста</li>
+        </ul>
+      </div>
+      <div class="skill-category" data-aos="fade-up" data-aos-delay="500" data-tilt data-tilt-max="3" data-tilt-speed="400">
+        <h3><span>📡</span> Платформы и каналы</h3>
+        <ul>
+          <li>n8n (workflow automation)</li>
+          <li>Telegram, VK, MAX, WhatsApp</li>
+          <li>Wazzup, Chat2Desk, ChatApp</li>
+          <li>LLM: OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section id="portfolio" class="portfolio">
+  <section id="portfolio" class="portfolio-section" data-aos="fade-up">
     <h2>Портфолио</h2>
-    <div class="portfolio-grid">
-      <!-- Billiard Bot -->
-      <a class="portfolio-item" href="http://t.me/Billiard99_bot" target="_blank" rel="noopener noreferrer">
-        <img src="https://aisob.store/wp-content/uploads/2025/04/ChatGPT-Image-16-апр.-2025-г.-11_57_05.png" alt="Бильярд бот">
-        <div class="content">
-          <h3>Бильярд бот</h3>
-          <p>Telegram‑бот для бронирования столов в бильярдном клубе. Интеграция с календарём, база данных, уведомления и голосовые ответы.</p>
-        </div>
-      </a>
-      <!-- Personal Assistant -->
-      <a class="portfolio-item" href="#" title="Личный помощник через ТГ">
-        <img src="https://aisob.store/wp-content/uploads/2025/04/ChatGPT-Image-16-апр.-2025-г.-12_27_20.png" alt="Личный помощник через ТГ">
-        <div class="content">
-          <h3>Личный помощник в Telegram</h3>
-          <p>AI‑планировщик, который распознаёт голосовые команды, управляет календарём, контактами, почтой и ищет информацию в интернете.</p>
-        </div>
-      </a>
-      <!-- Auto Publish -->
-      <div class="portfolio-item">
-        <img src="https://aisob.store/wp-content/uploads/2025/04/2c70e664-7d78-4653-a6e9-b0a5ae008309.png" alt="Авто-публикация в ТГ">
-        <div class="content">
-          <h3>Авто‑публикация в Telegram</h3>
-          <p>Сервис, который по ссылке готовит статью, генерирует изображение и автоматически публикует пост в Telegram‑канале.</p>
-        </div>
+    <div class="portfolio-carousel" id="portfolioCarousel"></div>
+    <div class="portfolio-nav">
+      <div class="slider-container">
+        <input type="range" min="0" max="100" value="0" class="carousel-slider" id="carouselSlider">
       </div>
     </div>
-  </section>
-
-  <section id="resume" class="resume">
-    <h2>Резюме</h2>
-    <div class="job">
-      <h4>Фриланс</h4>
-      <h5>Ноябрь 2024&nbsp;— настоящее время (6 месяцев)</h5>
-      <p><strong>Разработчик / аналитик</strong></p>
-      <ul>
-        <li>Создание и интеграция чат‑ботов, AI‑агентов и AI‑помощников</li>
-        <li>Работа с n8n в качестве основного инструмента автоматизации</li>
-        <li>Промпт‑инженерия и оптимизация нейросетевых решений</li>
-      </ul>
-    </div>
-    <div class="job">
-      <h4>КодерЛайн</h4>
-      <h5>Декабрь 2024&nbsp;— январь 2025 (2 месяца)</h5>
-      <p><strong>Аналитик‑консультант</strong></p>
-      <ul>
-        <li>Участие в проектах по внедрению 1С:ERP</li>
-      </ul>
-    </div>
-    <div class="job">
-      <h4>ООО&nbsp;«Трисс логистика»</h4>
-      <h5>Ноябрь 2023&nbsp;— ноябрь 2024 (1 год 1 месяц)</h5>
-      <p><strong>Руководитель направления, Финансы и аудит</strong></p>
-      <ul>
-        <li>Организация бизнес‑направления по замороженной продукции и кормовым добавкам</li>
-        <li>Управление поставками, логистикой и складским учётом</li>
-        <li>Разработка систем учёта и контроля (1С, Мегаплан, Excel)</li>
-      </ul>
-    </div>
-    <div class="job">
-      <h4>ООО&nbsp;«РТК»</h4>
-      <h5>Июль 2015&nbsp;— октябрь 2023 (8 лет 4 месяца)</h5>
-      <p><strong>Руководитель ИТ‑отдела, руководитель отдела планирования и логистики</strong></p>
-      <ul>
-        <li>Реализация комплексных решений по аренде имущества и оснащению пассажирских поездов</li>
-        <li>Управление командой в более чем 5000 сотрудников</li>
-        <li>Внедрение систем поддержки и круглосуточного обслуживания</li>
-      </ul>
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="projects.html" class="btn">📂 Смотреть все проекты</a>
     </div>
   </section>
 
-  <section id="contact" class="contact">
+  <div id="contact" class="contact" data-aos="zoom-in">
     <h2>Контакты</h2>
-    <p><strong>Телефон:</strong> +7&nbsp;911&nbsp;765‑39‑05</p>
-    <p><strong>Email:</strong> <a href="mailto:a203@list.ru" style="color:#00B7FF;text-decoration:none;">a203@list.ru</a></p>
-    <p>Буду рад обсудить новые проекты и сотрудничество — свяжитесь со мной удобным способом.</p>
-  </section>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 30px; position: relative; z-index: 1;">
+      <a href="tel:+79117653905" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border-radius: 999px; border: 1px solid var(--line); color: var(--text); text-decoration: none; font-weight: 600; transition: all .3s ease;">
+        <span style="font-size: 1.3rem;">📱</span>
+        <span>+7 911 765-39-05</span>
+      </a>
+      <a href="mailto:a203@list.ru" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border-radius: 999px; border: 1px solid var(--line); color: var(--text); text-decoration: none; font-weight: 600; transition: all .3s ease;">
+        <span style="font-size: 1.3rem;">✉️</span>
+        <span>a203@list.ru</span>
+      </a>
+    </div>
+    <div class="social-links" style="margin-top: 0; justify-content: center; gap: 20px;">
+      <a href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" class="social-link telegram" style="padding: 16px 28px; font-size: 1rem;">
+        <span style="font-size: 1.5rem;">✈️</span> Telegram
+      </a>
+      <a href="https://max.ru/u/f9LHodD0cOL9D1QBbAqai6N2XjZQqq_3m9Tk0fGgkLsTrUmzuNi4ax9rsP8" target="_blank" rel="noopener noreferrer" class="social-link" style="padding: 16px 28px; font-size: 1rem; background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border: 1px solid var(--line);">
+        <span style="font-size: 1.5rem;">💼</span> MAX
+      </a>
+      <a href="https://vk.com/a.moiseev76" target="_blank" rel="noopener noreferrer" class="social-link vk" style="padding: 16px 28px; font-size: 1rem;">
+        <span style="font-size: 1.5rem;">🔵</span> ВКонтакте
+      </a>
+    </div>
+    <div class="contact-buttons">
+      <a href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" class="btn" style="background: #fff; color: var(--primary);">💬 Обсудить проект</a>
+    </div>
+  </div>
 
-  <footer>
-    © 2026 AI‑Developer. Все права защищены.
-  </footer>
+  <footer>© 2026 Александр Моисеев. AI-боты, ассистенты и автоматизация бизнеса под ключ</footer>
+  <button class="scroll-top" id="scrollTop">↑</button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+    if (typeof VanillaTilt !== 'undefined') {
+      VanillaTilt.init(document.querySelectorAll('[data-tilt]'), { max: 5, speed: 400, glare: true, 'max-glare': 0.2, scale: 1.02 });
+    }
+
+    // Particles
+    (function() {
+      const container = document.getElementById('bgParticles');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+        particle.style.opacity = Math.random() * 0.3 + 0.1;
+        container.appendChild(particle);
+      }
+    })();
+
+    // Scroll
+    window.addEventListener('scroll', function() {
+      const doc = document.documentElement;
+      const scrolled = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+      const btn = document.getElementById('scrollTop');
+      if (btn) btn.classList[doc.scrollTop > 500 ? 'add' : 'remove']('visible');
+    });
+    document.getElementById('scrollTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Projects - 15 projects
+    const projects = [
+      { name: 'Бильярд бот', desc: 'Telegram-бот для бронирования столов в клубе', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BB%D1%8C%D1%8F%D1%80%D0%B4%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/billiard.html' },
+      { name: 'Личный помощник', desc: 'AI-планировщик в Telegram с голосовым управлением', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%A2%D0%93%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/assistant.html' },
+      { name: 'Авто-публикация', desc: 'Посты в Telegram из ссылок автоматически', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D0%B2%D1%82%D0%BE%E2%80%91%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20Telegram%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/autopublish.html' },
+      { name: 'AUDIO MinusPlus', desc: 'Разделение треков на стемы с оплатой', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/amp.html' },
+      { name: 'Нейросотрудник HR', desc: '8000+ откликов, 1166 часов экономии', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%20HR%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/hr-neuro.html' },
+      { name: 'Аюрпак', desc: 'Бот-консультант для производителя пакетов', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%8E%D1%80%D0%BF%D0%B0%D0%BA%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/aurpak.html' },
+      { name: 'Ленремонт', desc: 'AI-консультант по ремонту с калькулятором', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%81%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20(%D0%9B%D0%B5%D0%BD%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82)%20-%201.png', link: 'projects/lenremont.html' },
+      { name: 'МЧС', desc: 'Ассистент для подготовки КП', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9C%D0%A7%D0%A1%20%D0%A1%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/mchs.html' },
+      { name: 'ZZOK Sale', desc: 'Бот-продавец для прогрева клиентов', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FZZOK%20Sale%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/zzok-sale.html' },
+      { name: 'ZZOK HR', desc: 'База знаний и тесты для сотрудников', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%BE%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BA%D0%B0%D0%B4%D1%80%D0%BE%D0%B2%20(ZZok%20HR)%20-%201.png', link: 'projects/zzok-hr.html' },
+      { name: 'SMM-бот', desc: 'Контент-календарь для beauty-мастеров', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FSMM%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/smm-bot.html' },
+      { name: 'Биохакинг', desc: 'AI-консультант с базой знаний', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BE%D1%85%D0%B0%D0%BA%D0%B8%D0%BD%D0%B3%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/biohacking.html' },
+      { name: 'Салон красоты', desc: 'Запись клиентов + интеграция с 1С', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/salon.html' },
+      { name: 'Контроль платежей', desc: 'Напоминания о долгах в Telegram/WhatsApp', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9E%D1%82%D1%81%D0%BB%D0%B5%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/payments.html' },
+      { name: 'День с молитвой', desc: 'Вырицкий молитвослов — ежедневное приложение', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BE%D1%85%D0%B0%D0%BA%D0%B8%D0%BD%D0%B3%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/holy-scriptures.html' }
+    ];
+
+    // DOM Ready
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('🚀 DOM loaded');
+      const carousel = document.getElementById('portfolioCarousel');
+      const slider = document.getElementById('carouselSlider');
+      if (!carousel) return;
+
+      // Populate
+      projects.forEach((p, i) => {
+        const item = document.createElement('a');
+        item.className = 'portfolio-item';
+        item.href = p.link;
+        item.setAttribute('data-tilt', '');
+        item.setAttribute('data-aos', 'fade-up');
+        item.setAttribute('data-aos-delay', (i * 50).toString());
+        item.innerHTML = `<div class="portfolio-image-wrapper"><img src="${p.img}" alt="${p.name}" loading="lazy"></div><div class="content"><h3>${p.name}</h3><p>${p.desc}</p></div>`;
+        carousel.appendChild(item);
+      });
+
+      // Tilt
+      if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll('.portfolio-item[data-tilt]'), { max: 3, speed: 400, glare: true, 'max-glare': 0.15 });
+      }
+
+      // Slider control - smooth
+      let isSliding = false;
+      function updateSlider() {
+        if (!slider || !carousel || isSliding) return;
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        if (maxScroll > 0) {
+          const percent = (carousel.scrollLeft / maxScroll) * 100;
+          slider.value = Math.round(percent);
+        }
+      }
+
+      slider?.addEventListener('input', function() {
+        isSliding = true;
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        const scrollPos = (this.value / 100) * maxScroll;
+        carousel.scrollTo({ left: scrollPos, behavior: 'smooth' });
+        paused = true;
+      });
+
+      slider?.addEventListener('change', function() {
+        isSliding = false;
+        setTimeout(() => { paused = false; }, 2000);
+      });
+
+      carousel.addEventListener('scroll', updateSlider);
+
+      // Drag to scroll (mouse + touch)
+      let isDown = false, startX, scrollLeft;
+
+      function startDrag(x) {
+        isDown = true;
+        startX = x - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+        carousel.style.cursor = 'grabbing';
+        paused = true;
+      }
+      function endDrag() {
+        isDown = false;
+        carousel.style.cursor = 'grab';
+        setTimeout(() => { paused = false; }, 2000);
+      }
+      function moveDrag(x) {
+        if (!isDown) return;
+        const walk = (x - startX) * 2;
+        carousel.scrollLeft = scrollLeft - walk;
+      }
+
+      // Mouse events
+      carousel.addEventListener('mousedown', (e) => startDrag(e.pageX));
+      carousel.addEventListener('mouseleave', endDrag);
+      carousel.addEventListener('mouseup', endDrag);
+      carousel.addEventListener('mousemove', (e) => moveDrag(e.pageX));
+
+      // Touch events (for mobile)
+      carousel.addEventListener('touchstart', (e) => startDrag(e.touches[0].pageX), { passive: true });
+      carousel.addEventListener('touchend', endDrag);
+      carousel.addEventListener('touchmove', (e) => moveDrag(e.touches[0].pageX), { passive: true });
+
+      carousel.style.cursor = 'grab';
+
+      // Auto-scroll
+      let autoId = null, dir = 1, paused = false;
+      function auto() {
+        if (paused) return;
+        const max = carousel.scrollWidth - carousel.clientWidth;
+        if (carousel.scrollLeft >= max - 10) dir = -1;
+        else if (carousel.scrollLeft <= 10) dir = 1;
+        carousel.scrollLeft += 1 * dir;
+        autoId = requestAnimationFrame(auto);
+        updateSlider();
+      }
+      function start() { if (autoId) cancelAnimationFrame(autoId); paused = false; auto(); }
+      carousel.addEventListener('mouseenter', () => { paused = true; });
+      carousel.addEventListener('mouseleave', () => { paused = false; });
+      setTimeout(start, 2000);
+    });
+  </script>
 </body>
 </html>
