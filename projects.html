@@ -104,39 +104,39 @@
   <header>
     <nav>
       <a class="brand" href="index.html">
-        <strong>Александр Моисеев</strong>
-        <span>AI-боты и автоматизация</span>
+        <strong data-i18n="nav.brand">Александр Моисеев</strong>
+        <span data-i18n="nav.tagline">AI-боты и автоматизация</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="index.html#about">Обо мне</a></li>
-        <li><a href="resume-full.html">Резюме</a></li>
-        <li><a href="#contact">Контакты</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Главная</a></li>
+        <li><a href="index.html#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="resume-full.html" data-i18n="nav.resume">Резюме</a></li>
+        <li><a href="#contact" data-i18n="nav.contacts">Контакты</a></li>
       </ul>
-      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Связаться</a>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" data-i18n="nav.contact">Связаться</a>
     </nav>
   </header>
 
   <section class="page-hero" data-aos="fade-down">
-    <h1>Все проекты</h1>
-    <p>15+ реализованных проектов по автоматизации бизнеса: от AI-ботов до комплексных интеграций</p>
+    <h1 data-i18n="projects.title">Все проекты</h1>
+    <p data-i18n="projects.heroDesc">15+ реализованных проектов по автоматизации бизнеса: от AI-ботов до комплексных интеграций</p>
   </section>
 
   <div class="stats-bar">
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="0" data-tilt data-tilt-max="5"><div class="stat-number">15+</div><div class="stat-label">Проектов</div></div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5"><div class="stat-number">5</div><div class="stat-label">Категории</div></div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5"><div class="stat-number">1166+</div><div class="stat-label">Часов экономии</div></div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5"><div class="stat-number">100%</div><div class="stat-label">Результат</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="0" data-tilt data-tilt-max="5"><div class="stat-number">15+</div><div class="stat-label" data-i18n="projects.statProjects">Проектов</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5"><div class="stat-number">5</div><div class="stat-label" data-i18n="projects.statCategories">Категории</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5"><div class="stat-number">1166+</div><div class="stat-label" data-i18n="projects.statHours">Часов экономии</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5"><div class="stat-number">100%</div><div class="stat-label" data-i18n="projects.statResult">Результат</div></div>
   </div>
 
   <div class="filter-section" data-aos="fade-up">
     <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all">Все проекты</button>
-      <button class="filter-btn" data-filter="ai-bot">🤖 AI-боты</button>
-      <button class="filter-btn" data-filter="hr">👥 HR</button>
-      <button class="filter-btn" data-filter="payment">💰 Платежи</button>
-      <button class="filter-btn" data-filter="integration">🏢 Интеграции</button>
-      <button class="filter-btn" data-filter="app">📱 Приложения</button>
+      <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Все проекты</button>
+      <button class="filter-btn" data-filter="ai-bot" data-i18n="projects.filterAIBots">🤖 AI-боты</button>
+      <button class="filter-btn" data-filter="hr" data-i18n="projects.filterHR">👥 HR</button>
+      <button class="filter-btn" data-filter="payment" data-i18n="projects.filterPayments">💰 Платежи</button>
+      <button class="filter-btn" data-filter="integration" data-i18n="projects.filterIntegrations">🏢 Интеграции</button>
+      <button class="filter-btn" data-filter="app" data-i18n="projects.filterApps">📱 Приложения</button>
     </div>
   </div>
 
@@ -144,13 +144,14 @@
 
   <footer id="contact">
     <div class="container">
-      <p>© 2026 Александр Моисеев. AI-боты, ассистенты и автоматизация бизнеса под ключ</p>
+      <p data-i18n="common.footer">© 2026 Александр Моисеев. AI-боты, ассистенты и автоматизация бизнеса под ключ</p>
     </div>
   </footer>
 
   <button class="scroll-top" id="scrollTop">↑</button>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="i18n.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
     if (typeof VanillaTilt !== 'undefined') {
@@ -198,9 +199,43 @@
     const grid = document.getElementById('projectsGrid');
     const filterBtns = document.querySelectorAll('.filter-btn');
 
+    /* category label keys for i18n */
+    const CAT_LABELS = {
+      'ai-bot': 'projects.catAIBots',
+      'hr': 'projects.catHR',
+      'payment': 'projects.catPayments',
+      'integration': 'projects.catIntegrations',
+      'app': 'projects.catApps'
+    };
+
     function renderProjects(filter = 'all') {
       grid.innerHTML = '';
       const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+
+      // resolve a project field (name / desc / metric) through i18n when possible
+      function projText(p, field) {
+        if (typeof moiLang === 'undefined') return p[field];
+        const idx = projects.indexOf(p);
+        if (idx === -1) return p[field];
+        const map = { name: 'name', desc: 'desc', metric: 'metric' };
+        if (!map[field]) return p[field];
+        const key = 'projects.projects.' + idx + '.' + map[field];
+        if (moiLang.current() === 'ru') return p[field];           // Russian = defaults
+        if (!window._moiResolve) return p[field];
+        const v = window._moiResolve(key);
+        return v !== null ? v : p[field];
+      }
+
+      function catLabel(cat) {
+        const key = CAT_LABELS[cat];
+        if (!key || typeof moiLang === 'undefined' || moiLang.current() === 'ru') {
+          return { 'ai-bot': 'AI-боты', 'hr': 'HR', 'payment': 'Платежи', 'integration': 'Интеграции', 'app': 'Приложения' }[cat] || cat;
+        }
+        if (!window._moiResolve) return cat;
+        const v = window._moiResolve(key);
+        return v !== null ? v : cat;
+      }
+
       filtered.forEach((p, i) => {
         const card = document.createElement('a');
         card.className = 'project-card';
@@ -208,14 +243,13 @@
         card.setAttribute('data-tilt', '');
         card.setAttribute('data-aos', 'fade-up');
         card.setAttribute('data-aos-delay', (i * 50).toString());
-        const labels = { 'ai-bot': 'AI-боты', 'hr': 'HR', 'payment': 'Платежи', 'integration': 'Интеграции', 'app': 'Приложения' };
         card.innerHTML = `
-          <span class="category-badge ${p.category}">${labels[p.category]}</span>
+          <span class="category-badge ${p.category}">${catLabel(p.category)}</span>
           <div class="card-image"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
           <div class="card-content">
-            <h3>${p.name}</h3>
-            <p>${p.desc}</p>
-            <div class="card-metric"><div class="metric-value">${p.metric}</div></div>
+            <h3>${projText(p, 'name')}</h3>
+            <p>${projText(p, 'desc')}</p>
+            <div class="card-metric"><div class="metric-value">${projText(p, 'metric')}</div></div>
           </div>
         `;
         grid.appendChild(card);
@@ -234,6 +268,20 @@
     });
 
     renderProjects();
+
+    // Re-render project cards on language change
+    document.addEventListener('moi:langchange', function() {
+      const activeFilter = document.querySelector('.filter-btn.active');
+      renderProjects(activeFilter ? activeFilter.dataset.filter : 'all');
+    });
+    // Patch setLang to also dispatch our custom event
+    const _origSetLang = (window.moiLang || {}).setLang;
+    if (_origSetLang) {
+      window.moiLang.setLang = function(lang) {
+        _origSetLang.call(window.moiLang, lang);
+        document.dispatchEvent(new CustomEvent('moi:langchange'));
+      };
+    }
   </script>
 </body>
 </html>
