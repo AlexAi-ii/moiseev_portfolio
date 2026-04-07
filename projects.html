@@ -268,21 +268,34 @@
       });
     });
 
-    renderProjects();
-
-    // Re-render project cards on language change
-    document.addEventListener('moi:langchange', function() {
-      const activeFilter = document.querySelector('.filter-btn.active');
-      renderProjects(activeFilter ? activeFilter.dataset.filter : 'all');
-    });
-    // Patch setLang to also dispatch our custom event
-    const _origSetLang = (window.moiLang || {}).setLang;
-    if (_origSetLang) {
-      window.moiLang.setLang = function(lang) {
-        _origSetLang.call(window.moiLang, lang);
-        document.dispatchEvent(new CustomEvent('moi:langchange'));
-      };
+    // Wait for locale then render; re-render on language change
+    if (window._moiLocaleLoaded) {
+      window._moiLocaleLoaded.then(() => {
+        renderProjects();
+        document.addEventListener('moi:langchange', () => {
+          const active = document.querySelector('.filter-btn.active');
+          renderProjects(active ? active.dataset.filter : 'all');
+        });
+        const _origSetLang = (window.moiLang || {}).setLang;
+        if (_origSetLang) {
+          window.moiLang.setLang = function(lang) {
+            _origSetLang.call(window.moiLang, lang);
+            document.dispatchEvent(new CustomEvent('moi:langchange'));
+          };
+        }
+      });
+    } else {
+      renderProjects();
     }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        renderProjects(this.dataset.filter);
+      });
+    });
   </script>
 </body>
 </html>
+

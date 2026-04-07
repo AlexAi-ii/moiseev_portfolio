@@ -47,7 +47,7 @@
           if (lang !== 'ru') url.searchParams.set('lang', lang);
           else url.searchParams.delete('lang');
           history.replaceState({}, '', url);
-          fetchLocale(lang).then(applyTranslations).catch(function(){});
+          fetchLocale(lang).then(function(){ applyTranslations(); }).catch(function(){ finishInit(); });
         }
       })
       .catch(function() {
@@ -59,7 +59,7 @@
           var url = new URL(window.location.href);
           url.searchParams.set('lang', 'en');
           history.replaceState({}, '', url);
-          fetchLocale('en').then(applyTranslations).catch(function(){});
+          fetchLocale('en').then(function(){ applyTranslations(); }).catch(function(){ finishInit(); });
         }
       });
   }
@@ -68,7 +68,7 @@
     var parts = key.split('.');
     var obj = locale;
     for (var i = 0; i < parts.length; i++) {
-      if (!obj && obj !== null) return null;
+      if (obj === null || obj === undefined || typeof obj !== 'object') return null;
       obj = obj[parts[i]];
     }
     return (obj !== undefined && obj !== null) ? String(obj) : null;
@@ -78,7 +78,7 @@
     if (lang === DEFAULT) { locale = {}; return Promise.resolve(); }
     return fetch('locales/' + lang + '.json')
       .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
-      .then(function(d) { locale = d || {}; });
+      .then(function(d) { locale = d || {}; document.dispatchEvent(new CustomEvent('moi:localeloaded')); });
   }
 
   /* ---- build dropdown switcher ---- */
@@ -106,6 +106,12 @@
     return wrap;
   }
 
+  function finishInit() {
+    if (window._moiLocaleReady) return;
+    window._moiLocaleReady = true;
+    document.dispatchEvent(new CustomEvent('moi:localeloaded'));
+  }
+
   /* ---- main translations ---- */
   function applyTranslations() {
     if (currentLang === DEFAULT) {
@@ -123,6 +129,7 @@
         var attr = el.getAttribute('data-i18n-meta-name');
         if (attr) el.setAttribute(attr, el.getAttribute('data-i18n-meta-orig'));
       });
+      finishInit();
       return;
     }
 
@@ -171,6 +178,11 @@
   // Expose
   window.moiLang = { setLang: setLang, current: function() { return currentLang; }, resolve: resolve };
   window._moiResolve = resolve;
+  window._moiLocaleLoaded = new Promise(function(ok) {
+    var _done = false;
+    function mark() { if (!_done) { _done = true; ok(); } }
+    document.addEventListener('moi:localeloaded', mark);
+  });
 
   /* ---- init ---- */
   function init() {
@@ -202,7 +214,9 @@
 
     // Load locale and translate
     if (currentLang !== DEFAULT) {
-      fetchLocale(currentLang).then(applyTranslations).catch(function(){});
+      fetchLocale(currentLang).then(function(){ applyTranslations(); }).catch(function(){ finishInit(); });
+    } else {
+      finishInit();
     }
   }
 
