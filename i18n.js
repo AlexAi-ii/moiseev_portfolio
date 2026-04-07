@@ -185,11 +185,13 @@
 
     fetchLocale(lang).then(function() {
       applyTranslations();
+      document.dispatchEvent(new CustomEvent('moi:langchange'));
     }).catch(function(){});
   }
 
   // Expose
   window.moiLang = { setLang: setLang, current: function() { return currentLang; }, resolve: resolve };
+  window._moiResolve = resolve;
 
   /* ---- init ---- */
   function init() {
