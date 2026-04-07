@@ -105,23 +105,23 @@
   <header>
     <nav>
       <a class="brand" href="../index.html">
-        <strong>Александр Моисеев</strong>
-        <span>AI-боты и автоматизация</span>
+        <strong data-i18n="nav.brand">Александр Моисеев</strong>
+        <span data-i18n="nav.tagline">AI-боты и автоматизация</span>
       </a>
       <ul class="nav-links">
-        <li><a href="../index.html">Главная</a></li>
-        <li><a href="../projects.html">Все проекты</a></li>
-        <li><a href="../resume-full.html">Резюме</a></li>
+        <li><a href="../index.html" data-i18n="nav.home">Главная</a></li>
+        <li><a href="../projects.html" data-i18n="nav.allProjects">Все проекты</a></li>
+        <li><a href="../resume-full.html" data-i18n="nav.resume">Резюме</a></li>
       </ul>
-      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Связаться</a>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer"><span data-i18n="nav.contact">Связаться</span></a>
     </nav>
   </header>
 
   <main class="case-hero">
-    <a href="../projects.html" class="back-link" data-aos="fade-right">← Назад к проектам</a>
+    <a href="../projects.html" class="back-link" data-aos="fade-right" data-i18n="projectsPages.backLink">← Назад к проектам</a>
     <div class="case-badge" data-aos="fade-down">👥 HR</div>
-    <h1 class="case-title" data-aos="fade-down">Нейросотрудник HR</h1>
-    <p class="case-subtitle" data-aos="fade-down">Автоматизация найма: 8000+ откликов, 1166 часов экономии</p>
+    <h1 class="case-title" data-i18n="projectPages.hrNeuro.title" data-aos="fade-down">Нейросотрудник HR</h1>
+    <p class="case-subtitle" data-i18n="projectPages.hrNeuro.subtitle" data-aos="fade-down">Автоматизация найма: 8000+ откликов, 1166 часов экономии</p>
 
     <!-- Project Showcase with Stats -->
     <div class="project-showcase" data-aos="zoom-in" data-tilt data-tilt-max="2" data-tilt-speed="400">
@@ -152,14 +152,14 @@
   <div class="case-content">
     <section class="section-card" data-aos="fade-up">
       <div class="psr-grid">
-        <div class="psr-box problem" data-tilt data-tilt-max="3"><h3>⚠️ Проблема</h3><p>HR-отдел тратил 40+ часов в неделю на ручную обработку откликов с HeadHunter. Тысячи откликов ежемесячно требовали ручной обработки, HR-менеджеры тратили время на нецелевых кандидатов.</p></div>
+        <div class="psr-box problem" data-tilt data-tilt-max="3"><h3 data-i18n="projectsPages.psrProblem">⚠️ Проблема</h3><p>HR-отдел тратил 40+ часов в неделю на ручную обработку откликов с HeadHunter. Тысячи откликов ежемесячно требовали ручной обработки, HR-менеджеры тратили время на нецелевых кандидатов.</p></div>
         <div class="psr-box solution" data-tilt data-tilt-max="3"><h3>💡 Решение</h3><p>AI-бот, который автоматически обрабатывает отклики, проводит первичную квалификацию и ведёт учёт в Google Sheets. Мгновенная реакция на отклики 24/7, скриптовые вопросы, фильтрация нецелевых кандидатов.</p></div>
         <div class="psr-box result" data-tilt data-tilt-max="3"><h3>📈 Результат</h3><p>8000+ откликов получено, 3500+ кандидатов автоматически обработано, 1166 часов сэкономлено HR-отделу. Сокращение времени найма с 2 недель до 3-4 дней.</p></div>
       </div>
     </section>
 
     <section class="section-card" data-aos="fade-up">
-      <h2><span class="icon">✨</span> Возможности бота</h2>
+      <h2><span class="icon">✨</span> <span data-i18n="projectsPages.featuresTitleBot">Возможности бота</h2></span></h2>
       <div class="features-grid">
         <div class="feature-card" data-tilt data-tilt-max="3"><h4>📬 Авто-обработка откликов</h4><p>Мгновенная реакция на новые отклики с HeadHunter 24/7 без участия человека</p></div>
         <div class="feature-card" data-tilt data-tilt-max="3"><h4>❓ Квалификация кандидатов</h4><p>Задаёт скриптовые уточняющие вопросы для определения соответствия требованиям</p></div>
@@ -203,7 +203,7 @@
     <div class="cta-box" data-aos="zoom-in">
       <h3>Хотите такого же бота для своего бизнеса?</h3>
       <p>Обсудим ваш проект и подберу оптимальное решение для автоматизации</p>
-      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">✈️ Написать в Telegram</a>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">✈️ <span data-i18n="common.ctaBtn">Написать в Telegram</span></a>
     </div>
   </div>
 
@@ -215,8 +215,9 @@
   </div>
 
   <button class="scroll-top" id="scrollTop">↑</button>
-  <footer><div class="container">© 2026 Александр Моисеев. AI-боты, ассистенты и автоматизация бизнеса под ключ</div></footer>
+  <footer><div class="container">© 2026 <span data-i18n="common.footer">Александр Моисеев. AI-боты, ассистенты и автоматизация бизнеса под ключ</span></div></footer>
 
+  <script src="../i18n.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });

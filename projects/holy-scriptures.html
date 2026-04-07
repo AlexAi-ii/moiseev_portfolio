@@ -90,23 +90,23 @@
   <header>
     <nav>
       <a class="brand" href="../index.html">
-        <strong>Александр Моисеев</strong>
-        <span>AI-боты и автоматизация</span>
+        <strong data-i18n="nav.brand">Александр Моисеев</strong>
+        <span data-i18n="nav.tagline">AI-боты и автоматизация</span>
       </a>
       <ul class="nav-links">
-        <li><a href="../index.html">Главная</a></li>
-        <li><a href="../projects.html">Все проекты</a></li>
-        <li><a href="../resume-full.html">Резюме</a></li>
+        <li><a href="../index.html" data-i18n="nav.home">Главная</a></li>
+        <li><a href="../projects.html" data-i18n="nav.allProjects">Все проекты</a></li>
+        <li><a href="../resume-full.html" data-i18n="nav.resume">Резюме</a></li>
       </ul>
-      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Связаться</a>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer"><span data-i18n="nav.contact">Связаться</span></a>
     </nav>
   </header>
 
   <main class="case-hero">
-    <a href="../projects.html" class="back-link" data-aos="fade-right">← Назад к проектам</a>
+    <a href="../projects.html" class="back-link" data-aos="fade-right" data-i18n="projectsPages.backLink">← Назад к проектам</a>
     <div class="case-badge" data-aos="fade-down">📿 Приложение</div>
-    <h1 class="case-title" data-aos="fade-down">День с молитвой</h1>
-    <p class="case-subtitle" data-aos="fade-down">Вырицкий молитвослов — ежедневное приложение для молитвенной практики</p>
+    <h1 class="case-title" data-i18n="projectPages.holyScriptures.title" data-aos="fade-down">День с молитвой</h1>
+    <p class="case-subtitle" data-i18n="projectPages.holyScriptures.subtitle" data-aos="fade-down">Вырицкий молитвослов — ежедневное приложение для молитвенной практики</p>
 
     <!-- Project Showcase with Stats -->
     <div class="project-showcase" data-aos="zoom-in" data-tilt data-tilt-max="2" data-tilt-speed="400">
@@ -137,14 +137,14 @@
   <div class="case-content">
     <section class="section-card" data-aos="fade-up">
       <div class="psr-grid">
-        <div class="psr-box problem" data-tilt data-tilt-max="3"><h3>⚠️ Проблема</h3><p>Верующие испытывали трудности с регулярной молитвенной практикой: забывали читать молитвы, не имели удобного доступа к молитвослову в течение дня, особенно вне дома.</p></div>
+        <div class="psr-box problem" data-tilt data-tilt-max="3"><h3 data-i18n="projectsPages.psrProblem">⚠️ Проблема</h3><p>Верующие испытывали трудности с регулярной молитвенной практикой: забывали читать молитвы, не имели удобного доступа к молитвослову в течение дня, особенно вне дома.</p></div>
         <div class="psr-box solution" data-tilt data-tilt-max="3"><h3>💡 Решение</h3><p>Мобильное приложение «День с молитвой» с ежедневным молитвенным правилом, уведомлениями о времени молитвы и полным Вырицким молитвословом в кармане.</p></div>
         <div class="psr-box result" data-tilt data-tilt-max="3"><h3>📈 Результат</h3><p>Удобное приложение для ежедневной молитвенной практики, доступное в любое время и в любом месте. Более 100 молитв в базе данных.</p></div>
       </div>
     </section>
 
     <section class="section-card" data-aos="fade-up">
-      <h2><span class="icon">✨</span> Возможности приложения</h2>
+      <h2><span class="icon">✨</span> <span data-i18n="projectsPages.featuresTitle">Возможности приложения</h2></span></h2>
       <div class="features-grid">
         <div class="feature-card" data-tilt data-tilt-max="3"><h4>📖 Ежедневное правило</h4><p>Автоматический подбор молитв на каждый день по церковному календарю</p></div>
         <div class="feature-card" data-tilt data-tilt-max="3"><h4>🔔 Уведомления</h4><p>Напоминания о времени утренних и вечерних молитв</p></div>
@@ -169,13 +169,14 @@
     <div class="cta-box" data-aos="zoom-in">
       <h3>Хотите создать подобное приложение?</h3>
       <p>Обсудим ваш проект и подберу оптимальное решение для реализации</p>
-      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">✈️ Написать в Telegram</a>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">✈️ <span data-i18n="common.ctaBtn">Написать в Telegram</span></a>
     </div>
   </div>
 
   <button class="scroll-top" id="scrollTop">↑</button>
-  <footer><div class="container">© 2026 Александр Моисеев. AI-боты, ассистенты и автоматизация бизнеса под ключ</div></footer>
+  <footer><div class="container">© 2026 <span data-i18n="common.footer">Александр Моисеев. AI-боты, ассистенты и автоматизация бизнеса под ключ</span></div></footer>
 
+  <script src="../i18n.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
