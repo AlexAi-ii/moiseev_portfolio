@@ -76,7 +76,7 @@
 
   function fetchLocale(lang) {
     if (lang === DEFAULT) { locale = {}; return Promise.resolve(); }
-    return fetch('locales/' + lang + '.json')
+    return fetch('/locales/' + lang + '.json')
       .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
       .then(function(d) { locale = d || {}; document.dispatchEvent(new CustomEvent('moi:localeloaded')); });
   }
