@@ -126,27 +126,6 @@
       return;
     }
 
-    // Title
-    document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
-      if (!el.hasAttribute('data-i18n-title-orig')) {
-        el.setAttribute('data-i18n-title-orig', document.title);
-      }
-      var v = resolve(el.getAttribute('data-i18n-title'));
-      if (v) document.title = v;
-    });
-
-    // Meta description
-    document.querySelectorAll('[data-i18n-meta]').forEach(function(el) {
-      var attr = el.getAttribute('data-i18n-meta');
-      var metaKey = el.getAttribute('data-i18n-meta-key');
-      if (!el.hasAttribute('data-i18n-meta-orig')) {
-        el.setAttribute('data-i18n-meta-orig', el.getAttribute(attr));
-        el.setAttribute('data-i18n-meta-name', attr);
-      }
-      var v = resolve(metaKey);
-      if (v) el.setAttribute(attr, v);
-    });
-
     // Text content
     document.querySelectorAll('[data-i18n]').forEach(function(el) {
       var key = el.getAttribute('data-i18n');

@@ -25,7 +25,8 @@
     "linkVK": "VKontakte",
     "ctaProject": "Listo para hablar de tu proyecto",
     "ctaProjectDesc": "Puedo incorporarme como desarrollador, analista o arquitecto de soluciones: desde la idea hasta la implementacion.",
-    "footer": "2026 Alexander Moiseev. Bots de IA, asistentes y automatizacion empresarial llave en mano"
+    "footer": "2026 Alexander Moiseev. Bots de IA, asistentes y automatizacion empresarial llave en mano",
+    "ctaTelegram": "✈️ Escribir por Telegram"
   },
   "index": {
     "title": "Alexander Moiseev - Desarrollador y Analista de IA",
@@ -77,7 +78,10 @@
     "skillPlatforms4": "LLM: OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT",
     "portfolioTitle": "Portafolio",
     "contactTitle": "Contactos",
-    "contactDiscuss": "Discutir un proyecto"
+    "contactDiscuss": "Discutir un proyecto",
+    "contactMax": "MAX",
+    "contactVK": "VKontakte",
+    "viewProjects": "📂 Todos los proyectos"
   },
   "resume": {
     "title": "Curriculum - Alexander Moiseev",
@@ -1504,5 +1508,84 @@
         "desc": "Hablemos de tu proyecto y encontrare la solucion optima para la realizacion"
       }
     }
+  },
+  "projects": {
+    "projects": [
+      {
+        "name": "Bot Billar",
+        "desc": "Bot de Telegram para reservar mesas",
+        "metric": "40% menos llamadas al admin"
+      },
+      {
+        "name": "Asistente Personal",
+        "desc": "Planificador IA en Telegram con voz",
+        "metric": "2+ horas ahorradas al dia"
+      },
+      {
+        "name": "Auto-Publicacion",
+        "desc": "Posts automaticos en Telegram",
+        "metric": "5 horas ahorradas por semana"
+      },
+      {
+        "name": "AUDIO MinusPlus",
+        "desc": "Separacion de pistas con pago",
+        "metric": "Automatizacion completa"
+      },
+      {
+        "name": "HR Neuro-empleado",
+        "desc": "8000+ solicitudes, 1166h ahorradas",
+        "metric": "8000+ solicitudes"
+      },
+      {
+        "name": "Ayurpak",
+        "desc": "Bot-consultor para envases",
+        "metric": "Ciclo leads rapido"
+      },
+      {
+        "name": "Lenremont",
+        "desc": "Consultor renovacion IA con calculadora",
+        "metric": "Menos leads perdidos"
+      },
+      {
+        "name": "MCHS",
+        "desc": "Asistente para propuestas comerciales",
+        "metric": "Propuestas mas rapidas"
+      },
+      {
+        "name": "ZZOK Sale",
+        "desc": "Bot de ventas para calentar clientes",
+        "metric": "Leads calentados"
+      },
+      {
+        "name": "ZZOK HR",
+        "desc": "Base de conocimiento para empleados",
+        "metric": "Incorporacion acelerada"
+      },
+      {
+        "name": "SMM Bot",
+        "desc": "Calendario contenido para belleza",
+        "metric": "10 horas ahorradas por semana"
+      },
+      {
+        "name": "Biohacking",
+        "desc": "Consultor IA biohacking",
+        "metric": "Monetizacion de experiencia"
+      },
+      {
+        "name": "Salon de Belleza",
+        "desc": "Reserva clientes + integracion 1C",
+        "metric": "Carga admin reducida"
+      },
+      {
+        "name": "Control de Pagos",
+        "desc": "Recordatorios deuda Telegram/WhatsApp",
+        "metric": "Pagos atrasados reducidos"
+      },
+      {
+        "name": "Dia con Oracion",
+        "desc": "Breviario Vyritsky — app diaria",
+        "metric": "Oracion diaria"
+      }
+    ]
   }
 }

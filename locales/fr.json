@@ -20,12 +20,13 @@
     "ctaTitle": "Vous voulez un tel bot pour votre entreprise ?",
     "ctaDesc": "Discutons de votre projet et je trouverai la solution d'automatisation optimale",
     "ctaBtn": "✈️ Ecrire sur Telegram",
-    "viewAllProjects": "📂 Voir tout les projets",
+    "viewAllProjects": "📂 Voir tous les projets",
     "discussProject": "💬 Discuter du projet",
     "linkVK": "VKontakte",
     "ctaProject": "Pret a discuter de votre projet",
     "ctaProjectDesc": "Je peux intervenir en tant que developpeur, analyste ou architecte de solutions : de l'idee a la realisation.",
-    "footer": "© 2026 Alexander Moiseev. Bots IA, assistants et automatisation d'entreprise cles en main"
+    "footer": "© 2026 Alexander Moiseev. Bots IA, assistants et automatisation d'entreprise cles en main",
+    "ctaTelegram": "✈️ Ecrire sur Telegram"
   },
   "index": {
     "title": "Alexander Moiseev - Developpeur & Analyste IA",
@@ -77,7 +78,10 @@
     "skillPlatforms4": "LLM : OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT",
     "portfolioTitle": "Portfolio",
     "contactTitle": "Contacts",
-    "contactDiscuss": "💬 Discuter d'un projet"
+    "contactDiscuss": "💬 Discuter d'un projet",
+    "contactMax": "MAX",
+    "contactVK": "VKontakte",
+    "viewProjects": "📂 Tous les projets"
   },
   "projects": {
     "title": "Tous les projets",
@@ -100,78 +104,78 @@
     "catApps": "Applications",
     "projects": [
       {
-        "name": "Bot de billard",
-        "desc": "Bot Telegram pour reserver des tables dans un club",
-        "metric": "40 % de reduction de charge"
+        "name": "Bot Billard",
+        "desc": "Bot Telegram pour reservation de tables",
+        "metric": "40% de charge admin en moins"
       },
       {
-        "name": "Assistant personnel",
-        "desc": "Planificateur IA dans Telegram avec commande vocale",
-        "metric": "Economise 2+ heures par jour"
+        "name": "Assistant Personnel",
+        "desc": "Planificateur IA dans Telegram avec vocale",
+        "metric": "2+ heures economisees par jour"
       },
       {
-        "name": "Auto-publication",
-        "desc": "Publication automatique sur Telegram depuis des liens",
-        "metric": "Economise 5 heures/semaine"
+        "name": "Auto-Publication",
+        "desc": "Posts Telegram automatiques",
+        "metric": "5 heures economisees par semaine"
       },
       {
         "name": "AUDIO MinusPlus",
-        "desc": "Separation de pistes en stems avec paiement",
-        "metric": "Entierement automatise"
+        "desc": "Separation de pistes avec paiement",
+        "metric": "Automatisation complete"
       },
       {
         "name": "HR Neuro-employe",
-        "desc": "8000+ reponses, 1166 h economisees pour les RH",
-        "metric": "8000+ reponses, 1166 h"
+        "desc": "8000+ candidatures, 1166 h economisees",
+        "metric": "8000+ candidatures"
       },
       {
         "name": "Ayurpak",
-        "desc": "Bot consultant pour un fabricant d'emballages",
-        "metric": "Boucle entrante rapide"
+        "desc": "Bot-conseil pour fabricant d'emballages",
+        "metric": "Cycle leads rapide"
       },
       {
         "name": "Lenremont",
-        "desc": "Consultant IA de reparation avec calculatrice",
+        "desc": "Consultant renovation IA avec calculateur",
         "metric": "Moins de leads perdus"
       },
       {
         "name": "MCHS",
-        "desc": "Assistant pour la preparation de propositions",
-        "metric": "Propositions plus rapides, moins d'erreurs"
+        "desc": "Assistant pour propositions commerciales",
+        "metric": "Propositions plus rapides"
       },
       {
         "name": "ZZOK Sale",
-        "desc": "Bot de vente pour le chauffage de leads",
-        "metric": "Leads qualifies"
+        "desc": "Bot de vente pour rechauffement client",
+        "metric": "Leads rechauffes"
       },
       {
-        "name": "ZZOK RH",
-        "desc": "Base de connaissances & tests pour le personnel",
+        "name": "ZZOK HR",
+        "desc": "Base de connaissances pour employes",
         "metric": "Integration acceleree"
       },
       {
-        "name": "Bot SMM",
-        "desc": "Calendrier de contenu pour les professionnels de la beaute",
-        "metric": "Economise 10 heures/semaine"
+        "name": "SMM Bot",
+        "desc": "Calendrier contenu pour beaute",
+        "metric": "10 heures economisees par semaine"
       },
       {
         "name": "Biohacking",
-        "desc": "Consultant IA avec base de connaissances",
-        "metric": "Monetisation de l'expertise"
+        "desc": "Consultant IA biohacking",
+        "metric": "Monetisation expertise"
       },
       {
-        "name": "Salon de beaute",
+        "name": "Salon de Beaute",
         "desc": "Reservation clients + integration 1C",
         "metric": "Charge admin reduite"
       },
       {
-        "name": "Controle des paiements",
-        "desc": "Rappels de dettes dans Telegram/WhatsApp",
-        "metric": "Reduction des impayes"
+        "name": "Controle des Paiements",
+        "desc": "Rappels de dettes Telegram/WhatsApp",
+        "metric": "Retards reduits"
       },
       {
-        "name": "Jour avec la priere",
-        "desc": "Molitoslov de Viritsa - application quotidienne",
+        "name": "Jour avec Priere",
+        "desc": "Breviaire Vyritsky — app quotidienne",
         "metric": "Priere quotidienne"
       }
     ]

@@ -325,10 +325,10 @@
     </div>
     <div class="social-links" style="margin-top: 0; justify-content: center; gap: 20px;">
       <a href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" class="social-link telegram" style="padding: 16px 28px; font-size: 1rem;">
-        <span style="font-size: 1.5rem;">✈️</span> Telegram
+        <span style="font-size: 1.5rem;">✈️</span> <span data-i18n="common.ctaTelegram">Telegram</span>
       </a>
       <a href="https://max.ru/u/f9LHodD0cOL9D1QBbAqai6N2XjZQqq_3m9Tk0fGgkLsTrUmzuNi4ax9rsP8" target="_blank" rel="noopener noreferrer" class="social-link" style="padding: 16px 28px; font-size: 1rem; background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border: 1px solid var(--line);">
-        <span style="font-size: 1.5rem;">💼</span> MAX
+        <span style="font-size: 1.5rem;">💼</span> <span data-i18n="index.contactMax">MAX</span>
       </a>
       <a href="https://vk.com/a.moiseev76" target="_blank" rel="noopener noreferrer" class="social-link vk" style="padding: 16px 28px; font-size: 1rem;">
         <span style="font-size: 1.5rem;">🔵</span> <span data-i18n="index.contactVK">ВКонтакте</span>
@@ -402,21 +402,40 @@
       if (!carousel) return;
 
       // Populate
-      projects.forEach((p, i) => {
-        const item = document.createElement('a');
-        item.className = 'portfolio-item';
-        item.href = p.link;
-        item.setAttribute('data-tilt', '');
-        item.setAttribute('data-aos', 'fade-up');
-        item.setAttribute('data-aos-delay', (i * 50).toString());
-        item.innerHTML = `<div class="portfolio-image-wrapper"><img src="${p.img}" alt="${p.name}" loading="lazy"></div><div class="content"><h3>${p.name}</h3><p>${p.desc}</p></div>`;
-        carousel.appendChild(item);
-      });
-
-      // Tilt
-      if (typeof VanillaTilt !== 'undefined') {
-        VanillaTilt.init(document.querySelectorAll('.portfolio-item[data-tilt]'), { max: 3, speed: 400, glare: true, 'max-glare': 0.15 });
+      function portfolioText(idx, field) {
+        if (typeof moiLang === 'undefined' || moiLang.current() === 'ru') return projects[idx][field];
+        if (!window._moiResolve) return projects[idx][field];
+        const v = window._moiResolve('projects.projects.' + idx + '.' + field);
+        return v !== null ? v : projects[idx][field];
       }
+
+      function renderPortfolio() {
+        carousel.innerHTML = '';
+        projects.forEach((p, i) => {
+          const item = document.createElement('a');
+          item.className = 'portfolio-item';
+          item.href = p.link;
+          item.setAttribute('data-tilt', '');
+          item.setAttribute('data-aos', 'fade-up');
+          item.setAttribute('data-aos-delay', (i * 50).toString());
+          item.innerHTML = `<div class="portfolio-image-wrapper"><img src="${p.img}" alt="${p.name}" loading="lazy"></div><div class="content"><h3>${portfolioText(i, 'name')}</h3><p>${portfolioText(i, 'desc')}</p></div>`;
+          carousel.appendChild(item);
+        });
+        if (typeof VanillaTilt !== 'undefined') {
+          VanillaTilt.init(document.querySelectorAll('.portfolio-item[data-tilt]'), { max: 3, speed: 400, glare: true, 'max-glare': 0.15 });
+        }
+      }
+
+      renderPortfolio();
+
+      // Re-render portfolio on language change
+      document.addEventListener('moi:langchange', function() {
+        renderPortfolio();
+        // Re-apply translations to static elements
+        if (window.moiLang && window.moiLang.current() !== 'ru') {
+          window._moiResolve = window.moiLang.resolve;
+        }
+      });
 
       // Slider control - smooth
       let isSliding = false;

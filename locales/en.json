@@ -25,7 +25,8 @@
     "linkVK": "VKontakte",
     "ctaProject": "Ready to discuss your project",
     "ctaProjectDesc": "I can join as a developer, analyst, or solution architect: from idea to implementation.",
-    "footer": "© 2026 Alexander Moiseev. AI bots, assistants and turnkey business automation"
+    "footer": "© 2026 Alexander Moiseev. AI bots, assistants and turnkey business automation",
+    "ctaTelegram": "✈️ Write on Telegram"
   },
   "index": {
     "title": "Alexander Moiseev — AI Developer & Analyst",
@@ -77,7 +78,10 @@
     "skillPlatforms4": "LLM: OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT",
     "portfolioTitle": "Portfolio",
     "contactTitle": "Contacts",
-    "contactDiscuss": "💬 Discuss a Project"
+    "contactDiscuss": "💬 Discuss a Project",
+    "contactMax": "MAX",
+    "contactVK": "ВКонтакте",
+    "viewProjects": "📂 All Projects"
   },
   "projects": {
     "title": "All Projects",
@@ -102,61 +106,61 @@
       {
         "name": "Billiard Bot",
         "desc": "Telegram bot for booking tables at a club",
-        "metric": "40% load reduction"
+        "metric": "40% admin load reduction"
       },
       {
         "name": "Personal Assistant",
         "desc": "AI planner in Telegram with voice control",
-        "metric": "Saves 2+ hours daily"
+        "metric": "2+ hours saved daily"
       },
       {
         "name": "Auto-Publish",
-        "desc": "Auto-posts to Telegram from links",
-        "metric": "Saves 5 hours/week"
+        "desc": "Auto Telegram posts from links",
+        "metric": "5 hours saved per week"
       },
       {
         "name": "AUDIO MinusPlus",
-        "desc": "Track-to-stems splitter with payment",
-        "metric": "Fully automated"
+        "desc": "Track separation with payments",
+        "metric": "Full automation"
       },
       {
         "name": "HR Neuro-Employee",
-        "desc": "8000+ responses, 1166 hrs saved for HR",
-        "metric": "8000+ responses, 1166h"
+        "desc": "8000+ applications, 1166 hours saved",
+        "metric": "8000+ apps processed"
       },
       {
         "name": "Ayurpak",
-        "desc": "Consultant bot for packaging manufacturer",
-        "metric": "Fast inbound loop"
+        "desc": "Bot consultant for packaging manufacturer",
+        "metric": "Fast incoming lead cycle"
       },
       {
         "name": "Lenremont",
-        "desc": "AI repair consultant with calculator",
+        "desc": "AI renovation consultant with calculator",
         "metric": "Fewer lost leads"
       },
       {
         "name": "MCHS",
-        "desc": "Assistant for proposal preparation",
+        "desc": "Assistant for commercial proposals",
         "metric": "Faster proposals, fewer errors"
       },
       {
         "name": "ZZOK Sale",
-        "desc": "Sales bot for lead warming",
+        "desc": "Sales bot for client warming",
         "metric": "Warmed leads"
       },
       {
         "name": "ZZOK HR",
-        "desc": "Knowledge base & tests for staff",
+        "desc": "Knowledge base and tests for employees",
         "metric": "Faster onboarding"
       },
       {
         "name": "SMM Bot",
-        "desc": "Content calendar for beauty professionals",
-        "metric": "Saves 10 hours/week"
+        "desc": "Content calendar for beauty masters",
+        "metric": "10 hours saved per week"
       },
       {
         "name": "Biohacking",
-        "desc": "AI consultant with knowledge base",
+        "desc": "AI consultant with biohacking knowledge base",
         "metric": "Expertise monetization"
       },
       {
@@ -167,12 +171,12 @@
       {
         "name": "Payment Control",
         "desc": "Debt reminders in Telegram/WhatsApp",
-        "metric": "Reduced delinquency"
+        "metric": "Reduced overdue payments"
       },
       {
         "name": "Day with Prayer",
-        "desc": "Viritsa Prayer Book — daily app",
-        "metric": "Daily prayer"
+        "desc": "Vyritsky prayer book — daily app",
+        "metric": "Daily prayer routine"
       }
     ]
   },

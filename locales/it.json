@@ -21,13 +21,12 @@
     "ctaTitle": "Vuoi un bot simile per la tua attività?",
     "ctaDesc": "Parliamo del tuo progetto e ti troverò la soluzione di automazione ottimale",
     "ctaBtn": "Scrivi su Telegram",
-    "viewAllProjects": "📂 Vedi tutti i progetti",
     "discussProject": "💬 Discuti il progetto",
     "linkVK": "VKontakte",
     "ctaProject": "Pronto a discutere il tuo progetto",
     "ctaProjectDesc": "Posso partecipare come sviluppatore, analista o architetto di soluzioni: dall'idea all'implementazione.",
     "footer": "© 2026 Alexander Moiseev. Bot AI, assistenti e automazione aziendale chiavi in mano",
-    "discussProject": "💬 Discuti un progetto"
+    "ctaTelegram": "✈️ Scrivere su Telegram"
   },
   "index": {
     "title": "Alexander Moiseev — Sviluppatore & Analista AI",
@@ -79,7 +78,9 @@
     "skillPlatforms4": "LLM: OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT",
     "portfolioTitle": "Portfolio",
     "contactTitle": "Contatti",
-    "contactVK": "VKontakte"
+    "contactVK": "VKontakte",
+    "contactMax": "MAX",
+    "viewProjects": "📂 Tutti i progetti"
   },
   "projects": {
     "title": "Tutti i progetti",
@@ -99,7 +100,84 @@
     "catHR": "HR",
     "catPayments": "Pagamenti",
     "catIntegrations": "Integrazioni",
-    "catApps": "App"
+    "catApps": "App",
+    "projects": [
+      {
+        "name": "Bot Biliardo",
+        "desc": "Bot Telegram per prenotazione tavoli",
+        "metric": "40% carico admin in meno"
+      },
+      {
+        "name": "Assistente Personale",
+        "desc": "Pianificatore IA in Telegram con vocale",
+        "metric": "2+ ore risparmiate al giorno"
+      },
+      {
+        "name": "Auto-Pubblicazione",
+        "desc": "Post Telegram automatici",
+        "metric": "5 ore risparmiate a settimana"
+      },
+      {
+        "name": "AUDIO MinusPlus",
+        "desc": "Separazione tracce con pagamento",
+        "metric": "Automazione completa"
+      },
+      {
+        "name": "HR Neuro-dipendente",
+        "desc": "8000+ candidature, 1166 ore risparmiate",
+        "metric": "8000+ candidature"
+      },
+      {
+        "name": "Ayurpak",
+        "desc": "Bot-consulente per imballaggi",
+        "metric": "Ciclo lead rapido"
+      },
+      {
+        "name": "Lenremont",
+        "desc": "Consulente ristrutturazione IA con calcolatore",
+        "metric": "Meno lead persi"
+      },
+      {
+        "name": "MCHS",
+        "desc": "Assistente per proposte commerciali",
+        "metric": "Proposte piu veloci"
+      },
+      {
+        "name": "ZZOK Sale",
+        "desc": "Bot vendite per riscaldamento clienti",
+        "metric": "Lead riscaldati"
+      },
+      {
+        "name": "ZZOK HR",
+        "desc": "Knowledge base per dipendenti",
+        "metric": "Onboarding accelerato"
+      },
+      {
+        "name": "SMM Bot",
+        "desc": "Calendario contenuti per beauty",
+        "metric": "10 ore risparmiate a settimana"
+      },
+      {
+        "name": "Biohacking",
+        "desc": "Consulente IA biohacking",
+        "metric": "Monetizzazione competenza"
+      },
+      {
+        "name": "Salone di Bellezza",
+        "desc": "Prenotazione clienti + integrazione 1C",
+        "metric": "Carico admin ridotto"
+      },
+      {
+        "name": "Controllo Pagamenti",
+        "desc": "Promemoria debiti Telegram/WhatsApp",
+        "metric": "Ritardi ridotti"
+      },
+      {
+        "name": "Giorno con Preghiera",
+        "desc": "Breviario Vyritsky — app quotidiana",
+        "metric": "Preghiera quotidiana"
+      }
+    ]
   },
   "resume": {
     "title": "Curriculum — Alexander Moiseev",

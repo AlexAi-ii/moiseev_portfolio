@@ -25,7 +25,8 @@
     "linkVK": "VKontakte",
     "ctaProject": "Bereit, Ihr Projekt zu besprechen",
     "ctaProjectDesc": "Ich kann als Entwickler, Analyst oder Lösungsarchitekt einsteigen: von der Idee bis zur Umsetzung.",
-    "footer": "© 2026 Alexander Moiseev. AI-Bots, Assistenten und schlüsselfertige Geschäftsautomatisierung"
+    "footer": "© 2026 Alexander Moiseev. AI-Bots, Assistenten und schlüsselfertige Geschäftsautomatisierung",
+    "ctaTelegram": "✈️ Über Telegram schreiben"
   },
   "index": {
     "title": "Alexander Moiseev — AI-Entwickler & Analyst",
@@ -77,7 +78,10 @@
     "skillPlatforms4": "LLM: OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT",
     "portfolioTitle": "Portfolio",
     "contactTitle": "Kontakt",
-    "contactDiscuss": "💬 Projekt besprechen"
+    "contactDiscuss": "💬 Projekt besprechen",
+    "contactMax": "MAX",
+    "contactVK": "VKontakte",
+    "viewProjects": "📂 Alle Projekte"
   },
   "projects": {
     "title": "Alle Projekte",
@@ -100,79 +104,79 @@
     "catApps": "Anwendungen",
     "projects": [
       {
-        "name": "Billiard-Bot",
-        "desc": "Telegram-Bot zur Tischbuchung in einem Club",
-        "metric": "40% weniger Auslastung"
+        "name": "Billard-Bot",
+        "desc": "Telegram-Bot zur Tischbuchung",
+        "metric": "40% weniger Admin-Anrufe"
       },
       {
-        "name": "Persönlicher Assistent",
+        "name": "Personlicher Assistent",
         "desc": "AI-Planer in Telegram mit Sprachsteuerung",
-        "metric": "Spart 2+ Stunden täglich"
+        "metric": "2+ Stunden taeglich gespart"
       },
       {
-        "name": "Auto-Publish",
-        "desc": "Automatisches Posten in Telegram aus Links",
-        "metric": "Spart 5 Stunden/Woche"
+        "name": "Auto-Publikation",
+        "desc": "Automatische Telegram-Posts",
+        "metric": "5 Std pro Woche gespart"
       },
       {
         "name": "AUDIO MinusPlus",
-        "desc": "Track-zu-Stems-Splitter mit Zahlung",
-        "metric": "Vollständig automatisiert"
+        "desc": "Track-Trennung mit Bezahlung",
+        "metric": "Volle Automatisierung"
       },
       {
         "name": "HR Neuro-Mitarbeiter",
-        "desc": "8000+ Antworten, 1166 Std. für HR gespart",
-        "metric": "8000+ Antworten, 1166 Std."
+        "desc": "8000+ Bewerbungen, 1166 Std gespart",
+        "metric": "8000+ Bewerbungen"
       },
       {
         "name": "Ayurpak",
-        "desc": "Berater-Bot für Verpackungshersteller",
-        "metric": "Schneller Inbound-Loop"
+        "desc": "Bot-Berater fuer Verpackungshersteller",
+        "metric": "Schneller Lead-Zyklus"
       },
       {
         "name": "Lenremont",
-        "desc": "AI-Reparaturberater mit Taschenrechner",
+        "desc": "AI-Renovierungsberater mit Rechner",
         "metric": "Weniger verlorene Leads"
       },
       {
         "name": "MCHS",
-        "desc": "Assistent zur Angebotserstellung",
-        "metric": "Schnellere Angebote, weniger Fehler"
+        "desc": "Assistent fuer Angebotserstellung",
+        "metric": "Schnellere Angebote"
       },
       {
         "name": "ZZOK Sale",
-        "desc": "Verkaufs-Bot zur Lead-Wärmung",
-        "metric": "Gewärmte Leads"
+        "desc": "Verkaufsbot fuer Kunden-Warming",
+        "metric": "Aufgewaermte Leads"
       },
       {
         "name": "ZZOK HR",
-        "desc": "Wissensdatenbank & Tests für Mitarbeiter",
+        "desc": "Wissensdatenbank fuer Mitarbeiter",
         "metric": "Schnelleres Onboarding"
       },
       {
         "name": "SMM-Bot",
-        "desc": "Content-Kalender für Beauty-Profis",
-        "metric": "Spart 10 Stunden/Woche"
+        "desc": "Content-Kalender fuer Beauty-Meister",
+        "metric": "10 Std pro Woche gespart"
       },
       {
         "name": "Biohacking",
-        "desc": "AI-Berater mit Wissensdatenbank",
-        "metric": "Expertenwissen monetarisieren"
+        "desc": "AI-Berater mit Biohacking-Wissen",
+        "metric": "Expertise-Monetarisierung"
       },
       {
-        "name": "Schönheitssalon",
+        "name": "Schoenheitssalon",
         "desc": "Kundenbuchung + 1C-Integration",
-        "metric": "Weniger Admin-Aufwand"
+        "metric": "Reduzierte Admin-Arbeit"
       },
       {
         "name": "Zahlungskontrolle",
-        "desc": "Schuldnererinnerungen in Telegram/WhatsApp",
-        "metric": "Weniger Zahlungsrückstand"
+        "desc": "Schuldenerinnerung in Telegram",
+        "metric": "Reduzierte Ueberfaelligkeit"
       },
       {
         "name": "Tag mit Gebet",
-        "desc": "Viritsa-Gebetbuch — tägliche App",
-        "metric": "Tägliches Gebet"
+        "desc": "Wyritzky-Gebetbuch — taegliche App",
+        "metric": "Taegliches Gebet"
       }
     ]
   },
