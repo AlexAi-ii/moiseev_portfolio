@@ -47,7 +47,7 @@
           if (lang !== 'ru') url.searchParams.set('lang', lang);
           else url.searchParams.delete('lang');
           history.replaceState({}, '', url);
-          fetchLocale(lang).then(function(){ applyTranslations(); }).catch(function(){ finishInit(); });
+          fetchLocale(lang).then(function(){ applyTranslations(); finishInit(); }).catch(function(){ finishInit(); });
         }
       })
       .catch(function() {
@@ -59,7 +59,7 @@
           var url = new URL(window.location.href);
           url.searchParams.set('lang', 'en');
           history.replaceState({}, '', url);
-          fetchLocale('en').then(function(){ applyTranslations(); }).catch(function(){ finishInit(); });
+          fetchLocale('en').then(function(){ applyTranslations(); finishInit(); }).catch(function(){ finishInit(); });
         }
       });
   }
@@ -214,7 +214,7 @@
 
     // Load locale and translate
     if (currentLang !== DEFAULT) {
-      fetchLocale(currentLang).then(function(){ applyTranslations(); }).catch(function(){ finishInit(); });
+      fetchLocale(currentLang).then(function(){ applyTranslations(); finishInit(); }).catch(function(){ finishInit(); });
     } else {
       finishInit();
     }
