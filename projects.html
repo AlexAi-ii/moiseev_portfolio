@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Все проекты Александра Моисеева — 17+ реализованных проектов">
+  <meta name="description" content="Все кейсы Александра Моисеева — 15 реализованных проектов AI-автоматизации для бизнеса">
   <meta name="theme-color" content="#7f5af0">
-  <title>Все проекты — Александр Моисеев</title>
+  <title>Кейсы — Александр Моисеев | AI Automation Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -52,39 +52,45 @@
     .nav-links a:hover::after { width: 100%; }
     .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; border-radius: 999px; padding: 14px 28px; font-weight: 800; transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); }
     .btn:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 50px rgba(127, 90, 240, 0.5); }
+
     .page-hero { padding: 100px 30px 60px; text-align: center; max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
-    .page-hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin-bottom: 20px; background: linear-gradient(135deg, #fff, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 40px rgba(127, 90, 240, 0.5)); }
-    .page-hero p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin: 0 auto; line-height: 1.8; }
+    .page-hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 900; margin-bottom: 16px; background: linear-gradient(135deg, #fff, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 40px rgba(127, 90, 240, 0.5)); line-height: 1.2; }
+    .page-hero p { font-size: 1.15rem; color: var(--muted); max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
     .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: var(--container); margin: 0 auto 60px; padding: 0 30px; }
     .stat-card { background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 32px 24px; text-align: center; box-shadow: var(--shadow); backdrop-filter: blur(10px); transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); }
     .stat-card:hover { transform: translateY(-12px) scale(1.03); box-shadow: var(--shadow-xl), var(--glow); border-color: rgba(127, 90, 240, 0.4); }
     .stat-number { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 12px; }
-    .stat-label { color: var(--muted); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+    .stat-label { color: var(--muted); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* Quick routes */
+    .quick-routes { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; max-width: var(--container); margin-left: auto; margin-right: auto; padding: 0 30px; }
+    .quick-route { padding: 10px 22px; border-radius: 999px; border: 1px solid var(--accent); background: linear-gradient(145deg, rgba(44,182,125,0.12), rgba(44,182,125,0.04)); color: var(--accent); font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all .3s ease; text-decoration: none; }
+    .quick-route:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+
+    /* Filter buttons */
     .filter-section { max-width: var(--container); margin: 0 auto 40px; padding: 0 30px; }
     .filter-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .filter-btn { padding: 12px 24px; border-radius: 999px; border: 2px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); color: var(--text); font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .filter-btn { padding: 10px 22px; border-radius: 999px; border: 2px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); color: var(--text); font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); }
     .filter-btn:hover { border-color: var(--primary); background: rgba(127, 90, 240, 0.15); transform: translateY(-3px); }
     .filter-btn.active { background: linear-gradient(135deg, var(--primary), var(--primary-2)); color: #fff; border-color: var(--primary); box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; max-width: var(--container); margin: 0 auto; padding: 0 30px 60px; }
-    .project-card { background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; color: inherit; display: flex; flex-direction: column; }
-    .project-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(127,90,240,0.2) 100%); opacity: 0; transition: opacity .4s ease; z-index: 1; }
+
+    /* Projects grid */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; max-width: var(--container); margin: 0 auto; padding: 0 30px 60px; }
+    .project-card { background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: all .4s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; color: inherit; display: flex; flex-direction: column; position: relative; }
     .project-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: var(--shadow-xl), var(--glow); }
-    .project-card:hover::before { opacity: 1; }
-    .category-badge { position: absolute; top: 14px; right: 14px; padding: 6px 14px; border-radius: 999px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #fff; z-index: 10; }
-    .category-badge.ai-bot { background: linear-gradient(135deg, #7f5af0, #5a37d8); }
-    .category-badge.hr { background: linear-gradient(135deg, #2cb67d, #1a9466); }
-    .category-badge.payment { background: linear-gradient(135deg, #f5a623, #d97706); }
-    .category-badge.integration { background: linear-gradient(135deg, #00b7ff, #0095cc); }
-    .category-badge.app { background: linear-gradient(135deg, #f05a5a, #d83737); }
-    .card-image { width: 100%; height: 380px; overflow: hidden; background: linear-gradient(145deg, rgba(127,90,240,0.1), rgba(0,183,255,0.08)); flex-shrink: 0; }
+    .card-image { width: 100%; height: 200px; overflow: hidden; background: linear-gradient(145deg, rgba(127,90,240,0.1), rgba(0,183,255,0.08)); flex-shrink: 0; }
     .card-image img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform .5s ease; }
-    .project-card:hover .card-image img { transform: scale(1.1); }
-    .card-content { padding: 18px; flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-end; position: relative; z-index: 2; background: linear-gradient(0deg, rgba(10,14,26,0.95) 0%, transparent 100%); }
-    .card-content h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; color: var(--text); transition: color .3s ease; }
+    .project-card:hover .card-image img { transform: scale(1.05); }
+    .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; position: relative; z-index: 2; }
+    .card-content h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--text); transition: color .3s ease; line-height: 1.3; }
     .project-card:hover .card-content h3 { color: var(--primary); }
-    .card-content p { color: var(--muted); font-size: 0.82rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .card-metric { margin-top: auto; padding: 12px; border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(127, 90, 240, 0.15), rgba(0, 183, 255, 0.1)); border: 1px solid rgba(127, 90, 240, 0.2); }
-    .metric-value { font-size: 0.95rem; font-weight: 800; color: var(--primary); line-height: 1.2; }
+    .card-subtitle { color: var(--muted); font-size: 0.85rem; margin-bottom: 12px; }
+    .card-metric { padding: 10px 14px; border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(44,182,125,0.15), rgba(0,183,255,0.1)); border: 1px solid rgba(44,182,125,0.2); font-size: 0.9rem; font-weight: 700; color: var(--accent); }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .card-tag { font-size: 0.72rem; padding: 3px 10px; border-radius: 999px; background: rgba(127,90,240,0.12); color: var(--primary); font-weight: 600; }
+    .card-segment { font-size: 0.72rem; padding: 3px 10px; border-radius: 999px; background: rgba(0,183,255,0.12); color: var(--accent-2); font-weight: 600; }
+
     footer { background: rgba(15, 20, 31, 0.9); color: var(--muted); padding: 30px 0; border-top: 1px solid var(--line); text-align: center; }
     footer .container { max-width: var(--container); margin: 0 auto; padding: 0 30px; }
     .scroll-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; border: none; font-size: 1.5rem; cursor: pointer; opacity: 0; visibility: hidden; transition: all .4s ease; box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); z-index: 999; }
@@ -95,6 +101,9 @@
       .nav-links { gap: 16px; }
       .page-hero { padding: 80px 20px 40px; }
       .projects-grid { grid-template-columns: 1fr; padding: 0 20px 40px; }
+      .quick-routes { padding: 0 20px; }
+      .filter-section { padding: 0 20px; }
+      .stats-bar { padding: 0 20px; }
     }
   </style>
 </head>
@@ -105,39 +114,48 @@
   <header>
     <nav>
       <a class="brand" href="index.html">
-        <strong data-i18n="nav.brand">Александр Моисеев</strong>
-        <span data-i18n="nav.tagline">AI-боты и автоматизация</span>
+        <strong>Александр Моисеев</strong>
+        <span>AI Automation Engineer</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html" data-i18n="nav.home">Главная</a></li>
-        <li><a href="index.html#about" data-i18n="nav.about">Обо мне</a></li>
-        <li><a href="resume-full.html" data-i18n="nav.resume">Резюме</a></li>
-        <li><a href="#contact" data-i18n="nav.contacts">Контакты</a></li>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="index.html#solutions">Решения</a></li>
+        <li><a href="index.html#process">О работе</a></li>
+        <li><a href="#contact">Контакты</a></li>
       </ul>
-      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" data-i18n="nav.contact">Связаться</a>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Связаться</a>
     </nav>
   </header>
 
   <section class="page-hero" data-aos="fade-down">
-    <h1 data-i18n="projects.title">Все проекты</h1>
-    <p data-i18n="projects.heroDesc">15+ реализованных проектов по автоматизации бизнеса: от AI-ботов до комплексных интеграций</p>
+    <h1>Кейсы AI-автоматизации</h1>
+    <p>Продажи, поддержка, запись, контент и внутренние процессы — 15 реализованных проектов</p>
   </section>
 
   <div class="stats-bar">
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="0" data-tilt data-tilt-max="5"><div class="stat-number">15+</div><div class="stat-label" data-i18n="projects.statProjects">Проектов</div></div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5"><div class="stat-number">5</div><div class="stat-label" data-i18n="projects.statCategories">Категории</div></div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5"><div class="stat-number">1166+</div><div class="stat-label" data-i18n="projects.statHours">Часов экономии</div></div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5"><div class="stat-number">100%</div><div class="stat-label" data-i18n="projects.statResult">Результат</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="0" data-tilt data-tilt-max="5"><div class="stat-number">15</div><div class="stat-label">Проектов</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5"><div class="stat-number">1166+</div><div class="stat-label">Часов экономии</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5"><div class="stat-number">8000+</div><div class="stat-label">Откликов обработано</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5"><div class="stat-number">+45%</div><div class="stat-label">Макс. рост конверсии</div></div>
+  </div>
+
+  <div class="quick-routes" data-aos="fade-up">
+    <a class="quick-route" href="#" data-route="leads">🎯 Лиды и продажи</a>
+    <a class="quick-route" href="#" data-route="booking">📅 Запись и бронирование</a>
+    <a class="quick-route" href="#" data-route="agencies">🏢 Для агентств</a>
+    <a class="quick-route" href="#" data-route="smb">🏪 Для малого бизнеса</a>
   </div>
 
   <div class="filter-section" data-aos="fade-up">
     <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Все проекты</button>
-      <button class="filter-btn" data-filter="ai-bot" data-i18n="projects.filterAIBots">🤖 AI-боты</button>
-      <button class="filter-btn" data-filter="hr" data-i18n="projects.filterHR">👥 HR</button>
-      <button class="filter-btn" data-filter="payment" data-i18n="projects.filterPayments">💰 Платежи</button>
-      <button class="filter-btn" data-filter="integration" data-i18n="projects.filterIntegrations">🏢 Интеграции</button>
-      <button class="filter-btn" data-filter="app" data-i18n="projects.filterApps">📱 Приложения</button>
+      <button class="filter-btn active" data-filter="all">Все</button>
+      <button class="filter-btn" data-filter="leads">🎯 Лиды и продажи</button>
+      <button class="filter-btn" data-filter="support">💬 Поддержка и консультации</button>
+      <button class="filter-btn" data-filter="booking">📅 Запись и бронирование</button>
+      <button class="filter-btn" data-filter="operations">⚙️ Операционка и back office</button>
+      <button class="filter-btn" data-filter="content">📝 Контент и маркетинг</button>
+      <button class="filter-btn" data-filter="hr">👥 HR и обучение</button>
+      <button class="filter-btn" data-filter="paid-service">💎 Платные сервисы</button>
     </div>
   </div>
 
@@ -145,7 +163,7 @@
 
   <footer id="contact">
     <div class="container">
-      <p data-i18n="common.footer">© 2026 Александр Моисеев. AI-боты, ассистенты и автоматизация бизнеса под ключ</p>
+      <p>© 2026 Александр Моисеев. AI Automation Engineer — продажи, поддержка, Telegram, CRM, внутренние процессы · <a href="resume-full.html" style="color: var(--primary); text-decoration: none;">Для рекрутеров</a></p>
     </div>
   </footer>
 
@@ -178,63 +196,204 @@
     });
     document.getElementById('scrollTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+    // Project data with new outcome-first naming and business-result categories
     const projects = [
-      { name: 'Бильярд бот', desc: 'Telegram-бот для бронирования столов в клубе', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BB%D1%8C%D1%8F%D1%80%D0%B4%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/billiard.html', category: 'ai-bot', metric: 'Снижение нагрузки на 40%' },
-      { name: 'Личный помощник', desc: 'AI-планировщик в Telegram с голосовым управлением', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%A2%D0%93%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/assistant.html', category: 'ai-bot', metric: 'Экономия 2+ часов в день' },
-      { name: 'Авто-публикация', desc: 'Посты в Telegram из ссылок автоматически', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D0%B2%D1%82%D0%BE%E2%80%91%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20Telegram%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/autopublish.html', category: 'ai-bot', metric: 'Экономия 5 часов в неделю' },
-      { name: 'AUDIO MinusPlus', desc: 'Разделение треков на стемы с оплатой', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/amp.html', category: 'payment', metric: 'Полная автоматизация' },
-      { name: 'Нейросотрудник HR', desc: '8000+ откликов, 1166 часов экономии HR', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%20HR%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/hr-neuro.html', category: 'hr', metric: '8000+ откликов, 1166 ч' },
-      { name: 'Аюрпак', desc: 'Бот-консультант для производителя пакетов', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%8E%D1%80%D0%BF%D0%B0%D0%BA%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/aurpak.html', category: 'integration', metric: 'Быстрый входящий контур' },
-      { name: 'Ленремонт', desc: 'AI-консультант по ремонту с калькулятором', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%81%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20(%D0%9B%D0%B5%D0%BD%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82)%20-%201.png', link: 'projects/lenremont.html', category: 'ai-bot', metric: 'Меньше потерянных заявок' },
-      { name: 'МЧС', desc: 'Ассистент для подготовки КП', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9C%D0%A7%D0%A1%20%D0%A1%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/mchs.html', category: 'ai-bot', metric: 'Быстрее КП, меньше ошибок' },
-      { name: 'ZZOK Sale', desc: 'Бот-продавец для прогрева клиентов', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FZZOK%20Sale%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/zzok-sale.html', category: 'ai-bot', metric: 'Прогретые лиды' },
-      { name: 'ZZOK HR', desc: 'База знаний и тесты для сотрудников', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%BE%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BA%D0%B0%D0%B4%D1%80%D0%BE%D0%B2%20(ZZok%20HR)%20-%201.png', link: 'projects/zzok-hr.html', category: 'hr', metric: 'Ускорение адаптации' },
-      { name: 'SMM-бот', desc: 'Контент-календарь для beauty-мастеров', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FSMM%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/smm-bot.html', category: 'hr', metric: 'Экономия 10 часов в неделю' },
-      { name: 'Биохакинг', desc: 'AI-консультант с базой знаний по биохакингу', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BE%D1%85%D0%B0%D0%BA%D0%B8%D0%BD%D0%B3%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/biohacking.html', category: 'ai-bot', metric: 'Монетизация экспертизы' },
-      { name: 'Салон красоты', desc: 'Запись клиентов + интеграция с 1С', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/salon.html', category: 'integration', metric: 'Сокращение работы админа' },
-      { name: 'Контроль платежей', desc: 'Напоминания о долгах в Telegram/WhatsApp', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9E%D1%82%D1%81%D0%BB%D0%B5%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/payments.html', category: 'payment', metric: 'Снижение просрочки' },
-      { name: 'День с молитвой', desc: 'Вырицкий молитвослов — ежедневное приложение', img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BE%D1%85%D0%B0%D0%BA%D0%B8%D0%BD%D0%B3%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png', link: 'projects/holy-scriptures.html', category: 'app', metric: 'Ежедневная молитва' }
+      {
+        name: 'Бронирование столов 24/7 для бильярдного клуба',
+        subtitle: 'Telegram-бот с календарём, оплатой и уведомлениями',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BB%D1%8C%D1%8F%D1%80%D0%B4%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/billiard.html',
+        categories: ['leads', 'booking'],
+        metric: 'Снижение нагрузки на 40%',
+        tags: ['Telegram', 'Payments', 'Booking'],
+        segment: 'Малый бизнес',
+        segments: ['smb', 'booking']
+      },
+      {
+        name: 'AI-ассистент для задач, почты и календаря',
+        subtitle: 'Личный помощник в Telegram с голосовым управлением',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%A2%D0%93%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/assistant.html',
+        categories: ['support'],
+        metric: 'Экономия 2+ часов в день',
+        tags: ['Telegram', 'AI', 'Google API'],
+        segment: 'Частное использование',
+        segments: ['support']
+      },
+      {
+        name: 'AI-автопостинг в Telegram из ссылок',
+        subtitle: 'Автоматическая публикация постов из RSS и статей',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D0%B2%D1%82%D0%BE%E2%80%91%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20Telegram%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/autopublish.html',
+        categories: ['content'],
+        metric: 'Экономия 5 часов в неделю',
+        tags: ['Telegram', 'AI', 'RSS'],
+        segment: 'Агентства',
+        segments: ['agencies', 'content']
+      },
+      {
+        name: 'Платный Telegram-сервис обработки аудио 24/7',
+        subtitle: 'Разделение треков на стемы с автоматической оплатой',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/amp.html',
+        categories: ['paid-service'],
+        metric: 'Полная автоматизация продаж',
+        tags: ['Telegram', 'Payments', 'AI'],
+        segment: 'Платный сервис',
+        segments: ['paid-service']
+      },
+      {
+        name: 'AI-скрининг откликов и первичная квалификация кандидатов',
+        subtitle: 'Нейросотрудник HR для автоматизации обработки резюме',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%20HR%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/hr-neuro.html',
+        categories: ['hr'],
+        metric: '8000+ откликов · 1166 ч экономии',
+        tags: ['AI', 'HR', 'Telegram', 'hh.ru'],
+        segment: 'HR и рекрутинг',
+        segments: ['hr']
+      },
+      {
+        name: 'AI-консультант для входящих B2B-запросов и каталога',
+        subtitle: 'Бот-консультант для производителя пакетов — обработка заявок 24/7',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%8E%D1%80%D0%BF%D0%B0%D0%BA%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/aurpak.html',
+        categories: ['leads', 'support'],
+        metric: '-60% нагрузки на менеджеров, +25% конверсии',
+        tags: ['AI', 'Telegram', 'B2B', 'Каталог'],
+        segment: 'Агентства',
+        segments: ['agencies', 'leads', 'support']
+      },
+      {
+        name: 'AI-квалификация лидов и калькулятор ремонта',
+        subtitle: 'Умный помощник Ленремонт для расчёта стоимости и записи',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%81%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20(%D0%9B%D0%B5%D0%BD%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82)%20-%201.png',
+        link: 'projects/lenremont.html',
+        categories: ['leads', 'booking'],
+        metric: '+35% к записи на замер',
+        tags: ['AI', 'Calculator', 'Booking', 'Telegram'],
+        segment: 'Малый бизнес',
+        segments: ['smb', 'leads', 'booking']
+      },
+      {
+        name: 'Ассистент для подготовки коммерческих предложений',
+        subtitle: 'Автоматизация подготовки КП для МЧС',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9C%D0%A7%D0%A1%20%D0%A1%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/mchs.html',
+        categories: ['operations'],
+        metric: 'Быстрее КП, меньше ошибок',
+        tags: ['AI', 'Documents', 'B2B'],
+        segment: 'Агентства',
+        segments: ['agencies', 'operations']
+      },
+      {
+        name: 'AI-воронка прогрева и передача лидов в CRM',
+        subtitle: 'Бот-продавец ZZOK: прогрев, квалификация, передача в CRM',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FZZOK%20Sale%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/zzok-sale.html',
+        categories: ['leads'],
+        metric: '+45% к конверсии в продажу',
+        tags: ['AI', 'Sales', 'CRM', 'Telegram'],
+        segment: 'Агентства',
+        segments: ['agencies', 'leads']
+      },
+      {
+        name: 'База знаний и тестирование сотрудников в Telegram',
+        subtitle: 'ZZOK HR: обучение и аттестация через бота',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%BE%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BA%D0%B0%D0%B4%D1%80%D0%BE%D0%B2%20(ZZok%20HR)%20-%201.png',
+        link: 'projects/zzok-hr.html',
+        categories: ['hr'],
+        metric: 'Ускорение адаптации сотрудников',
+        tags: ['AI', 'HR', 'Telegram', 'RAG'],
+        segment: 'Внутренние процессы',
+        segments: ['hr']
+      },
+      {
+        name: 'AI-контент-календарь и автопланирование для соцсетей',
+        subtitle: 'SMM-бот для beauty-мастеров: планирование и публикация контента',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FSMM%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/smm-bot.html',
+        categories: ['content'],
+        metric: 'Экономия 10 часов в неделю',
+        tags: ['AI', 'Content', 'Telegram', 'SMM'],
+        segment: 'Агентства',
+        segments: ['agencies', 'content']
+      },
+      {
+        name: 'Подписной AI-консультант с базой знаний',
+        subtitle: 'Биохакинг: Telegram-бот с подпиской на экспертный контент',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BE%D1%85%D0%B0%D0%BA%D0%B8%D0%BD%D0%B3%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/biohacking.html',
+        categories: ['paid-service', 'support'],
+        metric: 'Монетизация экспертизы',
+        tags: ['AI', 'Payments', 'RAG', 'Telegram'],
+        segment: 'Платный сервис',
+        segments: ['paid-service', 'support']
+      },
+      {
+        name: 'Онлайн-запись и синхронизация с 1С',
+        subtitle: 'Салон красоты: Telegram-бот для записи клиентов с интеграцией 1С',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/salon.html',
+        categories: ['leads', 'booking'],
+        metric: 'Сокращение работы админа',
+        tags: ['Booking', '1C', 'Telegram', 'CRM'],
+        segment: 'Малый бизнес',
+        segments: ['smb', 'leads', 'booking']
+      },
+      {
+        name: 'Автоматизация напоминаний о платежах и дебиторке',
+        subtitle: 'Система автоматических напоминаний через Telegram и WhatsApp',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9E%D1%82%D1%81%D0%BB%D0%B5%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/payments.html',
+        categories: ['operations'],
+        metric: 'Снижение просрочки на 45%',
+        tags: ['Payments', 'Telegram', 'WhatsApp', 'CRM'],
+        segment: 'Малый бизнес',
+        segments: ['smb', 'operations']
+      },
+      {
+        name: 'Мобильное приложение для ежедневной молитвенной практики',
+        subtitle: 'Вырицкий молитвослов — ежедневные напоминания и тексты',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BE%D1%85%D0%B0%D0%BA%D0%B8%D0%BD%D0%B3%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
+        link: 'projects/holy-scriptures.html',
+        categories: ['paid-service'],
+        metric: 'Ежедневная практика',
+        tags: ['Mobile', 'Notifications'],
+        segment: 'Платный сервис',
+        segments: ['paid-service']
+      }
     ];
 
     const grid = document.getElementById('projectsGrid');
     const filterBtns = document.querySelectorAll('.filter-btn');
 
-    /* category label keys for i18n */
-    const CAT_LABELS = {
-      'ai-bot': 'projects.catAIBots',
-      'hr': 'projects.catHR',
-      'payment': 'projects.catPayments',
-      'integration': 'projects.catIntegrations',
-      'app': 'projects.catApps'
-    };
+    // Quick routes — filter by segment
+    document.querySelectorAll('.quick-route').forEach(route => {
+      route.addEventListener('click', function(e) {
+        e.preventDefault();
+        const routeType = this.dataset.route;
+        const mapping = {
+          'leads': 'leads',
+          'booking': 'booking',
+          'agencies': 'agencies',
+          'smb': 'smb'
+        };
+        const filter = mapping[routeType] || 'all';
+        filterBtns.forEach(b => b.classList.remove('active'));
+        const target = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+        if (target) {
+          target.classList.add('active');
+          renderProjects(filter);
+        }
+      });
+    });
 
     function renderProjects(filter = 'all') {
       grid.innerHTML = '';
-      const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
-
-      // resolve a project field (name / desc / metric) through i18n when possible
-      function projText(p, field) {
-        if (typeof moiLang === 'undefined') return p[field];
-        const idx = projects.indexOf(p);
-        if (idx === -1) return p[field];
-        const map = { name: 'name', desc: 'desc', metric: 'metric' };
-        if (!map[field]) return p[field];
-        const key = 'projects.projects.' + idx + '.' + map[field];
-        if (moiLang.current() === 'ru') return p[field];           // Russian = defaults
-        if (!window._moiResolve) return p[field];
-        const v = window._moiResolve(key);
-        return v !== null ? v : p[field];
-      }
-
-      function catLabel(cat) {
-        const key = CAT_LABELS[cat];
-        if (!key || typeof moiLang === 'undefined' || moiLang.current() === 'ru') {
-          return { 'ai-bot': 'AI-боты', 'hr': 'HR', 'payment': 'Платежи', 'integration': 'Интеграции', 'app': 'Приложения' }[cat] || cat;
-        }
-        if (!window._moiResolve) return cat;
-        const v = window._moiResolve(key);
-        return v !== null ? v : cat;
-      }
+      const filtered = filter === 'all' ? projects : projects.filter(p =>
+        p.categories.includes(filter) || (p.segments && p.segments.includes(filter))
+      );
 
       filtered.forEach((p, i) => {
         const card = document.createElement('a');
@@ -243,13 +402,17 @@
         card.setAttribute('data-tilt', '');
         card.setAttribute('data-aos', 'fade-up');
         card.setAttribute('data-aos-delay', (i * 50).toString());
+
+        const tagsHTML = p.tags.map(t => `<span class="card-tag">${t}</span>`).join('');
+        const segHTML = p.segment ? `<span class="card-segment">${p.segment}</span>` : '';
+
         card.innerHTML = `
-          <span class="category-badge ${p.category}">${catLabel(p.category)}</span>
           <div class="card-image"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
           <div class="card-content">
-            <h3>${projText(p, 'name')}</h3>
-            <p>${projText(p, 'desc')}</p>
-            <div class="card-metric"><div class="metric-value">${projText(p, 'metric')}</div></div>
+            <h3>${p.name}</h3>
+            <p class="card-subtitle">${p.subtitle}</p>
+            <div class="card-metric">${p.metric}</div>
+            <div class="card-tags">${tagsHTML}${segHTML}</div>
           </div>
         `;
         grid.appendChild(card);
@@ -267,34 +430,7 @@
       });
     });
 
-    // Wait for locale then render; re-render on language change
-    if (window._moiLocaleLoaded) {
-      window._moiLocaleLoaded.then(() => {
-        renderProjects();
-        document.addEventListener('moi:langchange', () => {
-          const active = document.querySelector('.filter-btn.active');
-          renderProjects(active ? active.dataset.filter : 'all');
-        });
-        const _origSetLang = (window.moiLang || {}).setLang;
-        if (_origSetLang) {
-          window.moiLang.setLang = function(lang) {
-            _origSetLang.call(window.moiLang, lang);
-            document.dispatchEvent(new CustomEvent('moi:langchange'));
-          };
-        }
-      });
-    } else {
-      renderProjects();
-    }
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        renderProjects(this.dataset.filter);
-      });
-    });
+    renderProjects();
   </script>
 </body>
 </html>
-

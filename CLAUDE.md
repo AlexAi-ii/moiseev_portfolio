@@ -2,9 +2,68 @@
 
 ## Описание
 
-Сайт-портфолио на GitHub Pages — статический HTML/CSS/JS.
+Сайт-портфолио на GitHub Pages — статический HTML/CSS/JS с мультиязычностью (6 языков).
 **GitHub:** https://github.com/AlexAi-ii/moiseev_portfolio
-**Домен:** https://portfolio.aisob.ru (TODO — подтвердить URL)
+**Домен:** https://portfolio.aisob.ru
+
+## Мультиязычность (i18n)
+
+### Поддерживаемые языки
+- **ru** (Русский) — язык по умолчанию
+- **en** (English), **de** (Deutsch), **fr** (Français), **it** (Italiano), **es** (Español)
+
+### Как работает
+1. **i18n.js** — ядро локализации. Загружает `locales/{lang}.json` и переводит все элементы с `data-i18n` атрибутами.
+2. **Локаль определяется:** localStorage → URL `?lang=X` → timezone → geo API (ipapi.co) → fallback на `en`.
+3. **Дропдаун** в навигации для ручного переключения. Язык сохраняется в `localStorage`.
+4. **Промис `window._moiLocaleLoaded`** — разрешается когда locale JSON загружен. JS-рендер карточек ждёт его.
+5. **Событие `moi:langchange`** — диспатчится при смене языка, триггерит re-render JS-карточек.
+6. **`_moiResolve(key)`** — глобальная функция для получения перевода по ключу.
+
+### Структура locale файлов (`locales/{lang}.json`)
+```json
+{
+  "nav": { "brand": "...", "tagline": "...", "home": "...", "contact": "..." },
+  "common": { "backLink": "...", "footer": "...", "ctaBtn": "...", "ctaDiscuss": "...", "contactVK": "VKontakte" },
+  "index": { "heroTitle": "...", "contactTitle": "...", "contactMax": "MAX", "contactVK": "VKontakte", "skillBots1": "..." },
+  "projects": {
+    "title": "...", "filterAll": "...", "catAIBots": "AI-Bots",
+    "projects": [
+      { "name": "Billiard Bot", "desc": "Telegram bot...", "metric": "40% admin load reduction" }
+      // ... 15 проектов
+    ]
+  },
+  "projectsPages": {
+    "backToHome": "← Back to Home",
+    "psrProblem": "Problem", "psrSolution": "Solution", "psrResult": "Result",
+    "featuresTitle": "Features", "featuresTitleBot": "Bot Features",
+    "technologies": "Technologies", "materialsGallery": "Materials and Screenshots",
+    "billiard": {
+      "title": "Billiard Bot", "subtitle": "Telegram bot...", "alt": "...",
+      "psr": { "problem": "...", "solution": "...", "result": "..." },
+      "features": { "heading": "Bot Features", "cards": [ { "title": "...", "desc": "..." }, ... ] },
+      "gallery": { "heading": "...", "captions": ["...", "...", "..."] },
+      "tech": { "heading": "...", "items": [ { "name": "...", "desc": "..." } ] },
+      "cta": { "title": "...", "desc": "..." },
+      "showcase": { "0": { "value": "24/7", "label": "Ready" }, "1": {...}, "2": {...}, "3": {...} }
+    }
+    // ... 15 проектов
+  }
+}
+```
+
+### Ключевые паттерны
+- **data-i18n** — для HTML элементов: `<span data-i18n="common.footer">Текст</span>`
+- **JS-рендер** — через `window._moiResolve('projects.projects.0.name')`
+- **Ключи PSR:** `projectsPages.psrProblem/Solution/Result` (общие), `projectPages.KEY.psr.problem/solution/result` (описания)
+- **Ключи showcase:** `projectPages.KEY.showcase.N.value` и `.showcase.N.label`
+- **Emoji НЕ в locale** — остаются в HTML, locale содержит только текст
+
+### Известные нюансы
+- **Абсолютный путь** для locale: `/locales/en.json` (не `locales/en.json`) — важно для подстраниц в `projects/`
+- **RU = default** — `i18n.js` не загружает `ru.json`, использует русский текст из HTML напрямую
+- **Duplicate `i18n.js`** — никогда не подключать дважды (ломает дропдаун и state)
+- **PSR headings:** `<h3>⚠️ <span data-i18n="projectsPages.psrProblem">Проблема</span></h3>` — эмодзи вне span
 
 ## Структура проекта
 
