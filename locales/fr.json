@@ -414,19 +414,19 @@
         "stats": [
           {
             "value": "24/7",
-            "label": "Режим работы"
+            "label": "Readiness"
           },
           {
             "value": "-40%",
-            "label": "Звонков админу"
+            "label": "Admin load"
           },
           {
-            "value": "2 мин",
-            "label": "Время брони"
+            "value": "2 min",
+            "label": "Booking time"
           },
           {
-            "value": "0₽",
-            "label": "Простой"
+            "value": "0 min",
+            "label": "Wait time"
           }
         ]
       },
@@ -510,20 +510,20 @@
         ],
         "stats": [
           {
-            "value": "2+ ч",
-            "label": "Экономии в день"
+            "value": "2+ h",
+            "label": "Savings per day"
           },
           {
             "value": "24/7",
-            "label": "Режим работы"
+            "label": "Readiness"
           },
           {
             "value": "100%",
-            "label": "Автоматизация"
+            "label": "Automation"
           },
           {
-            "value": "0 сек",
-            "label": "Задержка"
+            "value": "0 min",
+            "label": "Wait time"
           }
         ]
       },
@@ -610,20 +610,20 @@
         ],
         "stats": [
           {
-            "value": "5 ч",
-            "label": "Экономии в неделю"
+            "value": "5 h",
+            "label": "Saved per week"
           },
           {
             "value": "100%",
-            "label": "Автоматизация"
+            "label": "Automation"
           },
           {
             "value": "24/7",
-            "label": "Готовность"
+            "label": "Ready"
           },
           {
-            "value": "1 клик",
-            "label": "До публикации"
+            "value": "1 click",
+            "label": "To publish"
           }
         ]
       },
@@ -705,19 +705,19 @@
         "stats": [
           {
             "value": "24/7",
-            "label": "Приём заказов"
+            "label": "Order intake"
           },
           {
             "value": "2-5",
-            "label": "Стем на выходе"
+            "label": "Stems output"
           },
           {
             "value": "100%",
-            "label": "Автоматизация"
+            "label": "Automation"
           },
           {
-            "value": "0 сек",
-            "label": "Ожидание"
+            "value": "0 sec",
+            "label": "Wait time"
           }
         ]
       },
@@ -802,19 +802,19 @@
         "stats": [
           {
             "value": "8000+",
-            "label": "Откликов"
+            "label": "Applications"
           },
           {
             "value": "3500+",
-            "label": "Обработано"
+            "label": "Processed"
           },
           {
-            "value": "1166 ч",
-            "label": "Экономии"
+            "value": "1166 h",
+            "label": "HR savings"
           },
           {
-            "value": "24/7",
-            "label": "Режим работы"
+            "value": "3-4 d",
+            "label": "Hiring time"
           }
         ]
       },
@@ -902,19 +902,19 @@
         "stats": [
           {
             "value": "24/7",
-            "label": "Консультации"
+            "label": "Readiness"
           },
           {
             "value": "AI",
-            "label": "Обработка вопросов"
+            "label": "Knowledge base"
           },
           {
             "value": "CRM",
-            "label": "Интеграция"
+            "label": "Integration"
           },
           {
-            "value": "0 сек",
-            "label": "Время ответа"
+            "value": "0 min",
+            "label": "Response time"
           }
         ]
       },
@@ -1001,20 +1001,20 @@
         ],
         "stats": [
           {
-            "value": "+35%",
-            "label": "Конверсия в замер"
+            "value": "AI",
+            "label": "Consultant"
           },
           {
             "value": "24/7",
-            "label": "Консультации"
+            "label": "Readiness"
           },
           {
-            "value": "0",
-            "label": "Потерянных заявок"
+            "value": "CRM",
+            "label": "Integration"
           },
           {
-            "value": "AI",
-            "label": "Квалификация лидов"
+            "value": "0 min",
+            "label": "Response time"
           }
         ]
       },
@@ -1101,20 +1101,20 @@
         ],
         "stats": [
           {
-            "value": "-3 дня",
-            "label": "Время подготовки"
+            "value": "AI",
+            "label": "Consultant"
           },
           {
-            "value": "100%",
-            "label": "Авто-расчёт"
+            "value": "24/7",
+            "label": "Readiness"
           },
           {
-            "value": "0",
-            "label": "Ошибок в КП"
+            "value": "CRM",
+            "label": "Integration"
           },
           {
-            "value": "PDF",
-            "label": "Генерация документов"
+            "value": "0 min",
+            "label": "Response time"
           }
         ]
       },
@@ -1201,20 +1201,20 @@
         ],
         "stats": [
           {
-            "value": "24/7",
-            "label": "Прогрев лидов"
+            "value": "AI",
+            "label": "Knowledge base"
           },
           {
-            "value": "80%",
-            "label": "Авто-воронка"
+            "value": "24/7",
+            "label": "Readiness"
           },
           {
             "value": "CRM",
-            "label": "Интеграция"
+            "label": "Integration"
           },
           {
-            "value": "+45%",
-            "label": "Конверсия"
+            "value": "0 min",
+            "label": "Response time"
           }
         ]
       },
@@ -1301,20 +1301,20 @@
         ],
         "stats": [
           {
-            "value": "3x",
-            "label": "Ускорение адаптации"
-          },
-          {
-            "value": "70%",
-            "label": "Авто-обучение"
-          },
-          {
-            "value": "100%",
-            "label": "Прозрачность"
+            "value": "AI",
+            "label": "Knowledge base"
           },
           {
             "value": "24/7",
-            "label": "Доступ к базе"
+            "label": "Readiness"
+          },
+          {
+            "value": "CRM",
+            "label": "Integration"
+          },
+          {
+            "value": "0 min",
+            "label": "Response time"
           }
         ]
       },
@@ -1401,20 +1401,20 @@
         ],
         "stats": [
           {
-            "value": "-10 ч",
-            "label": "Экономии в неделю"
-          },
-          {
-            "value": "30+",
-            "label": "Постов в месяц"
+            "value": "10 h",
+            "label": "Saved per week"
           },
           {
             "value": "100%",
-            "label": "Контент-план"
+            "label": "Automation"
           },
           {
-            "value": "AI",
-            "label": "Генерация постов"
+            "value": "24/7",
+            "label": "Ready"
+          },
+          {
+            "value": "1 click",
+            "label": "To publish"
           }
         ]
       },
@@ -1501,20 +1501,20 @@
         ],
         "stats": [
           {
+            "value": "AI",
+            "label": "Consultant"
+          },
+          {
             "value": "24/7",
-            "label": "AI-консультации"
+            "label": "Readiness"
           },
           {
-            "value": "100%",
-            "label": "Персонализация"
+            "value": "CRM",
+            "label": "Integration"
           },
           {
-            "value": "0 сек",
-            "label": "Время ответа"
-          },
-          {
-            "value": "∞",
-            "label": "Масштабирование"
+            "value": "0 min",
+            "label": "Response time"
           }
         ]
       },
@@ -1601,20 +1601,20 @@
         ],
         "stats": [
           {
-            "value": "-60%",
-            "label": "Работы админа"
+            "value": "AI",
+            "label": "Consultant"
           },
           {
             "value": "24/7",
-            "label": "Онлайн-запись"
+            "label": "Readiness"
           },
           {
-            "value": "0",
-            "label": "Ошибок в расписании"
+            "value": "CRM",
+            "label": "Integration"
           },
           {
-            "value": "100%",
-            "label": "Интеграция с 1С"
+            "value": "0 min",
+            "label": "Response time"
           }
         ]
       },
@@ -1701,20 +1701,20 @@
         ],
         "stats": [
           {
-            "value": "-45%",
-            "label": "Просрочка"
-          },
-          {
-            "value": "80%",
-            "label": "Авто-напоминания"
+            "value": "AI",
+            "label": "Consultant"
           },
           {
             "value": "24/7",
-            "label": "Контроль"
+            "label": "Readiness"
           },
           {
-            "value": "0₽",
-            "label": "Ручной работы"
+            "value": "CRM",
+            "label": "Integration"
+          },
+          {
+            "value": "0 min",
+            "label": "Response time"
           }
         ]
       },
@@ -1801,20 +1801,20 @@
         ],
         "stats": [
           {
+            "value": "AI",
+            "label": "Consultant"
+          },
+          {
             "value": "24/7",
-            "label": "Доступ к молитвам"
+            "label": "Readiness"
           },
           {
-            "value": "100+",
-            "label": "Молитв в базе"
+            "value": "CRM",
+            "label": "Integration"
           },
           {
-            "value": "Daily",
-            "label": "Ежедневное чтение"
-          },
-          {
-            "value": "iOS/Android",
-            "label": "Платформы"
+            "value": "0 min",
+            "label": "Response time"
           }
         ]
       },
