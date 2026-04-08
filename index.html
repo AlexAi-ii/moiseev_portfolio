@@ -541,6 +541,17 @@
 
     const casesGrid = document.getElementById('casesGrid');
 
+    // Map featured case indices to locale projects.projects array indices
+    const CASE_LOCALE_MAP = [4, 13, 8, 6, 12, 0];
+
+    function caseText(idx, field) {
+      const localeIdx = CASE_LOCALE_MAP[idx];
+      if (typeof moiLang === 'undefined' || moiLang.current() === 'ru') return featuredCases[idx][field];
+      if (!window._moiResolve) return featuredCases[idx][field];
+      const v = window._moiResolve('projects.projects.' + localeIdx + '.' + field);
+      return v !== null ? v : featuredCases[idx][field];
+    }
+
     function renderCases() {
       if (!casesGrid) return;
       casesGrid.innerHTML = '';
@@ -552,12 +563,15 @@
         card.setAttribute('data-aos', 'fade-up');
         card.setAttribute('data-aos-delay', (i * 80).toString());
         const tagsHTML = c.tags.map(t => `<span class="case-tag">${t}</span>`).join('');
+        const name = caseText(i, 'name');
+        const desc = caseText(i, 'desc');
+        const metric = caseText(i, 'metric');
         card.innerHTML = `
-          <div class="case-card-image"><img src="${c.img}" alt="${c.name}" loading="lazy"></div>
+          <div class="case-card-image"><img src="${c.img}" alt="${name}" loading="lazy"></div>
           <div class="case-card-content">
-            <h3>${c.name}</h3>
-            <p class="case-desc">${c.desc}</p>
-            <div class="case-metric">${c.metric}</div>
+            <h3>${name}</h3>
+            <p class="case-desc">${desc}</p>
+            <div class="case-metric">${metric}</div>
             <div class="case-tags">${tagsHTML}</div>
           </div>
         `;
@@ -570,11 +584,9 @@
 
     // Re-render on lang change
     function setupCasesI18n() {
-      if (typeof moiLang !== 'undefined' && moiLang.current() !== 'ru' && window._moiResolve) {
-        document.addEventListener('moi:langchange', function() {
-          renderCases();
-        });
-      }
+      document.addEventListener('moi:langchange', function() {
+        renderCases();
+      });
     }
 
     if (window._moiLocaleLoaded) {
