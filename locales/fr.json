@@ -410,7 +410,8 @@
           "Appels a l'admin",
           "Temps de reservation",
           "Temps d'inactivite"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites du bot",
@@ -489,7 +490,8 @@
           "Mode de fonctionnement",
           "Automatisation",
           "Latence"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites",
@@ -571,7 +573,8 @@
           "Automatisation",
           "Disponibilite",
           "Clics jusqu'a publication"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites",
@@ -647,7 +650,8 @@
           "Stems en sortie",
           "Automatisation",
           "Attente"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites",
@@ -726,7 +730,8 @@
           "Traitees",
           "Gain",
           "Mode de fonctionnement"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites du bot",
@@ -808,7 +813,8 @@
           "Traitement des questions",
           "Integration",
           "Temps de reponse"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites du bot",
@@ -890,7 +896,8 @@
           "Consultations",
           "Demandes perdues",
           "Qualification des leads"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites du bot",
@@ -972,7 +979,8 @@
           "Calcul automatique",
           "Erreurs dans les PC",
           "Generation de documents"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites de l'assistant",
@@ -1054,7 +1062,8 @@
           "Entonnoir auto",
           "Integration",
           "Conversion"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites du bot",
@@ -1136,7 +1145,8 @@
           "Auto-formation",
           "Transparence",
           "Acces a la base"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites du bot",
@@ -1218,7 +1228,8 @@
           "Publications par mois",
           "Plan de contenu",
           "Generation de publications"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites du bot",
@@ -1300,7 +1311,8 @@
           "Personnalisation",
           "Temps de reponse",
           "Mise a l'echelle"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites du bot",
@@ -1382,7 +1394,8 @@
           "Reservation en ligne",
           "Erreurs dans le planning",
           "Integration 1C"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites du bot",
@@ -1464,7 +1477,8 @@
           "Rappels automatiques",
           "Controle",
           "Travail manuel"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites du systeme",
@@ -1546,7 +1560,8 @@
           "Prieres dans la base",
           "Lecture quotidienne",
           "Plateformes"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Fonctionnalites de l'application",

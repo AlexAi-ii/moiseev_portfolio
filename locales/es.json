@@ -313,7 +313,8 @@
           "Llamadas al admin",
           "Tiempo de reserva",
           "Tiempo muerto"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del bot",
@@ -392,7 +393,8 @@
           "Modo de operacion",
           "Automatizacion",
           "Retardo"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones",
@@ -474,7 +476,8 @@
           "Automatizacion",
           "Disponibilidad",
           "Hasta la publicacion"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones",
@@ -550,7 +553,8 @@
           "Stems de salida",
           "Automatizacion",
           "Espera"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones",
@@ -629,7 +633,8 @@
           "Procesados",
           "Ahorro",
           "Modo de operacion"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del bot",
@@ -711,7 +716,8 @@
           "Procesamiento de preguntas",
           "Integracion",
           "Tiempo de respuesta"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del bot",
@@ -793,7 +799,8 @@
           "Consultas",
           "Solicitudes perdidas",
           "Calificacion de leads"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del bot",
@@ -875,7 +882,8 @@
           "Calculo automatico",
           "Errores en propuestas",
           "Generacion de documentos"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del asistente",
@@ -957,7 +965,8 @@
           "Embudo automatico",
           "Integracion",
           "Conversion"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del bot",
@@ -1039,7 +1048,8 @@
           "Auto-formacion",
           "Transparencia",
           "Acceso a la base"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del bot",
@@ -1121,7 +1131,8 @@
           "Publicaciones al mes",
           "Plan de contenido",
           "Generacion de publicaciones"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del bot",
@@ -1203,7 +1214,8 @@
           "Personalizacion",
           "Tiempo de respuesta",
           "Escalabilidad"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del bot",
@@ -1285,7 +1297,8 @@
           "Registro en linea",
           "Errores en calendario",
           "Integracion con 1C"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del bot",
@@ -1367,7 +1380,8 @@
           "Auto-recordatorios",
           "Control",
           "Trabajo manual"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones del sistema",
@@ -1449,7 +1463,8 @@
           "Oraciones en la base",
           "Lectura diaria",
           "Plataformas"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funciones de la aplicacion",

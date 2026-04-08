@@ -410,7 +410,8 @@
           "Calls to admin",
           "Booking time",
           "Downtime"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot Features",
@@ -494,7 +495,8 @@
           "Operating mode",
           "Automation",
           "Latency"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Features",
@@ -582,7 +584,8 @@
           "Automation",
           "Readiness",
           "To publication"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Features",
@@ -662,7 +665,8 @@
           "Stems output",
           "Automation",
           "Wait time"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Features",
@@ -746,7 +750,8 @@
           "Processed",
           "Hours saved",
           "Operating mode"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot Features",
@@ -834,7 +839,8 @@
           "Question processing",
           "Integration",
           "Response time"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot Features",
@@ -922,7 +928,8 @@
           "Consultations",
           "Lost leads",
           "Lead qualification"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot Features",
@@ -1010,7 +1017,8 @@
           "Auto-calculation",
           "Errors in CP",
           "Doc generation"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Assistant Features",
@@ -1098,7 +1106,8 @@
           "Auto-funnel",
           "Integration",
           "Conversion"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot Features",
@@ -1186,7 +1195,8 @@
           "Auto-training",
           "Transparency",
           "Knowledge base access"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot Features",
@@ -1274,7 +1284,8 @@
           "Posts per month",
           "Content plan",
           "Post generation"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot Features",
@@ -1362,7 +1373,8 @@
           "Personalization",
           "Response time",
           "Scalability"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot Features",
@@ -1450,7 +1462,8 @@
           "Online booking",
           "Schedule errors",
           "1C integration"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot Features",
@@ -1538,7 +1551,8 @@
           "Auto-reminders",
           "Control",
           "Manual work"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "System Features",
@@ -1626,7 +1640,8 @@
           "Prayers in database",
           "Daily reading",
           "Platforms"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "App Features",

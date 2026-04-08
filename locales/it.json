@@ -251,7 +251,8 @@
           "Chiamate all'admin",
           "Tempo di prenotazione",
           "Tempo morto"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del bot",
@@ -330,7 +331,8 @@
           "Modalità operativa",
           "Automazione",
           "Tempo di risposta"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità",
@@ -412,7 +414,8 @@
           "Automazione",
           "Disponibilità",
           "Fino alla pubblicazione"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità",
@@ -488,7 +491,8 @@
           "Stem per consegna",
           "Automazione",
           "Tempo di attesa"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del bot",
@@ -567,7 +571,8 @@
           "Elaborate",
           "Risparmio",
           "Modalità operativa"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del bot",
@@ -649,7 +654,8 @@
           "Gestione domande",
           "Integrazione",
           "Tempo di risposta"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del bot",
@@ -731,7 +737,8 @@
           "Consulenze",
           "Richieste perse",
           "Qualifica lead"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del bot",
@@ -813,7 +820,8 @@
           "Calcolo automatico",
           "Errori nei preventivi",
           "Generazione documenti"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità dell'assistente",
@@ -895,7 +903,8 @@
           "Imbuto automatico",
           "Integrazione",
           "Conversione"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del bot",
@@ -977,7 +986,8 @@
           "Formazione automatica",
           "Trasparenza",
           "Accesso al database"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del bot",
@@ -1059,7 +1069,8 @@
           "Post al mese",
           "Calendario contenuti",
           "Generazione post"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del bot",
@@ -1141,7 +1152,8 @@
           "Personalizzazione",
           "Tempo di risposta",
           "Scalabilità"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del bot",
@@ -1223,7 +1235,8 @@
           "Prenotazione online",
           "Errori in programmazione",
           "Integrazione 1C"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del bot",
@@ -1305,7 +1318,8 @@
           "Promemoria automatici",
           "Controllo",
           "Lavoro manuale"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità del sistema",
@@ -1387,7 +1401,8 @@
           "Preghiere nel database",
           "Lettura quotidiana",
           "Piattaforme"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funzionalità dell'app",

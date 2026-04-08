@@ -410,7 +410,8 @@
           "Anrufe an Admin",
           "Buchungszeit",
           "Ausfallzeit"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -489,7 +490,8 @@
           "Betriebsmodus",
           "Automatisierung",
           "Antwortzeit"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funktionen",
@@ -571,7 +573,8 @@
           "Automatisierung",
           "Verfügbarkeit",
           "Bis zur Veröffentlichung"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funktionen",
@@ -647,7 +650,8 @@
           "Stems je Ausgabe",
           "Automatisierung",
           "Wartezeit"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Funktionen",
@@ -726,7 +730,8 @@
           "Bearbeitet",
           "Ersparnis",
           "Betriebsmodus"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -808,7 +813,8 @@
           "Fragenbearbeitung",
           "Integration",
           "Antwortzeit"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -890,7 +896,8 @@
           "Beratungen",
           "Verlorene Anfragen",
           "Lead-Qualifizierung"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -972,7 +979,8 @@
           "Auto-Berechnung",
           "Fehler in Angeboten",
           "Dokumentengenerierung"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Assistent-Funktionen",
@@ -1054,7 +1062,8 @@
           "Auto-Trichter",
           "Integration",
           "Konversion"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1136,7 +1145,8 @@
           "Auto-Schulung",
           "Transparenz",
           "Datenbank-Zugriff"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1218,7 +1228,8 @@
           "Posts pro Monat",
           "Content-Plan",
           "Post-Generierung"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1300,7 +1311,8 @@
           "Personalisierung",
           "Antwortzeit",
           "Skalierung"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1382,7 +1394,8 @@
           "Online-Buchung",
           "Fehler im Zeitplan",
           "1C-Integration"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1464,7 +1477,8 @@
           "Auto-Erinnerungen",
           "Kontrolle",
           "Manuelle Arbeit"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "System-Funktionen",
@@ -1546,7 +1560,8 @@
           "Gebete in der Datenbank",
           "Tägliches Lesen",
           "Plattformen"
-        ]
+        ],
+        "stats": []
       },
       "features": {
         "heading": "App-Funktionen",
