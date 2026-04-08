@@ -411,7 +411,24 @@
           "Buchungszeit",
           "Ausfallzeit"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "24/7",
+            "label": "Режим работы"
+          },
+          {
+            "value": "-40%",
+            "label": "Звонков админу"
+          },
+          {
+            "value": "2 мин",
+            "label": "Время брони"
+          },
+          {
+            "value": "0₽",
+            "label": "Простой"
+          }
+        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -491,7 +508,24 @@
           "Automatisierung",
           "Antwortzeit"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "2+ ч",
+            "label": "Экономии в день"
+          },
+          {
+            "value": "24/7",
+            "label": "Режим работы"
+          },
+          {
+            "value": "100%",
+            "label": "Автоматизация"
+          },
+          {
+            "value": "0 сек",
+            "label": "Задержка"
+          }
+        ]
       },
       "features": {
         "heading": "Funktionen",
@@ -574,7 +608,24 @@
           "Verfügbarkeit",
           "Bis zur Veröffentlichung"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "5 ч",
+            "label": "Экономии в неделю"
+          },
+          {
+            "value": "100%",
+            "label": "Автоматизация"
+          },
+          {
+            "value": "24/7",
+            "label": "Готовность"
+          },
+          {
+            "value": "1 клик",
+            "label": "До публикации"
+          }
+        ]
       },
       "features": {
         "heading": "Funktionen",
@@ -651,7 +702,24 @@
           "Automatisierung",
           "Wartezeit"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "24/7",
+            "label": "Приём заказов"
+          },
+          {
+            "value": "2-5",
+            "label": "Стем на выходе"
+          },
+          {
+            "value": "100%",
+            "label": "Автоматизация"
+          },
+          {
+            "value": "0 сек",
+            "label": "Ожидание"
+          }
+        ]
       },
       "features": {
         "heading": "Funktionen",
@@ -731,7 +799,24 @@
           "Ersparnis",
           "Betriebsmodus"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "8000+",
+            "label": "Откликов"
+          },
+          {
+            "value": "3500+",
+            "label": "Обработано"
+          },
+          {
+            "value": "1166 ч",
+            "label": "Экономии"
+          },
+          {
+            "value": "24/7",
+            "label": "Режим работы"
+          }
+        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -814,7 +899,24 @@
           "Integration",
           "Antwortzeit"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "24/7",
+            "label": "Консультации"
+          },
+          {
+            "value": "AI",
+            "label": "Обработка вопросов"
+          },
+          {
+            "value": "CRM",
+            "label": "Интеграция"
+          },
+          {
+            "value": "0 сек",
+            "label": "Время ответа"
+          }
+        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -897,7 +999,24 @@
           "Verlorene Anfragen",
           "Lead-Qualifizierung"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "+35%",
+            "label": "Конверсия в замер"
+          },
+          {
+            "value": "24/7",
+            "label": "Консультации"
+          },
+          {
+            "value": "0",
+            "label": "Потерянных заявок"
+          },
+          {
+            "value": "AI",
+            "label": "Квалификация лидов"
+          }
+        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -980,7 +1099,24 @@
           "Fehler in Angeboten",
           "Dokumentengenerierung"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "-3 дня",
+            "label": "Время подготовки"
+          },
+          {
+            "value": "100%",
+            "label": "Авто-расчёт"
+          },
+          {
+            "value": "0",
+            "label": "Ошибок в КП"
+          },
+          {
+            "value": "PDF",
+            "label": "Генерация документов"
+          }
+        ]
       },
       "features": {
         "heading": "Assistent-Funktionen",
@@ -1063,7 +1199,24 @@
           "Integration",
           "Konversion"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "24/7",
+            "label": "Прогрев лидов"
+          },
+          {
+            "value": "80%",
+            "label": "Авто-воронка"
+          },
+          {
+            "value": "CRM",
+            "label": "Интеграция"
+          },
+          {
+            "value": "+45%",
+            "label": "Конверсия"
+          }
+        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1146,7 +1299,24 @@
           "Transparenz",
           "Datenbank-Zugriff"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "3x",
+            "label": "Ускорение адаптации"
+          },
+          {
+            "value": "70%",
+            "label": "Авто-обучение"
+          },
+          {
+            "value": "100%",
+            "label": "Прозрачность"
+          },
+          {
+            "value": "24/7",
+            "label": "Доступ к базе"
+          }
+        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1229,7 +1399,24 @@
           "Content-Plan",
           "Post-Generierung"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "-10 ч",
+            "label": "Экономии в неделю"
+          },
+          {
+            "value": "30+",
+            "label": "Постов в месяц"
+          },
+          {
+            "value": "100%",
+            "label": "Контент-план"
+          },
+          {
+            "value": "AI",
+            "label": "Генерация постов"
+          }
+        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1312,7 +1499,24 @@
           "Antwortzeit",
           "Skalierung"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "24/7",
+            "label": "AI-консультации"
+          },
+          {
+            "value": "100%",
+            "label": "Персонализация"
+          },
+          {
+            "value": "0 сек",
+            "label": "Время ответа"
+          },
+          {
+            "value": "∞",
+            "label": "Масштабирование"
+          }
+        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1395,7 +1599,24 @@
           "Fehler im Zeitplan",
           "1C-Integration"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "-60%",
+            "label": "Работы админа"
+          },
+          {
+            "value": "24/7",
+            "label": "Онлайн-запись"
+          },
+          {
+            "value": "0",
+            "label": "Ошибок в расписании"
+          },
+          {
+            "value": "100%",
+            "label": "Интеграция с 1С"
+          }
+        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1478,7 +1699,24 @@
           "Kontrolle",
           "Manuelle Arbeit"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "-45%",
+            "label": "Просрочка"
+          },
+          {
+            "value": "80%",
+            "label": "Авто-напоминания"
+          },
+          {
+            "value": "24/7",
+            "label": "Контроль"
+          },
+          {
+            "value": "0₽",
+            "label": "Ручной работы"
+          }
+        ]
       },
       "features": {
         "heading": "System-Funktionen",
@@ -1561,7 +1799,24 @@
           "Tägliches Lesen",
           "Plattformen"
         ],
-        "stats": []
+        "stats": [
+          {
+            "value": "24/7",
+            "label": "Доступ к молитвам"
+          },
+          {
+            "value": "100+",
+            "label": "Молитв в базе"
+          },
+          {
+            "value": "Daily",
+            "label": "Ежедневное чтение"
+          },
+          {
+            "value": "iOS/Android",
+            "label": "Платформы"
+          }
+        ]
       },
       "features": {
         "heading": "App-Funktionen",
