@@ -27,7 +27,8 @@
     "ctaProjectDesc": "I can join as a developer, analyst, or solution architect: from idea to implementation.",
     "footer": "© 2026 Alexander Moiseev. AI bots, assistants and turnkey business automation",
     "ctaTelegram": "Write on Telegram",
-    "ctaDiscuss": "Discuss Project"
+    "ctaDiscuss": "Discuss Project",
+    "contactVK": "VKontakte"
   },
   "index": {
     "title": "Alexander Moiseev — AI Developer & Analyst",
@@ -81,7 +82,7 @@
     "contactTitle": "Contacts",
     "contactDiscuss": "Discuss a Project",
     "contactMax": "MAX",
-    "contactVK": "ВКонтакте",
+    "contactVK": "VKontakte",
     "viewProjects": "📂 All Projects"
   },
   "projects": {
