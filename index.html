@@ -426,16 +426,22 @@
         }
       }
 
-      renderPortfolio();
-
-      // Re-render portfolio on language change
-      document.addEventListener('moi:langchange', function() {
+      // Wait for locale to be loaded before rendering (fixes cards showing Russian on page navigation)
+      function doRenderPortfolio() {
         renderPortfolio();
-        // Re-apply translations to static elements
-        if (window.moiLang && window.moiLang.current() !== 'ru') {
-          window._moiResolve = window.moiLang.resolve;
-        }
-      });
+        document.addEventListener('moi:langchange', function() {
+          renderPortfolio();
+          if (window.moiLang && window.moiLang.current() !== 'ru') {
+            window._moiResolve = window.moiLang.resolve;
+          }
+        });
+      }
+
+      if (typeof moiLang !== 'undefined' && moiLang.current() !== 'ru' && window._moiLocaleLoaded) {
+        window._moiLocaleLoaded.then(doRenderPortfolio);
+      } else {
+        doRenderPortfolio();
+      }
 
       // Slider control - smooth
       let isSliding = false;
