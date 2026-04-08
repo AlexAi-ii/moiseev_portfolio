@@ -404,32 +404,6 @@
         "solution": "Telegram-Bot mit automatischer Anzeige freier Slots, Online-Buchung und AI-Antworten auf häufige Fragen. Vollständige Integration in Google Calendar.",
         "result": "40% weniger Belastung für den Administrator, Beschleunigung der Buchung auf 2 Minuten, 24/7-Betrieb ohne menschliches Zutun."
       },
-      "showcase": {
-        "labels": [
-          "Betriebsmodus",
-          "Anrufe an Admin",
-          "Buchungszeit",
-          "Ausfallzeit"
-        ],
-        "stats": [
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "-40%",
-            "label": "Admin load"
-          },
-          {
-            "value": "2 min",
-            "label": "Booking time"
-          },
-          {
-            "value": "0 min",
-            "label": "Wait time"
-          }
-        ]
-      },
       "features": {
         "heading": "Bot-Funktionen",
         "cards": [
@@ -490,6 +464,24 @@
       "cta": {
         "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "1": {
+          "value": "-40%",
+          "label": "Admin load"
+        },
+        "2": {
+          "value": "2 min",
+          "label": "To book"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Wait time"
+        }
       }
     },
     "assistant": {
@@ -500,32 +492,6 @@
         "problem": "Die tägliche Verwaltung von Kalender, E-Mail und Aufgaben kostet viel Zeit. Das manuelle Eintragen von Terminen und Erinnerungen führt zu Fehlern und dem Verpassen wichtiger Ereignisse.",
         "solution": "Telegram-Bot mit Spracherkennung, Integration in Google Calendar, Gmail und Kontakte. Automatische Erstellung von Terminen und Erinnerungen aus Sprachnachrichten.",
         "result": "Einsparung von 2+ Stunden täglich bei Routineaufgaben. Alle Termine und Aufgaben werden automatisch eingetragen. Bequeme Oberfläche im vertrauten Telegram."
-      },
-      "showcase": {
-        "labels": [
-          "Ersparnis pro Tag",
-          "Betriebsmodus",
-          "Automatisierung",
-          "Antwortzeit"
-        ],
-        "stats": [
-          {
-            "value": "2+ h",
-            "label": "Savings per day"
-          },
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "100%",
-            "label": "Automation"
-          },
-          {
-            "value": "0 min",
-            "label": "Wait time"
-          }
-        ]
       },
       "features": {
         "heading": "Funktionen",
@@ -590,6 +556,24 @@
       "cta": {
         "title": "Möchten Sie einen persönlichen Assistenten?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "2+ h",
+          "label": "Savings per day"
+        },
+        "1": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "2": {
+          "value": "100%",
+          "label": "Automation"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Wait time"
+        }
       }
     },
     "autopublish": {
@@ -600,32 +584,6 @@
         "problem": "Das manuelle Erstellen von Posts für einen Telegram-Kanal kostet viel Zeit. Man muss den Artikel lesen, das Wesentliche herausarbeiten, ein Bild auswählen, den Text schreiben und veröffentlichen.",
         "solution": "Der Dienst extrahiert automatisch Inhalte aus einem Link, generiert Post-Texte über AI, erstellt ein Bild und veröffentlicht nach Bestätigung in Telegram.",
         "result": "Einsparung von 5 Stunden pro Woche bei der Content-Erstellung. Stabiler Veröffentlichungsrhythmus ohne manuelle Arbeit."
-      },
-      "showcase": {
-        "labels": [
-          "Ersparnis pro Woche",
-          "Automatisierung",
-          "Verfügbarkeit",
-          "Bis zur Veröffentlichung"
-        ],
-        "stats": [
-          {
-            "value": "5 h",
-            "label": "Saved per week"
-          },
-          {
-            "value": "100%",
-            "label": "Automation"
-          },
-          {
-            "value": "24/7",
-            "label": "Ready"
-          },
-          {
-            "value": "1 click",
-            "label": "To publish"
-          }
-        ]
       },
       "features": {
         "heading": "Funktionen",
@@ -684,6 +642,24 @@
       "cta": {
         "title": "Möchten Sie Content automatisieren?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Lösung für Auto-Publishing"
+      },
+      "showcase": {
+        "0": {
+          "value": "5 h",
+          "label": "Saved per week"
+        },
+        "1": {
+          "value": "100%",
+          "label": "Automation"
+        },
+        "2": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "3": {
+          "value": "1 click",
+          "label": "To publish"
+        }
       }
     },
     "amp": {
@@ -694,32 +670,6 @@
         "problem": "Ein Musikdienst bot die Aufteilung von Tracks in Stems an, aber der Prozess war vollständig manuell. Kunden warteten auf die Antwort eines Operators, Zahlungen erfolgten per Überweisung ohne Automatisierung.",
         "solution": "Telegram-Bot nimmt automatisch Audiodateien entgegen, verarbeitet sie über die Dienst-API, akzeptiert Zahlungen über Robokassa und liefert fertige Stems.",
         "result": "Vollständige Automatisierung des Dienstes. Zahlungsannahme 24/7 ohne menschliches Zutun. Sofortige Ausgabe fertiger Materialien."
-      },
-      "showcase": {
-        "labels": [
-          "Bestellannahme",
-          "Stems je Ausgabe",
-          "Automatisierung",
-          "Wartezeit"
-        ],
-        "stats": [
-          {
-            "value": "24/7",
-            "label": "Order intake"
-          },
-          {
-            "value": "2-5",
-            "label": "Stems output"
-          },
-          {
-            "value": "100%",
-            "label": "Automation"
-          },
-          {
-            "value": "0 sec",
-            "label": "Wait time"
-          }
-        ]
       },
       "features": {
         "heading": "Funktionen",
@@ -781,6 +731,24 @@
       "cta": {
         "title": "Möchten Sie Ihren Dienst automatisieren?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich erstelle eine Lösung mit Monetarisierung und automatischer Ausgabe"
+      },
+      "showcase": {
+        "0": {
+          "value": "24/7",
+          "label": "Order intake"
+        },
+        "1": {
+          "value": "2-5",
+          "label": "Stems output"
+        },
+        "2": {
+          "value": "100%",
+          "label": "Automation"
+        },
+        "3": {
+          "value": "0 sec",
+          "label": "Wait time"
+        }
       }
     },
     "hrNeuro": {
@@ -791,32 +759,6 @@
         "problem": "Die HR-Abteilung verbrachte 40+ Stunden pro Woche mit der manuellen Bearbeitung von Bewerbungen über HeadHunter. Tausende Bewerbungen monatlich erforderten manuelle Bearbeitung, HR-Manager verbrachten Zeit mit ungeeigneten Kandidaten.",
         "solution": "AI-Bot, der automatisch Bewerbungen verarbeitet, erste Qualifizierung durchführt und die Erfassung in Google Sheets vornimmt. Sofortige Reaktion auf Bewerbungen 24/7, Skript-Fragen, Filterung ungeeigneter Kandidaten.",
         "result": "8000+ Bewerbungen eingegangen, 3500+ Kandidaten automatisch bearbeitet, 1166 Stunden für die HR-Abteilung eingespart. Reduzierung der Einstellungszeit von 2 Wochen auf 3-4 Tage."
-      },
-      "showcase": {
-        "labels": [
-          "Bewerbungen",
-          "Bearbeitet",
-          "Ersparnis",
-          "Betriebsmodus"
-        ],
-        "stats": [
-          {
-            "value": "8000+",
-            "label": "Applications"
-          },
-          {
-            "value": "3500+",
-            "label": "Processed"
-          },
-          {
-            "value": "1166 h",
-            "label": "HR savings"
-          },
-          {
-            "value": "3-4 d",
-            "label": "Hiring time"
-          }
-        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -881,6 +823,24 @@
       "cta": {
         "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "8000+",
+          "label": "Applications"
+        },
+        "1": {
+          "value": "3500+",
+          "label": "Processed"
+        },
+        "2": {
+          "value": "1166 h",
+          "label": "HR savings"
+        },
+        "3": {
+          "value": "3-4 d",
+          "label": "Hiring time"
+        }
       }
     },
     "aurpak": {
@@ -891,32 +851,6 @@
         "problem": "Manager verbrachten bis zu 70% ihrer Zeit mit wiederholten Beratungen und der Bearbeitung eingehender Anfragen. Kunden warteten lange auf Antworten und wechselten zum Wettbewerb.",
         "solution": "Telegram-Bot mit vollständiger Wissensdatenbank über Produkte, AI-Berater und automatischen Antworten auf häufige Fragen. Integration mit Website und CRM.",
         "result": "Schneller Inbound-Beratungskreislauf, 60% geringere Belastung der Manager, 25% höhere Kaufkonversion."
-      },
-      "showcase": {
-        "labels": [
-          "Beratungen",
-          "Fragenbearbeitung",
-          "Integration",
-          "Antwortzeit"
-        ],
-        "stats": [
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "AI",
-            "label": "Knowledge base"
-          },
-          {
-            "value": "CRM",
-            "label": "Integration"
-          },
-          {
-            "value": "0 min",
-            "label": "Response time"
-          }
-        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -981,6 +915,24 @@
       "cta": {
         "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "1": {
+          "value": "AI",
+          "label": "Knowledge base"
+        },
+        "2": {
+          "value": "CRM",
+          "label": "Integration"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Response time"
+        }
       }
     },
     "lenremont": {
@@ -991,32 +943,6 @@
         "problem": "Kunden verloren sich in der Vielfalt der Dienstleistungen und Materialien und verstanden die Endkosten der Renovierung nicht. Manager verbrachten Stunden mit Erstberatungen und Berechnungen.",
         "solution": "AI-Berater in Telegram, der bei der Renovierungskostenberechnung hilft, Materialien auswählt und die kostenlose Terminbuchung zur Vermessung ermöglicht.",
         "result": "Weniger verlorene Anfragen, automatische Lead-Qualifizierung, 35% mehr Konversion zur Vermessung."
-      },
-      "showcase": {
-        "labels": [
-          "Konversion zur Vermessung",
-          "Beratungen",
-          "Verlorene Anfragen",
-          "Lead-Qualifizierung"
-        ],
-        "stats": [
-          {
-            "value": "AI",
-            "label": "Consultant"
-          },
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "CRM",
-            "label": "Integration"
-          },
-          {
-            "value": "0 min",
-            "label": "Response time"
-          }
-        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1081,6 +1007,24 @@
       "cta": {
         "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "AI",
+          "label": "Consultant"
+        },
+        "1": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "2": {
+          "value": "CRM",
+          "label": "Integration"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Response time"
+        }
       }
     },
     "mchs": {
@@ -1091,32 +1035,6 @@
         "problem": "Die Erstellung von kommerziellen Angeboten dauerte bis zu 3 Tage, erforderte manuelle Datensammlung und Berechnungen. Hohes Fehlerrisiko in der Dokumentation.",
         "solution": "Automatisierter Assistent zur Anforderungserhebung, Kostenberechnung und Generierung fertiger Angebote nach Schablone.",
         "result": "Schnellere Angebote, weniger Fehler, Reduzierung der Erstellungszeit von 3 Tagen auf 2 Stunden."
-      },
-      "showcase": {
-        "labels": [
-          "Vorbereitungszeit",
-          "Auto-Berechnung",
-          "Fehler in Angeboten",
-          "Dokumentengenerierung"
-        ],
-        "stats": [
-          {
-            "value": "AI",
-            "label": "Consultant"
-          },
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "CRM",
-            "label": "Integration"
-          },
-          {
-            "value": "0 min",
-            "label": "Response time"
-          }
-        ]
       },
       "features": {
         "heading": "Assistent-Funktionen",
@@ -1181,6 +1099,24 @@
       "cta": {
         "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "AI",
+          "label": "Consultant"
+        },
+        "1": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "2": {
+          "value": "CRM",
+          "label": "Integration"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Response time"
+        }
       }
     },
     "zzokSale": {
@@ -1191,32 +1127,6 @@
         "problem": "Manager verbrachten bis zu 80% ihrer Zeit mit „kalten“ Kontakten und der Erstaktivierung. Niedrige Konversion mangels systematischer Verkaufstrichter.",
         "solution": "Telegram-Bot mit automatischem Aktivierungstrichter, Reihe von Tripwire-Angeboten und CRM-Integration zur Übergabe warmer Leads.",
         "result": "Aktivierte Leads, 45% höhere Verkaufskonversion, Freisetzung von Manager-Zeit für die Arbeit mit kaufbereiten Kunden."
-      },
-      "showcase": {
-        "labels": [
-          "Lead-Aktivierung",
-          "Auto-Trichter",
-          "Integration",
-          "Konversion"
-        ],
-        "stats": [
-          {
-            "value": "AI",
-            "label": "Knowledge base"
-          },
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "CRM",
-            "label": "Integration"
-          },
-          {
-            "value": "0 min",
-            "label": "Response time"
-          }
-        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1281,6 +1191,24 @@
       "cta": {
         "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "AI",
+          "label": "Knowledge base"
+        },
+        "1": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "2": {
+          "value": "CRM",
+          "label": "Integration"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Response time"
+        }
       }
     },
     "zzokHr": {
@@ -1291,32 +1219,6 @@
         "problem": "Neue Mitarbeiter brauchten lange, um sich einzuarbeiten, HR verbrachte Stunden mit wiederholter Schulung. Fehlende einheitliche Wissensdatenbank und ein System zur Kompetenzprüfung.",
         "solution": "Telegram-Bot mit Unternehmens-Wissensdatenbank, interaktiven Tests und automatischer Lernfortschrittsverfolgung.",
         "result": "3-fach schnellere Einarbeitung neuer Mitarbeiter, Automatisierung von 70% der Schulungsprozesse, transparente Kompetenzanalytik für das gesamte Team."
-      },
-      "showcase": {
-        "labels": [
-          "Beschleunigung der Einarbeitung",
-          "Auto-Schulung",
-          "Transparenz",
-          "Datenbank-Zugriff"
-        ],
-        "stats": [
-          {
-            "value": "AI",
-            "label": "Knowledge base"
-          },
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "CRM",
-            "label": "Integration"
-          },
-          {
-            "value": "0 min",
-            "label": "Response time"
-          }
-        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1381,6 +1283,24 @@
       "cta": {
         "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "AI",
+          "label": "Knowledge base"
+        },
+        "1": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "2": {
+          "value": "CRM",
+          "label": "Integration"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Response time"
+        }
       }
     },
     "smm": {
@@ -1391,32 +1311,6 @@
         "problem": "SMM-Spezialisten verbrachten bis zu 15 Stunden pro Woche mit Content-Planung und Post-Erstellung. Instabile Qualität und häufige Veröffentlichungsausfälle.",
         "solution": "Telegram-Bot mit AI-Content-Generierung, fertigem Veröffentlichungskalender und Integration mit sozialen Netzwerken.",
         "result": "Einsparung von 10 Stunden pro Woche, stabiler Content-Plan für einen Monat im Voraus, 35% mehr Engagement."
-      },
-      "showcase": {
-        "labels": [
-          "Ersparnis pro Woche",
-          "Posts pro Monat",
-          "Content-Plan",
-          "Post-Generierung"
-        ],
-        "stats": [
-          {
-            "value": "10 h",
-            "label": "Saved per week"
-          },
-          {
-            "value": "100%",
-            "label": "Automation"
-          },
-          {
-            "value": "24/7",
-            "label": "Ready"
-          },
-          {
-            "value": "1 click",
-            "label": "To publish"
-          }
-        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1481,6 +1375,24 @@
       "cta": {
         "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "10 h",
+          "label": "Saved per week"
+        },
+        "1": {
+          "value": "100%",
+          "label": "Automation"
+        },
+        "2": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "3": {
+          "value": "1 click",
+          "label": "To publish"
+        }
       }
     },
     "biohacking": {
@@ -1491,32 +1403,6 @@
         "problem": "Biohacking-Experten verbrachten Stunden mit Beratungen zu sich wiederholenden Fragen. Fehlende skalierbare Möglichkeit zur Wissensmonetarisierung.",
         "solution": "Telegram-Bot mit AI-Berater, trainiert auf einer Wissensdatenbank zu Biohacking, Nahrungsergänzungsmitteln und Gesundheitsprotokollen.",
         "result": "Wissensmonetarisierung durch Abonnement, automatische personalisierte Empfehlungen, Skalierung ohne Qualitätsverlust."
-      },
-      "showcase": {
-        "labels": [
-          "AI-Beratungen",
-          "Personalisierung",
-          "Antwortzeit",
-          "Skalierung"
-        ],
-        "stats": [
-          {
-            "value": "AI",
-            "label": "Consultant"
-          },
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "CRM",
-            "label": "Integration"
-          },
-          {
-            "value": "0 min",
-            "label": "Response time"
-          }
-        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1581,6 +1467,24 @@
       "cta": {
         "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "AI",
+          "label": "Consultant"
+        },
+        "1": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "2": {
+          "value": "CRM",
+          "label": "Integration"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Response time"
+        }
       }
     },
     "salon": {
@@ -1591,32 +1495,6 @@
         "problem": "Administratoren verbrachten bis zu 50% ihrer Zeit mit Telefonanrufen und manueller Kundenbuchung. Doppelbuchungen und Fehler im Zeitplan.",
         "solution": "Telegram-Bot für Online-Buchung mit vollständiger 1C-Integration: automatische Zeitplan-Aktualisierung, Leistungs- und Finanzbuchhaltung.",
         "result": "60% weniger Administrationsarbeit, keine Fehler im Zeitplan, automatische Erfassung in 1C."
-      },
-      "showcase": {
-        "labels": [
-          "Admin-Arbeit",
-          "Online-Buchung",
-          "Fehler im Zeitplan",
-          "1C-Integration"
-        ],
-        "stats": [
-          {
-            "value": "AI",
-            "label": "Consultant"
-          },
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "CRM",
-            "label": "Integration"
-          },
-          {
-            "value": "0 min",
-            "label": "Response time"
-          }
-        ]
       },
       "features": {
         "heading": "Bot-Funktionen",
@@ -1681,6 +1559,24 @@
       "cta": {
         "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "AI",
+          "label": "Consultant"
+        },
+        "1": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "2": {
+          "value": "CRM",
+          "label": "Integration"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Response time"
+        }
       }
     },
     "payments": {
@@ -1691,32 +1587,6 @@
         "problem": "Kunden vergaßen die Bezahlung von Rechnungen, Manager verbrachten Stunden mit manueller Schuldnerverfolgung und Erinnerungen. Hohe überfällige Forderungen.",
         "solution": "Automatisches Erinnerungssystem für Zahlungen über Telegram mit Integration in das Buchhaltungssystem und flexiblen Benachrichtigungsszenarien.",
         "result": "45% weniger überfällige Forderungen, Automatisierung von 80% der Zahlungsabwicklungsarbeit, verbesserter Cashflow."
-      },
-      "showcase": {
-        "labels": [
-          "Zahlungsrückstand",
-          "Auto-Erinnerungen",
-          "Kontrolle",
-          "Manuelle Arbeit"
-        ],
-        "stats": [
-          {
-            "value": "AI",
-            "label": "Consultant"
-          },
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "CRM",
-            "label": "Integration"
-          },
-          {
-            "value": "0 min",
-            "label": "Response time"
-          }
-        ]
       },
       "features": {
         "heading": "System-Funktionen",
@@ -1781,6 +1651,24 @@
       "cta": {
         "title": "Möchten Sie ein solches System für Ihr Unternehmen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
+      },
+      "showcase": {
+        "0": {
+          "value": "AI",
+          "label": "Consultant"
+        },
+        "1": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "2": {
+          "value": "CRM",
+          "label": "Integration"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Response time"
+        }
       }
     },
     "holyScriptures": {
@@ -1791,32 +1679,6 @@
         "problem": "Gläubige hatten Schwierigkeiten mit der regelmäßigen Gebetspraxis: vergaßen das Beten, hatten keinen bequemen Zugang zum Gebetbuch unterwegs, besonders außerhalb des Zuhauses.",
         "solution": "Mobile App „Tag mit Gebet“ mit täglicher Gebetsregel, Benachrichtigungen zur Gebetszeit und dem vollständigen Vyritsa-Gebetbuch in der Tasche.",
         "result": "Bequeme App für die tägliche Gebetspraxis, jederzeit und überall verfügbar. Über 100 Gebete in der Datenbank."
-      },
-      "showcase": {
-        "labels": [
-          "Gebets-Zugriff",
-          "Gebete in der Datenbank",
-          "Tägliches Lesen",
-          "Plattformen"
-        ],
-        "stats": [
-          {
-            "value": "AI",
-            "label": "Consultant"
-          },
-          {
-            "value": "24/7",
-            "label": "Readiness"
-          },
-          {
-            "value": "CRM",
-            "label": "Integration"
-          },
-          {
-            "value": "0 min",
-            "label": "Response time"
-          }
-        ]
       },
       "features": {
         "heading": "App-Funktionen",
@@ -1874,6 +1736,24 @@
       "cta": {
         "title": "Möchten Sie eine ähnliche App erstellen?",
         "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Lösung für die Umsetzung"
+      },
+      "showcase": {
+        "0": {
+          "value": "AI",
+          "label": "Consultant"
+        },
+        "1": {
+          "value": "24/7",
+          "label": "Ready"
+        },
+        "2": {
+          "value": "CRM",
+          "label": "Integration"
+        },
+        "3": {
+          "value": "0 min",
+          "label": "Response time"
+        }
       }
     }
   }
