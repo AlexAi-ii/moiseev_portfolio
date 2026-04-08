@@ -1,7 +1,7 @@
 {
   "nav": {
     "brand": "Alexander Moiseev",
-    "tagline": "AI-Bots & Automatisierung",
+    "tagline": "AI Automation Engineer",
     "home": "Startseite",
     "about": "Über mich",
     "skills": "Fähigkeiten",
@@ -10,383 +10,247 @@
     "contacts": "Kontakt",
     "projects": "Projekte",
     "allProjects": "Alle Projekte",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "solutions": "Lösungen",
+    "cases": "Fälle",
+    "agencies": "Für Agenturen",
+    "aboutWork": "Über Arbeit"
   },
   "common": {
-    "backLink": "← Zurück zu den Projekten",
-    "backHome": "← Zurück zur Startseite",
+    "backLink": "\u2190 Zurück zu den Projekten",
+    "backHome": "\u2190 Zurück zur Startseite",
     "viewProjects": "Alle Projekte ansehen",
     "allProjects": "Alle Projekte",
-    "ctaTitle": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-    "ctaDesc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung",
+    "ctaTitle": "Möchten Sie ähnliche Automatisierung für Ihr Unternehmen?",
+    "ctaDesc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Lösung",
     "ctaBtn": "Über Telegram schreiben",
     "viewAllProjects": "Alle Projekte ansehen",
     "discussProject": "Projekt besprechen",
     "linkVK": "VKontakte",
-    "ctaProject": "Bereit, Ihr Projekt zu besprechen",
+    "ctaProject": "Offen für Zusammenarbeit",
     "ctaProjectDesc": "Ich kann als Entwickler, Analyst oder Lösungsarchitekt einsteigen: von der Idee bis zur Umsetzung.",
-    "footer": "© 2026 Alexander Moiseev. AI-Bots, Assistenten und schlüsselfertige Geschäftsautomatisierung",
-    "ctaTelegram": "Über Telegram schreiben",
+    "footer": "\u00a9 2026 Alexander Moiseev. AI Automation Engineer \u2014 Vertrieb, Support, Telegram, CRM, interne Prozesse \u00b7 Für Personalvermittler",
+    "ctaTelegram": "Telegram",
     "ctaDiscuss": "Projekt besprechen",
     "contactVK": "VKontakte"
   },
   "index": {
-    "title": "Alexander Moiseev — AI-Entwickler & Analyst",
-    "metaDescription": "Alexander Moiseev — AI-Entwickler und Analyst. Chat-Bots, AI-Agenten und Geschäftsautomatisierung mit n8n.",
-    "heroTitle": "AI-Entwickler & Analyst",
-    "heroDesc": "Ich entwickle intelligente Assistenten, Chat-Bots und automatisiere Prozesse mit n8n, Python und neuronalen Netzen.",
+    "title": "Alexander Moiseev \u2014 AI Automation Engineer",
+    "metaDescription": "Alexander Moiseev \u2014 AI Automation Engineer. Automatisierung von Vertrieb, Support und internen Prozessen mit Telegram, CRM, n8n und AI.",
+    "heroTitle": "AI Automation Engineer für Vertrieb, Support und Betrieb",
+    "heroDesc": "Ich automatisiere Leads, Buchungen, CRM, 24/7-Antworten und interne Prozesse mit Telegram, n8n, AI und Google Cloud",
+    "heroMessage": "Ich helfe Unternehmen, weniger Leads zu verlieren, schneller auf Kunden zu antworten und manuelle Routine aus Prozessen zu entfernen",
+    "heroDiscuss": "Aufgabe besprechen",
+    "heroCases": "Fälle ansehen",
     "heroProjects": "Alle Projekte",
     "heroTelegram": "Telegram",
-    "statProjects": "Abgeschlossene Projekte",
+    "statProjects": "Automatisierungsprojekte abgeschlossen",
     "statHours": "Gesparte Stunden",
-    "statResponses": "Verarbeitete Antworten",
-    "statYears": "Jahre in der IT",
+    "statResponses": "Leads und Anfragen verarbeitet",
+    "statConversion": "Conversion-Wachstum / Überfälligkeitsreduktion",
+    "statYears": "Jahre in IT und Analytik",
+    "solutionsTitle": "Was ich mache",
+    "offerAgenciesTitle": "Für Agenturen",
+    "offerAgenciesDesc": "White-Label AI-Automatisierungsentwicklung für Agenturen",
+    "offerAgencies1": "Telegram / WhatsApp Bots",
+    "offerAgencies2": "AI-Lead-Qualifizierung",
+    "offerAgencies3": "CRM-Integrationen",
+    "offerAgencies4": "Content-Automatisierung",
+    "offerAgencies5": "Schnelle MVPs",
+    "offerAgenciesCta": "Suche White-Label und Partnerprojekte \u2192",
+    "offerSMBTitle": "Für Kleinunternehmen",
+    "offerSMBDesc": "Automatisierung von Leads, Buchungen, Zahlungen, Erinnerungen und Routine",
+    "offerSMB1": "Dienstleistungen und lokales Geschäft",
+    "offerSMB2": "Clubs, Salons, Reparaturen",
+    "offerSMB3": "Kleine B2B-Teams",
+    "offerSMB4": "Buchungen, Planung, Zahlungen",
+    "offerSmbCta": "Prozesse analysieren und manuelle Arbeit entfernen \u2192",
+    "offerBotsTitle": "Telegram Bots",
+    "offerBotsDesc": "Bots, die nicht nur antworten, sondern den Kunden durch ein Szenario führen",
+    "offerBots1": "Buchungen und Planung",
+    "offerBots2": "FAQ und Support",
+    "offerBots3": "Kostenpflichtige Dienste und Abonnements",
+    "offerBots4": "Aufwärmungstrichter",
+    "offerBotsCta": "Bots und Szenarien ansehen \u2192",
+    "offerAICRMTitle": "AI + CRM Automatisierung",
+    "offerAICRMDesc": "Verbindung von Telegram / AI / CRM / Google / Wissensdatenbanken in ein funktionierendes System",
+    "offerAICRM1": "Lead-Scoring",
+    "offerAICRM2": "CRM-Übergabe, Follow-up",
+    "offerAICRM3": "Wissensdatenbanken und RAG",
+    "offerAICRM4": "HR-Screening, interne Prozesse",
+    "offerAICRMCta": "Automatisierungsfälle ansehen \u2192",
     "aboutTitle": "Über mich",
     "aboutP1": "Hallo! Ich bin Entwickler und Analyst mit <strong>29 Jahren Erfahrung</strong> in der IT-Branche. Zu meinen Kernkompetenzen gehören die Entwicklung von Chat-Bots, AI-Agenten und AI-Assistenten. Ich bin spezialisiert auf Systemintegrationen, Workflow-Automatisierung und die Implementierung von Lösungen mit neuronalen Netzen.",
-    "aboutP2": "Mein Hauptwerkzeug ist die <strong>n8n</strong>-Plattform, die es ermöglicht, verschiedene Dienste und Modelle schnell über API und MCP zu verbinden. Ich nutze <strong>Claude Code</strong>, um die Entwicklung zu beschleunigen — ein intelligenter Assistent zum Schreiben und Refactoring von Code.",
-    "aboutP3": "Neben der Entwicklung übernehme ich Analytics, Architekturentwurf und die Optimierung der Interaktion mit neuronalen Modellen. Ich bemühe mich stets, die optimale Lösung zu finden, und lege besonderen Wert auf Datensicherheit. Ich nehme mir viel Zeit zum Testen — ich führe jedes Projekt bis zum Abschluss und behalte dabei stets die Qualität im Fokus.",
-    "skillsTitle": "Fähigkeiten",
-    "skillBots": "Chat-Bots",
+    "aboutP2": "Mein Hauptwerkzeug ist die <strong>n8n</strong>-Plattform, die es ermöglicht, verschiedene Dienste und Modelle schnell über API und MCP zu verbinden. Ich nutze <strong>Claude Code</strong>, um die Entwicklung zu beschleunigen \u2014 ein intelligenter Assistent zum Schreiben und Refactoring von Code.",
+    "aboutP3": "Neben der Entwicklung übernehme ich Analytics, Architekturentwurf und die Optimierung der Interaktion mit neuronalen Modellen. Ich bemühe mich stets, die optimale Lösung zu finden, und lege besonderen Wert auf Datensicherheit. Ich nehme mir viel Zeit zum Testen \u2014 ich führe jedes Projekt bis zum Abschluss und behalte dabei stets die Qualität im Fokus.",
+    "skillsTitle": "Technologien",
+    "skillBots": "Bots & Automatisierung",
     "skillBots1": "Telegram-, VK-, MAX-, WhatsApp-Bots",
-    "skillBots2": "Mit Datenbanken",
-    "skillBots3": "Daten-Parsing, Auto-Posting",
-    "skillBots4": "Sales-Funnels, Buchung",
-    "skillBots5": "Zahlungsverarbeitung",
-    "skillAI": "AI-Assistenten, AI-Berater",
-    "skillAI1": "Assistenten mit Wissensdatenbank (RAG)",
-    "skillAI2": "Artikelgenerierung, Auto-Posting im Blog",
-    "skillAI3": "Berater, LLM-Unterstützung",
-    "skillAI4": "Anrufanalyse, Meeting-Zusammenfassungen",
-    "skillAI5": "CRM-, 1C-Integrationen",
+    "skillBots2": "Verkaufstrichter, Buchung",
+    "skillBots3": "Zahlungsverarbeitung",
+    "skillBots4": "Datenparsing, Auto-Posting",
+    "skillBots5": "Mit Datenbanken",
+    "skillAI": "AI & LLM",
+    "skillAI1": "RAG-Systeme mit Wissensdatenbank",
+    "skillAI2": "Content-Generierung, Auto-Posting",
+    "skillAI3": "Berater und Support",
+    "skillAI4": "OpenAI, Claude, DeepSeek, GigaChat",
+    "skillAI5": "CRM, 1C-Integrationen",
     "skillPrompt": "Prompt Engineering",
-    "skillPrompt1": "Prompt-Entwicklung und -Optimierung",
+    "skillPrompt1": "Prompt-Entwicklung und Optimierung",
     "skillPrompt2": "Verbesserung der LLM-Effizienz",
     "skillPrompt3": "Hypothesentests, A/B-Tests",
     "skillPrompt4": "System-Prompts für AI-Assistenten",
     "skillIntegration": "Integrationen",
     "skillIntegration1": "CRM: Bitrix24",
     "skillIntegration2": "1C, hh.ru, Avito",
-    "skillIntegration3": "Zahlungssysteme (Robokassa, YooKassa, CloudPayments, Prodamus)",
+    "skillIntegration3": "Zahlungssysteme",
     "skillIntegration4": "Externe APIs, Webhooks, MCP",
     "skillDB": "Datenbanken",
     "skillDB1": "Supabase (PostgreSQL)",
     "skillDB2": "Vector Store (Vektorsuche), RAG",
     "skillDB3": "Google Sheets, Google Drive",
-    "skillDB4": "Speicherung: Benutzer, Dialoge, Kontext",
-    "skillPlatforms": "Plattformen & Kanäle",
+    "skillDB4": "Speicher: Benutzer, Dialoge, Kontext",
+    "skillPlatforms": "Plattformen",
     "skillPlatforms1": "n8n (Workflow-Automatisierung)",
-    "skillPlatforms2": "Telegram, VK, MAX, WhatsApp",
-    "skillPlatforms3": "Wazzup, Chat2Desk, ChatApp",
-    "skillPlatforms4": "LLM: OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT",
+    "skillPlatforms2": "Supabase (PostgreSQL)",
+    "skillPlatforms3": "Google Sheets / Drive / API",
+    "skillPlatforms4": "Python",
+    "casesTitle": "Beste Fälle",
+    "viewAllCases": "Alle Fälle ansehen",
     "portfolioTitle": "Portfolio",
+    "viewProjects": "Alle Projekte ansehen",
+    "processTitle": "Wie ich arbeite",
+    "step1Title": "Aufgabenanalyse",
+    "step1Desc": "Ich analysiere den Geschäftsprozess, identifiziere Engpässe und Wachstumspunkte",
+    "step2Title": "Szenario-Design",
+    "step2Desc": "Ich entwerfe die Lösungsarchitektur, wähle Tools und Integrationen",
+    "step3Title": "Logik-Zusammenbau",
+    "step3Desc": "Ich implementiere Workflows, konfiguriere API-Integrationen und AI-Agenten",
+    "step4Title": "Testen",
+    "step4Desc": "Ich teste Szenarien, finde Edge-Cases und stabilisiere",
+    "step5Title": "Start & Support",
+    "step5Desc": "Ich starte in Produktion, überwache und verbessere basierend auf Ergebnissen",
+    "whoTitle": "Mit wem ich arbeite",
+    "who1": "Agenturen, die einen technischen Partner für Kunden brauchen",
+    "who2": "Kleinunternehmen, die Leads und Zeit verlieren",
+    "who3": "Unternehmen mit Telegram / WhatsApp-first Kommunikation",
+    "who4": "Teams, die AI + n8n + CRM + Google Stack brauchen",
+    "who5": "Diejenigen mit chaotischer Automatisierung, die systematisiert werden muss",
     "contactTitle": "Kontakt",
+    "contactMessage": "Schreiben Sie mir auf Telegram, was Sie automatisieren möchten \u2014 ich schlage einen funktionierenden Implementierungsplan vor",
     "contactDiscuss": "Projekt besprechen",
     "contactMax": "MAX",
-    "contactVK": "VKontakte",
-    "viewProjects": "📂 Alle Projekte"
+    "contactVK": "VKontakte"
   },
   "projects": {
-    "title": "Alle Projekte",
-    "metaDescription": "Alle Projekte von Alexander Moiseev — 15+ abgeschlossene Projekte",
-    "heroDesc": "15+ abgeschlossene Projekte in der Geschäftsautomatisierung: von AI-Bots bis hin zu komplexen Integrationen",
+    "title": "Alle Fälle",
+    "metaDescription": "Alle Fälle von Alexander Moiseev \u2014 15 AI-Automatisierungsprojekte für Unternehmen",
+    "heroDesc": "15 umgesetzte AI-Automatisierungsprojekte für Unternehmen: von Lead-Bots bis zu komplexen Integrationen",
     "statProjects": "Projekte",
     "statCategories": "Kategorien",
     "statHours": "Gesparte Stunden",
     "statResult": "Ergebnis",
-    "filterAll": "Alle Projekte",
-    "filterAIBots": "AI-Bots",
-    "filterHR": "Personalwesen",
-    "filterPayments": "Zahlungen",
-    "filterIntegrations": "Integrationen",
-    "filterApps": "Anwendungen",
-    "catAIBots": "AI-Bots",
-    "catHR": "Personalwesen",
-    "catPayments": "Zahlungen",
-    "catIntegrations": "Integrationen",
-    "catApps": "Anwendungen",
+    "filterAll": "Alle",
+    "filterLeads": "Leads & Vertrieb",
+    "filterSupport": "Support & Beratung",
+    "filterBooking": "Buchung & Planung",
+    "filterOperations": "Betrieb & Back Office",
+    "filterContent": "Content & Marketing",
+    "filterHR": "HR & Schulung",
+    "filterPaidService": "Kostenpflichtige Dienste",
     "projects": [
-      {
-        "name": "Billard-Bot",
-        "desc": "Telegram-Bot zur Tischbuchung",
-        "metric": "40% weniger Admin-Anrufe"
-      },
-      {
-        "name": "Personlicher Assistent",
-        "desc": "AI-Planer in Telegram mit Sprachsteuerung",
-        "metric": "2+ Stunden taeglich gespart"
-      },
-      {
-        "name": "Auto-Publikation",
-        "desc": "Automatische Telegram-Posts",
-        "metric": "5 Std pro Woche gespart"
-      },
-      {
-        "name": "AUDIO MinusPlus",
-        "desc": "Track-Trennung mit Bezahlung",
-        "metric": "Volle Automatisierung"
-      },
-      {
-        "name": "HR Neuro-Mitarbeiter",
-        "desc": "8000+ Bewerbungen, 1166 Std gespart",
-        "metric": "8000+ Bewerbungen"
-      },
-      {
-        "name": "Ayurpak",
-        "desc": "Bot-Berater fuer Verpackungshersteller",
-        "metric": "Schneller Lead-Zyklus"
-      },
-      {
-        "name": "Lenremont",
-        "desc": "AI-Renovierungsberater mit Rechner",
-        "metric": "Weniger verlorene Leads"
-      },
-      {
-        "name": "MCHS",
-        "desc": "Assistent fuer Angebotserstellung",
-        "metric": "Schnellere Angebote"
-      },
-      {
-        "name": "ZZOK Sale",
-        "desc": "Verkaufsbot fuer Kunden-Warming",
-        "metric": "Aufgewaermte Leads"
-      },
-      {
-        "name": "ZZOK HR",
-        "desc": "Wissensdatenbank fuer Mitarbeiter",
-        "metric": "Schnelleres Onboarding"
-      },
-      {
-        "name": "SMM-Bot",
-        "desc": "Content-Kalender fuer Beauty-Meister",
-        "metric": "10 Std pro Woche gespart"
-      },
-      {
-        "name": "Biohacking",
-        "desc": "AI-Berater mit Biohacking-Wissen",
-        "metric": "Expertise-Monetarisierung"
-      },
-      {
-        "name": "Schoenheitssalon",
-        "desc": "Kundenbuchung + 1C-Integration",
-        "metric": "Reduzierte Admin-Arbeit"
-      },
-      {
-        "name": "Zahlungskontrolle",
-        "desc": "Schuldenerinnerung in Telegram",
-        "metric": "Reduzierte Ueberfaelligkeit"
-      },
-      {
-        "name": "Tag mit Gebet",
-        "desc": "Wyritzky-Gebetbuch — taegliche App",
-        "metric": "Taegliches Gebet"
-      }
+      {"name": "Tischbuchung 24/7 für Billardklub", "desc": "Telegram-Bot mit Kalender, Zahlungen und Benachrichtigungen", "metric": "40% Reduktion Admin-Arbeit"},
+      {"name": "AI-Assistent für Aufgaben, E-Mail & Kalender", "desc": "Persönlicher Planer in Telegram mit Sprachsteuerung", "metric": "2+ Stunden täglich gespart"},
+      {"name": "AI Auto-Posting in Telegram aus Links", "desc": "Automatische Post-Veröffentlichung aus RSS und Artikeln", "metric": "5 Stunden pro Woche gespart"},
+      {"name": "Kostenpflichtiger Telegram Audio-Service 24/7", "desc": "Track-Trennung mit automatischer Zahlung", "metric": "Volle Automatisierung"},
+      {"name": "AI-Screening von Bewerbungen & Kandidatenqualifizierung", "desc": "HR Neuro-Mitarbeiter zur Automatisierung der Bewerbungsbearbeitung", "metric": "8000+ Bewerbungen, 1166 Std. gespart"},
+      {"name": "AI-Berater für eingehende B2B-Anfragen & Katalog", "desc": "Bot-Berater für Verpackungshersteller \u2014 24/7 Anfragebearbeitung", "metric": "-60% Manager-Arbeit, +25% Conversion"},
+      {"name": "AI-Lead-Qualifizierung & Renovierungsrechner", "desc": "Intelligenter Assistent für Kostenberechnung und Messbuchung", "metric": "+35% zur Messbuchung"},
+      {"name": "Assistent für Angebotserstellung", "desc": "Automatisierung der Angebotserstellung für MCHS-Unternehmen", "metric": "Schnellere Angebote, weniger Fehler"},
+      {"name": "AI Aufwärmungstrichter & Lead-Übergabe an CRM", "desc": "ZZOK: Aufwärmen, Qualifizierung, CRM-Übergabe", "metric": "+45% zur Verkaufskonversion"},
+      {"name": "Wissensdatenbank & Mitarbeiterprüfung in Telegram", "desc": "ZZOK HR: Schulung und Bewertung über Bot", "metric": "3x schnellere Einarbeitung"},
+      {"name": "AI Content-Kalender & Auto-Planung für Social Media", "desc": "SMM-Bot für Beauty-Profis: Content-Planung und -Veröffentlichung", "metric": "10 Stunden pro Woche gespart"},
+      {"name": "Abonnement AI-Berater mit Wissensdatenbank", "desc": "Biohacking: Telegram-Bot mit Abo für Expertencontent", "metric": "Expertise-Monetarisierung"},
+      {"name": "Online-Buchung & 1C-Synchronisierung", "desc": "Beauty-Salon: Telegram-Bot für Kundenbuchung mit 1C-Integration", "metric": "-60% Admin-Arbeit"},
+      {"name": "Zahlungserinnerungen & Forderungsautomatisierung", "desc": "Automatisches Erinnerungssystem via Telegram und WhatsApp", "metric": "-45% überfällige Zahlungen"},
+      {"name": "Mobile App für tägliches Gebetspraktikum", "desc": "Vyritsky Gebetbuch \u2014 tägliche Erinnerungen und Texte", "metric": "Tägliches Praktikum"}
     ]
   },
   "resume": {
-    "title": "Lebenslauf — Alexander Moiseev",
-    "metaDescription": "Vollständiger Lebenslauf von Alexander Moiseev — 29 Jahre IT-Erfahrung",
-    "subtitle": "Business-AI-Automatisierung",
-    "desc": "Entwickler und Analyst mit über 29 Jahren IT-Erfahrung. Spezialisiert auf AI-Bots, Assistenten, Geschäftsprozessautomatisierung, Integrationen und Lösungsdesign für Geschäftsanforderungen.",
-    "tagYears": "29 Jahre in der IT",
-    "tag1C": "1C — 20+ Jahre",
-    "tagn8n": "n8n — 2+ Jahre",
-    "tagSupabase": "Supabase • OpenAI • Bitrix24",
+    "title": "Erweiterter Lebenslauf \u2014 Alexander Moiseev",
+    "metaDescription": "Erweiterter Lebenslauf von Alexander Moiseev \u2014 29 Jahre in IT, Analytik und AI-Automatisierung",
+    "subtitle": "AI Automation Engineer / Systemanalytiker / Integrationsarchitekt",
+    "desc": "Entwickler und Analyst mit über 29 Jahren IT-Erfahrung. Spezialisiert auf AI-Automatisierung von Geschäftsprozessen, CRM- und Messenger-Integrationen, Lösungsdesign auf n8n, Supabase und LLM.",
+    "tagYears": "29 Jahre in IT",
+    "tag1C": "1C \u2014 20+ Jahre",
+    "tagn8n": "n8n \u2014 2+ Jahre",
+    "tagSupabase": "Supabase \u2022 OpenAI \u2022 Bitrix24",
     "btnTelegram": "Über Telegram schreiben",
-    "btnProjects": "Projekte ansehen",
+    "btnProjects": "Fälle ansehen",
     "experienceTitle": "Berufserfahrung",
-    "exp1title": "Entwickler / Analyst",
-    "exp1company": "Freelance",
-    "exp1period": "November 2024 — heute",
-    "exp1position": "AI-Lösungen für Unternehmen entwickeln",
-    "exp1b1": "Entwicklung von Chat-Bots für Telegram und WhatsApp",
-    "exp1b2": "Erstellung von AI-Agenten und AI-Assistenten mit LLM-Integration",
-    "exp1b3": "Geschäftsprozessautomatisierung auf der n8n-Plattform",
-    "exp1b4": "Prompt Engineering: Prompt-Entwicklung und -Optimierung für LLM",
-    "exp1b5": "Integrationen mit externen APIs (OpenAI, DeepSeek, GigaChat, Qwen, YandexGPT, Gemini)",
-    "exp2title": "Analyst-Berater",
-    "exp2company": "CoderLine",
-    "exp2period": "Dez 2024 — Jan 2025",
-    "exp2b1": "Mitarbeit bei 1C:ERP-Implementierungsprojekten",
-    "exp3title": "Abteilungsleiter",
-    "exp3company": "Triss Logistics LLC",
-    "exp3period": "Nov 2023 — Nov 2024",
-    "exp3b1": "Aufbau einer Geschäftseinheit für Tiefkühlprodukte und Futtermittelzusatzstoffe",
-    "exp3b2": "Verwaltung von Lieferkette, Logistik und Inventar",
-    "exp3b3": "Verkauf über Ausschreibungsverfahren: 44-FZ und 223-FZ",
-    "exp3b4": "Erstellung von Buchhaltungs- und Kontrollsystemen (1C, Megaplan, Excel)",
-    "exp4title": "Leiter der IT-Abteilung",
-    "exp4company": "RTK LLC",
-    "exp4period": "Juli 2015 — Okt 2023",
-    "exp4position": "Mitarbeiterzahl: 5000+",
-    "exp4b1": "Projekt: Implementierung von 1C:Enterprise 8 (ERP) für eine Holding",
-    "exp4b2": "Datenkonsolidierung in einem einheitlichen 1C-System für die durchgängige Buchhaltung",
-    "exp4b3": "Elektronische Dokumentenverwaltung in zehn Lagerhäusern",
-    "exp4b4": "Implementierung eines Treasury-Systems für die Budgetkontrolle",
-    "exp4b5": "Automatisierung der Personalbuchhaltung und Gehaltsabrechnung",
-    "exp5title": "Leiter der IT-Abteilung",
-    "exp5company": "Deutsche Marke LLC",
-    "exp5period": "Jan 2008 — Juli 2015",
-    "exp5b1": "Projekt: Implementierung von 1C:Enterprise 8.1 (UPP, BU) für eine Holding",
-    "exp5b2": "Bereitstellung eines integrierten 1C-Systems für Management- und Finanzbuchhaltung",
-    "exp5b3": "Implementierung eines Budgetierungs- und Cashflow-Managementsystems",
-    "exp5b4": "Einrichtung der elektronischen Dokumentenverwaltung an drei Lagerstandorten",
-    "exp6title": "Projektmanager",
-    "exp6company": "Kontakt LLC",
-    "exp6period": "Apr 2007 — Dez 2007",
-    "exp6b1": "Projekt: Implementierung von 1C:Enterprise 8 (UPP)",
-    "exp6b2": "Aufbau einer IT-Abteilung von Grund auf",
-    "exp6b3": "Automatisierung der Produktion von der Sägerei bis zum Fertigerzeugnis",
-    "exp7title": "Projektmanager",
-    "exp7company": "Petrodisk LLC",
-    "exp7period": "Feb 2005 — März 2007",
-    "exp7b1": "Projekt: Implementierung von 1C:Enterprise 7.7 (UT)",
-    "exp7b2": "Optimierung der Buchhaltung für eine Einzelhandelskette (8 Filialen)",
-    "exp8title": "Geschäftsführer",
-    "exp8company": "911S LLC (1C:Franchisenehmer)",
-    "exp8period": "Feb 1998 — Jan 2005",
-    "exp8b1": "Aufbau eines 1C:Franchisenehmer-Unternehmens von Grund auf",
-    "exp8b2": "Leitung eines Teams von 5 bis 11 Mitarbeitern",
-    "exp8b3": "Beratung und Geschäftsprozessanalyse",
-    "exp9title": "Vertriebsmanager, Programmierer",
-    "exp9company": "Tracker LLC",
-    "exp9period": "Nov 1996 — Dez 1997",
-    "exp9b1": "Programmierung in 1C:Accounting 6.0",
+    "exp1title": "Entwickler / Analyst", "exp1company": "Freelance", "exp1period": "November 2024 \u2014 heute", "exp1position": "Erstellung von AI-Lösungen für Unternehmen",
+    "exp1b1": "Chatbot-Entwicklung für Telegram und WhatsApp", "exp1b2": "Erstellung von AI-Agenten und AI-Assistenten mit LLM-Integration",
+    "exp1b3": "Geschäftsprozessautomatisierung auf n8n-Plattform", "exp1b4": "Prompt Engineering: Prompt-Entwicklung und Optimierung für LLM",
+    "exp1b5": "Integrationen mit externen APIs (OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT)",
+    "exp2title": "Analytiker-Berater", "exp2company": "CoderLine", "exp2period": "Dez 2024 \u2014 Jan 2025", "exp2b1": "Teilnahme an 1C:ERP-Implementierungsprojekten",
+    "exp3title": "Abteilungsleiter", "exp3company": "Triss Logistics GmbH", "exp3period": "Nov 2023 \u2014 Nov 2024",
+    "exp3b1": "Aufbau der Geschäftseinheit für Tiefkühlprodukte und Futterzusätze", "exp3b2": "Verwaltung von Lieferkette, Logistik und Lagerhaltung",
+    "exp3b3": "Vertrieb über Ausschreibungen: 44-FZ und 223-FZ", "exp3b4": "Erstellung von Buchhaltungssystemen (1C, Megaplan, Excel)",
+    "exp4title": "IT-Abteilungsleiter", "exp4company": "RTK GmbH", "exp4period": "Juli 2015 \u2014 Okt 2023", "exp4position": "Belegschaft von 5000+",
+    "exp4b1": "Projekt: Implementierung von 1C:Enterprise 8 (ERP) für einen Konzern", "exp4b2": "Datenkonsolidierung in einem einheitlichen 1C-System für durchgehende Buchhaltung",
+    "exp4b3": "Elektronischer Dokumentenverkehr in zehn Lagern", "exp4b4": "Implementierung des Treasury-Systems für Budgetkontrolle", "exp4b5": "Automatisierung der Personalbuchhaltung und Lohnabrechnung",
+    "exp5title": "IT-Abteilungsleiter", "exp5company": "Deutsche Marke GmbH", "exp5period": "Jan 2008 \u2014 Juli 2015",
+    "exp5b1": "Projekt: Implementierung von 1C:Enterprise 8.1 (UPP, BU) für einen Konzern", "exp5b2": "Bereitstellung eines integrierten 1C-Systems für Management- und Finanzbuchhaltung",
+    "exp5b3": "Implementierung des Budgetierungs- und Cashflow-Managementsystems", "exp5b4": "Einrichtung des elektronischen Dokumentenverkehrs in drei Lagern",
+    "exp6title": "Projektleiter", "exp6company": "Kontakt GmbH", "exp6period": "Apr 2007 \u2014 Dez 2007",
+    "exp6b1": "Projekt: Implementierung von 1C:Enterprise 8 (UPP)", "exp6b2": "Aufbau der IT-Abteilung von Grund auf", "exp6b3": "Automatisierung der Produktion vom Sägen bis zur Fertigware",
+    "exp7title": "Projektleiter", "exp7company": "Petrodisk GmbH", "exp7period": "Feb 2005 \u2014 März 2007",
+    "exp7b1": "Projekt: Implementierung von 1C:Enterprise 7.7 (UT)", "exp7b2": "Optimierung der Buchhaltung für Einzelhandelskette (8 Geschäfte)",
+    "exp8title": "Geschäftsführer", "exp8company": "911S GmbH (1C:Franchise)", "exp8period": "Feb 1998 \u2014 Jan 2005",
+    "exp8b1": "Aufbau eines 1C:Franchise-Unternehmens von Grund auf", "exp8b2": "Leitung eines Teams von 5 bis 11 Personen", "exp8b3": "Beratung und Geschäftsprozessanalyse",
+    "exp9title": "Vertriebsmanager, Programmierer", "exp9company": "Tracker GmbH", "exp9period": "Nov 1996 \u2014 Dez 1997", "exp9b1": "Programmierung in 1C:Buchhaltung 6.0",
     "experience": [
-      {
-        "title": "Entwickler / Analyst",
-        "company": "Freelance",
-        "period": "November 2024 — heute",
-        "position": "AI-Lösungen für Unternehmen entwickeln",
-        "bullets": [
-          "Entwicklung von Chat-Bots für Telegram und WhatsApp",
-          "Erstellung von AI-Agenten und AI-Assistenten mit LLM-Integration",
-          "Geschäftsprozessautomatisierung auf der n8n-Plattform",
-          "Prompt Engineering: Prompt-Entwicklung und -Optimierung für LLM",
-          "Integrationen mit externen APIs (OpenAI, DeepSeek, GigaChat, Qwen, YandexGPT, Gemini)"
-        ]
-      },
-      {
-        "title": "Analyst-Berater",
-        "company": "CoderLine",
-        "period": "Dez 2024 — Jan 2025",
-        "position": null,
-        "bullets": [
-          "Mitarbeit bei 1C:ERP-Implementierungsprojekten"
-        ]
-      },
-      {
-        "title": "Abteilungsleiter",
-        "company": "Triss Logistics LLC",
-        "period": "Nov 2023 — Nov 2024",
-        "position": null,
-        "bullets": [
-          "Aufbau einer Geschäftseinheit für Tiefkühlprodukte und Futtermittelzusatzstoffe",
-          "Verwaltung von Lieferkette, Logistik und Inventar",
-          "Verkauf über Ausschreibungsverfahren: 44-FZ und 223-FZ",
-          "Erstellung von Buchhaltungs- und Kontrollsystemen (1C, Megaplan, Excel)"
-        ]
-      },
-      {
-        "title": "Leiter der IT-Abteilung",
-        "company": "RTK LLC",
-        "period": "Juli 2015 — Okt 2023",
-        "position": "Mitarbeiterzahl: 5000+",
-        "bullets": [
-          "Projekt: Implementierung von 1C:Enterprise 8 (ERP) für eine Holding",
-          "Datenkonsolidierung in einem einheitlichen 1C-System für die durchgängige Buchhaltung",
-          "Elektronische Dokumentenverwaltung in zehn Lagerhäusern",
-          "Implementierung eines Treasury-Systems für die Budgetkontrolle",
-          "Automatisierung der Personalbuchhaltung und Gehaltsabrechnung"
-        ]
-      },
-      {
-        "title": "Leiter der IT-Abteilung",
-        "company": "Deutsche Marke LLC",
-        "period": "Jan 2008 — Juli 2015",
-        "position": null,
-        "bullets": [
-          "Projekt: Implementierung von 1C:Enterprise 8.1 (UPP, BU) für eine Holding",
-          "Bereitstellung eines integrierten 1C-Systems für Management- und Finanzbuchhaltung",
-          "Implementierung eines Budgetierungs- und Cashflow-Managementsystems",
-          "Einrichtung der elektronischen Dokumentenverwaltung an drei Lagerstandorten"
-        ]
-      },
-      {
-        "title": "Projektmanager",
-        "company": "Kontakt LLC",
-        "period": "Apr 2007 — Dez 2007",
-        "position": null,
-        "bullets": [
-          "Projekt: Implementierung von 1C:Enterprise 8 (UPP)",
-          "Aufbau einer IT-Abteilung von Grund auf",
-          "Automatisierung der Produktion von der Sägerei bis zum Fertigerzeugnis"
-        ]
-      },
-      {
-        "title": "Projektmanager",
-        "company": "Petrodisk LLC",
-        "period": "Feb 2005 — März 2007",
-        "position": null,
-        "bullets": [
-          "Projekt: Implementierung von 1C:Enterprise 7.7 (UT)",
-          "Optimierung der Buchhaltung für eine Einzelhandelskette (8 Filialen)"
-        ]
-      },
-      {
-        "title": "Geschäftsführer",
-        "company": "911S LLC (1C:Franchisenehmer)",
-        "period": "Feb 1998 — Jan 2005",
-        "position": null,
-        "bullets": [
-          "Aufbau eines 1C:Franchisenehmer-Unternehmens von Grund auf",
-          "Leitung eines Teams von 5 bis 11 Mitarbeitern",
-          "Beratung und Geschäftsprozessanalyse"
-        ]
-      },
-      {
-        "title": "Vertriebsmanager, Programmierer",
-        "company": "Tracker LLC",
-        "period": "Nov 1996 — Dez 1997",
-        "position": null,
-        "bullets": [
-          "Programmierung in 1C:Accounting 6.0"
-        ]
-      }
+      {"title": "Entwickler / Analyst", "company": "Freelance", "period": "November 2024 \u2014 heute", "position": "Erstellung von AI-Lösungen für Unternehmen", "bullets": ["Chatbot-Entwicklung für Telegram und WhatsApp", "Erstellung von AI-Agenten und AI-Assistenten mit LLM-Integration", "Geschäftsprozessautomatisierung auf n8n-Plattform", "Prompt Engineering: Prompt-Entwicklung und Optimierung für LLM", "Integrationen mit externen APIs (OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT, Gemini)"]},
+      {"title": "Analytiker-Berater", "company": "CoderLine", "period": "Dez 2024 \u2014 Jan 2025", "position": null, "bullets": ["Teilnahme an 1C:ERP-Implementierungsprojekten"]},
+      {"title": "Abteilungsleiter", "company": "Triss Logistics GmbH", "period": "Nov 2023 \u2014 Nov 2024", "position": null, "bullets": ["Aufbau der Geschäftseinheit für Tiefkühlprodukte und Futterzusätze", "Verwaltung von Lieferkette, Logistik und Lagerhaltung", "Vertrieb über Ausschreibungen: 44-FZ und 223-FZ", "Erstellung von Buchhaltungssystemen (1C, Megaplan, Excel)"]},
+      {"title": "IT-Abteilungsleiter", "company": "RTK GmbH", "period": "Juli 2015 \u2014 Okt 2023", "position": "Belegschaft von 5000+", "bullets": ["Projekt: Implementierung von 1C:Enterprise 8 (ERP) für einen Konzern", "Datenkonsolidierung in einem einheitlichen 1C-System", "Elektronischer Dokumentenverkehr in zehn Lagern", "Implementierung des Treasury-Systems für Budgetkontrolle", "Automatisierung der Personalbuchhaltung und Lohnabrechnung"]},
+      {"title": "IT-Abteilungsleiter", "company": "Deutsche Marke GmbH", "period": "Jan 2008 \u2014 Juli 2015", "position": null, "bullets": ["Projekt: Implementierung von 1C:Enterprise 8.1 (UPP, BU)", "Bereitstellung eines integrierten 1C-Systems für Management und Finanzbuchhaltung", "Implementierung des Budgetierungs- und Cashflow-Managementsystems", "Einrichtung des elektronischen Dokumentenverkehrs in drei Lagern"]},
+      {"title": "Projektleiter", "company": "Kontakt GmbH", "period": "Apr 2007 \u2014 Dez 2007", "position": null, "bullets": ["Projekt: Implementierung von 1C:Enterprise 8 (UPP)", "Aufbau der IT-Abteilung von Grund auf", "Automatisierung der Produktion vom Sägen bis zur Fertigware"]},
+      {"title": "Projektleiter", "company": "Petrodisk GmbH", "period": "Feb 2005 \u2014 März 2007", "position": null, "bullets": ["Projekt: Implementierung von 1C:Enterprise 7.7 (UT)", "Optimierung der Buchhaltung für Einzelhandelskette (8 Geschäfte)"]},
+      {"title": "Geschäftsführer", "company": "911S GmbH (1C:Franchise)", "period": "Feb 1998 \u2014 Jan 2005", "position": null, "bullets": ["Aufbau eines 1C:Franchise-Unternehmens von Grund auf", "Leitung eines Teams von 5 bis 11 Personen", "Beratung und Geschäftsprozessanalyse"]},
+      {"title": "Vertriebsmanager, Programmierer", "company": "Tracker GmbH", "period": "Nov 1996 \u2014 Dez 1997", "position": null, "bullets": ["Programmierung in 1C:Buchhaltung 6.0"]}
     ],
-    "educationTitle": "Ausbildung",
-    "educationDegree": "Diplom-Ökonom und Manager für »Ökonomie und Management in Kommunikationsunternehmen«",
-    "educationSchool": "Staatliche Universität für Telekommunikation St. Petersburg, benannt nach Prof. M.A. Bonch-Bruewitsch",
+    "educationTitle": "Bildung",
+    "educationDegree": "Wirtschaftsmanager in \"Wirtschaft und Management bei Kommunikationsunternehmen\"",
+    "educationSchool": "St. Petersburger Staatliche Universität für Telekommunikation",
     "educationYear": "1998",
     "qualificationTitle": "Weiterbildung",
-    "qualification1": "Ausschreibungen und öffentliche Auftragsvergabe (44-FZ und 223-FZ)",
-    "qualification1School": "IP Ivanova T.N.",
-    "qualification1Year": "2024",
-    "qualification2": "Finanz- und Wirtschaftsmanager",
-    "qualification2School": "Akademie für Wissenschaft und Wirtschaft",
-    "qualification2Year": "1996",
+    "qualification1": "Ausschreibungen und öffentliche Beschaffung (44-FZ und 223-FZ)",
+    "qualification1School": "IP Ivanova T.N.", "qualification1Year": "2024",
+    "qualification2": "Manager für Finanzen und Wirtschaft",
+    "qualification2School": "Akademie für Wissenschaft und Wirtschaft", "qualification2Year": "1996",
     "skillsTitle": "Fähigkeiten & Kompetenzen",
-    "skillPlatforms": "Plattformen & Werkzeuge",
+    "skillPlatforms": "Plattformen & Tools",
     "skillPlatformsDesc": "n8n, Supabase, Google API, Python, 1C:Enterprise 8 (BU, UT, UPP, ERP)",
     "skillLLM": "LLM & AI",
-    "skillLLMDesc": "OpenAI, Claude, DeepSeek, LLama, GigaChat, Qwen, YandexGPT, Gemini, Prompt Engineering",
+    "skillLLMDesc": "OpenAI, Claude, DeepSeek, Llama, GigaChat, Qwen, YandexGPT, Gemini, Prompt Engineering",
     "skillAutomation": "Automatisierung",
     "skillAutomationDesc": "Chat-Bots für Telegram und WhatsApp, AI-Agenten, API-Integrationen, RAG-Systeme",
     "skillAnalysis": "Analyse & Design",
-    "skillAnalysisDesc": "Beschreibung und Analyse von Geschäftsprozessen, technische Dokumentation",
+    "skillAnalysisDesc": "Geschäftsprozessbeschreibung und -analyse, technische Dokumentation",
     "skillManagement": "Management",
-    "skillManagementDesc": "Erfahrung in der Führung von Teams mit bis zu 150+ Mitarbeitern",
+    "skillManagementDesc": "Erfahrung in der Leitung von Teams mit bis zu 150+ Mitarbeitern",
     "skillFinance": "Finanzen & Buchhaltung",
-    "skillFinanceDesc": "Tiefgreifendes Verständnis für Finanz- und Buchhaltungspraktiken, Budgetierung",
+    "skillFinanceDesc": "Tiefes Verständnis der Finanz- und Rechnungslegungspraktiken, Budgetierung",
     "additionalTitle": "Zusätzliche Informationen",
-    "aboutMe": "Über mich",
-    "aboutMeText": "Lebe in Liebe, 3 Kinder, keine schlechten Angewohnheiten.",
-    "personalQualities": "Persönliche Eigenschaften",
-    "personalQualitiesText": "Guter Humor, positiv, fleißig, ehrlich, detailorientiert.",
-    "driversLicense": "Führerschein",
-    "driversLicenseText": "Klasse B"
+    "aboutMe": "Über mich", "aboutMeText": "Lebe in Liebe, 3 Kinder, keine schlechten Angewohnheiten.",
+    "personalQualities": "Persönliche Qualitäten", "personalQualitiesText": "Guter Sinn für Humor, positiv, fleißig, ehrlich, detailorientiert.",
+    "driversLicense": "Führerschein", "driversLicenseText": "Klasse B"
   },
   "projectsPages": {
-    "backToHome": "← Zurück zur Startseite",
+    "backToHome": "\u2190 Zurück zur Startseite",
+    "backLink": "\u2190 Zurück zu den Projekten",
     "materialsGallery": "Materialien und Screenshots",
     "technologies": "Technologien",
     "featuresTitle": "Funktionen",
@@ -396,1366 +260,20 @@
     "psrResult": "Ergebnis"
   },
   "projectPages": {
-    "billiard": {
-      "title": "Billard-Bot",
-      "subtitle": "Telegram-Bot zur Tischreservierung im Club",
-      "alt": "Billard-Bot",
-      "psr": {
-        "problem": "Die Administratoren des Billardclubs verbrachten bis zu 60% ihrer Arbeitszeit mit der Bearbeitung von Telefonanrufen zur Tischreservierung. Kunden konnten in Stoßzeiten nicht immer durchkommen.",
-        "solution": "Telegram-Bot mit automatischer Anzeige freier Slots, Online-Buchung und AI-Antworten auf häufige Fragen. Vollständige Integration in Google Calendar.",
-        "result": "40% weniger Belastung für den Administrator, Beschleunigung der Buchung auf 2 Minuten, 24/7-Betrieb ohne menschliches Zutun."
-      },
-      "features": {
-        "heading": "Bot-Funktionen",
-        "cards": [
-          {
-            "title": "Spielplan anzeigen",
-            "desc": "Der Kunde sieht alle freien Slots und Tische für das gewählte Datum in Echtzeit"
-          },
-          {
-            "title": "Konkreter Tisch wählbar",
-            "desc": "Möglichkeit, einen bestimmten Tisch oder Bereich im Club auszuwählen mit Grundrissansicht"
-          },
-          {
-            "title": "Sofortige Bestätigung",
-            "desc": "Der Bot bestätigt die Buchung und sendet eine Bestätigung mit Bestelldetails"
-          },
-          {
-            "title": "AI-Antworten auf Fragen",
-            "desc": "Automatische Antworten zu Tarifen, Clubregeln und verfügbaren Dienstleistungen über OpenAI"
-          },
-          {
-            "title": "Admin-Panel",
-            "desc": "Der Administrator sieht die aktuelle Planung ohne manuelle Datenübertragung"
-          },
-          {
-            "title": "Erinnerungen",
-            "desc": "Automatische Erinnerungen an die bevorstehende Buchung eine Stunde vorher"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "Google Calendar"
-          },
-          {
-            "name": "Supabase"
-          },
-          {
-            "name": "OpenAI"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Hauptmenü",
-          "Tischbuchung",
-          "Automatisierung in n8n"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "1": {
-          "value": "-40%",
-          "label": "Admin load"
-        },
-        "2": {
-          "value": "2 min",
-          "label": "To book"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Wait time"
-        }
-      }
-    },
-    "assistant": {
-      "title": "Persönlicher Assistent",
-      "subtitle": "AI-Planer in Telegram mit Sprachsteuerung",
-      "alt": "Persönlicher Assistent",
-      "psr": {
-        "problem": "Die tägliche Verwaltung von Kalender, E-Mail und Aufgaben kostet viel Zeit. Das manuelle Eintragen von Terminen und Erinnerungen führt zu Fehlern und dem Verpassen wichtiger Ereignisse.",
-        "solution": "Telegram-Bot mit Spracherkennung, Integration in Google Calendar, Gmail und Kontakte. Automatische Erstellung von Terminen und Erinnerungen aus Sprachnachrichten.",
-        "result": "Einsparung von 2+ Stunden täglich bei Routineaufgaben. Alle Termine und Aufgaben werden automatisch eingetragen. Bequeme Oberfläche im vertrauten Telegram."
-      },
-      "features": {
-        "heading": "Funktionen",
-        "cards": [
-          {
-            "title": "Sprachbefehle",
-            "desc": "Erkennung von Sprachnachrichten über Whisper API"
-          },
-          {
-            "title": "Kalenderverwaltung",
-            "desc": "Erstellung von Terminen und Erinnerungen in Google Calendar"
-          },
-          {
-            "title": "E-Mail-Bearbeitung",
-            "desc": "Lesen und Senden von E-Mails über Gmail API"
-          },
-          {
-            "title": "Kontakte",
-            "desc": "Suche und Verwaltung von Kontakten über Google Contacts"
-          },
-          {
-            "title": "Informationssuche",
-            "desc": "Schnelle Internetsuche auf Anfrage"
-          },
-          {
-            "title": "Aufgaben und Listen",
-            "desc": "Verwaltung von Aufgaben- und To-do-Listen"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "OpenAI/Whisper"
-          },
-          {
-            "name": "Google Calendar"
-          },
-          {
-            "name": "Gmail API"
-          },
-          {
-            "name": "Google Contacts"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Projekt-Startbildschirm",
-          "Schema in n8n",
-          "Sprachbefehle"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen persönlichen Assistenten?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "2+ h",
-          "label": "Savings per day"
-        },
-        "1": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "2": {
-          "value": "100%",
-          "label": "Automation"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Wait time"
-        }
-      }
-    },
-    "autopublish": {
-      "title": "Auto-Publish",
-      "subtitle": "Posts in Telegram aus Links automatisch",
-      "alt": "Auto-Publish Telegram",
-      "psr": {
-        "problem": "Das manuelle Erstellen von Posts für einen Telegram-Kanal kostet viel Zeit. Man muss den Artikel lesen, das Wesentliche herausarbeiten, ein Bild auswählen, den Text schreiben und veröffentlichen.",
-        "solution": "Der Dienst extrahiert automatisch Inhalte aus einem Link, generiert Post-Texte über AI, erstellt ein Bild und veröffentlicht nach Bestätigung in Telegram.",
-        "result": "Einsparung von 5 Stunden pro Woche bei der Content-Erstellung. Stabiler Veröffentlichungsrhythmus ohne manuelle Arbeit."
-      },
-      "features": {
-        "heading": "Funktionen",
-        "cards": [
-          {
-            "title": "Content-Extraktion",
-            "desc": "Automatisches Parsen von Text und Metadaten aus einem Link"
-          },
-          {
-            "title": "AI-Zusammenfassung",
-            "desc": "Generierung einer Kurzfassung des Artikels über OpenAI"
-          },
-          {
-            "title": "Bildgenerierung",
-            "desc": "Erstellung eines einzigartigen Bildes für den Post"
-          },
-          {
-            "title": "Bestätigung",
-            "desc": "Veröffentlichung nur nach Benutzerbestätigung"
-          },
-          {
-            "title": "Auto-Posting",
-            "desc": "Automatisches Senden in den Telegram-Kanal"
-          },
-          {
-            "title": "Planung",
-            "desc": "Veröffentlichung zu einer festgelegten Uhrzeit"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "OpenAI"
-          },
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "Bildgenerierung"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Projekt-Startbildschirm",
-          "Post-Erstellung",
-          "Veröffentlichung im Kanal"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie Content automatisieren?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Lösung für Auto-Publishing"
-      },
-      "showcase": {
-        "0": {
-          "value": "5 h",
-          "label": "Saved per week"
-        },
-        "1": {
-          "value": "100%",
-          "label": "Automation"
-        },
-        "2": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "3": {
-          "value": "1 click",
-          "label": "To publish"
-        }
-      }
-    },
-    "amp": {
-      "title": "AUDIO MinusPlus",
-      "subtitle": "Track-zu-Stems-Splitter mit automatischer Zahlung",
-      "alt": "AUDIO MinusPlus",
-      "psr": {
-        "problem": "Ein Musikdienst bot die Aufteilung von Tracks in Stems an, aber der Prozess war vollständig manuell. Kunden warteten auf die Antwort eines Operators, Zahlungen erfolgten per Überweisung ohne Automatisierung.",
-        "solution": "Telegram-Bot nimmt automatisch Audiodateien entgegen, verarbeitet sie über die Dienst-API, akzeptiert Zahlungen über Robokassa und liefert fertige Stems.",
-        "result": "Vollständige Automatisierung des Dienstes. Zahlungsannahme 24/7 ohne menschliches Zutun. Sofortige Ausgabe fertiger Materialien."
-      },
-      "features": {
-        "heading": "Funktionen",
-        "cards": [
-          {
-            "title": "Track-Upload",
-            "desc": "Der Kunde sendet eine Audiodatei direkt an den Telegram-Bot"
-          },
-          {
-            "title": "Szenario-Auswahl",
-            "desc": "Aufteilung in 2, 4 oder 5 Stems — zur Auswahl"
-          },
-          {
-            "title": "Automatische Zahlung",
-            "desc": "Integration mit Robokassa — Zahlung per Karte oder SBP"
-          },
-          {
-            "title": "Ergebnisausgabe",
-            "desc": "Fertige Stems werden nach der Verarbeitung in Telegram gesendet"
-          },
-          {
-            "title": "Persönliches Konto",
-            "desc": "Bestellverlauf und Zugriff auf frühere Arbeiten"
-          },
-          {
-            "title": "Benachrichtigungen",
-            "desc": "Verarbeitungsstatus: „Angenommen“, „In Bearbeitung“, „Fertig“"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "Robokassa"
-          },
-          {
-            "name": "S3 Storage"
-          },
-          {
-            "name": "Supabase"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Hauptbildschirm des Bots",
-          "Szenario-Auswahl",
-          "Projekt-Startbildschirm"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie Ihren Dienst automatisieren?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich erstelle eine Lösung mit Monetarisierung und automatischer Ausgabe"
-      },
-      "showcase": {
-        "0": {
-          "value": "24/7",
-          "label": "Order intake"
-        },
-        "1": {
-          "value": "2-5",
-          "label": "Stems output"
-        },
-        "2": {
-          "value": "100%",
-          "label": "Automation"
-        },
-        "3": {
-          "value": "0 sec",
-          "label": "Wait time"
-        }
-      }
-    },
-    "hrNeuro": {
-      "title": "Neuro-Mitarbeiter HR",
-      "subtitle": "Automatisierung der Personalgewinnung: 8000+ Antworten, 1166 Std. Ersparnis",
-      "alt": "Neuro-Mitarbeiter HR",
-      "psr": {
-        "problem": "Die HR-Abteilung verbrachte 40+ Stunden pro Woche mit der manuellen Bearbeitung von Bewerbungen über HeadHunter. Tausende Bewerbungen monatlich erforderten manuelle Bearbeitung, HR-Manager verbrachten Zeit mit ungeeigneten Kandidaten.",
-        "solution": "AI-Bot, der automatisch Bewerbungen verarbeitet, erste Qualifizierung durchführt und die Erfassung in Google Sheets vornimmt. Sofortige Reaktion auf Bewerbungen 24/7, Skript-Fragen, Filterung ungeeigneter Kandidaten.",
-        "result": "8000+ Bewerbungen eingegangen, 3500+ Kandidaten automatisch bearbeitet, 1166 Stunden für die HR-Abteilung eingespart. Reduzierung der Einstellungszeit von 2 Wochen auf 3-4 Tage."
-      },
-      "features": {
-        "heading": "Bot-Funktionen",
-        "cards": [
-          {
-            "title": "Auto-Bearbeitung von Bewerbungen",
-            "desc": "Sofortige Reaktion auf neue Bewerbungen von HeadHunter 24/7 ohne menschliches Zutun"
-          },
-          {
-            "title": "Kandidaten-Qualifizierung",
-            "desc": "Stellt skriptbasierte Rückfragen zur Feststellung der Anforderungen-Übereinstimmung"
-          },
-          {
-            "title": "Erfassung in Google Sheets",
-            "desc": "Festhaltung aller Antworten und Status in einer einheitlichen Tabelle für die HR-Abteilung"
-          },
-          {
-            "title": "Bewerbungsfilterung",
-            "desc": "Automatische Ermittlung ungeeigneter Kandidaten und Aussortierung unpassender Bewerber"
-          },
-          {
-            "title": "HR-Benachrichtigungen",
-            "desc": "Übergabe vorgewärmter Kandidaten an den HR-Manager mit fertigem Dossier"
-          },
-          {
-            "title": "Kommunikationsverlauf",
-            "desc": "Vollständige Historie aller Interaktionen mit jedem Kandidaten"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "HeadHunter API"
-          },
-          {
-            "name": "Google Sheets"
-          },
-          {
-            "name": "AI-Chatbot"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "OpenAI"
-          },
-          {
-            "name": "Telegram API"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Hauptbildschirm des Bots",
-          "Bewerbungsbearbeitung",
-          "Erfassung in Tabelle"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "8000+",
-          "label": "Applications"
-        },
-        "1": {
-          "value": "3500+",
-          "label": "Processed"
-        },
-        "2": {
-          "value": "1166 h",
-          "label": "HR savings"
-        },
-        "3": {
-          "value": "3-4 d",
-          "label": "Hiring time"
-        }
-      }
-    },
-    "aurpak": {
-      "title": "Ayurpak",
-      "subtitle": "Berater-Bot für einen Verpackungs-Hersteller",
-      "alt": "Ayurpak",
-      "psr": {
-        "problem": "Manager verbrachten bis zu 70% ihrer Zeit mit wiederholten Beratungen und der Bearbeitung eingehender Anfragen. Kunden warteten lange auf Antworten und wechselten zum Wettbewerb.",
-        "solution": "Telegram-Bot mit vollständiger Wissensdatenbank über Produkte, AI-Berater und automatischen Antworten auf häufige Fragen. Integration mit Website und CRM.",
-        "result": "Schneller Inbound-Beratungskreislauf, 60% geringere Belastung der Manager, 25% höhere Kaufkonversion."
-      },
-      "features": {
-        "heading": "Bot-Funktionen",
-        "cards": [
-          {
-            "title": "Produkt-Wissensdatenbank",
-            "desc": "Vollständige Informationen zu Zusammensetzung, Anwendung und Kontraindikationen jedes Produkts"
-          },
-          {
-            "title": "AI-Berater",
-            "desc": "Intelligente Antworten auf Kundenfragen unter Berücksichtigung ihrer Bedürfnisse und ihres Gesundheitszustands"
-          },
-          {
-            "title": "Produktsuche",
-            "desc": "Schnelle Produktsuche nach Name, Wirkung oder Problem"
-          },
-          {
-            "title": "Bestellung und Lieferung",
-            "desc": "Bestellung direkt im Bot mit Versandkostenberechnung"
-          },
-          {
-            "title": "Online-Zahlung",
-            "desc": "Integration mit Zahlungssystemen für sofortige Bezahlung"
-          },
-          {
-            "title": "Verkaufsanalytik",
-            "desc": "Detaillierte Statistiken zu Verkäufen und Produktbeliebtheit"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "OpenAI"
-          },
-          {
-            "name": "Supabase"
-          },
-          {
-            "name": "REST API"
-          },
-          {
-            "name": "Zahlungssysteme"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Projekt-Startbildschirm",
-          "Kundenberatungen",
-          "CRM-Synchronisation"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "1": {
-          "value": "AI",
-          "label": "Knowledge base"
-        },
-        "2": {
-          "value": "CRM",
-          "label": "Integration"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Response time"
-        }
-      }
-    },
-    "lenremont": {
-      "title": "Lenremont",
-      "subtitle": "AI-Berater für Renovierung mit Kostenrechner und Messbuchung",
-      "alt": "Lenremont",
-      "psr": {
-        "problem": "Kunden verloren sich in der Vielfalt der Dienstleistungen und Materialien und verstanden die Endkosten der Renovierung nicht. Manager verbrachten Stunden mit Erstberatungen und Berechnungen.",
-        "solution": "AI-Berater in Telegram, der bei der Renovierungskostenberechnung hilft, Materialien auswählt und die kostenlose Terminbuchung zur Vermessung ermöglicht.",
-        "result": "Weniger verlorene Anfragen, automatische Lead-Qualifizierung, 35% mehr Konversion zur Vermessung."
-      },
-      "features": {
-        "heading": "Bot-Funktionen",
-        "cards": [
-          {
-            "title": "Kostenberechnung",
-            "desc": "Schritt-für-Schritt-Renovierungsrechner unter Berücksichtigung von Fläche, Arbeitsart und Materialien"
-          },
-          {
-            "title": "Materialauswahl",
-            "desc": "AI-Empfehlungen für Materialien basierend auf Budget und Kundenpräferenzen"
-          },
-          {
-            "title": "Vermessungsbuchung",
-            "desc": "Online-Buchung für kostenlose Vermessung mit Wahl eines passenden Termins"
-          },
-          {
-            "title": "Arbeitsportfolio",
-            "desc": "Galerie abgeschlossener Projekte mit Fotos und Beschreibung"
-          },
-          {
-            "title": "AI-Antworten auf Fragen",
-            "desc": "Automatische Antworten zu Fristen, Garantien und Renovierungsphasen"
-          },
-          {
-            "title": "Benachrichtigungen",
-            "desc": "Erinnerungen an Vermessung und Projektstatus in Echtzeit"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "OpenAI"
-          },
-          {
-            "name": "Google Sheets"
-          },
-          {
-            "name": "Google Calendar"
-          },
-          {
-            "name": "Supabase"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Hauptbildschirm des Bots",
-          "Kostenberechnung",
-          "Online-Buchung"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "AI",
-          "label": "Consultant"
-        },
-        "1": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "2": {
-          "value": "CRM",
-          "label": "Integration"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Response time"
-        }
-      }
-    },
-    "mchs": {
-      "title": "MCHS",
-      "subtitle": "Assistent zur Erstellung von Angeboten für Manager",
-      "alt": "MCHS",
-      "psr": {
-        "problem": "Die Erstellung von kommerziellen Angeboten dauerte bis zu 3 Tage, erforderte manuelle Datensammlung und Berechnungen. Hohes Fehlerrisiko in der Dokumentation.",
-        "solution": "Automatisierter Assistent zur Anforderungserhebung, Kostenberechnung und Generierung fertiger Angebote nach Schablone.",
-        "result": "Schnellere Angebote, weniger Fehler, Reduzierung der Erstellungszeit von 3 Tagen auf 2 Stunden."
-      },
-      "features": {
-        "heading": "Assistent-Funktionen",
-        "cards": [
-          {
-            "title": "Anforderungserhebung",
-            "desc": "Automatische Kundenbefragung zur Ermittlung aller erforderlichen Daten"
-          },
-          {
-            "title": "Auto-Berechnung",
-            "desc": "Sofortige Kostenberechnung basierend auf eingegebenen Parametern"
-          },
-          {
-            "title": "Dokumentengenerierung",
-            "desc": "Erstellung von Angeboten als Schablone im PDF-Format mit Logo und Stammdaten"
-          },
-          {
-            "title": "Versand an Kunden",
-            "desc": "Automatisches Senden des Angebots per E-Mail oder Messenger"
-          },
-          {
-            "title": "Angebotsdatenbank",
-            "desc": "Speicherung aller gesendeten Angebote mit Änderungshistorie"
-          },
-          {
-            "title": "Benachrichtigungen",
-            "desc": "Erinnerungen an Nachfassung und Genehmigungsstatus"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "Google Docs"
-          },
-          {
-            "name": "Google Sheets"
-          },
-          {
-            "name": "Gmail API"
-          },
-          {
-            "name": "Supabase"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Projekt-Startbildschirm",
-          "Auto-Angebotserstellung",
-          "Fertiges Angebot als PDF"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "AI",
-          "label": "Consultant"
-        },
-        "1": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "2": {
-          "value": "CRM",
-          "label": "Integration"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Response time"
-        }
-      }
-    },
-    "zzokSale": {
-      "title": "ZZOK Sale",
-      "subtitle": "Verkaufs-Bot zur Kundenaktivierung",
-      "alt": "ZZOK Sale",
-      "psr": {
-        "problem": "Manager verbrachten bis zu 80% ihrer Zeit mit „kalten“ Kontakten und der Erstaktivierung. Niedrige Konversion mangels systematischer Verkaufstrichter.",
-        "solution": "Telegram-Bot mit automatischem Aktivierungstrichter, Reihe von Tripwire-Angeboten und CRM-Integration zur Übergabe warmer Leads.",
-        "result": "Aktivierte Leads, 45% höhere Verkaufskonversion, Freisetzung von Manager-Zeit für die Arbeit mit kaufbereiten Kunden."
-      },
-      "features": {
-        "heading": "Bot-Funktionen",
-        "cards": [
-          {
-            "title": "Auto-Verkaufstrichter",
-            "desc": "Schritt-für-Schritt-Aktivierungssystem mit Nachrichtenreihen und Triggern"
-          },
-          {
-            "title": "Tripwire-Angebote",
-            "desc": "Automatischer Verkauf günstiger Produkte für den Erstkontakt"
-          },
-          {
-            "title": "Lead-Scoring",
-            "desc": "Bewertung der Kaufbereitschaft des Kunden basierend auf Aktivität"
-          },
-          {
-            "title": "CRM-Integration",
-            "desc": "Automatische Übergabe warmer Leads an CRM mit Interaktionsverlauf"
-          },
-          {
-            "title": "Push-Benachrichtigungen",
-            "desc": "Erinnerungen an verlassene Warenkörbe und Sonderangebote"
-          },
-          {
-            "title": "Trichter-Analytik",
-            "desc": "Detaillierte Konversionsstatistik auf jeder Stufe"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "OpenAI"
-          },
-          {
-            "name": "CRM API"
-          },
-          {
-            "name": "Zahlungssysteme"
-          },
-          {
-            "name": "Supabase"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Projekt-Startbildschirm",
-          "Lead-Aktivierung",
-          "Lead-Übergabe an CRM"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "AI",
-          "label": "Knowledge base"
-        },
-        "1": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "2": {
-          "value": "CRM",
-          "label": "Integration"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Response time"
-        }
-      }
-    },
-    "zzokHr": {
-      "title": "ZZOK HR",
-      "subtitle": "Wissensdatenbank und Tests für Mitarbeiter",
-      "alt": "ZZOK HR",
-      "psr": {
-        "problem": "Neue Mitarbeiter brauchten lange, um sich einzuarbeiten, HR verbrachte Stunden mit wiederholter Schulung. Fehlende einheitliche Wissensdatenbank und ein System zur Kompetenzprüfung.",
-        "solution": "Telegram-Bot mit Unternehmens-Wissensdatenbank, interaktiven Tests und automatischer Lernfortschrittsverfolgung.",
-        "result": "3-fach schnellere Einarbeitung neuer Mitarbeiter, Automatisierung von 70% der Schulungsprozesse, transparente Kompetenzanalytik für das gesamte Team."
-      },
-      "features": {
-        "heading": "Bot-Funktionen",
-        "cards": [
-          {
-            "title": "Wissensdatenbank",
-            "desc": "Strukturierte Datenbank aller Prozesse, Anweisungen und Unternehmensrichtlinien"
-          },
-          {
-            "title": "Testsystem",
-            "desc": "Automatische Tests zur Wissensprüfung nach jedem Modul"
-          },
-          {
-            "title": "Einarbeitung",
-            "desc": "Schritt-für-Schritt-Onboarding-Programm für neue Mitarbeiter"
-          },
-          {
-            "title": "Fortschritt",
-            "desc": "Verfolgung des Lernfortschritts jedes Mitarbeiters in Echtzeit"
-          },
-          {
-            "title": "Schnellsuche",
-            "desc": "Sofortige Suche in der Wissensdatenbank über AI-Assistenten"
-          },
-          {
-            "title": "HR-Analytik",
-            "desc": "Detaillierte Statistiken zu Schulung und Kompetenzen des gesamten Teams"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "OpenAI"
-          },
-          {
-            "name": "Google Sheets"
-          },
-          {
-            "name": "Supabase"
-          },
-          {
-            "name": "Google Docs"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Hauptbildschirm des Bots",
-          "Wissensprüfung",
-          "Unternehmens-Wissensdatenbank"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "AI",
-          "label": "Knowledge base"
-        },
-        "1": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "2": {
-          "value": "CRM",
-          "label": "Integration"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Response time"
-        }
-      }
-    },
-    "smm": {
-      "title": "SMM-Bot",
-      "subtitle": "Content-Kalender für Beauty-Profis",
-      "alt": "SMM-Bot",
-      "psr": {
-        "problem": "SMM-Spezialisten verbrachten bis zu 15 Stunden pro Woche mit Content-Planung und Post-Erstellung. Instabile Qualität und häufige Veröffentlichungsausfälle.",
-        "solution": "Telegram-Bot mit AI-Content-Generierung, fertigem Veröffentlichungskalender und Integration mit sozialen Netzwerken.",
-        "result": "Einsparung von 10 Stunden pro Woche, stabiler Content-Plan für einen Monat im Voraus, 35% mehr Engagement."
-      },
-      "features": {
-        "heading": "Bot-Funktionen",
-        "cards": [
-          {
-            "title": "Content-Kalender",
-            "desc": "Fertiger Veröffentlichungsplan für einen Monat mit Post-Themen und -Formaten"
-          },
-          {
-            "title": "AI-Post-Generierung",
-            "desc": "Automatische Erstellung von Post-Texten basierend auf Themen und Trends"
-          },
-          {
-            "title": "Visual-Auswahl",
-            "desc": "Empfehlungen für Bilder und Formate für jeden Post"
-          },
-          {
-            "title": "Planer",
-            "desc": "Automatische Veröffentlichung zur festgelegten Uhrzeit in alle sozialen Netzwerke"
-          },
-          {
-            "title": "Analytik",
-            "desc": "Statistiken zu Engagement und beliebtesten Content-Formaten"
-          },
-          {
-            "title": "Trends",
-            "desc": "AI-Trendanalyse und Empfehlungen zu aktuellen Themen"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "OpenAI"
-          },
-          {
-            "name": "Social Media API"
-          },
-          {
-            "name": "Google Sheets"
-          },
-          {
-            "name": "Supabase"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Projekt-Startbildschirm",
-          "Post-Planung",
-          "Veröffentlichung in Kanälen"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "10 h",
-          "label": "Saved per week"
-        },
-        "1": {
-          "value": "100%",
-          "label": "Automation"
-        },
-        "2": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "3": {
-          "value": "1 click",
-          "label": "To publish"
-        }
-      }
-    },
-    "biohacking": {
-      "title": "Biohacking",
-      "subtitle": "AI-Berater mit Wissensdatenbank zum Biohacking",
-      "alt": "Biohacking",
-      "psr": {
-        "problem": "Biohacking-Experten verbrachten Stunden mit Beratungen zu sich wiederholenden Fragen. Fehlende skalierbare Möglichkeit zur Wissensmonetarisierung.",
-        "solution": "Telegram-Bot mit AI-Berater, trainiert auf einer Wissensdatenbank zu Biohacking, Nahrungsergänzungsmitteln und Gesundheitsprotokollen.",
-        "result": "Wissensmonetarisierung durch Abonnement, automatische personalisierte Empfehlungen, Skalierung ohne Qualitätsverlust."
-      },
-      "features": {
-        "heading": "Bot-Funktionen",
-        "cards": [
-          {
-            "title": "AI-Berater",
-            "desc": "Personalisierte Empfehlungen zu Nahrungsergänzungsmitteln und Protokollen basierend auf Zielen"
-          },
-          {
-            "title": "Wissensdatenbank",
-            "desc": "Vollständige Bibliothek von Forschungen, Protokollen und Biohacking-Methoden"
-          },
-          {
-            "title": "Supplement-Tracker",
-            "desc": "Einnahmeerinnerungen und Verfolgung der Protokoll-Wirksamkeit"
-          },
-          {
-            "title": "Monitoring",
-            "desc": "Verfolgung von Gesundheitsindikatoren und Zielfortschritt"
-          },
-          {
-            "title": "Forschungsanalyse",
-            "desc": "AI-Zusammenfassung neuer wissenschaftlicher Arbeiten zum Biohacking"
-          },
-          {
-            "title": "Premium-Content",
-            "desc": "Exklusive Materialien und Protokolle für Abonnenten"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "OpenAI"
-          },
-          {
-            "name": "Zahlungssysteme"
-          },
-          {
-            "name": "Supabase"
-          },
-          {
-            "name": "Google Sheets"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Projekt-Startbildschirm",
-          "Personalisierte Empfehlungen",
-          "Biohacking-Wissensdatenbank"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "AI",
-          "label": "Consultant"
-        },
-        "1": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "2": {
-          "value": "CRM",
-          "label": "Integration"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Response time"
-        }
-      }
-    },
-    "salon": {
-      "title": "Schönheitssalon",
-      "subtitle": "Kundenbuchung + Integration mit 1C",
-      "alt": "Schönheitssalon",
-      "psr": {
-        "problem": "Administratoren verbrachten bis zu 50% ihrer Zeit mit Telefonanrufen und manueller Kundenbuchung. Doppelbuchungen und Fehler im Zeitplan.",
-        "solution": "Telegram-Bot für Online-Buchung mit vollständiger 1C-Integration: automatische Zeitplan-Aktualisierung, Leistungs- und Finanzbuchhaltung.",
-        "result": "60% weniger Administrationsarbeit, keine Fehler im Zeitplan, automatische Erfassung in 1C."
-      },
-      "features": {
-        "heading": "Bot-Funktionen",
-        "cards": [
-          {
-            "title": "Online-Buchung",
-            "desc": "Kunden buchen selbst über Telegram zu jeder Tages- und Nachtzeit"
-          },
-          {
-            "title": "1C-Synchronisation",
-            "desc": "Automatische Aktualisierung von Zeitplan und Leistungen in 1C"
-          },
-          {
-            "title": "Mitarbeiter-Auswahl",
-            "desc": "Der Kunde wählt einen bestimmten Mitarbeiter und eine Leistung aus dem Katalog"
-          },
-          {
-            "title": "Erinnerungen",
-            "desc": "Automatische Erinnerungen an den Termin eine Stunde und einen Tag vorher"
-          },
-          {
-            "title": "Online-Zahlung",
-            "desc": "Möglichkeit, eine Anzahlung direkt im Bot zu leisten"
-          },
-          {
-            "title": "Finanzen in 1C",
-            "desc": "Automatische Erstellung von Dokumenten für jede Leistung"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "1C:Enterprise"
-          },
-          {
-            "name": "Zahlungssysteme"
-          },
-          {
-            "name": "Google Calendar"
-          },
-          {
-            "name": "Supabase"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Projekt-Startbildschirm",
-          "Buchung in Telegram",
-          "1C-Synchronisation"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie einen solchen Bot für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "AI",
-          "label": "Consultant"
-        },
-        "1": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "2": {
-          "value": "CRM",
-          "label": "Integration"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Response time"
-        }
-      }
-    },
-    "payments": {
-      "title": "Zahlungskontrolle",
-      "subtitle": "Schuldnererinnerungen in Telegram/WhatsApp",
-      "alt": "Zahlungskontrolle",
-      "psr": {
-        "problem": "Kunden vergaßen die Bezahlung von Rechnungen, Manager verbrachten Stunden mit manueller Schuldnerverfolgung und Erinnerungen. Hohe überfällige Forderungen.",
-        "solution": "Automatisches Erinnerungssystem für Zahlungen über Telegram mit Integration in das Buchhaltungssystem und flexiblen Benachrichtigungsszenarien.",
-        "result": "45% weniger überfällige Forderungen, Automatisierung von 80% der Zahlungsabwicklungsarbeit, verbesserter Cashflow."
-      },
-      "features": {
-        "heading": "System-Funktionen",
-        "cards": [
-          {
-            "title": "Schuldner-Erfassung",
-            "desc": "Automatische Verfolgung aller unbezahlten Rechnungen und Fristen"
-          },
-          {
-            "title": "Erinnerungen",
-            "desc": "Benachrichtigungsserie vor und nach dem Zahlungsdatum über Telegram"
-          },
-          {
-            "title": "Zahlung per Klick",
-            "desc": "Der Kunde kann die Schuld direkt aus der Bot-Benachrichtigung begleichen"
-          },
-          {
-            "title": "Dashboard",
-            "desc": "Visualisierung der Forderungen in Echtzeit"
-          },
-          {
-            "title": "Segmentierung",
-            "desc": "Unterschiedliche Szenarien für neue und bestehende Kunden"
-          },
-          {
-            "title": "Berichtswesen",
-            "desc": "Detaillierte Berichte zu Zahlungen und Verzögerungen für die Geschäftsleitung"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "Telegram Bot API"
-          },
-          {
-            "name": "n8n"
-          },
-          {
-            "name": "Zahlungssysteme"
-          },
-          {
-            "name": "Google Sheets"
-          },
-          {
-            "name": "Supabase"
-          },
-          {
-            "name": "E-Mail API"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": [
-          "Projekt-Startbildschirm",
-          "Schuldner-Dashboard",
-          "Erinnerungen im Bot"
-        ]
-      },
-      "cta": {
-        "title": "Möchten Sie ein solches System für Ihr Unternehmen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Automatisierungslösung"
-      },
-      "showcase": {
-        "0": {
-          "value": "AI",
-          "label": "Consultant"
-        },
-        "1": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "2": {
-          "value": "CRM",
-          "label": "Integration"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Response time"
-        }
-      }
-    },
-    "holyScriptures": {
-      "title": "Tag mit Gebet",
-      "subtitle": "Vyritsa-Gebetbuch — tägliche App für die Gebetspraxis",
-      "alt": "Tag mit Gebet",
-      "psr": {
-        "problem": "Gläubige hatten Schwierigkeiten mit der regelmäßigen Gebetspraxis: vergaßen das Beten, hatten keinen bequemen Zugang zum Gebetbuch unterwegs, besonders außerhalb des Zuhauses.",
-        "solution": "Mobile App „Tag mit Gebet“ mit täglicher Gebetsregel, Benachrichtigungen zur Gebetszeit und dem vollständigen Vyritsa-Gebetbuch in der Tasche.",
-        "result": "Bequeme App für die tägliche Gebetspraxis, jederzeit und überall verfügbar. Über 100 Gebete in der Datenbank."
-      },
-      "features": {
-        "heading": "App-Funktionen",
-        "cards": [
-          {
-            "title": "Tägliche Gebetsregel",
-            "desc": "Automatische Gebetsauswahl für jeden Tag nach dem Kirchenkalender"
-          },
-          {
-            "title": "Benachrichtigungen",
-            "desc": "Erinnerungen an die Morgen- und Abendgebete"
-          },
-          {
-            "title": "Vollständiges Gebetbuch",
-            "desc": "Über 100 Gebete für verschiedene Bedürfnisse und Lebenssituationen"
-          },
-          {
-            "title": "Gebete suchen",
-            "desc": "Schnelle Suche nach Name, Inhalt oder Anlass"
-          },
-          {
-            "title": "Favoriten",
-            "desc": "Möglichkeit, Gebete zu den Favoriten für schnellen Zugriff hinzuzufügen"
-          },
-          {
-            "title": "Nachtmodus",
-            "desc": "Bequemer Modus für das abendliche Gebetslesen"
-          }
-        ]
-      },
-      "tech": {
-        "heading": "Technologien",
-        "items": [
-          {
-            "name": "iOS / Android"
-          },
-          {
-            "name": "SQLite"
-          },
-          {
-            "name": "React Native"
-          },
-          {
-            "name": "Push-Benachrichtigungen"
-          },
-          {
-            "name": "UI/UX Design"
-          }
-        ]
-      },
-      "gallery": {
-        "heading": "Materialen und Screenshots",
-        "captions": []
-      },
-      "cta": {
-        "title": "Möchten Sie eine ähnliche App erstellen?",
-        "desc": "Lassen Sie uns über Ihr Projekt sprechen und ich finde die optimale Lösung für die Umsetzung"
-      },
-      "showcase": {
-        "0": {
-          "value": "AI",
-          "label": "Consultant"
-        },
-        "1": {
-          "value": "24/7",
-          "label": "Ready"
-        },
-        "2": {
-          "value": "CRM",
-          "label": "Integration"
-        },
-        "3": {
-          "value": "0 min",
-          "label": "Response time"
-        }
-      }
-    }
+    "billiard": {"title": "Tischbuchung 24/7 für Billardklub", "subtitle": "Telegram-Bot mit Kalender, Zahlungen und Benachrichtigungen", "alt": "Tischbuchung 24/7", "mainImageAlt": "Tischbuchung 24/7", "psr": {"problem": "Billardklub-Administratoren verbrachten bis zu 60% ihrer Arbeitszeit mit Telefonanrufen für Tischbuchungen.", "solution": "Telegram-Bot mit automatischer Anzeige verfügbarer Slots, Online-Buchung und AI-Antworten.", "result": "40% Reduktion der Admin-Arbeit, Buchungsgeschwindigkeit auf 2 Minuten reduziert, 24/7-Betrieb."}, "features": {"heading": "Bot-Funktionen", "cards": [{"title": "Zeitplan anzeigen", "desc": "Kunde sieht alle verfügbaren Slots und Tische"}, {"title": "Bestimmten Tisch wählen", "desc": "Auswahl eines bestimmten Tisches oder Bereichs"}, {"title": "Sofortige Bestätigung", "desc": "Bot bestätigt die Buchung und sendet Bestätigung"}, {"title": "AI-Antworten", "desc": "Automatische Antworten über Preise und Regeln"}, {"title": "Admin-Panel", "desc": "Administrator sieht aktuelle Buchungen"}, {"title": "Erinnerungen", "desc": "Automatische Erinnerungen eine Stunde vorher"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83d\udcc5", "name": "Google Calendar"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}]}, "gallery": {"heading": "Galerie", "captions": ["Hauptmenü", "Tischbuchung", "n8n-Automatisierung"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "assistant": {"title": "AI-Assistent für Aufgaben, E-Mail & Kalender", "subtitle": "Persönlicher Planer in Telegram mit Sprachsteuerung", "alt": "AI Persönlicher Assistent", "mainImageAlt": "AI Persönlicher Assistent", "psr": {"problem": "Tägliches Kalender-, E-Mail- und Aufgabenmanagement nimmt viel Zeit in Anspruch.", "solution": "Telegram-Bot mit Spracherkennung, Google Calendar, Gmail und Kontaktintegration.", "result": "2+ Stunden täglich bei Routineaufgaben gespart."}, "features": {"heading": "Assistent-Funktionen", "cards": [{"title": "Sprachbefehle", "desc": "Spracherkennung über Whisper API"}, {"title": "Kalenderverwaltung", "desc": "Termine und Erinnerungen in Google Calendar"}, {"title": "E-Mail-Verwaltung", "desc": "E-Mails lesen und senden über Gmail API"}, {"title": "Kontakte", "desc": "Suche und Verwaltung von Google Contacts"}, {"title": "Informationssuche", "desc": "Schnelle Websuche nach Anfrage"}, {"title": "Aufgaben und Listen", "desc": "Verwaltung von Aufgaben und To-Do-Listen"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83c\udfa4", "name": "OpenAI/Whisper"}, {"icon": "\ud83d\udcc5", "name": "Google Calendar"}, {"icon": "\ud83d\udce7", "name": "Gmail API"}, {"icon": "\ud83d\udc65", "name": "Google Contacts"}]}, "gallery": {"heading": "Galerie", "captions": ["Projektsplash", "n8n-Workflow", "Sprachbefehle"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "autopublish": {"title": "AI Auto-Posting in Telegram aus Links", "subtitle": "Automatische Post-Veröffentlichung aus RSS und Artikeln", "alt": "AI Auto-Posting", "psr": {"problem": "Content-Ersteller verbrachten Stunden mit manuellem Finden und Veröffentlichen von Content.", "solution": "Automatisierte Pipeline, die Content aus RSS-Feeds abruft und AI-Zusammenfassungen erstellt.", "result": "5 Stunden pro Woche bei der Content-Erstellung gespart."}, "features": {"heading": "Funktionen", "cards": [{"title": "RSS-Parsing", "desc": "Automatisches Abrufen neuer Artikel"}, {"title": "AI-Content-Verarbeitung", "desc": "Zusammenfassung und Formatierung mit OpenAI"}, {"title": "Geplante Veröffentlichung", "desc": "Posting zu optimalen Zeiten"}, {"title": "Content-Filterung", "desc": "Automatische Filterung nach Thema und Qualität"}, {"title": "Kanalverwaltung", "desc": "Mehrere Kanäle von einer Oberfläche verwalten"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcf0", "name": "RSS Parser"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]}, "gallery": {"heading": "Galerie", "captions": ["Projektsplash", "n8n-Workflow", "Kanal-Veröffentlichung"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "amp": {"title": "Kostenpflichtiger Telegram Audio-Service 24/7", "subtitle": "Track-Trennung mit automatischer Zahlung", "alt": "AUDIO MinusPlus", "psr": {"problem": "Musikdienst bot Track-zu-Stem-Trennung, aber der Prozess war vollständig manuell.", "solution": "Telegram-Bot nimmt Audiodateien entgegen, verarbeitet über API, akzeptiert Zahlung und liefert Stems.", "result": "Volle Service-Automatisierung. 24/7-Zahlungsakzeptanz ohne menschliches Eingreifen."}, "features": {"heading": "Funktionen", "cards": [{"title": "Track-Upload", "desc": "Kunde sendet Audiodatei direkt an Bot"}, {"title": "Szenario-Auswahl", "desc": "Trennung in 2, 4 oder 5 Stems"}, {"title": "Automatische Zahlung", "desc": "Robokassa-Integration \u2014 Karte oder SBP"}, {"title": "Ergebnislieferung", "desc": "Fertige Stems werden über Telegram gesendet"}, {"title": "Persönliches Dashboard", "desc": "Bestellhistorie und Zugriff auf frühere Werke"}, {"title": "Benachrichtigungen", "desc": "Verarbeitungsstatus: Angenommen, Verarbeitet, Fertig"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83d\udcb3", "name": "Robokassa"}, {"icon": "\u2601\ufe0f", "name": "S3 Storage"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]}, "gallery": {"heading": "Galerie", "captions": ["Bot-Hauptbildschirm", "Szenario-Auswahl", "Projektsplash"]}, "cta": {"title": "Möchten Sie Ihren Service automatisieren?", "desc": "Lassen Sie uns Ihr Projekt besprechen und eine Lösung erstellen"}},
+    "hrNeuro": {"title": "AI-Screening von Bewerbungen & Kandidatenqualifizierung", "subtitle": "HR Neuro-Mitarbeiter zur Automatisierung der Bewerbungsbearbeitung", "alt": "HR Neuro-Mitarbeiter", "psr": {"problem": "HR-Abteilung verbrachte 40+ Stunden pro Woche mit manueller Bewerbungsbearbeitung.", "solution": "AI-Bot, der automatisch Bewerbungen verarbeitet, Erstqualifizierung durchführt und in Google Sheets erfasst.", "result": "8000+ Bewerbungen empfangen, 3500+ Kandidaten automatisch verarbeitet, 1166 Stunden für HR gespart."}, "features": {"heading": "Bot-Funktionen", "cards": [{"title": "Auto-Bewerbungsbearbeitung", "desc": "Sofortige Antwort auf neue HeadHunter-Bewerbungen 24/7"}, {"title": "Kandidatenqualifizierung", "desc": "Skriptbasierte Klärungsfragen zur Anforderungsübereinstimmung"}, {"title": "Google Sheets-Erfassung", "desc": "Aufzeichnung aller Antworten und Status in einer Tabelle"}, {"title": "Bewerbungsfilterung", "desc": "Automatische Identifizierung unqualifizierter Kandidaten"}, {"title": "HR-Benachrichtigungen", "desc": "Übergabe qualifizierter Kandidaten an HR mit Dossier"}, {"title": "Kommunikationsverlauf", "desc": "Volle Historie aller Interaktionen"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\ud83d\udcbc", "name": "HeadHunter API"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83e\udd16", "name": "AI Chatbot"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\u2708\ufe0f", "name": "Telegram API"}]}, "gallery": {"heading": "Galerie", "captions": ["Bot-Hauptbildschirm", "Bewerbungsbearbeitung", "Tabellenerfassung"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "aurpak": {"title": "AI-Berater für eingehende B2B-Anfragen & Katalog", "subtitle": "Bot-Berater für Verpackungshersteller \u2014 24/7 Anfragebearbeitung", "alt": "Ayurpak Berater", "psr": {"problem": "Manager verbrachten bis zu 70% der Zeit mit wiederholten Beratungen.", "solution": "Telegram-Bot mit kompletter Produktwissensdatenbank, AI-Berater und automatischen Antworten.", "result": "Schneller eingehender Beratungsfluss, 60% Reduktion der Managerarbeit, +25% Conversion."}, "features": {"heading": "Bot-Funktionen", "cards": [{"title": "Produktwissensdatenbank", "desc": "Vollständige Informationen zu jedem Produkt"}, {"title": "AI-Berater", "desc": "Intelligente Antworten auf Kundenfragen"}, {"title": "Produktsuche", "desc": "Schnelle Suche nach Name, Wirkung oder Problem"}, {"title": "Bestellung & Lieferung", "desc": "Bestellung direkt im Bot mit Versandkostenberechnung"}, {"title": "Online-Zahlung", "desc": "Integration mit Zahlungssystemen"}, {"title": "Verkaufsanalytik", "desc": "Detaillierte Statistiken zu Verkäufen"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcb3", "name": "Zahlungssysteme"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]}, "gallery": {"heading": "Galerie", "captions": ["Bot-Hauptbildschirm", "Produktberatung", "Projektsplash"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "lenremont": {"title": "AI-Lead-Qualifizierung & Renovierungsrechner", "subtitle": "Intelligenter Assistent für Kostenberechnung und Messbuchung", "alt": "Lenremont AI-Assistent", "psr": {"problem": "Kunden waren verloren in der Vielfalt der Dienstleistungen, verstanden die Endkosten nicht.", "solution": "AI-Berater in Telegram, der bei der Kostenberechnung, Materialauswahl und Messbuchung hilft.", "result": "Weniger verlorene Leads, automatische Lead-Qualifizierung, +35% Messkonversion."}, "features": {"heading": "Bot-Funktionen", "cards": [{"title": "Kostenberechnung", "desc": "Schritt-für-Schritt Renovierungsrechner"}, {"title": "Materialauswahl", "desc": "AI-Empfehlungen basierend auf Budget"}, {"title": "Messbuchung", "desc": "Online-Buchung für kostenlose Messung"}, {"title": "Portfolio der Arbeiten", "desc": "Galerie abgeschlossener Projekte"}, {"title": "AI-Antworten", "desc": "Automatische Antworten zu Fristen und Garantien"}, {"title": "Benachrichtigungen", "desc": "Erinnerungen an Messung und Projektstatus"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83d\udcc5", "name": "Google Calendar"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]}, "gallery": {"heading": "Galerie", "captions": ["Bot-Hauptbildschirm", "Kostenberechnung", "Online-Buchung"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "mchs": {"title": "Assistent für Angebotserstellung", "subtitle": "Automatisierung der Angebotserstellung für MCHS-Unternehmen", "alt": "MCHS Assistent", "psr": {"problem": "Erstellung von Angeboten dauerte bis zu 3 Tage, erforderte manuelle Datensammlung.", "solution": "Automatisierter Assistent für Anforderungssammlung, Kostenberechnung und Generierung fertiger Angebote.", "result": "Schnellere Angebote, weniger Fehler, Vorbereitungszeit von 3 Tagen auf 2 Stunden reduziert."}, "features": {"heading": "Assistent-Funktionen", "cards": [{"title": "Anforderungssammlung", "desc": "Automatische Kundenbefragung"}, {"title": "Auto-Berechnung", "desc": "Sofortige Kostenberechnung"}, {"title": "Dokumentgenerierung", "desc": "Erstellung von Angeboten als PDF"}, {"title": "Kundenzustellung", "desc": "Automatischer Versand per E-Mail oder Messenger"}, {"title": "Angebotsdatenbank", "desc": "Speicherung aller gesendeten Angebote"}, {"title": "Benachrichtigungen", "desc": "Erinnerungen an Follow-ups"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83d\udcc4", "name": "PDF-Generierung"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]}, "gallery": {"heading": "Galerie", "captions": ["Assistent-Hauptbildschirm", "Angebots-Generierung", "Projektsplash"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "zzokSale": {"title": "AI Aufwärmungstrichter & Lead-Übergabe an CRM", "subtitle": "ZZOK: Aufwärmen, Qualifizierung, CRM-Übergabe", "alt": "ZZOK Sale", "psr": {"problem": "Manager verbrachten bis zu 80% der Zeit mit Kaltkontakten.", "solution": "Telegram-Bot mit automatischem Aufwärmungstrichter und CRM-Integration.", "result": "Aufgewärmte Leads, +45% Verkaufskonversion, Freisetzung der Managerzeit."}, "features": {"heading": "Bot-Funktionen", "cards": [{"title": "Auto-Trichter", "desc": "Schritt-für-Schritt-Aufwärmungssystem"}, {"title": "Tripwires", "desc": "Automatischer Verkauf günstiger Produkte"}, {"title": "Lead-Scoring", "desc": "Bewertung der Kaufbereitschaft"}, {"title": "CRM-Integration", "desc": "Automatische Übergabe warmer Leads"}, {"title": "Push-Benachrichtigungen", "desc": "Erinnerungen an verlassene Warenkörbe"}, {"title": "Trichteranalytik", "desc": "Detaillierte Conversion-Statistiken"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcca", "name": "CRM API"}, {"icon": "\ud83d\udcb3", "name": "Zahlungssysteme"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]}, "gallery": {"heading": "Galerie", "captions": ["Projektsplash", "Lead-Aufwärmung", "CRM-Übergabe"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "zzokHr": {"title": "Wissensdatenbank & Mitarbeiterprüfung in Telegram", "subtitle": "ZZOK HR: Schulung und Bewertung über Bot", "alt": "ZZOK HR", "psr": {"problem": "Neue Mitarbeiter brauchten lange zur Einarbeitung, HR verbrachte Stunden mit Schulungen.", "solution": "Telegram-Bot mit Unternehmenswissensdatenbank, interaktiven Tests und Fortschrittstracking.", "result": "3x schnellere Einarbeitung, 70% Automatisierung der Schulungsprozesse."}, "features": {"heading": "Bot-Funktionen", "cards": [{"title": "Wissensdatenbank", "desc": "Strukturierte Datenbank aller Prozesse"}, {"title": "Prüfung", "desc": "Automatische Tests zur Wissensüberprüfung"}, {"title": "Einarbeitung", "desc": "Schritt-für-Schritt Onboarding-Programm"}, {"title": "Fortschrittstracking", "desc": "Echtzeit-Tracking des Lernfortschritts"}, {"title": "Schnellsuche", "desc": "Sofortige Suche über AI-Assistent"}, {"title": "HR-Analytik", "desc": "Detaillierte Schulungs- und Teamstatistik"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}, {"icon": "\ud83d\udcc4", "name": "Google Docs"}]}, "gallery": {"heading": "Galerie", "captions": ["Bot-Hauptbildschirm", "Mitarbeiterprüfung", "Wissensdatenbank"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "smm": {"title": "AI Content-Kalender & Auto-Planung für Social Media", "subtitle": "SMM-Bot für Beauty-Profis: Content-Planung und -Veröffentlichung", "alt": "SMM Bot", "psr": {"problem": "SMM-Spezialisten verbrachten bis zu 15 Stunden pro Woche mit Content-Planung.", "solution": "Telegram-Bot mit AI-Content-Generierung, fertigem Veröffentlichungskalender und Social-Media-Integration.", "result": "10 Stunden pro Woche gespart, stabiler Content-Plan für einen Monat im Voraus, +35% Engagement."}, "features": {"heading": "Bot-Funktionen", "cards": [{"title": "Content-Kalender", "desc": "Fertiger monatlicher Veröffentlichungsplan"}, {"title": "AI-Post-Generierung", "desc": "Automatische Post-Erstellung basierend auf Trends"}, {"title": "Visuelle Auswahl", "desc": "Empfehlungen für Bilder und Formate"}, {"title": "Planer", "desc": "Automatische Veröffentlichung zur geplanten Zeit"}, {"title": "Analytik", "desc": "Engagement-Statistiken"}, {"title": "Trends", "desc": "AI-Trendanalyse"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcf1", "name": "Social Media API"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]}, "gallery": {"heading": "Galerie", "captions": ["Bot-Hauptbildschirm", "Content-Kalender", "Auto-Veröffentlichung"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "biohacking": {"title": "Abonnement AI-Berater mit Wissensdatenbank", "subtitle": "Biohacking: Telegram-Bot mit Abo für Expertencontent", "alt": "Biohacking Berater", "psr": {"problem": "Biohacking-Experten verbrachten Stunden mit Beratungen mit wiederholten Fragen.", "solution": "Telegram-Bot mit AI-Berater, trainiert auf Biohacking- und Gesundheitsprotokoll-Wissensdatenbank.", "result": "Expertise-Monetarisierung durch Abo, automatische personalisierte Empfehlungen."}, "features": {"heading": "Bot-Funktionen", "cards": [{"title": "AI-Berater", "desc": "Personalisierte Empfehlungen basierend auf Zielen"}, {"title": "Wissensdatenbank", "desc": "Komplette Bibliothek von Forschung und Protokollen"}, {"title": "Supplement-Tracker", "desc": "Einnahme-Erinnerungen und Protokoll-Tracking"}, {"title": "Monitoring", "desc": "Gesundheitsindikatoren und Fortschrittsverfolgung"}, {"title": "Forschungsanalyse", "desc": "AI-Zusammenfassung neuer wissenschaftlicher Arbeiten"}, {"title": "Premium-Content", "desc": "Exklusive Materialien für Abonnenten"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcb3", "name": "Zahlungssysteme"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}]}, "gallery": {"heading": "Galerie", "captions": ["Bot-Hauptbildschirm", "Beratung", "Protokoll-Tracking"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "salon": {"title": "Online-Buchung & 1C-Synchronisierung", "subtitle": "Beauty-Salon: Telegram-Bot für Kundenbuchung mit 1C-Integration", "alt": "Beauty-Salon Buchung", "psr": {"problem": "Administratoren verbrachten bis zu 50% der Zeit mit Telefonanrufen und manueller Buchung.", "solution": "Telegram-Bot für Online-Buchung mit vollständiger 1C-Integration.", "result": "60% Reduktion der Administratorarbeit, keine Planungsfehler, automatische 1C-Buchhaltung."}, "features": {"heading": "Bot-Funktionen", "cards": [{"title": "Online-Buchung", "desc": "Kunden buchen sich selbst über Telegram"}, {"title": "1C-Synchronisierung", "desc": "Automatische Plan- und Dienstaktualisierungen"}, {"title": "Meisterauswahl", "desc": "Kunde wählt bestimmten Meister und Dienst"}, {"title": "Erinnerungen", "desc": "Automatische Erinnerungen eine Stunde und einen Tag vorher"}, {"title": "Online-Zahlung", "desc": "Option zur Vorauszahlung direkt im Bot"}, {"title": "1C-Finanzen", "desc": "Automatische Dokumentenerstellung"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83d\udcca", "name": "1C:Enterprise"}, {"icon": "\ud83d\udcb3", "name": "Zahlungssysteme"}, {"icon": "\ud83d\udcc5", "name": "Google Calendar"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]}, "gallery": {"heading": "Galerie", "captions": ["Buchungsinterface", "1C-Sync", "Zahlungsbildschirm"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "payments": {"title": "Zahlungserinnerungen & Forderungsautomatisierung", "subtitle": "Automatisches Erinnerungssystem via Telegram und WhatsApp", "alt": "Zahlungskontrolle", "psr": {"problem": "Kunden vergassen Rechnungen, Manager verbrachten Stunden mit manueller Schuldenverfolgung.", "solution": "Automatisches Zahlungserinnerungssystem via Telegram mit Buchhaltungssystemintegration.", "result": "45% Reduktion überfälliger Schulden, 80% Automatisierung der Zahlungseintreibung."}, "features": {"heading": "Systemfunktionen", "cards": [{"title": "Schuldentracking", "desc": "Automatische Verfolgung aller unbezahlten Rechnungen"}, {"title": "Erinnerungen", "desc": "Serie von Benachrichtigungen vor und nach dem Zahlungsdatum"}, {"title": "One-Click-Zahlung", "desc": "Kunde kann Schuld direkt aus Bot-Benachrichtigung bezahlen"}, {"title": "Dashboard", "desc": "Echtzeit-Forderungsvisualisierung"}, {"title": "Segmentierung", "desc": "Verschiedene Szenarien für neue und Stammkunden"}, {"title": "Berichterstattung", "desc": "Detaillierte Zahlungs- und Überfälligkeitsberichte"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83d\udcb3", "name": "Zahlungssysteme"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}, {"icon": "\ud83d\udce7", "name": "E-Mail API"}]}, "gallery": {"heading": "Galerie", "captions": ["Dashboard", "Erinnerungsfluss", "Zahlungsbildschirm"]}, "cta": {"title": "Möchten Sie ähnliche Automatisierung?", "desc": "Schreiben Sie mir auf Telegram \u2014 ich schlage einen Plan vor"}},
+    "holyScriptures": {"title": "Mobile App für tägliches Gebetspraktikum", "subtitle": "Vyritsky Gebetbuch \u2014 tägliche Erinnerungen und Texte", "alt": "Tag mit Gebet", "psr": {"problem": "Gläubige hatten Schwierigkeiten mit regelmäßiger Gebetspraxis.", "solution": "Mobile App \"Tag mit Gebet\" mit täglicher Gebetsregel und Erinnerungen.", "result": "Bequeme App für tägliche Gebetspraxis. 100+ Gebete in der Datenbank."}, "features": {"heading": "App-Funktionen", "cards": [{"title": "Tägliche Regel", "desc": "Automatische Gebetsauswahl nach Kirchenkalender"}, {"title": "Benachrichtigungen", "desc": "Erinnerungen für Morgen- und Abendgebete"}, {"title": "Komplettes Gebetbuch", "desc": "100+ Gebete für verschiedene Bedürfnisse"}, {"title": "Gebetsuche", "desc": "Schnelle Suche nach Name, Inhalt oder Bedarf"}, {"title": "Favoriten", "desc": "Gebete zu Favoriten hinzufügen"}, {"title": "Nachtmodus", "desc": "Bequemer Modus für abendliches Gebetslesen"}]}, "tech": {"heading": "Technologien", "items": [{"icon": "\ud83d\udcf1", "name": "iOS / Android"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "SQLite"}, {"icon": "\u26a1", "name": "React Native"}, {"icon": "\ud83d\udd14", "name": "Push Notifications"}, {"icon": "\ud83c\udfa8", "name": "UI/UX Design"}]}, "cta": {"title": "Möchten Sie eine ähnliche App erstellen?", "desc": "Lassen Sie uns Ihr Projekt besprechen und die optimale Lösung finden"}}
   }
 }
