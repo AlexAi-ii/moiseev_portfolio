@@ -263,6 +263,7 @@
     "billiard": {
       "title": "Table Booking 24/7 for Billiard Club",
       "subtitle": "Telegram bot with calendar, payments and notifications",
+      "badge": "Booking & Scheduling",
       "alt": "Table Booking 24/7",
       "mainImageAlt": "Table Booking 24/7",
       "psr": {"problem": "Billiard club administrators spent up to 60% of their work time handling phone calls for table bookings. Clients couldn't always get through during peak hours.", "solution": "Telegram bot with automatic display of available slots, online booking, and AI answers to frequently asked questions. Full integration with Google Calendar.", "result": "40% reduction in admin workload, booking speed reduced to 2 minutes, 24/7 operation without human involvement."},
@@ -274,6 +275,7 @@
     "assistant": {
       "title": "AI Assistant for Tasks, Email & Calendar",
       "subtitle": "Personal planner in Telegram with voice control",
+      "badge": "Support & Consulting",
       "alt": "AI Personal Assistant",
       "mainImageAlt": "AI Personal Assistant",
       "psr": {"problem": "Daily calendar, email and task management takes a lot of time. Manual meeting and reminder entry leads to errors and missed important events.", "solution": "Telegram bot with voice command recognition, Google Calendar, Gmail and contacts integration. Automatic meeting and reminder creation from voice messages.", "result": "2+ hours saved daily on routine tasks. All meetings and tasks entered automatically. Convenient interface in familiar Telegram."},
@@ -285,6 +287,7 @@
     "autopublish": {
       "title": "AI Auto-Posting in Telegram from Links",
       "subtitle": "Automatic post publishing from RSS and articles",
+      "badge": "Content & Marketing",
       "alt": "AI Auto-Posting",
       "psr": {"problem": "Content creators spent hours manually finding, processing and publishing content across Telegram channels. Inconsistent posting schedule.", "solution": "Automated pipeline that fetches content from RSS feeds and links, generates AI summaries and publishes to Telegram channels on schedule.", "result": "5 hours saved per week on content creation. Stable publishing rhythm without manual effort."},
       "features": {"heading": "Features", "cards": [{"title": "RSS parsing", "desc": "Automatic fetching of new articles from RSS feeds and web links"}, {"title": "AI content processing", "desc": "Summarization, rewriting and formatting content with OpenAI"}, {"title": "Scheduled publishing", "desc": "Posting to Telegram channels at optimal times"}, {"title": "Content filtering", "desc": "Automatic filtering by topic and quality criteria"}, {"title": "Channel management", "desc": "Managing multiple channels from one interface"}]},
@@ -295,6 +298,7 @@
     "amp": {
       "title": "Paid Telegram Audio Processing Service 24/7",
       "subtitle": "Track separation with automatic payment",
+      "badge": "Paid Services",
       "alt": "AUDIO MinusPlus",
       "psr": {"problem": "Music service provided track-to-stem separation but the process was fully manual. Clients waited for operator responses, payments through card transfers without automation.", "solution": "Telegram bot automatically accepts audio files, processes via API service, accepts payment through Robokassa and delivers ready stems.", "result": "Full service automation. 24/7 payment acceptance without human involvement. Instant delivery of ready materials."},
       "features": {"heading": "Features", "cards": [{"title": "Track upload", "desc": "Client sends audio file directly to Telegram bot"}, {"title": "Scenario selection", "desc": "Separation into 2, 4 or 5 stems \u2014 your choice"}, {"title": "Automatic payment", "desc": "Robokassa integration \u2014 card or SBP payment"}, {"title": "Result delivery", "desc": "Ready stems sent via Telegram after processing"}, {"title": "Personal dashboard", "desc": "Order history and access to past works"}, {"title": "Notifications", "desc": "Processing statuses: Accepted, Processing, Ready"}]},
@@ -305,6 +309,7 @@
     "hrNeuro": {
       "title": "AI Screening of Applications & Candidate Qualification",
       "subtitle": "HR Neuro-Employee for automating application processing",
+      "badge": "HR & Training",
       "alt": "HR Neuro-Employee",
       "psr": {"problem": "HR department spent 40+ hours per week manually processing HeadHunter applications. Thousands of monthly applications required manual review, HR managers wasted time on unqualified candidates.", "solution": "AI bot that automatically processes applications, conducts initial qualification and maintains records in Google Sheets. Instant response to applications 24/7, scripted questions, filtering unqualified candidates.", "result": "8000+ applications received, 3500+ candidates automatically processed, 1166 hours saved for HR department. Hiring time reduced from 2 weeks to 3-4 days."},
       "features": {"heading": "Bot Features", "cards": [{"title": "Auto application processing", "desc": "Instant response to new HeadHunter applications 24/7 without human involvement"}, {"title": "Candidate qualification", "desc": "Scripted clarifying questions to determine requirement match"}, {"title": "Google Sheets tracking", "desc": "Recording all answers and statuses in a unified table for HR"}, {"title": "Application filtering", "desc": "Automatic identification of unqualified candidates and filtering out unsuitable ones"}, {"title": "HR notifications", "desc": "Handing warmed candidates to HR manager with complete dossier"}, {"title": "Communication history", "desc": "Full history of all interactions with each candidate"}]},
@@ -315,6 +320,7 @@
     "aurpak": {
       "title": "AI Consultant for Incoming B2B Requests & Catalog",
       "subtitle": "Bot-consultant for packaging manufacturer \u2014 24/7 request handling",
+      "badge": "Leads & Sales",
       "alt": "Ayurpak Consultant",
       "psr": {"problem": "Managers spent up to 70% of time on repeated consultations and processing incoming requests. Clients waited long for answers and went to competitors.", "solution": "Telegram bot with complete product knowledge base, AI consultant and automatic answers to frequent questions. Integration with website and CRM.", "result": "Fast incoming consultation flow, 60% reduction in manager workload, 25% growth in purchase conversion."},
       "features": {"heading": "Bot Features", "cards": [{"title": "Product knowledge base", "desc": "Complete information on composition, usage, contraindications of each product"}, {"title": "AI consultant", "desc": "Smart answers to client questions considering their needs and health conditions"}, {"title": "Product search", "desc": "Quick product search by name, effect or problem"}, {"title": "Order & delivery", "desc": "Placing orders directly in bot with delivery cost calculation"}, {"title": "Online payment", "desc": "Integration with payment systems for instant payment"}, {"title": "Sales analytics", "desc": "Detailed statistics on sales and product popularity"}]},
@@ -325,6 +331,7 @@
     "lenremont": {
       "title": "AI Lead Qualification & Renovation Calculator",
       "subtitle": "Smart assistant for cost calculation and measurement booking",
+      "badge": "Leads & Sales",
       "alt": "Lenremont AI Assistant",
       "psr": {"problem": "Clients were lost in the variety of services and materials, didn't understand the final renovation cost. Managers spent hours on initial consultations and calculations.", "solution": "AI consultant in Telegram that helps calculate renovation cost, select materials and book a free measurement.", "result": "Fewer lost leads, automatic lead qualification, 35% growth in measurement conversion."},
       "features": {"heading": "Bot Features", "cards": [{"title": "Cost calculation", "desc": "Step-by-step renovation calculator considering area, work type and materials"}, {"title": "Material selection", "desc": "AI recommendations for materials based on budget and preferences"}, {"title": "Measurement booking", "desc": "Online booking for free measurement with convenient time selection"}, {"title": "Portfolio of works", "desc": "Gallery of completed projects with photos and descriptions"}, {"title": "AI answers to questions", "desc": "Automatic answers about timelines, guarantees and renovation stages"}, {"title": "Notifications", "desc": "Reminders about measurement and project status in real time"}]},
@@ -335,6 +342,7 @@
     "mchs": {
       "title": "Assistant for Commercial Proposal Preparation",
       "subtitle": "Automating CP preparation for MCHS company",
+      "badge": "Operations & Back Office",
       "alt": "MCHS Assistant",
       "psr": {"problem": "Preparing commercial proposals took up to 3 days, required manual data gathering and calculations. High risk of documentation errors.", "solution": "Automated assistant for requirement gathering, cost calculation and generation of ready CPs by template.", "result": "Faster CPs, fewer errors, preparation time reduced from 3 days to 2 hours."},
       "features": {"heading": "Assistant Features", "cards": [{"title": "Requirement gathering", "desc": "Automatic client questioning to obtain all necessary data"}, {"title": "Auto-calculation", "desc": "Instant cost calculation based on entered parameters"}, {"title": "Document generation", "desc": "Creating CPs by template in PDF format with logo and details"}, {"title": "Client delivery", "desc": "Automatic CP delivery via email or messenger"}, {"title": "CP database", "desc": "Storage of all sent proposals with change history"}, {"title": "Notifications", "desc": "Reminders about follow-ups and agreement status"}]},
@@ -345,6 +353,7 @@
     "zzokSale": {
       "title": "AI Warming Funnel & Lead Handoff to CRM",
       "subtitle": "ZZOK: warming, qualification, CRM handoff",
+      "badge": "Leads & Sales",
       "alt": "ZZOK Sale",
       "psr": {"problem": "Managers spent up to 80% of time on cold contacts and initial warming. Low conversion due to lack of systematic sales funnel.", "solution": "Telegram bot with automatic warming funnel, tripwire series and CRM integration for handing warm leads.", "result": "Warmed leads, 45% growth in sales conversion, freeing managers' time for working with ready clients."},
       "features": {"heading": "Bot Features", "cards": [{"title": "Auto-funnel", "desc": "Step-by-step warming system with message series and triggers"}, {"title": "Tripwires", "desc": "Automatic sale of low-cost products for first contact"}, {"title": "Lead scoring", "desc": "Evaluating client readiness to purchase based on activity"}, {"title": "CRM integration", "desc": "Automatic handoff of warm leads to CRM with interaction history"}, {"title": "Push notifications", "desc": "Reminders about abandoned carts and special offers"}, {"title": "Funnel analytics", "desc": "Detailed statistics on conversion at each stage"}]},
@@ -355,6 +364,7 @@
     "zzokHr": {
       "title": "Knowledge Base & Employee Testing in Telegram",
       "subtitle": "ZZOK HR: training and assessment via bot",
+      "badge": "HR & Training",
       "alt": "ZZOK HR",
       "psr": {"problem": "New employees took long to onboard, HR spent hours on repeated training. Lack of unified knowledge base and skill assessment system.", "solution": "Telegram bot with company knowledge base, interactive tests and automatic learning progress tracking.", "result": "3x faster new employee onboarding, 70% automation of training processes, transparent skill analytics for the team."},
       "features": {"heading": "Bot Features", "cards": [{"title": "Knowledge base", "desc": "Structured database of all company processes, instructions and regulations"}, {"title": "Testing", "desc": "Automatic tests for knowledge verification after each module"}, {"title": "Onboarding", "desc": "Step-by-step onboarding program for new employees"}, {"title": "Progress tracking", "desc": "Real-time tracking of each employee's learning progress"}, {"title": "Quick search", "desc": "Instant search across knowledge base via AI assistant"}, {"title": "HR analytics", "desc": "Detailed statistics on training and team skills"}]},
@@ -365,6 +375,7 @@
     "smm": {
       "title": "AI Content Calendar & Auto-Planning for Social Media",
       "subtitle": "SMM bot for beauty professionals: content planning and publishing",
+      "badge": "Content & Marketing",
       "alt": "SMM Bot",
       "psr": {"problem": "SMM specialists spent up to 15 hours per week planning content and writing posts. Unstable quality and frequent publishing skips.", "solution": "Telegram bot with AI content generation, ready publishing calendar and social network integration.", "result": "10 hours saved per week, stable month-ahead content plan, 35% engagement growth."},
       "features": {"heading": "Bot Features", "cards": [{"title": "Content calendar", "desc": "Ready monthly publishing plan with post topics and formats"}, {"title": "AI post generation", "desc": "Automatic post text creation based on topics and trends"}, {"title": "Visual selection", "desc": "Recommendations for images and formats for each post"}, {"title": "Scheduler", "desc": "Automatic publishing at scheduled time across all social networks"}, {"title": "Analytics", "desc": "Engagement statistics and best content format insights"}, {"title": "Trends", "desc": "AI trend analysis and recommendations on relevant topics"}]},
@@ -375,6 +386,7 @@
     "biohacking": {
       "title": "Subscription AI Consultant with Knowledge Base",
       "subtitle": "Biohacking: Telegram bot with subscription for expert content",
+      "badge": "Paid Services",
       "alt": "Biohacking Consultant",
       "psr": {"problem": "Biohacking experts spent hours on consultations with repeated questions. No scalable way to monetize knowledge.", "solution": "Telegram bot with AI consultant trained on biohacking, supplements and health protocol knowledge base.", "result": "Expertise monetization through subscription, automatic personalized recommendations, scaling without quality loss."},
       "features": {"heading": "Bot Features", "cards": [{"title": "AI consultant", "desc": "Personalized supplement and protocol recommendations based on goals"}, {"title": "Knowledge base", "desc": "Complete library of research, protocols and biohacking methods"}, {"title": "Supplement tracker", "desc": "Intake reminders and protocol effectiveness tracking"}, {"title": "Monitoring", "desc": "Health indicator and goal progress tracking"}, {"title": "Research analysis", "desc": "AI summarization of new biohacking scientific papers"}, {"title": "Premium content", "desc": "Exclusive materials and protocols for subscribers"}]},
@@ -385,6 +397,7 @@
     "salon": {
       "title": "Online Booking & 1C Synchronization",
       "subtitle": "Beauty salon: Telegram bot for client booking with 1C integration",
+      "badge": "Booking & Scheduling",
       "alt": "Beauty Salon Booking",
       "psr": {"problem": "Administrators spent up to 50% of time on phone calls and manual client booking. Duplicate bookings and scheduling errors.", "solution": "Telegram bot for online booking with full 1C integration: automatic schedule and service updates, financial accounting.", "result": "60% reduction in administrator workload, no scheduling errors, automatic 1C accounting."},
       "features": {"heading": "Bot Features", "cards": [{"title": "Online booking", "desc": "Clients book themselves via Telegram at any time of day"}, {"title": "1C synchronization", "desc": "Automatic schedule and service updates in 1C"}, {"title": "Master selection", "desc": "Client chooses specific master and service from catalog"}, {"title": "Reminders", "desc": "Automatic reminders about booking one hour and one day before"}, {"title": "Online payment", "desc": "Option to make prepayment directly in bot"}, {"title": "1C finances", "desc": "Automatic document creation for each service"}]},
@@ -395,6 +408,7 @@
     "payments": {
       "title": "Payment Reminders & Receivables Automation",
       "subtitle": "Automatic reminder system via Telegram and WhatsApp",
+      "badge": "Operations & Back Office",
       "alt": "Payment Control",
       "psr": {"problem": "Clients forgot about invoice payments, managers spent hours on manual debt tracking and reminders. High overdue debt.", "solution": "Automatic payment reminder system via Telegram with accounting system integration and flexible notification scenarios.", "result": "45% reduction in overdue debt, 80% automation of payment collection work, improved cash flow."},
       "features": {"heading": "System Features", "cards": [{"title": "Debt tracking", "desc": "Automatic tracking of all unpaid invoices and deadlines"}, {"title": "Reminders", "desc": "Series of notifications before and after payment date via Telegram"}, {"title": "One-click payment", "desc": "Client can pay debt directly from bot notification"}, {"title": "Dashboard", "desc": "Real-time receivables visualization"}, {"title": "Segmentation", "desc": "Different scenarios for new and regular clients"}, {"title": "Reporting", "desc": "Detailed payment and overdue reports for management"}]},
@@ -405,6 +419,7 @@
     "holyScriptures": {
       "title": "Mobile App for Daily Prayer Practice",
       "subtitle": "Vyritsky prayer book \u2014 daily reminders and texts",
+      "badge": "Paid Services",
       "alt": "Day with Prayer",
       "psr": {"problem": "Believers had difficulty with regular prayer practice: forgot to read prayers, didn't have convenient access to prayer book during the day, especially away from home.", "solution": "Mobile app \"Day with Prayer\" with daily prayer rule, prayer time notifications and complete Vyritsky prayer book in your pocket.", "result": "Convenient app for daily prayer practice, available anytime and anywhere. 100+ prayers in database."},
       "features": {"heading": "App Features", "cards": [{"title": "Daily rule", "desc": "Automatic prayer selection for each day by church calendar"}, {"title": "Notifications", "desc": "Reminders for morning and evening prayer times"}, {"title": "Complete prayer book", "desc": "100+ prayers for various needs and life situations"}, {"title": "Prayer search", "desc": "Quick search by name, content or need"}, {"title": "Favorites", "desc": "Add prayers to favorites for quick access"}, {"title": "Night mode", "desc": "Convenient mode for evening prayer reading"}]},
