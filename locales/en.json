@@ -270,6 +270,7 @@
       "features": {"heading": "Bot Features", "cards": [{"title": "View schedule", "desc": "Client sees all available slots and tables for the selected date in real time"}, {"title": "Choose a specific table", "desc": "Option to select a specific table or zone in the club with a layout view"}, {"title": "Instant confirmation", "desc": "Bot confirms the booking and sends a confirmation with order details"}, {"title": "AI answers to questions", "desc": "Automatic answers about pricing, club rules, and available services via OpenAI"}, {"title": "Admin panel", "desc": "Administrator sees up-to-date bookings without manual data entry"}, {"title": "Reminders", "desc": "Automatic reminders about upcoming bookings one hour before start"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83d\udcc5", "name": "Google Calendar"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}]},
       "gallery": {"heading": "Gallery", "captions": ["Main menu", "Table booking", "n8n automation"]},
+      "showcase": {"0": {"value": "24/7", "label": "Working hours"}, "1": {"value": "-40%", "label": "Admin calls"}, "2": {"value": "2 min", "label": "Booking time"}, "3": {"value": "0\u20bd", "label": "Downtime"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "assistant": {
@@ -282,6 +283,7 @@
       "features": {"heading": "Assistant Features", "cards": [{"title": "Voice commands", "desc": "Voice message recognition via Whisper API"}, {"title": "Calendar management", "desc": "Creating meetings and reminders in Google Calendar"}, {"title": "Email management", "desc": "Reading and sending emails via Gmail API"}, {"title": "Contacts", "desc": "Search and manage Google Contacts"}, {"title": "Information search", "desc": "Quick web search by query"}, {"title": "Tasks and lists", "desc": "Managing task and to-do lists"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83c\udfa4", "name": "OpenAI/Whisper"}, {"icon": "\ud83d\udcc5", "name": "Google Calendar"}, {"icon": "\ud83d\udce7", "name": "Gmail API"}, {"icon": "\ud83d\udc65", "name": "Google Contacts"}]},
       "gallery": {"heading": "Gallery", "captions": ["Project splash", "n8n workflow", "Voice commands"]},
+      "showcase": {"0": {"value": "2+ hrs", "label": "Saved per day"}, "1": {"value": "24/7", "label": "Working hours"}, "2": {"value": "100%", "label": "Automation"}, "3": {"value": "0 sec", "label": "Delay"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "autopublish": {
@@ -293,6 +295,7 @@
       "features": {"heading": "Features", "cards": [{"title": "RSS parsing", "desc": "Automatic fetching of new articles from RSS feeds and web links"}, {"title": "AI content processing", "desc": "Summarization, rewriting and formatting content with OpenAI"}, {"title": "Scheduled publishing", "desc": "Posting to Telegram channels at optimal times"}, {"title": "Content filtering", "desc": "Automatic filtering by topic and quality criteria"}, {"title": "Channel management", "desc": "Managing multiple channels from one interface"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcf0", "name": "RSS Parser"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]},
       "gallery": {"heading": "Gallery", "captions": ["Project splash", "n8n workflow", "Channel publishing"]},
+      "showcase": {"0": {"value": "5 hrs", "label": "Saved per week"}, "1": {"value": "100%", "label": "Automation"}, "2": {"value": "24/7", "label": "Ready"}, "3": {"value": "1 click", "label": "To publish"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "amp": {
@@ -304,6 +307,7 @@
       "features": {"heading": "Features", "cards": [{"title": "Track upload", "desc": "Client sends audio file directly to Telegram bot"}, {"title": "Scenario selection", "desc": "Separation into 2, 4 or 5 stems \u2014 your choice"}, {"title": "Automatic payment", "desc": "Robokassa integration \u2014 card or SBP payment"}, {"title": "Result delivery", "desc": "Ready stems sent via Telegram after processing"}, {"title": "Personal dashboard", "desc": "Order history and access to past works"}, {"title": "Notifications", "desc": "Processing statuses: Accepted, Processing, Ready"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83d\udcb3", "name": "Robokassa"}, {"icon": "\u2601\ufe0f", "name": "S3 Storage"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]},
       "gallery": {"heading": "Gallery", "captions": ["Bot main screen", "Scenario selection", "Project splash"]},
+      "showcase": {"0": {"value": "24/7", "label": "Order intake"}, "1": {"value": "2-5", "label": "Stems output"}, "2": {"value": "100%", "label": "Automation"}, "3": {"value": "0 sec", "label": "Wait time"}},
       "cta": {"title": "Want to automate your service?", "desc": "Let's discuss your project and I'll create a monetized solution with automatic delivery"}
     },
     "hrNeuro": {
@@ -315,6 +319,7 @@
       "features": {"heading": "Bot Features", "cards": [{"title": "Auto application processing", "desc": "Instant response to new HeadHunter applications 24/7 without human involvement"}, {"title": "Candidate qualification", "desc": "Scripted clarifying questions to determine requirement match"}, {"title": "Google Sheets tracking", "desc": "Recording all answers and statuses in a unified table for HR"}, {"title": "Application filtering", "desc": "Automatic identification of unqualified candidates and filtering out unsuitable ones"}, {"title": "HR notifications", "desc": "Handing warmed candidates to HR manager with complete dossier"}, {"title": "Communication history", "desc": "Full history of all interactions with each candidate"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\ud83d\udcbc", "name": "HeadHunter API"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83e\udd16", "name": "AI Chatbot"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\u2708\ufe0f", "name": "Telegram API"}]},
       "gallery": {"heading": "Gallery", "captions": ["Bot main screen", "Application processing", "Spreadsheet tracking"]},
+      "showcase": {"0": {"value": "8000+", "label": "Applications"}, "1": {"value": "3500+", "label": "Processed"}, "2": {"value": "1166 hrs", "label": "Saved"}, "3": {"value": "24/7", "label": "Working hours"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "aurpak": {
@@ -326,6 +331,7 @@
       "features": {"heading": "Bot Features", "cards": [{"title": "Product knowledge base", "desc": "Complete information on composition, usage, contraindications of each product"}, {"title": "AI consultant", "desc": "Smart answers to client questions considering their needs and health conditions"}, {"title": "Product search", "desc": "Quick product search by name, effect or problem"}, {"title": "Order & delivery", "desc": "Placing orders directly in bot with delivery cost calculation"}, {"title": "Online payment", "desc": "Integration with payment systems for instant payment"}, {"title": "Sales analytics", "desc": "Detailed statistics on sales and product popularity"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcb3", "name": "Payment systems"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]},
       "gallery": {"heading": "Gallery", "captions": ["Bot main screen", "Product consultation", "Project splash"]},
+      "showcase": {"0": {"value": "24/7", "label": "Consultations"}, "1": {"value": "AI", "label": "Question processing"}, "2": {"value": "CRM", "label": "Integration"}, "3": {"value": "0 sec", "label": "Response time"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "lenremont": {
@@ -337,6 +343,7 @@
       "features": {"heading": "Bot Features", "cards": [{"title": "Cost calculation", "desc": "Step-by-step renovation calculator considering area, work type and materials"}, {"title": "Material selection", "desc": "AI recommendations for materials based on budget and preferences"}, {"title": "Measurement booking", "desc": "Online booking for free measurement with convenient time selection"}, {"title": "Portfolio of works", "desc": "Gallery of completed projects with photos and descriptions"}, {"title": "AI answers to questions", "desc": "Automatic answers about timelines, guarantees and renovation stages"}, {"title": "Notifications", "desc": "Reminders about measurement and project status in real time"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83d\udcc5", "name": "Google Calendar"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]},
       "gallery": {"heading": "Gallery", "captions": ["Bot main screen", "Cost calculation", "Online booking"]},
+      "showcase": {"0": {"value": "+35%", "label": "Measurement conversion"}, "1": {"value": "24/7", "label": "Consultations"}, "2": {"value": "0", "label": "Lost leads"}, "3": {"value": "AI", "label": "Lead qualification"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "mchs": {
@@ -348,6 +355,7 @@
       "features": {"heading": "Assistant Features", "cards": [{"title": "Requirement gathering", "desc": "Automatic client questioning to obtain all necessary data"}, {"title": "Auto-calculation", "desc": "Instant cost calculation based on entered parameters"}, {"title": "Document generation", "desc": "Creating CPs by template in PDF format with logo and details"}, {"title": "Client delivery", "desc": "Automatic CP delivery via email or messenger"}, {"title": "CP database", "desc": "Storage of all sent proposals with change history"}, {"title": "Notifications", "desc": "Reminders about follow-ups and agreement status"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83d\udcc4", "name": "PDF Generation"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]},
       "gallery": {"heading": "Gallery", "captions": ["Assistant main screen", "CP generation", "Project splash"]},
+      "showcase": {"0": {"value": "-3 days", "label": "Prep time"}, "1": {"value": "100%", "label": "Auto-calculation"}, "2": {"value": "0", "label": "CP errors"}, "3": {"value": "PDF", "label": "Doc generation"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "zzokSale": {
@@ -359,6 +367,7 @@
       "features": {"heading": "Bot Features", "cards": [{"title": "Auto-funnel", "desc": "Step-by-step warming system with message series and triggers"}, {"title": "Tripwires", "desc": "Automatic sale of low-cost products for first contact"}, {"title": "Lead scoring", "desc": "Evaluating client readiness to purchase based on activity"}, {"title": "CRM integration", "desc": "Automatic handoff of warm leads to CRM with interaction history"}, {"title": "Push notifications", "desc": "Reminders about abandoned carts and special offers"}, {"title": "Funnel analytics", "desc": "Detailed statistics on conversion at each stage"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcca", "name": "CRM API"}, {"icon": "\ud83d\udcb3", "name": "Payment systems"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]},
       "gallery": {"heading": "Gallery", "captions": ["Project splash", "Lead warming", "CRM handoff"]},
+      "showcase": {"0": {"value": "24/7", "label": "Lead warming"}, "1": {"value": "80%", "label": "Auto-funnel"}, "2": {"value": "CRM", "label": "Integration"}, "3": {"value": "+45%", "label": "Conversion"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "zzokHr": {
@@ -370,6 +379,7 @@
       "features": {"heading": "Bot Features", "cards": [{"title": "Knowledge base", "desc": "Structured database of all company processes, instructions and regulations"}, {"title": "Testing", "desc": "Automatic tests for knowledge verification after each module"}, {"title": "Onboarding", "desc": "Step-by-step onboarding program for new employees"}, {"title": "Progress tracking", "desc": "Real-time tracking of each employee's learning progress"}, {"title": "Quick search", "desc": "Instant search across knowledge base via AI assistant"}, {"title": "HR analytics", "desc": "Detailed statistics on training and team skills"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}, {"icon": "\ud83d\udcc4", "name": "Google Docs"}]},
       "gallery": {"heading": "Gallery", "captions": ["Bot main screen", "Employee testing", "Knowledge base"]},
+      "showcase": {"0": {"value": "3x", "label": "Faster onboarding"}, "1": {"value": "70%", "label": "Auto-training"}, "2": {"value": "100%", "label": "Transparency"}, "3": {"value": "24/7", "label": "Base access"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "smm": {
@@ -381,6 +391,7 @@
       "features": {"heading": "Bot Features", "cards": [{"title": "Content calendar", "desc": "Ready monthly publishing plan with post topics and formats"}, {"title": "AI post generation", "desc": "Automatic post text creation based on topics and trends"}, {"title": "Visual selection", "desc": "Recommendations for images and formats for each post"}, {"title": "Scheduler", "desc": "Automatic publishing at scheduled time across all social networks"}, {"title": "Analytics", "desc": "Engagement statistics and best content format insights"}, {"title": "Trends", "desc": "AI trend analysis and recommendations on relevant topics"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcf1", "name": "Social Media API"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]},
       "gallery": {"heading": "Gallery", "captions": ["Bot main screen", "Content calendar", "Auto-publishing"]},
+      "showcase": {"0": {"value": "-10 hrs", "label": "Saved per week"}, "1": {"value": "30+", "label": "Posts per month"}, "2": {"value": "100%", "label": "Content plan"}, "3": {"value": "AI", "label": "Post generation"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "biohacking": {
@@ -392,6 +403,7 @@
       "features": {"heading": "Bot Features", "cards": [{"title": "AI consultant", "desc": "Personalized supplement and protocol recommendations based on goals"}, {"title": "Knowledge base", "desc": "Complete library of research, protocols and biohacking methods"}, {"title": "Supplement tracker", "desc": "Intake reminders and protocol effectiveness tracking"}, {"title": "Monitoring", "desc": "Health indicator and goal progress tracking"}, {"title": "Research analysis", "desc": "AI summarization of new biohacking scientific papers"}, {"title": "Premium content", "desc": "Exclusive materials and protocols for subscribers"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83e\udde0", "name": "OpenAI"}, {"icon": "\ud83d\udcb3", "name": "Payment systems"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}]},
       "gallery": {"heading": "Gallery", "captions": ["Bot main screen", "Consultation", "Protocol tracking"]},
+      "showcase": {"0": {"value": "24/7", "label": "AI consultations"}, "1": {"value": "100%", "label": "Personalization"}, "2": {"value": "0 sec", "label": "Response time"}, "3": {"value": "\u221e", "label": "Scalability"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "salon": {
@@ -403,6 +415,7 @@
       "features": {"heading": "Bot Features", "cards": [{"title": "Online booking", "desc": "Clients book themselves via Telegram at any time of day"}, {"title": "1C synchronization", "desc": "Automatic schedule and service updates in 1C"}, {"title": "Master selection", "desc": "Client chooses specific master and service from catalog"}, {"title": "Reminders", "desc": "Automatic reminders about booking one hour and one day before"}, {"title": "Online payment", "desc": "Option to make prepayment directly in bot"}, {"title": "1C finances", "desc": "Automatic document creation for each service"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83d\udcca", "name": "1C:Enterprise"}, {"icon": "\ud83d\udcb3", "name": "Payment systems"}, {"icon": "\ud83d\udcc5", "name": "Google Calendar"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}]},
       "gallery": {"heading": "Gallery", "captions": ["Booking interface", "1C sync", "Payment screen"]},
+      "showcase": {"0": {"value": "-60%", "label": "Admin workload"}, "1": {"value": "24/7", "label": "Online booking"}, "2": {"value": "0", "label": "Schedule errors"}, "3": {"value": "100%", "label": "1C integration"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "payments": {
@@ -414,6 +427,7 @@
       "features": {"heading": "System Features", "cards": [{"title": "Debt tracking", "desc": "Automatic tracking of all unpaid invoices and deadlines"}, {"title": "Reminders", "desc": "Series of notifications before and after payment date via Telegram"}, {"title": "One-click payment", "desc": "Client can pay debt directly from bot notification"}, {"title": "Dashboard", "desc": "Real-time receivables visualization"}, {"title": "Segmentation", "desc": "Different scenarios for new and regular clients"}, {"title": "Reporting", "desc": "Detailed payment and overdue reports for management"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\u2708\ufe0f", "name": "Telegram Bot API"}, {"icon": "\u26a1", "name": "n8n"}, {"icon": "\ud83d\udcb3", "name": "Payment systems"}, {"icon": "\ud83d\udcca", "name": "Google Sheets"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "Supabase"}, {"icon": "\ud83d\udce7", "name": "Email API"}]},
       "gallery": {"heading": "Gallery", "captions": ["Dashboard", "Reminder flow", "Payment screen"]},
+      "showcase": {"0": {"value": "-45%", "label": "Overdue"}, "1": {"value": "80%", "label": "Auto-reminders"}, "2": {"value": "24/7", "label": "Control"}, "3": {"value": "0\u20bd", "label": "Manual work"}},
       "cta": {"title": "Want similar automation for your business?", "desc": "Write to me on Telegram \u2014 I'll propose a working implementation plan"}
     },
     "holyScriptures": {
@@ -424,6 +438,7 @@
       "psr": {"problem": "Believers had difficulty with regular prayer practice: forgot to read prayers, didn't have convenient access to prayer book during the day, especially away from home.", "solution": "Mobile app \"Day with Prayer\" with daily prayer rule, prayer time notifications and complete Vyritsky prayer book in your pocket.", "result": "Convenient app for daily prayer practice, available anytime and anywhere. 100+ prayers in database."},
       "features": {"heading": "App Features", "cards": [{"title": "Daily rule", "desc": "Automatic prayer selection for each day by church calendar"}, {"title": "Notifications", "desc": "Reminders for morning and evening prayer times"}, {"title": "Complete prayer book", "desc": "100+ prayers for various needs and life situations"}, {"title": "Prayer search", "desc": "Quick search by name, content or need"}, {"title": "Favorites", "desc": "Add prayers to favorites for quick access"}, {"title": "Night mode", "desc": "Convenient mode for evening prayer reading"}]},
       "tech": {"heading": "Technologies", "items": [{"icon": "\ud83d\udcf1", "name": "iOS / Android"}, {"icon": "\ud83d\uddc4\ufe0f", "name": "SQLite"}, {"icon": "\u26a1", "name": "React Native"}, {"icon": "\ud83d\udd14", "name": "Push Notifications"}, {"icon": "\ud83c\udfa8", "name": "UI/UX Design"}]},
+      "showcase": {"0": {"value": "24/7", "label": "Prayer access"}, "1": {"value": "100+", "label": "Prayers in base"}, "2": {"value": "Daily", "label": "Reading"}, "3": {"value": "iOS/Android", "label": "Platforms"}},
       "cta": {"title": "Want to create a similar app?", "desc": "Let's discuss your project and I'll find the optimal solution"}
     }
   }
