@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="i18n.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
   <style>
@@ -114,29 +113,29 @@
   <header>
     <nav>
       <a class="brand" href="index.html">
-        <strong>Александр Моисеев</strong>
-        <span>AI Automation Engineer</span>
+        <strong data-i18n="nav.brand">Александр Моисеев</strong>
+        <span data-i18n="nav.tagline">AI Automation Engineer</span>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="index.html#solutions">Решения</a></li>
-        <li><a href="index.html#process">О работе</a></li>
-        <li><a href="#contact">Контакты</a></li>
+        <li><a href="index.html" data-i18n="nav.home">Главная</a></li>
+        <li><a href="index.html#solutions" data-i18n="nav.solutions">Решения</a></li>
+        <li><a href="index.html#process" data-i18n="nav.aboutWork">О работе</a></li>
+        <li><a href="#contact" data-i18n="nav.contacts">Контакты</a></li>
       </ul>
-      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">Связаться</a>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" data-i18n="nav.contact">Связаться</a>
     </nav>
   </header>
 
   <section class="page-hero" data-aos="fade-down">
-    <h1>Кейсы AI-автоматизации</h1>
-    <p>Продажи, поддержка, запись, контент и внутренние процессы — 15 реализованных проектов</p>
+    <h1 data-i18n="projects.title">Кейсы AI-автоматизации</h1>
+    <p data-i18n="projects.heroDesc">Продажи, поддержка, запись, контент и внутренние процессы — 15 реализованных проектов</p>
   </section>
 
   <div class="stats-bar">
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="0" data-tilt data-tilt-max="5"><div class="stat-number">15</div><div class="stat-label">Проектов</div></div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5"><div class="stat-number">1166+</div><div class="stat-label">Часов экономии</div></div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5"><div class="stat-number">8000+</div><div class="stat-label">Откликов обработано</div></div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5"><div class="stat-number">+45%</div><div class="stat-label">Макс. рост конверсии</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="0" data-tilt data-tilt-max="5"><div class="stat-number">15</div><div class="stat-label" data-i18n="projects.statProjects">Проектов</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5"><div class="stat-number">1166+</div><div class="stat-label" data-i18n="projects.statHours">Часов экономии</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5"><div class="stat-number">8000+</div><div class="stat-label" data-i18n="projects.statResponses">Откликов обработано</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5"><div class="stat-number">+45%</div><div class="stat-label" data-i18n="projects.statResult">Макс. рост конверсии</div></div>
   </div>
 
   <div class="quick-routes" data-aos="fade-up">
@@ -148,14 +147,14 @@
 
   <div class="filter-section" data-aos="fade-up">
     <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all">Все</button>
-      <button class="filter-btn" data-filter="leads">🎯 Лиды и продажи</button>
-      <button class="filter-btn" data-filter="support">💬 Поддержка и консультации</button>
-      <button class="filter-btn" data-filter="booking">📅 Запись и бронирование</button>
-      <button class="filter-btn" data-filter="operations">⚙️ Операционка и back office</button>
-      <button class="filter-btn" data-filter="content">📝 Контент и маркетинг</button>
-      <button class="filter-btn" data-filter="hr">👥 HR и обучение</button>
-      <button class="filter-btn" data-filter="paid-service">💎 Платные сервисы</button>
+      <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Все</button>
+      <button class="filter-btn" data-filter="leads" data-i18n="projects.filterLeads">🎯 Лиды и продажи</button>
+      <button class="filter-btn" data-filter="support" data-i18n="projects.filterSupport">💬 Поддержка и консультации</button>
+      <button class="filter-btn" data-filter="booking" data-i18n="projects.filterBooking">📅 Запись и бронирование</button>
+      <button class="filter-btn" data-filter="operations" data-i18n="projects.filterOperations">⚙️ Операционка и back office</button>
+      <button class="filter-btn" data-filter="content" data-i18n="projects.filterContent">📝 Контент и маркетинг</button>
+      <button class="filter-btn" data-filter="hr" data-i18n="projects.filterHR">👥 HR и обучение</button>
+      <button class="filter-btn" data-filter="paid-service" data-i18n="projects.filterPaidService">💎 Платные сервисы</button>
     </div>
   </div>
 
@@ -163,12 +162,13 @@
 
   <footer id="contact">
     <div class="container">
-      <p>© 2026 Александр Моисеев. AI Automation Engineer — продажи, поддержка, Telegram, CRM, внутренние процессы · <a href="resume-full.html" style="color: var(--primary); text-decoration: none;">Для рекрутеров</a></p>
+      <p data-i18n="common.footer">© 2026 Александр Моисеев. AI Automation Engineer — продажи, поддержка, Telegram, CRM, внутренние процессы · <a href="resume-full.html" style="color: var(--primary); text-decoration: none;">Для рекрутеров</a></p>
     </div>
   </footer>
 
   <button class="scroll-top" id="scrollTop">↑</button>
 
+  <script src="i18n.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
@@ -389,6 +389,13 @@
       });
     });
 
+    function projectText(idx, field) {
+      if (typeof moiLang === 'undefined' || moiLang.current() === 'ru') return projects[idx][field];
+      if (!window._moiResolve) return projects[idx][field];
+      const v = window._moiResolve('projects.projects.' + idx + '.' + field);
+      return v !== null ? v : projects[idx][field];
+    }
+
     function renderProjects(filter = 'all') {
       grid.innerHTML = '';
       const filtered = filter === 'all' ? projects : projects.filter(p =>
@@ -396,6 +403,7 @@
       );
 
       filtered.forEach((p, i) => {
+        const origIdx = projects.indexOf(p);
         const card = document.createElement('a');
         card.className = 'project-card';
         card.href = p.link;
@@ -406,12 +414,16 @@
         const tagsHTML = p.tags.map(t => `<span class="card-tag">${t}</span>`).join('');
         const segHTML = p.segment ? `<span class="card-segment">${p.segment}</span>` : '';
 
+        const name = projectText(origIdx, 'name');
+        const subtitle = projectText(origIdx, 'desc');
+        const metric = projectText(origIdx, 'metric');
+
         card.innerHTML = `
-          <div class="card-image"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+          <div class="card-image"><img src="${p.img}" alt="${name}" loading="lazy"></div>
           <div class="card-content">
-            <h3>${p.name}</h3>
-            <p class="card-subtitle">${p.subtitle}</p>
-            <div class="card-metric">${p.metric}</div>
+            <h3>${name}</h3>
+            <p class="card-subtitle">${subtitle}</p>
+            <div class="card-metric">${metric}</div>
             <div class="card-tags">${tagsHTML}${segHTML}</div>
           </div>
         `;
@@ -431,6 +443,24 @@
     });
 
     renderProjects();
+
+    // Re-render on language change
+    function setupI18n() {
+      document.addEventListener('moi:langchange', function() {
+        const activeBtn = document.querySelector('.filter-btn.active');
+        const filter = activeBtn ? activeBtn.dataset.filter : 'all';
+        renderProjects(filter);
+      });
+    }
+
+    if (window._moiLocaleLoaded) {
+      window._moiLocaleLoaded.then(function() {
+        renderProjects();
+        setupI18n();
+      });
+    } else {
+      setupI18n();
+    }
   </script>
 </body>
 </html>

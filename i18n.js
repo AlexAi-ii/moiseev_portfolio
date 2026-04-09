@@ -1,6 +1,7 @@
 /**
  * i18n Engine — 6 languages (ru, en, de, fr, it, es)
- * Dropdown switcher, geo-detection (ru zone → RU, else → EN)
+ * Default: Russian. Language persistses via localStorage + ?lang= URL param.
+ * All internal links automatically get ?lang= appended.
  * Loads locale JSON: locales/{lang}.json
  * Applies translations via data-i18n attributes
  */
@@ -17,7 +18,7 @@
 
   /* ---- helpers ---- */
   function getLang() {
-    // 1. localStorage override
+    // 1. localStorage override (user explicitly chose)
     try { var s = localStorage.getItem(KEY); } catch(e) {}
     if (s && LANGS.indexOf(s) !== -1) return s;
 
@@ -25,43 +26,18 @@
     var m = window.location.search.match(/[?&]lang=([a-z]{2})/);
     if (m && LANGS.indexOf(m[1]) !== -1) return m[1];
 
-    // 3. Auto-detect via timezone then geo
-    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-    if (/^Europe\/Moscow|^Europe\/(Stalingrad|Kirov)/.test(tz)) return 'ru';
-    if (/^Europe\/Kiev|^Europe\/Kyiv|^Europe\/Minsk/.test(tz)) return 'ru';
-
-    return null; // means detect via geo
+    // 3. Always default to Russian
+    return DEFAULT;
   }
 
   function detectGeo() {
-    fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(4000) })
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        var country = (data.country_code || '').toUpperCase();
-        var lang = (country === 'RU' || country === 'BY') ? 'ru' : 'en';
-        if (currentLang === null) {
-          currentLang = lang;
-          document.documentElement.lang = lang;
-          try { localStorage.setItem(KEY, lang); } catch(e) {}
-          var url = new URL(window.location.href);
-          if (lang !== 'ru') url.searchParams.set('lang', lang);
-          else url.searchParams.delete('lang');
-          history.replaceState({}, '', url);
-          fetchLocale(lang).then(function(){ applyTranslations(); finishInit(); }).catch(function(){ finishInit(); });
-        }
-      })
-      .catch(function() {
-        // Fallback on failure: default to EN
-        if (currentLang === null) {
-          currentLang = 'en';
-          document.documentElement.lang = 'en';
-          try { localStorage.setItem(KEY, 'en'); } catch(e) {}
-          var url = new URL(window.location.href);
-          url.searchParams.set('lang', 'en');
-          history.replaceState({}, '', url);
-          fetchLocale('en').then(function(){ applyTranslations(); finishInit(); }).catch(function(){ finishInit(); });
-        }
-      });
+    // No longer used — default is always Russian
+    if (currentLang === null) {
+      currentLang = DEFAULT;
+      document.documentElement.lang = DEFAULT;
+      try { localStorage.setItem(KEY, DEFAULT); } catch(e) {}
+      finishInit();
+    }
   }
 
   function resolve(key) {
@@ -169,6 +145,10 @@
     else url.searchParams.set('lang', lang);
     history.replaceState({}, '', url);
 
+    // Update dropdown selector
+    var sel = document.querySelector('.lang-select');
+    if (sel) sel.value = lang;
+
     fetchLocale(lang).then(function() {
       applyTranslations();
       document.dispatchEvent(new CustomEvent('moi:langchange'));
@@ -184,17 +164,22 @@
     document.addEventListener('moi:localeloaded', mark);
   });
 
+  /* ---- preserve lang in all internal links ---- */
+  function preserveLangInLinks() {
+    if (currentLang === DEFAULT) return;
+    var links = document.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var href = a.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http://') || href.startsWith('https://')) continue;
+      var sep = href.indexOf('?') === -1 ? '?' : '&';
+      a.setAttribute('href', href + sep + 'lang=' + currentLang);
+    }
+  }
+
   /* ---- init ---- */
   function init() {
     currentLang = getLang();
-
-    // If geo-undetermined, detect
-    if (currentLang === null) {
-      document.documentElement.lang = 'ru'; // fallback display
-      detectGeo();
-      return;
-    }
-
     document.documentElement.lang = currentLang;
 
     // Build and inject dropdown into nav
@@ -211,6 +196,9 @@
         else nav.appendChild(switcher);
       }
     }
+
+    // Preserve lang param in all internal links
+    preserveLangInLinks();
 
     // Load locale and translate
     if (currentLang !== DEFAULT) {
