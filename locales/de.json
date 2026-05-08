@@ -159,6 +159,11 @@
     "filterContent": "Content & Marketing",
     "filterHR": "HR & Schulung",
     "filterPaidService": "Kostenpflichtige Dienste",
+    "routeLeads": "🎯 Leads & Vertrieb",
+    "routeBooking": "📅 Buchung & Termine",
+    "routeAgencies": "🏢 Für Agenturen",
+    "routeSmb": "🏪 Für Kleinunternehmen",
+    "photoSoon": "Foto kommt bald",
     "projects": [
       {
         "name": "Tischbuchung 24/7 für Billardklub",

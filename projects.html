@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Все кейсы Александра Моисеева — 15 реализованных проектов AI-автоматизации для бизнеса">
+  <meta name="description" content="Все кейсы Александра Моисеева — 15 реализованных проектов AI-автоматизации для бизнеса" data-i18n-attr="content:projects.metaDescription">
   <meta name="theme-color" content="#7f5af0">
-  <title>Кейсы — Александр Моисеев | AI Automation Engineer</title>
+  <title data-i18n-title="projects.title">Кейсы — Александр Моисеев | AI Automation Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="assets/common.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
   <style>
@@ -136,15 +137,15 @@
   <div class="stats-bar">
     <div class="stat-card" data-aos="fade-up" data-aos-delay="0" data-tilt data-tilt-max="5"><div class="stat-number">15</div><div class="stat-label" data-i18n="projects.statProjects">Проектов</div></div>
     <div class="stat-card" data-aos="fade-up" data-aos-delay="100" data-tilt data-tilt-max="5"><div class="stat-number">1166+</div><div class="stat-label" data-i18n="projects.statHours">Часов экономии</div></div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5"><div class="stat-number">8000+</div><div class="stat-label" data-i18n="projects.statResponses">Откликов обработано</div></div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="200" data-tilt data-tilt-max="5"><div class="stat-number">8000+</div><div class="stat-label" data-i18n="index.statResponses">Откликов обработано</div></div>
     <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5"><div class="stat-number">+45%</div><div class="stat-label" data-i18n="projects.statResult">Макс. рост конверсии</div></div>
   </div>
 
   <div class="quick-routes" data-aos="fade-up">
-    <a class="quick-route" href="#" data-route="leads">🎯 Лиды и продажи</a>
-    <a class="quick-route" href="#" data-route="booking">📅 Запись и бронирование</a>
-    <a class="quick-route" href="#" data-route="agencies">🏢 Для агентств</a>
-    <a class="quick-route" href="#" data-route="smb">🏪 Для малого бизнеса</a>
+    <a class="quick-route" href="#" data-route="leads"><span data-i18n="projects.routeLeads">🎯 Лиды и продажи</span></a>
+    <a class="quick-route" href="#" data-route="booking"><span data-i18n="projects.routeBooking">📅 Запись и бронирование</span></a>
+    <a class="quick-route" href="#" data-route="agencies"><span data-i18n="projects.routeAgencies">🏢 Для агентств</span></a>
+    <a class="quick-route" href="#" data-route="smb"><span data-i18n="projects.routeSmb">🏪 Для малого бизнеса</span></a>
   </div>
 
   <div class="filter-section" data-aos="fade-up">
@@ -171,6 +172,7 @@
   <button class="scroll-top" id="scrollTop">↑</button>
 
   <script src="i18n.js"></script>
+  <script src="assets/common.js" defer></script>
   <script type="module" src="assets/admin-inline.js" defer></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -254,11 +256,18 @@
       return v !== null ? v : projects[idx][field];
     }
 
+    function getPhotoSoon() {
+      const v = (window._moiResolve && window._moiResolve('projects.photoSoon'));
+      return v || 'Фото скоро появится';
+    }
+
     function renderProjects(filter = 'all') {
       grid.innerHTML = '';
       const filtered = filter === 'all' ? projects : projects.filter(p =>
         p.categories.includes(filter) || (p.segments && p.segments.includes(filter))
       );
+
+      const photoSoon = getPhotoSoon();
 
       filtered.forEach((p, i) => {
         const origIdx = projects.indexOf(p);
@@ -278,9 +287,9 @@
 
         // Если фото нет (hasImage=false) или картинка не загрузилась — показываем placeholder
         const imageHTML = p.hasImage === false
-          ? `<div class="card-image empty" data-editable="Moiseev/portfolio/${p.slug}/${p.slug}_cover.png">Фото скоро появится</div>`
+          ? `<div class="card-image empty" data-editable="Moiseev/portfolio/${p.slug}/${p.slug}_cover.png">${photoSoon}</div>`
           : `<div class="card-image"><img src="${p.img}" alt="${name}" loading="lazy" data-editable="Moiseev/portfolio/${p.slug}/${p.slug}_cover.png"
-                onerror="this.parentElement.classList.add('empty');this.parentElement.innerHTML='Фото скоро появится';"></div>`;
+                onerror="this.parentElement.classList.add('empty');this.parentElement.innerHTML=${JSON.stringify(photoSoon)};"></div>`;
 
         card.innerHTML = `
           ${imageHTML}
@@ -322,9 +331,6 @@
       }
     }
 
-    renderProjects();
-    loadProjects();
-
     // Re-render on language change
     function setupI18n() {
       document.addEventListener('moi:langchange', function() {
@@ -334,13 +340,17 @@
       });
     }
 
+    // Один первичный рендер после загрузки локали, потом обновление с S3.
     if (window._moiLocaleLoaded) {
       window._moiLocaleLoaded.then(function() {
         renderProjects();
         setupI18n();
+        loadProjects();
       });
     } else {
+      renderProjects();
       setupI18n();
+      loadProjects();
     }
   </script>
 </body>

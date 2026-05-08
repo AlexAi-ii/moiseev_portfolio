@@ -159,6 +159,11 @@
     "filterContent": "Contenu & Marketing",
     "filterHR": "RH & Formation",
     "filterPaidService": "Services payants",
+    "routeLeads": "🎯 Leads & Ventes",
+    "routeBooking": "📅 Réservation & Planning",
+    "routeAgencies": "🏢 Pour les agences",
+    "routeSmb": "🏪 Pour les PME",
+    "photoSoon": "Photo bientôt disponible",
     "projects": [
       {
         "name": "Reservation de tables 24/7 pour club de billard",

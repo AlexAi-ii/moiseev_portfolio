@@ -159,6 +159,11 @@
     "filterContent": "Contenido & Marketing",
     "filterHR": "RRHH & Formacion",
     "filterPaidService": "Servicios de pago",
+    "routeLeads": "🎯 Leads y ventas",
+    "routeBooking": "📅 Reservas y citas",
+    "routeAgencies": "🏢 Para agencias",
+    "routeSmb": "🏪 Para PyMEs",
+    "photoSoon": "Foto próximamente",
     "projects": [
       {
         "name": "Reserva de mesas 24/7 para club de billar",

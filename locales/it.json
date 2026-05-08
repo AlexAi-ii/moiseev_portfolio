@@ -159,6 +159,11 @@
     "filterContent": "Contenuti & Marketing",
     "filterHR": "HR & Formazione",
     "filterPaidService": "Servizi a pagamento",
+    "routeLeads": "🎯 Lead e vendite",
+    "routeBooking": "📅 Prenotazioni",
+    "routeAgencies": "🏢 Per le agenzie",
+    "routeSmb": "🏪 Per le PMI",
+    "photoSoon": "Foto in arrivo",
     "projects": [
       {
         "name": "Prenotazione tavoli 24/7 per club di biliardo",

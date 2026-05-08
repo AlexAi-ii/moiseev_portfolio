@@ -159,6 +159,11 @@
     "filterContent": "Content & Marketing",
     "filterHR": "HR & Training",
     "filterPaidService": "Paid Services",
+    "routeLeads": "🎯 Leads & Sales",
+    "routeBooking": "📅 Booking & Scheduling",
+    "routeAgencies": "🏢 For Agencies",
+    "routeSmb": "🏪 For Small Business",
+    "photoSoon": "Photo coming soon",
     "projects": [
       {"name": "Table Booking 24/7 for Billiard Club", "desc": "Telegram bot with calendar, payments and notifications", "metric": "40% admin load reduction"},
       {"name": "AI Assistant for Tasks, Email & Calendar", "desc": "Personal planner in Telegram with voice control", "metric": "2+ hours saved daily"},

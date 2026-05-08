@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Салон красоты — Запись клиентов + интеграция с 1С">
+  <meta name="description" content="Салон красоты — Запись клиентов + интеграция с 1С" data-i18n-attr="content:projectPages.salon.subtitle">
   <meta name="theme-color" content="#7f5af0">
-  <title>Салон красоты — Проект | Александр Моисеев</title>
+  <title data-i18n-title="projectPages.salon.title">Салон красоты — Проект | Александр Моисеев</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="../assets/common.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
   <style>
@@ -105,12 +106,12 @@
   <header>
     <nav>
       <a class="brand" href="../index.html">
-        <strong>Александр Моисеев</strong>
-        <span>AI Automation Engineer</span>
+        <strong data-i18n="nav.brand">Александр Моисеев</strong>
+        <span data-i18n="nav.tagline">AI Automation Engineer</span>
       </a>
       <ul class="nav-links">
-        <li><a href="../index.html">Главная</a></li>
-        <li><a href="../projects.html">Все проекты</a></li>
+        <li><a href="../index.html" data-i18n="nav.home">Главная</a></li>
+        <li><a href="../projects.html" data-i18n="nav.allProjects">Все проекты</a></li>
       </ul>
       <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer"><span data-i18n="nav.contact">Связаться</span></a>
     </nav>
@@ -196,9 +197,9 @@
     </section>
 
     <div class="cta-box" data-aos="zoom-in">
-      <h3>Хотите похожую автоматизацию под свой процесс?</h3>
-      <p>Напишите мне в Telegram, что хотите автоматизировать — предложу рабочую схему реализации</p>
-      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">✈️ Написать в Telegram</a>
+      <h3 data-i18n="projectPages.salon.cta.title">Хотите похожую автоматизацию под свой процесс?</h3>
+      <p data-i18n="projectPages.salon.cta.desc">Напишите мне в Telegram, что хотите автоматизировать — предложу рабочую схему реализации</p>
+      <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer">✈️ <span data-i18n="common.ctaBtn">Написать в Telegram</span></a>
     </div>
   </div>
 
@@ -213,6 +214,7 @@
   <footer><div class="container">© 2026 Александр Моисеев. AI Automation Engineer — продажи, поддержка, Telegram, CRM, внутренние процессы · <a href="../resume-full.html" style="color: var(--primary); text-decoration: none;">Для рекрутеров</a></div></footer>
 
   <script src="../i18n.js"></script>
+  <script src="../assets/common.js" defer></script>
   <script type="module" src="../assets/admin-inline.js" defer></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>

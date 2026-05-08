@@ -98,15 +98,22 @@
         var attr = el.getAttribute('data-i18n-attr-name');
         if (attr) el.setAttribute(attr, el.getAttribute('data-i18n-attr-orig'));
       });
-      document.querySelectorAll('[data-i18n-title-orig]').forEach(function(el) {
-        document.title = el.getAttribute('data-i18n-title-orig');
-      });
-      document.querySelectorAll('[data-i18n-meta-orig]').forEach(function(el) {
-        var attr = el.getAttribute('data-i18n-meta-name');
-        if (attr) el.setAttribute(attr, el.getAttribute('data-i18n-meta-orig'));
-      });
+      var titleEl = document.querySelector('title[data-i18n-title]');
+      if (titleEl && titleEl.hasAttribute('data-i18n-title-orig')) {
+        document.title = titleEl.getAttribute('data-i18n-title-orig');
+      }
       finishInit();
       return;
+    }
+
+    // Title
+    var titleEl = document.querySelector('title[data-i18n-title]');
+    if (titleEl) {
+      if (!titleEl.hasAttribute('data-i18n-title-orig')) {
+        titleEl.setAttribute('data-i18n-title-orig', document.title);
+      }
+      var tv = resolve(titleEl.getAttribute('data-i18n-title'));
+      if (tv !== null) document.title = tv;
     }
 
     // Text content

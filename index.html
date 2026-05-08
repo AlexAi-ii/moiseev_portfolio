@@ -11,7 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="assets/common.css" rel="stylesheet">
   <script src="i18n.js"></script>
+  <script src="assets/common.js" defer></script>
   <script type="module" src="assets/admin-inline.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
@@ -230,6 +232,22 @@
     <h1 data-i18n="index.heroTitle">AI Automation Engineer для продаж, поддержки и операционки</h1>
     <p class="hero-subtitle" data-i18n="index.heroDesc">Автоматизирую лиды, запись, CRM, ответы 24/7 и внутренние процессы с помощью Telegram, n8n, AI и Google Cloud</p>
     <p class="hero-message" data-i18n="index.heroMessage">Помогаю бизнесу меньше терять заявки, быстрее отвечать клиентам и убирать ручную рутину из процессов</p>
+
+    <div class="ai-terminal" data-aos="fade-up" data-aos-delay="100" aria-hidden="true">
+      <div class="ai-terminal-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="label">moi-ai · ~/automation</span>
+      </div>
+      <div class="ai-terminal-body" data-lines='[
+        {"prompt":"$","text":"analyze incoming leads...","suffix":"24/7","suffixClass":"accent","pause":420},
+        {"prompt":"$","text":"connect Claude → n8n → Telegram","pause":420},
+        {"prompt":"$","text":"qualify, score, hand off to CRM","pause":420},
+        {"prompt":"✓","text":"done — conversion","suffix":"+45%","suffixClass":"ok","pause":1400}
+      ]'>
+        <span class="ai-terminal-line is-visible"><span class="prompt">$</span> booting…</span>
+      </div>
+    </div>
+
     <div class="hero-buttons">
       <a href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" class="btn btn-white" data-i18n="index.heroDiscuss">💬 Обсудить задачу</a>
       <a href="projects.html" class="btn btn-secondary" data-i18n="index.heroCases">📂 Смотреть кейсы</a>
@@ -314,7 +332,7 @@
     <h2 data-i18n="index.aboutTitle">Обо мне</h2>
     <div class="about-content">
       <div class="about-photo-wrapper" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
-        <img class="about-photo" src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/profile.jpg" alt="Александр Моисеев" data-editable="Moiseev/profile.jpg">
+        <img class="about-photo" src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/profile.jpg" alt="Александр Моисеев" data-i18n-attr="alt:nav.brand" data-editable="Moiseev/profile.jpg">
       </div>
       <div class="about-text">
         <p data-i18n="index.aboutP1">Привет! Я разработчик и аналитик с <strong>29‑летним опытом</strong> в ИТ‑индустрии. Основные компетенции — создание чат‑ботов, AI‑агентов и AI‑помощников. Специализируюсь на интеграции систем, автоматизации рабочих процессов и внедрении нейросетевых решений.</p>
@@ -444,10 +462,10 @@
         <span style="font-size: 1.5rem;">✈️</span> <span data-i18n="common.ctaTelegram">Telegram</span>
       </a>
       <a href="https://max.ru/u/f9LHodD0cOL9D1QBbAqai6N2XjZQqq_3m9Tk0fGgkLsTrUmzuNi4ax9rsP8" target="_blank" rel="noopener noreferrer" class="social-link" style="padding: 16px 28px; font-size: 1rem; background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); border: 1px solid var(--line);">
-        <span style="font-size: 1.5rem;">💼</span> <span>MAX</span>
+        <span style="font-size: 1.5rem;">💼</span> <span data-i18n="index.contactMax">MAX</span>
       </a>
       <a href="https://vk.com/a.moiseev76" target="_blank" rel="noopener noreferrer" class="social-link vk" style="padding: 16px 28px; font-size: 1rem;">
-        <span style="font-size: 1.5rem;">🔵</span> <span>ВКонтакте</span>
+        <span style="font-size: 1.5rem;">🔵</span> <span data-i18n="common.contactVK">ВКонтакте</span>
       </a>
     </div>
     <div class="contact-buttons">
