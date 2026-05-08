@@ -81,6 +81,8 @@
     .card-image { width: 100%; height: 200px; overflow: hidden; background: linear-gradient(145deg, rgba(127,90,240,0.1), rgba(0,183,255,0.08)); flex-shrink: 0; }
     .card-image img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform .5s ease; }
     .project-card:hover .card-image img { transform: scale(1.05); }
+    .card-image.empty { display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.85rem; text-align: center; padding: 16px; }
+    .card-image.empty::before { content: '📷'; font-size: 2.5rem; display: block; margin-bottom: 6px; opacity: 0.5; }
     .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; position: relative; z-index: 2; }
     .card-content h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--text); transition: color .3s ease; line-height: 1.3; }
     .project-card:hover .card-content h3 { color: var(--primary); }
@@ -169,6 +171,7 @@
   <button class="scroll-top" id="scrollTop">↑</button>
 
   <script src="i18n.js"></script>
+  <script type="module" src="assets/admin-inline.js" defer></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
@@ -196,173 +199,28 @@
     });
     document.getElementById('scrollTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Project data with new outcome-first naming and business-result categories
-    const projects = [
-      {
-        name: 'Бронирование столов 24/7 для бильярдного клуба',
-        subtitle: 'Telegram-бот с календарём, оплатой и уведомлениями',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BB%D1%8C%D1%8F%D1%80%D0%B4%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/billiard.html',
-        categories: ['leads', 'booking'],
-        metric: 'Снижение нагрузки на 40%',
-        tags: ['Telegram', 'Payments', 'Booking'],
-        segment: 'Малый бизнес',
-        segments: ['smb', 'booking']
-      },
-      {
-        name: 'AI-ассистент для задач, почты и календаря',
-        subtitle: 'Личный помощник в Telegram с голосовым управлением',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%A2%D0%93%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/assistant.html',
-        categories: ['support'],
-        metric: 'Экономия 2+ часов в день',
-        tags: ['Telegram', 'AI', 'Google API'],
-        segment: 'Частное использование',
-        segments: ['support']
-      },
-      {
-        name: 'AI-автопостинг в Telegram из ссылок',
-        subtitle: 'Автоматическая публикация постов из RSS и статей',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D0%B2%D1%82%D0%BE%E2%80%91%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F%20%D0%B2%20Telegram%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/autopublish.html',
-        categories: ['content'],
-        metric: 'Экономия 5 часов в неделю',
-        tags: ['Telegram', 'AI', 'RSS'],
-        segment: 'Агентства',
-        segments: ['agencies', 'content']
-      },
-      {
-        name: 'Платный Telegram-сервис обработки аудио 24/7',
-        subtitle: 'Разделение треков на стемы с автоматической оплатой',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%83%D0%B4%D0%B8%D0%BE%20%D0%BC%D0%B8%D0%BD%D1%83%D1%81%20%D0%BF%D0%BB%D1%8E%D1%81%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/amp.html',
-        categories: ['paid-service'],
-        metric: 'Полная автоматизация продаж',
-        tags: ['Telegram', 'Payments', 'AI'],
-        segment: 'Платный сервис',
-        segments: ['paid-service']
-      },
-      {
-        name: 'AI-скрининг откликов и первичная квалификация кандидатов',
-        subtitle: 'Нейросотрудник HR для автоматизации обработки резюме',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%20HR%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/hr-neuro.html',
-        categories: ['hr'],
-        metric: '8000+ откликов · 1166 ч экономии',
-        tags: ['AI', 'HR', 'Telegram', 'hh.ru'],
-        segment: 'HR и рекрутинг',
-        segments: ['hr']
-      },
-      {
-        name: 'AI-консультант для входящих B2B-запросов и каталога',
-        subtitle: 'Бот-консультант для производителя пакетов — обработка заявок 24/7',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%8E%D1%80%D0%BF%D0%B0%D0%BA%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/aurpak.html',
-        categories: ['leads', 'support'],
-        metric: '-60% нагрузки на менеджеров, +25% конверсии',
-        tags: ['AI', 'Telegram', 'B2B', 'Каталог'],
-        segment: 'Агентства',
-        segments: ['agencies', 'leads', 'support']
-      },
-      {
-        name: 'AI-квалификация лидов и калькулятор ремонта',
-        subtitle: 'Умный помощник Ленремонт для расчёта стоимости и записи',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%81%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20(%D0%9B%D0%B5%D0%BD%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82)%20-%201.png',
-        link: 'projects/lenremont.html',
-        categories: ['leads', 'booking'],
-        metric: '+35% к записи на замер',
-        tags: ['AI', 'Calculator', 'Booking', 'Telegram'],
-        segment: 'Малый бизнес',
-        segments: ['smb', 'leads', 'booking']
-      },
-      {
-        name: 'Ассистент для подготовки коммерческих предложений',
-        subtitle: 'Автоматизация подготовки КП для МЧС',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9C%D0%A7%D0%A1%20%D0%A1%D0%B5%D0%BB%D0%B5%D0%BD%D0%B0%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/mchs.html',
-        categories: ['operations'],
-        metric: 'Быстрее КП, меньше ошибок',
-        tags: ['AI', 'Documents', 'B2B'],
-        segment: 'Агентства',
-        segments: ['agencies', 'operations']
-      },
-      {
-        name: 'AI-воронка прогрева и передача лидов в CRM',
-        subtitle: 'Бот-продавец ZZOK: прогрев, квалификация, передача в CRM',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FZZOK%20Sale%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/zzok-sale.html',
-        categories: ['leads'],
-        metric: '+45% к конверсии в продажу',
-        tags: ['AI', 'Sales', 'CRM', 'Telegram'],
-        segment: 'Агентства',
-        segments: ['agencies', 'leads']
-      },
-      {
-        name: 'База знаний и тестирование сотрудников в Telegram',
-        subtitle: 'ZZOK HR: обучение и аттестация через бота',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%BE%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0%20%D0%BA%D0%B0%D0%B4%D1%80%D0%BE%D0%B2%20(ZZok%20HR)%20-%201.png',
-        link: 'projects/zzok-hr.html',
-        categories: ['hr'],
-        metric: 'Ускорение адаптации сотрудников',
-        tags: ['AI', 'HR', 'Telegram', 'RAG'],
-        segment: 'Внутренние процессы',
-        segments: ['hr']
-      },
-      {
-        name: 'AI-контент-календарь и автопланирование для соцсетей',
-        subtitle: 'SMM-бот для beauty-мастеров: планирование и публикация контента',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FSMM%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/smm-bot.html',
-        categories: ['content'],
-        metric: 'Экономия 10 часов в неделю',
-        tags: ['AI', 'Content', 'Telegram', 'SMM'],
-        segment: 'Агентства',
-        segments: ['agencies', 'content']
-      },
-      {
-        name: 'Подписной AI-консультант с базой знаний',
-        subtitle: 'Биохакинг: Telegram-бот с подпиской на экспертный контент',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BE%D1%85%D0%B0%D0%BA%D0%B8%D0%BD%D0%B3%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/biohacking.html',
-        categories: ['paid-service', 'support'],
-        metric: 'Монетизация экспертизы',
-        tags: ['AI', 'Payments', 'RAG', 'Telegram'],
-        segment: 'Платный сервис',
-        segments: ['paid-service', 'support']
-      },
-      {
-        name: 'Онлайн-запись и синхронизация с 1С',
-        subtitle: 'Салон красоты: Telegram-бот для записи клиентов с интеграцией 1С',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/salon.html',
-        categories: ['leads', 'booking'],
-        metric: 'Сокращение работы админа',
-        tags: ['Booking', '1C', 'Telegram', 'CRM'],
-        segment: 'Малый бизнес',
-        segments: ['smb', 'leads', 'booking']
-      },
-      {
-        name: 'Автоматизация напоминаний о платежах и дебиторке',
-        subtitle: 'Система автоматических напоминаний через Telegram и WhatsApp',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9E%D1%82%D1%81%D0%BB%D0%B5%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/payments.html',
-        categories: ['operations'],
-        metric: 'Снижение просрочки на 45%',
-        tags: ['Payments', 'Telegram', 'WhatsApp', 'CRM'],
-        segment: 'Малый бизнес',
-        segments: ['smb', 'operations']
-      },
-      {
-        name: 'Мобильное приложение для ежедневной молитвенной практики',
-        subtitle: 'Вырицкий молитвослов — ежедневные напоминания и тексты',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BE%D1%85%D0%B0%D0%BA%D0%B8%D0%BD%D0%B3%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/holy-scriptures.html',
-        categories: ['paid-service'],
-        metric: 'Ежедневная практика',
-        tags: ['Mobile', 'Notifications'],
-        segment: 'Платный сервис',
-        segments: ['paid-service']
-      }
+    // Fallback-данные используются если projects.json не загрузился (offline / ошибка S3).
+    // Реальные данные приходят с https://s3.ru1.storage.beget.cloud/.../Moiseev/projects.json
+    const PROJECTS_JSON_URL = 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/projects.json';
+    // Fallback: те же данные что и в projects.json, на случай если S3 заблокирован CORS.
+    // После настройки CORS на бакете loadProjects() заменит этот массив актуальной версией.
+    const S3_BASE = 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/portfolio/';
+    let projects = [
+      { slug: 'billiard', name: 'Бронирование столов 24/7 для бильярдного клуба', subtitle: 'Telegram-бот с календарём, оплатой и уведомлениями', img: S3_BASE+'billiard/cover.png', link: 'projects/billiard.html', hasImage: true, categories: ['leads', 'booking'], metric: 'Снижение нагрузки на 40%', tags: ['Telegram', 'Payments', 'Booking'], segment: 'Малый бизнес', segments: ['smb', 'booking'] },
+      { slug: 'assistant', name: 'AI-ассистент для задач, почты и календаря', subtitle: 'Личный помощник в Telegram с голосовым управлением', img: S3_BASE+'assistant/cover.png', link: 'projects/assistant.html', hasImage: true, categories: ['support'], metric: 'Экономия 2+ часов в день', tags: ['Telegram', 'AI', 'Google API'], segment: 'Частное использование', segments: ['support'] },
+      { slug: 'autopublish', name: 'AI-автопостинг в Telegram из ссылок', subtitle: 'Автоматическая публикация постов из RSS и статей', img: S3_BASE+'autopublish/cover.png', link: 'projects/autopublish.html', hasImage: true, categories: ['content'], metric: 'Экономия 5 часов в неделю', tags: ['Telegram', 'AI', 'RSS'], segment: 'Агентства', segments: ['agencies', 'content'] },
+      { slug: 'amp', name: 'Платный Telegram-сервис обработки аудио 24/7', subtitle: 'Разделение треков на стемы с автоматической оплатой', img: S3_BASE+'amp/cover.png', link: 'projects/amp.html', hasImage: true, categories: ['paid-service'], metric: 'Полная автоматизация продаж', tags: ['Telegram', 'Payments', 'AI'], segment: 'Платный сервис', segments: ['paid-service'] },
+      { slug: 'hr-neuro', name: 'AI-скрининг откликов и первичная квалификация кандидатов', subtitle: 'Нейросотрудник HR для автоматизации обработки резюме', img: S3_BASE+'hr-neuro/cover.png', link: 'projects/hr-neuro.html', hasImage: true, categories: ['hr'], metric: '8000+ откликов · 1166 ч экономии', tags: ['AI', 'HR', 'Telegram', 'hh.ru'], segment: 'HR и рекрутинг', segments: ['hr'] },
+      { slug: 'aurpak', name: 'AI-консультант для входящих B2B-запросов и каталога', subtitle: 'Бот-консультант для производителя пакетов — обработка заявок 24/7', img: S3_BASE+'aurpak/cover.png', link: 'projects/aurpak.html', hasImage: false, categories: ['leads', 'support'], metric: '-60% нагрузки на менеджеров, +25% конверсии', tags: ['AI', 'Telegram', 'B2B', 'Каталог'], segment: 'Агентства', segments: ['agencies', 'leads', 'support'] },
+      { slug: 'lenremont', name: 'AI-квалификация лидов и калькулятор ремонта', subtitle: 'Умный помощник Ленремонт для расчёта стоимости и записи', img: S3_BASE+'lenremont/cover.png', link: 'projects/lenremont.html', hasImage: true, categories: ['leads', 'booking'], metric: '+35% к записи на замер', tags: ['AI', 'Calculator', 'Booking', 'Telegram'], segment: 'Малый бизнес', segments: ['smb', 'leads', 'booking'] },
+      { slug: 'mchs', name: 'Ассистент для подготовки коммерческих предложений', subtitle: 'Автоматизация подготовки КП для МЧС', img: S3_BASE+'mchs/cover.png', link: 'projects/mchs.html', hasImage: false, categories: ['operations'], metric: 'Быстрее КП, меньше ошибок', tags: ['AI', 'Documents', 'B2B'], segment: 'Агентства', segments: ['agencies', 'operations'] },
+      { slug: 'zzok-sale', name: 'AI-воронка прогрева и передача лидов в CRM', subtitle: 'Бот-продавец ZZOK: прогрев, квалификация, передача в CRM', img: S3_BASE+'zzok-sale/cover.png', link: 'projects/zzok-sale.html', hasImage: false, categories: ['leads'], metric: '+45% к конверсии в продажу', tags: ['AI', 'Sales', 'CRM', 'Telegram'], segment: 'Агентства', segments: ['agencies', 'leads'] },
+      { slug: 'zzok-hr', name: 'База знаний и тестирование сотрудников в Telegram', subtitle: 'ZZOK HR: обучение и аттестация через бота', img: S3_BASE+'zzok-hr/cover.png', link: 'projects/zzok-hr.html', hasImage: true, categories: ['hr'], metric: 'Ускорение адаптации сотрудников', tags: ['AI', 'HR', 'Telegram', 'RAG'], segment: 'Внутренние процессы', segments: ['hr'] },
+      { slug: 'smm-bot', name: 'AI-контент-календарь и автопланирование для соцсетей', subtitle: 'SMM-бот для beauty-мастеров: планирование и публикация контента', img: S3_BASE+'smm-bot/cover.png', link: 'projects/smm-bot.html', hasImage: false, categories: ['content'], metric: 'Экономия 10 часов в неделю', tags: ['AI', 'Content', 'Telegram', 'SMM'], segment: 'Агентства', segments: ['agencies', 'content'] },
+      { slug: 'biohacking', name: 'Подписной AI-консультант с базой знаний', subtitle: 'Биохакинг: Telegram-бот с подпиской на экспертный контент', img: S3_BASE+'biohacking/cover.png', link: 'projects/biohacking.html', hasImage: false, categories: ['paid-service', 'support'], metric: 'Монетизация экспертизы', tags: ['AI', 'Payments', 'RAG', 'Telegram'], segment: 'Платный сервис', segments: ['paid-service', 'support'] },
+      { slug: 'salon', name: 'Онлайн-запись и синхронизация с 1С', subtitle: 'Салон красоты: Telegram-бот для записи клиентов с интеграцией 1С', img: S3_BASE+'salon/cover.png', link: 'projects/salon.html', hasImage: true, categories: ['leads', 'booking'], metric: 'Сокращение работы админа', tags: ['Booking', '1C', 'Telegram', 'CRM'], segment: 'Малый бизнес', segments: ['smb', 'leads', 'booking'] },
+      { slug: 'payments', name: 'Автоматизация напоминаний о платежах и дебиторке', subtitle: 'Система автоматических напоминаний через Telegram и WhatsApp', img: S3_BASE+'payments/cover.png', link: 'projects/payments.html', hasImage: true, categories: ['operations'], metric: 'Снижение просрочки на 45%', tags: ['Payments', 'Telegram', 'WhatsApp', 'CRM'], segment: 'Малый бизнес', segments: ['smb', 'operations'] },
+      { slug: 'holy-scriptures', name: 'Мобильное приложение для ежедневной молитвенной практики', subtitle: 'Вырицкий молитвослов — ежедневные напоминания и тексты', img: S3_BASE+'holy-scriptures/cover.png', link: 'projects/holy-scriptures.html', hasImage: false, categories: ['paid-service'], metric: 'Ежедневная практика', tags: ['Mobile', 'Notifications'], segment: 'Платный сервис', segments: ['paid-service'] }
     ];
 
     const grid = document.getElementById('projectsGrid');
@@ -418,8 +276,14 @@
         const subtitle = projectText(origIdx, 'desc');
         const metric = projectText(origIdx, 'metric');
 
+        // Если фото нет (hasImage=false) или картинка не загрузилась — показываем placeholder
+        const imageHTML = p.hasImage === false
+          ? `<div class="card-image empty" data-editable="Moiseev/portfolio/${p.slug}/${p.slug}_cover.png">Фото скоро появится</div>`
+          : `<div class="card-image"><img src="${p.img}" alt="${name}" loading="lazy" data-editable="Moiseev/portfolio/${p.slug}/${p.slug}_cover.png"
+                onerror="this.parentElement.classList.add('empty');this.parentElement.innerHTML='Фото скоро появится';"></div>`;
+
         card.innerHTML = `
-          <div class="card-image"><img src="${p.img}" alt="${name}" loading="lazy"></div>
+          ${imageHTML}
           <div class="card-content">
             <h3>${name}</h3>
             <p class="card-subtitle">${subtitle}</p>
@@ -442,7 +306,24 @@
       });
     });
 
+    // Загружаем актуальные данные с S3, потом перерисовываем
+    async function loadProjects() {
+      try {
+        const resp = await fetch(PROJECTS_JSON_URL + '?t=' + Date.now(), { cache: 'no-store' });
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        const data = await resp.json();
+        if (Array.isArray(data.projects) && data.projects.length > 0) {
+          projects = data.projects;
+          const activeBtn = document.querySelector('.filter-btn.active');
+          renderProjects(activeBtn ? activeBtn.dataset.filter : 'all');
+        }
+      } catch (e) {
+        console.warn('Не удалось загрузить projects.json, использую fallback:', e);
+      }
+    }
+
     renderProjects();
+    loadProjects();
 
     // Re-render on language change
     function setupI18n() {

@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="i18n.js"></script>
+  <script type="module" src="assets/admin-inline.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
   <style>
@@ -313,7 +314,7 @@
     <h2 data-i18n="index.aboutTitle">Обо мне</h2>
     <div class="about-content">
       <div class="about-photo-wrapper" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-perspective="1000">
-        <img class="about-photo" src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2FMoiseev.JPG" alt="Александр Моисеев">
+        <img class="about-photo" src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/profile.jpg" alt="Александр Моисеев" data-editable="Moiseev/profile.jpg">
       </div>
       <div class="about-text">
         <p data-i18n="index.aboutP1">Привет! Я разработчик и аналитик с <strong>29‑летним опытом</strong> в ИТ‑индустрии. Основные компетенции — создание чат‑ботов, AI‑агентов и AI‑помощников. Специализируюсь на интеграции систем, автоматизации рабочих процессов и внедрении нейросетевых решений.</p>
@@ -492,48 +493,48 @@
       {
         name: 'AI-скрининг откликов и первичная квалификация кандидатов',
         desc: 'Нейросотрудник HR для компании: автоматизация обработки 8000+ откликов',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%20HR%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/hr-neuro.html',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/portfolio/hr-neuro/hr-neuro_cover.png',
+        link: 'projects/hr-neuro.html', slug: 'hr-neuro',
         metric: '8000+ откликов · 1166 ч экономии',
         tags: ['AI', 'HR', 'Telegram', 'OpenAI']
       },
       {
         name: 'Автоматизация напоминаний о платежах и дебиторке',
         desc: 'Система автоматических напоминаний через Telegram и WhatsApp',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%9E%D1%82%D1%81%D0%BB%D0%B5%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/payments.html',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/portfolio/payments/payments_cover.png',
+        link: 'projects/payments.html', slug: 'payments',
         metric: 'Снижение просрочки на 45%',
         tags: ['Payments', 'Telegram', 'WhatsApp', 'CRM']
       },
       {
         name: 'AI-воронка прогрева и передача лидов в CRM',
         desc: 'Бот-продавец ZZOK: прогрев, квалификация и передача лидов',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2FZZOK%20Sale%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/zzok-sale.html',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/portfolio/zzok-sale/zzok-sale_cover.png',
+        link: 'projects/zzok-sale.html', slug: 'zzok-sale',
         metric: '+45% к конверсии в продажу',
         tags: ['AI', 'Sales', 'CRM', 'Telegram']
       },
       {
         name: 'AI-квалификация лидов и калькулятор ремонта',
         desc: 'Ленремонт: умный помощник для расчёта стоимости и записи',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%90%D1%81%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA%20(%D0%9B%D0%B5%D0%BD%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82)%20-%201.png',
-        link: 'projects/lenremont.html',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/portfolio/lenremont/lenremont_cover.png',
+        link: 'projects/lenremont.html', slug: 'lenremont',
         metric: '+35% к записи на замер',
         tags: ['AI', 'Booking', 'Calculator', 'Telegram']
       },
       {
         name: 'Онлайн-запись и синхронизация с 1С',
         desc: 'Салон красоты: Telegram-бот для записи клиентов с интеграцией 1С',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%A1%D0%B0%D0%BB%D0%BE%D0%BD%20%D1%81%D1%82%D1%80%D0%B8%D0%B6%D0%B5%D0%BA%20%D0%B8%20%D0%BC%D0%B0%D0%BD%D0%B8%D0%BA%D1%8E%D1%80%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/salon.html',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/portfolio/salon/salon_cover.png',
+        link: 'projects/salon.html', slug: 'salon',
         metric: '-40% нагрузки на администратора',
         tags: ['Booking', '1C', 'Telegram', 'CRM']
       },
       {
         name: 'Бронирование столов 24/7 для бильярдного клуба',
         desc: 'Telegram-бот с календарём, оплатой и уведомлениями',
-        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F%D0%91%D0%B8%D0%BB%D1%8C%D1%8F%D1%80%D0%B4%20%D0%B1%D0%BE%D1%82%20-%20%D0%B7%D0%B0%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0.png',
-        link: 'projects/billiard.html',
+        img: 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/portfolio/billiard/billiard_cover.png',
+        link: 'projects/billiard.html', slug: 'billiard',
         metric: '-40% нагрузки на персонал',
         tags: ['Booking', 'Payments', 'Telegram']
       }
@@ -567,7 +568,7 @@
         const desc = caseText(i, 'desc');
         const metric = caseText(i, 'metric');
         card.innerHTML = `
-          <div class="case-card-image"><img src="${c.img}" alt="${name}" loading="lazy"></div>
+          <div class="case-card-image"><img src="${c.img}" alt="${name}" loading="lazy" data-editable="Moiseev/portfolio/${c.slug}/${c.slug}_cover.png"></div>
           <div class="case-card-content">
             <h3>${name}</h3>
             <p class="case-desc">${desc}</p>

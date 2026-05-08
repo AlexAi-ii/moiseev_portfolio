@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin · Портфолио</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1a1f2e; --surface: #252b3d; --surface-2: #2d3548;
+      --text: #fff; --muted: #a0aec0; --primary: #7f5af0; --accent: #2cb67d; --danger: #f05a5a;
+      --line: rgba(127, 90, 240, 0.2);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Manrope', sans-serif; color: var(--text);
+      background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,0.15) 0%, transparent 50%), var(--bg);
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px;
+    }
+    .box {
+      max-width: 460px; width: 100%; padding: 40px;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 14px; box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    h1 { font-size: 1.4rem; margin-bottom: 8px; text-align: center; }
+    .subtitle { color: var(--muted); margin-bottom: 24px; font-size: 0.9rem; text-align: center; }
+    label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; font-weight: 600; margin-top: 14px; }
+    input {
+      width: 100%; padding: 12px 14px; font-size: 1rem; font-family: inherit;
+      background: var(--surface-2); border: 1px solid var(--line);
+      border-radius: 10px; color: var(--text);
+    }
+    input:focus { outline: none; border-color: var(--primary); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 22px; border: none; border-radius: 10px; cursor: pointer;
+      background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff;
+      font-weight: 700; font-size: 1rem; font-family: inherit; width: 100%; margin-top: 20px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(127,90,240,0.4); }
+    .btn.secondary { background: var(--surface-2); border: 1px solid var(--line); margin-top: 10px; }
+    .btn.danger { background: linear-gradient(135deg, var(--danger), #d83737); }
+    .step { display: none; }
+    .step.active { display: block; }
+    .status { padding: 10px 14px; border-radius: 8px; font-size: 0.9rem; margin-top: 14px; display: none; }
+    .status.show { display: block; }
+    .status.error { background: rgba(240,90,90,0.15); border: 1px solid rgba(240,90,90,0.4); color: #ffb4b4; }
+    .status.success { background: rgba(44,182,125,0.15); border: 1px solid rgba(44,182,125,0.4); color: #b4ffd6; }
+    .status.info { background: rgba(127,90,240,0.15); border: 1px solid rgba(127,90,240,0.4); color: #d4c8ff; }
+    .hint { color: var(--muted); font-size: 0.8rem; margin-top: 6px; line-height: 1.5; }
+    .links { margin-top: 20px; text-align: center; font-size: 0.9rem; }
+    .links a { color: var(--primary); text-decoration: none; margin: 0 8px; }
+    .links a:hover { text-decoration: underline; }
+    .session-info {
+      background: rgba(44,182,125,0.1); border: 1px solid rgba(44,182,125,0.4);
+      padding: 14px; border-radius: 10px; margin-bottom: 20px;
+      color: #b4ffd6; font-size: 0.9rem; line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+
+  <!-- Шаг 1: Пароль -->
+  <div class="step active" id="step-password">
+    <h1>🔐 Admin · Портфолио</h1>
+    <p class="subtitle">Введите пароль для доступа к режиму редактирования</p>
+    <label for="pw">Пароль</label>
+    <input type="password" id="pw" autofocus autocomplete="off">
+    <button class="btn" id="loginBtn">Войти</button>
+    <div class="status" id="pwStatus"></div>
+  </div>
+
+  <!-- Шаг 2: S3 ключи -->
+  <div class="step" id="step-keys">
+    <h1>🔑 S3 ключи</h1>
+    <p class="subtitle">Введите ключи Beget Object Storage</p>
+    <label for="ak">Access Key</label>
+    <input type="text" id="ak" autocomplete="off">
+    <label for="sk">Secret Key</label>
+    <input type="password" id="sk" autocomplete="off">
+    <p class="hint">Ключи сохраняются в localStorage этого браузера и не передаются никуда, кроме самого Beget S3 при загрузке файлов.</p>
+    <button class="btn" id="saveKeysBtn">Сохранить и активировать</button>
+    <div class="status" id="keysStatus"></div>
+  </div>
+
+  <!-- Шаг 3: Активная сессия -->
+  <div class="step" id="step-active">
+    <h1>✅ Сессия активна</h1>
+    <div class="session-info">
+      Режим редактирования включён. Открой любую страницу сайта — у каждой картинки появится кнопка <b>✏️</b>.
+      Жми на неё, чтобы заменить или загрузить фото.
+    </div>
+    <div class="links">
+      <a href="index.html">🏠 На главную</a>
+      <a href="projects.html">📂 Все проекты</a>
+      <a href="resume-full.html">📄 Резюме</a>
+    </div>
+    <button class="btn danger" id="logoutBtn">Выйти из режима редактирования</button>
+    <button class="btn secondary" id="changeKeysBtn">Изменить S3 ключи</button>
+  </div>
+
+</div>
+
+<script type="module">
+const PASSWORD_HASH = '16303b6e0a5676ea80847054125a97737eabd5865778e0f59b0af8b04bb603fe'; // sha256('moiseev2026')
+
+const $ = (sel) => document.querySelector(sel);
+
+async function sha256Hex(str) {
+  const buf = new TextEncoder().encode(str);
+  const hash = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function showStep(id) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  $(id).classList.add('active');
+}
+
+function showStatus(target, msg, type = 'info', timeout = 4000) {
+  const el = $(target);
+  el.textContent = msg;
+  el.className = 'status show ' + type;
+  if (timeout) setTimeout(() => el.classList.remove('show'), timeout);
+}
+
+function hasKeys() {
+  return !!(localStorage.getItem('s3_ak') && localStorage.getItem('s3_sk'));
+}
+
+// При входе на страницу: если ключи уже сохранены, сразу показываем активный экран.
+function start() {
+  if (sessionStorage.getItem('admin_unlocked') === '1') {
+    if (hasKeys()) {
+      showStep('#step-active');
+    } else {
+      showStep('#step-keys');
+      $('#ak').value = localStorage.getItem('s3_ak') || '';
+      $('#sk').value = localStorage.getItem('s3_sk') || '';
+    }
+  } else {
+    showStep('#step-password');
+    $('#pw').focus();
+  }
+}
+
+// ---------- handlers ----------
+$('#pw').addEventListener('keydown', e => { if (e.key === 'Enter') $('#loginBtn').click(); });
+
+$('#loginBtn').addEventListener('click', async () => {
+  const pw = $('#pw').value;
+  const hash = await sha256Hex(pw);
+  if (hash !== PASSWORD_HASH) {
+    showStatus('#pwStatus', 'Неверный пароль', 'error');
+    $('#pw').value = '';
+    return;
+  }
+  sessionStorage.setItem('admin_unlocked', '1');
+  if (hasKeys()) {
+    showStep('#step-active');
+  } else {
+    showStep('#step-keys');
+    $('#ak').focus();
+  }
+});
+
+$('#saveKeysBtn').addEventListener('click', async () => {
+  const ak = $('#ak').value.trim();
+  const sk = $('#sk').value.trim();
+  if (!ak || !sk) {
+    showStatus('#keysStatus', 'Введите оба ключа', 'error');
+    return;
+  }
+  // Тест: HEAD на manifest. Если CORS / ключи валидны — пройдёт.
+  showStatus('#keysStatus', 'Проверяю ключи…', 'info', 0);
+  try {
+    const { AwsClient } = await import('https://esm.sh/aws4fetch@1.0.20');
+    const aws = new AwsClient({ accessKeyId: ak, secretAccessKey: sk, region: 'ru1', service: 's3' });
+    const url = 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/projects.json';
+    const r = await aws.fetch(url, { method: 'HEAD' });
+    if (!r.ok && r.status !== 404) throw new Error('HTTP ' + r.status);
+  } catch (e) {
+    showStatus('#keysStatus', 'Ошибка проверки: ' + e.message, 'error', 6000);
+    return;
+  }
+  localStorage.setItem('s3_ak', ak);
+  localStorage.setItem('s3_sk', sk);
+  showStatus('#keysStatus', 'Готово!', 'success');
+  setTimeout(() => showStep('#step-active'), 800);
+});
+
+$('#logoutBtn').addEventListener('click', () => {
+  localStorage.removeItem('s3_ak');
+  localStorage.removeItem('s3_sk');
+  sessionStorage.removeItem('admin_unlocked');
+  showStep('#step-password');
+  $('#pw').focus();
+});
+
+$('#changeKeysBtn').addEventListener('click', () => {
+  $('#ak').value = localStorage.getItem('s3_ak') || '';
+  $('#sk').value = localStorage.getItem('s3_sk') || '';
+  showStep('#step-keys');
+});
+
+start();
+</script>
+</body>
+</html>

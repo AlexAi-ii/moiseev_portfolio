@@ -397,19 +397,23 @@ function closeLightbox() {
 
 ## S3 хранилище изображений
 
+Beget Object Storage, бакет `5a0ee524b59d-s3-storage`, endpoint `https://s3.ru1.storage.beget.cloud`.
+
+### Схема путей
 ```
-https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F
+Moiseev/
+├── profile.jpg                                       # фото Александра
+└── portfolio/
+    └── <slug>/
+        ├── <slug>_cover.png                          # заставка (везде, где показывается проект)
+        ├── <slug>_screenshot-1.png                   # скриншот 1 в галерее
+        ├── <slug>_screenshot-2.png                   # скриншот 2
+        └── <slug>_screenshot-3.png                   # скриншот 3
 ```
 
-### Фото портфолио проектов
-```
-https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2F%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE%2F
-```
+### Inline-режим админки
 
-### Фото владельца
-```
-https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev%2FMoiseev.JPG
-```
+Любая картинка на сайте редактируется через `admin-x7k3.html` (логин: пароль + S3 ключи) → потом ✏️/🗑 на самих страницах. Подробности: [admin/STATUS.md](admin/STATUS.md). Атрибут `data-editable="<S3 key>"` на `<img>` подключает редактор; общий скрипт [assets/admin-inline.js](assets/admin-inline.js).
 
 ## Контакты
 
