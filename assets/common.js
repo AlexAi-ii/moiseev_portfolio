@@ -642,7 +642,7 @@
 
   /* ---------- Сидящий маскот на правом верхнем углу ---------- */
   function initCornerMascot() {
-    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+    // На тач-устройствах он работает — сидит на углу и анимируется.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var SELECTOR = [
@@ -765,17 +765,85 @@
     }, 800);
   }
 
+  /* ---------- Mobile nav: бургер + выезжающая панель ---------- */
+  function setupMobileNav() {
+    var nav = document.querySelector('header nav');
+    if (!nav || nav.querySelector('.nav-burger')) return;
+    var navLinks = nav.querySelector('.nav-links');
+
+    // Клон большой CTA «Связаться» в выезжающее меню
+    var origCta = nav.querySelector(':scope > a.btn');
+    if (origCta && navLinks && !navLinks.querySelector('.nav-cta-mobile')) {
+      var li = document.createElement('li');
+      li.className = 'nav-cta-mobile-li';
+      var ctaClone = origCta.cloneNode(true);
+      ctaClone.className = 'nav-cta-mobile';
+      li.appendChild(ctaClone);
+      navLinks.appendChild(li);
+    }
+
+    var burger = document.createElement('button');
+    burger.type = 'button';
+    burger.className = 'nav-burger';
+    burger.setAttribute('aria-label', 'Меню');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.innerHTML = '<span></span><span></span><span></span>';
+    nav.appendChild(burger);
+
+    function close() {
+      nav.classList.remove('is-open');
+      document.body.classList.remove('nav-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+    function open() {
+      updateHeaderHeight();
+      nav.classList.add('is-open');
+      document.body.classList.add('nav-open');
+      burger.setAttribute('aria-expanded', 'true');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (nav.classList.contains('is-open')) close(); else open();
+    });
+
+    if (navLinks) {
+      navLinks.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', close);
+      });
+    }
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('is-open')) return;
+      if (nav.contains(e.target)) return;
+      close();
+    });
+    window.addEventListener('resize', function () {
+      updateHeaderHeight();
+      if (window.innerWidth > 768 && nav.classList.contains('is-open')) close();
+    });
+
+    function updateHeaderHeight() {
+      var header = document.querySelector('header');
+      if (!header) return;
+      var h = header.offsetHeight;
+      if (h > 0) document.documentElement.style.setProperty('--moi-header-h', h + 'px');
+    }
+    updateHeaderHeight();
+    window.addEventListener('load', updateHeaderHeight);
+  }
+
   /* ---------- Init ---------- */
   initTheme();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       buildThemeToggle();
+      setupMobileNav();
       initTerminal();
       initMascot();
       initCornerMascot();
     });
   } else {
     buildThemeToggle();
+    setupMobileNav();
     initTerminal();
     initMascot();
     initCornerMascot();
