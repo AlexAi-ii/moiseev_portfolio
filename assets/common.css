@@ -27,14 +27,27 @@ html[data-theme="light"] body {
               var(--bg) !important;
   color: var(--text) !important;
 }
-/* Шапка в светлой теме — фон полностью прозрачный, видно тот же
-   градиентный фон body. Так наверху не образуется «белая плашка»
-   между прогресс-баром и контентом — он лежит на общем градиенте. */
+/* Шапка в светлой теме — лёгкий градиент в тонах body (фиолетовый/голубой/зелёный).
+   На главной за прозрачной шапкой просвечивает hero-glow, на проектных страницах
+   такого свечения нет и через transparent шапку виден чистый белый. Свой градиент
+   даёт согласованный вид на любой странице, без «толстой белой полосы». */
 html[data-theme="light"] header {
-  background: transparent !important;
+  background: linear-gradient(135deg,
+    rgba(127, 90, 240, 0.10) 0%,
+    rgba(0, 183, 255, 0.06) 50%,
+    rgba(44, 182, 125, 0.08) 100%) !important;
   backdrop-filter: blur(20px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   box-shadow: 0 1px 0 rgba(127, 90, 240, 0.10) !important;
+}
+
+/* Inline body { overflow-x: hidden } на всех страницах ломает position: sticky
+   на iOS Safari — шапка прокручивается вверх вместе с контентом. overflow-x: clip
+   решает то же самое (обрезает горизонтальный overflow), но не создаёт scrolling
+   ancestor и sticky продолжает работать. */
+@supports (overflow-x: clip) {
+  body { overflow-x: clip !important; }
+  html { overflow-x: clip !important; }
 }
 html[data-theme="light"] footer { background: rgba(240, 242, 248, 0.95) !important; }
 html[data-theme="light"] .particle { opacity: 0.18 !important; }
