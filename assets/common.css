@@ -235,3 +235,103 @@ html[data-theme="light"] .ai-terminal { background: rgba(20, 24, 40, 0.92); }
   .ai-terminal { max-width: 100%; margin-left: 12px; margin-right: 12px; }
   .ai-terminal-body { padding: 14px 16px; min-height: 130px; font-size: 0.85rem; }
 }
+
+/* ============================================================
+   Mascot: интерактивный AI-человечек, бегущий за курсором
+   ============================================================ */
+.moi-mascot {
+  position: fixed; top: 0; left: 0;
+  width: 90px; height: 110px;
+  pointer-events: none; z-index: 1500;
+  will-change: transform;
+  transform: translate(-200px, -200px);
+  transform-origin: 50% 65%;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,0.35));
+}
+.moi-mascot svg { width: 100%; height: 100%; overflow: visible; display: block; }
+
+/* Скрыть на тач-экранах и при reduced-motion */
+@media (hover: none), (pointer: coarse) { .moi-mascot { display: none !important; } }
+@media (prefers-reduced-motion: reduce) { .moi-mascot { display: none !important; } }
+
+/* Базовые группы (по умолчанию транспорт скрыт) */
+.mascot-car, .mascot-rocket, .mascot-rocket-flame, .mascot-cloud { display: none; }
+.mascot-character { transform-origin: 50% 90%; }
+
+/* Покой — лёгкий bounce + покачивание */
+.moi-mascot[data-state="idle"] .mascot-character {
+  animation: mascot-bob 2.4s ease-in-out infinite;
+}
+.moi-mascot[data-state="idle"] .arm-l { transform-origin: 30px 46px; animation: mascot-wave-l 1.6s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .arm-r { transform-origin: 70px 46px; animation: mascot-wave-r 1.6s ease-in-out infinite; }
+
+/* Ходьба — машет ногами, корпус слегка качается */
+.moi-mascot[data-state="walking"] .leg-l { transform-origin: 44px 70px; animation: mascot-step-l 0.45s ease-in-out infinite; }
+.moi-mascot[data-state="walking"] .leg-r { transform-origin: 56px 70px; animation: mascot-step-r 0.45s ease-in-out infinite; }
+.moi-mascot[data-state="walking"] .arm-l { transform-origin: 30px 46px; animation: mascot-step-arm-l 0.45s ease-in-out infinite; }
+.moi-mascot[data-state="walking"] .arm-r { transform-origin: 70px 46px; animation: mascot-step-arm-r 0.45s ease-in-out infinite; }
+.moi-mascot[data-state="walking"] .mascot-character { animation: mascot-bob 0.45s ease-in-out infinite; }
+
+/* Машина — ноги прячутся, рулит, под ним авто */
+.moi-mascot[data-state="driving"] .mascot-car { display: block; }
+.moi-mascot[data-state="driving"] .mascot-cloud { display: block; opacity: 0.55; animation: mascot-cloud 0.4s linear infinite; }
+.moi-mascot[data-state="driving"] .leg-l,
+.moi-mascot[data-state="driving"] .leg-r { display: none; }
+.moi-mascot[data-state="driving"] .mascot-character { transform: translateY(-8px); }
+.moi-mascot[data-state="driving"] .car-wheel-l,
+.moi-mascot[data-state="driving"] .car-wheel-r { transform-origin: 50% 50%; animation: mascot-spin 0.18s linear infinite; }
+.moi-mascot[data-state="driving"] .arm-l { transform: rotate(-30deg); transform-origin: 30px 46px; }
+.moi-mascot[data-state="driving"] .arm-r { transform: rotate(30deg);  transform-origin: 70px 46px; }
+
+/* Ракета — летит */
+.moi-mascot[data-state="rocket"] .mascot-rocket,
+.moi-mascot[data-state="rocket"] .mascot-rocket-flame { display: block; }
+.moi-mascot[data-state="rocket"] .mascot-rocket-flame { animation: mascot-flame 0.12s ease-in-out infinite; transform-origin: 50% 0%; }
+.moi-mascot[data-state="rocket"] .leg-l,
+.moi-mascot[data-state="rocket"] .leg-r,
+.moi-mascot[data-state="rocket"] .arm-l,
+.moi-mascot[data-state="rocket"] .arm-r { display: none; }
+.moi-mascot[data-state="rocket"] .mascot-character { transform: translateY(-6px); }
+
+/* Светлая тема — поярче обводка */
+html[data-theme="light"] .moi-mascot { filter: drop-shadow(0 6px 12px rgba(40,50,80,0.18)); }
+
+@keyframes mascot-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes mascot-wave-l {
+  0%, 100% { transform: rotate(8deg); }
+  50% { transform: rotate(-22deg); }
+}
+@keyframes mascot-wave-r {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(22deg); }
+}
+@keyframes mascot-step-l {
+  0%, 100% { transform: rotate(-22deg); }
+  50% { transform: rotate(22deg); }
+}
+@keyframes mascot-step-r {
+  0%, 100% { transform: rotate(22deg); }
+  50% { transform: rotate(-22deg); }
+}
+@keyframes mascot-step-arm-l {
+  0%, 100% { transform: rotate(20deg); }
+  50% { transform: rotate(-20deg); }
+}
+@keyframes mascot-step-arm-r {
+  0%, 100% { transform: rotate(-20deg); }
+  50% { transform: rotate(20deg); }
+}
+@keyframes mascot-flame {
+  0%, 100% { transform: scaleY(1) scaleX(0.95); opacity: 0.95; }
+  50%      { transform: scaleY(1.4) scaleX(1.1);  opacity: 0.7; }
+}
+@keyframes mascot-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes mascot-cloud {
+  from { transform: translate(0, 0); opacity: 0.55; }
+  to   { transform: translate(-22px, 0); opacity: 0; }
+}
