@@ -388,7 +388,11 @@ header nav.is-open .nav-burger span:nth-child(3) { top: 18px; transform: rotate(
   /* Бургер */
   .nav-burger { display: inline-flex !important; }
 
-  /* Выезжающая панель */
+  /* Выезжающая панель — в закрытом виде высота 0, чтобы не оставалась
+     «белой полоской» под шапкой. transform translateY-110% сам по себе
+     не убирает фон со страницы (на iOS видно остаточное свечение от
+     box-shadow и border). max-height:0 + overflow:hidden гарантируют,
+     что в close-состоянии панели нет вовсе. */
   header .nav-links {
     position: fixed !important;
     top: var(--moi-header-h, 52px) !important;
@@ -398,27 +402,35 @@ header nav.is-open .nav-burger span:nth-child(3) { top: 18px; transform: rotate(
     align-items: flex-start !important;
     gap: 4px !important;
     margin: 0 !important;
-    padding: 14px 24px 22px !important;
+    padding: 0 24px !important;
     background: rgba(10, 14, 26, 0.97);
     backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
     list-style: none;
     width: auto !important;
-    max-height: calc(100vh - var(--moi-header-h, 52px)) !important;
-    overflow-y: auto;
-    transform: translateY(-110%);
-    transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height .35s cubic-bezier(.4, 0, .2, 1),
+                padding .35s ease,
+                box-shadow .25s ease,
+                border-bottom-color .25s ease !important;
     z-index: 998;
     pointer-events: none;
   }
   html[data-theme="light"] header .nav-links {
     background: rgba(255, 255, 255, 0.97);
-    border-bottom-color: rgba(127, 90, 240, .2);
   }
   header nav.is-open .nav-links {
-    transform: translateY(0);
+    max-height: calc(100vh - var(--moi-header-h, 52px)) !important;
+    padding: 14px 24px 22px !important;
+    border-bottom-color: var(--line) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
+    overflow-y: auto !important;
     pointer-events: auto;
+  }
+  html[data-theme="light"] header nav.is-open .nav-links {
+    border-bottom-color: rgba(127, 90, 240, .2) !important;
   }
   header .nav-links li {
     width: 100%;

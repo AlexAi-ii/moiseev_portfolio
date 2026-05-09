@@ -175,8 +175,8 @@
       haloEl.setAttribute('opacity', '0');
       return;
     }
-    var phase = (now % 2200) / 2200;          // 0..1, 2.2 сек
-    var s = 1 + 1.2 * phase;                  // 1 → 2.2
+    var phase = (now % 2400) / 2400;          // 0..1, 2.4 сек
+    var s = 1 + 2.4 * phase;                  // 1 → 3.4 — заметнее на мобилке
     var op = phase < 0.7 ? 0.55 * (1 - phase / 0.7) : 0;
     // scale вокруг (28,14): translate(c - c*s) scale(s)
     var tx = 28 - 28 * s;
