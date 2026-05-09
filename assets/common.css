@@ -141,29 +141,34 @@ html[data-theme="light"] .btn-secondary:hover { background: rgba(127, 90, 240, 0
 .theme-toggle:hover { border-color: var(--primary, #7f5af0); color: var(--primary, #7f5af0); transform: rotate(20deg); }
 .theme-toggle:active { transform: scale(0.92) rotate(20deg); }
 
-/* ---- Иконки-эмодзи в заголовках секций — обёртка-бейдж ----
-   Чтобы пиктограммки (💼, 🎓, 📚, 🛠️ и т.п.) хорошо читались в обеих темах.
-   Применяется и в тёмной, и в светлой — даёт стабильный визуальный якорь. */
+/* ---- Иконки в заголовках секций — обёртка-бейдж ----
+   Эмодзи-fallback на разных ОС в светлой теме теряют цвет, поэтому в резюме
+   используем inline SVG, наследующий currentColor. Бейдж работает и для эмодзи. */
 .section-card h2 .icon,
 .psr-icon,
 .tech-icon {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'EmojiOne Color', sans-serif;
-  background: linear-gradient(135deg, rgba(127, 90, 240, 0.18), rgba(44, 182, 125, 0.12));
-  border: 1px solid rgba(127, 90, 240, 0.35);
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(127, 90, 240, 0.20), rgba(44, 182, 125, 0.14)) !important;
+  border: 1px solid rgba(127, 90, 240, 0.45) !important;
+  border-radius: 12px !important;
   line-height: 1;
+  color: var(--primary, #7f5af0) !important;
+  filter: none !important;
 }
-.section-card h2 .icon { width: 46px; height: 46px; font-size: 1.5rem; flex-shrink: 0; }
-.tech-icon { width: 56px; height: 56px; font-size: 1.8rem; margin: 0 auto 10px; }
-.psr-icon { width: 40px; height: 40px; font-size: 1.3rem; margin-right: 8px; }
+.section-card h2 .icon { width: 46px; height: 46px; font-size: 1.5rem !important; flex-shrink: 0; }
+.section-card h2 .icon svg { width: 24px; height: 24px; display: block; }
+.tech-icon { width: 56px; height: 56px; font-size: 1.8rem !important; margin: 0 auto 10px; }
+.tech-icon svg { width: 30px; height: 30px; display: block; }
+.psr-icon { width: 40px; height: 40px; font-size: 1.3rem !important; margin-right: 8px; }
 html[data-theme="light"] .section-card h2 .icon,
 html[data-theme="light"] .psr-icon,
 html[data-theme="light"] .tech-icon {
-  background: linear-gradient(135deg, #ece4ff, #d6f0e2);
-  border-color: rgba(127, 90, 240, 0.35);
+  background: linear-gradient(135deg, #ece4ff, #d6f0e2) !important;
+  border-color: rgba(127, 90, 240, 0.45) !important;
+  color: #5a37d8 !important;
 }
 
 /* ---- AI-themed custom cursor ----
@@ -262,101 +267,115 @@ html[data-theme="light"] .ai-terminal { background: rgba(20, 24, 40, 0.92); }
 }
 
 /* ============================================================
-   Mascot: интерактивный AI-человечек, бегущий за курсором
+   Mascot: AI-стикмен, плавно догоняет курсор + пунктирный след
    ============================================================ */
 .moi-mascot {
   position: fixed; top: 0; left: 0;
-  width: 90px; height: 110px;
+  width: 56px; height: 76px;
   pointer-events: none; z-index: 1500;
   will-change: transform;
   transform: translate(-200px, -200px);
-  transform-origin: 50% 65%;
-  filter: drop-shadow(0 8px 14px rgba(0,0,0,0.35));
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 4px 8px rgba(127, 90, 240, 0.35));
 }
 .moi-mascot svg { width: 100%; height: 100%; overflow: visible; display: block; }
 
+/* Пунктирный след от маскота к курсору */
+.moi-trail {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 1499;
+  width: 100%; height: 100%;
+  opacity: 0; transition: opacity 0.2s ease;
+}
+.moi-trail line {
+  stroke: var(--primary, #7f5af0);
+  stroke-width: 1.2;
+  stroke-dasharray: 2 6;
+  stroke-linecap: round;
+  opacity: 0.32;
+  animation: moi-trail-flow 0.9s linear infinite;
+}
+@keyframes moi-trail-flow { to { stroke-dashoffset: -16; } }
+
 /* Скрыть на тач-экранах и при reduced-motion */
-@media (hover: none), (pointer: coarse) { .moi-mascot { display: none !important; } }
-@media (prefers-reduced-motion: reduce) { .moi-mascot { display: none !important; } }
-
-/* Базовые группы (по умолчанию транспорт скрыт) */
-.mascot-car, .mascot-rocket, .mascot-rocket-flame, .mascot-cloud { display: none; }
-.mascot-character { transform-origin: 50% 90%; }
-
-/* Покой — лёгкий bounce + покачивание */
-.moi-mascot[data-state="idle"] .mascot-character {
-  animation: mascot-bob 2.4s ease-in-out infinite;
+@media (hover: none), (pointer: coarse) {
+  .moi-mascot, .moi-trail { display: none !important; }
 }
-.moi-mascot[data-state="idle"] .arm-l { transform-origin: 30px 46px; animation: mascot-wave-l 1.6s ease-in-out infinite; }
-.moi-mascot[data-state="idle"] .arm-r { transform-origin: 70px 46px; animation: mascot-wave-r 1.6s ease-in-out infinite; }
-
-/* Ходьба — машет ногами, корпус слегка качается */
-.moi-mascot[data-state="walking"] .leg-l { transform-origin: 44px 70px; animation: mascot-step-l 0.45s ease-in-out infinite; }
-.moi-mascot[data-state="walking"] .leg-r { transform-origin: 56px 70px; animation: mascot-step-r 0.45s ease-in-out infinite; }
-.moi-mascot[data-state="walking"] .arm-l { transform-origin: 30px 46px; animation: mascot-step-arm-l 0.45s ease-in-out infinite; }
-.moi-mascot[data-state="walking"] .arm-r { transform-origin: 70px 46px; animation: mascot-step-arm-r 0.45s ease-in-out infinite; }
-.moi-mascot[data-state="walking"] .mascot-character { animation: mascot-bob 0.45s ease-in-out infinite; }
-
-/* Машина — ноги прячутся, рулит, под ним авто */
-.moi-mascot[data-state="driving"] .mascot-car { display: block; }
-.moi-mascot[data-state="driving"] .mascot-cloud { display: block; opacity: 0.55; animation: mascot-cloud 0.4s linear infinite; }
-.moi-mascot[data-state="driving"] .leg-l,
-.moi-mascot[data-state="driving"] .leg-r { display: none; }
-.moi-mascot[data-state="driving"] .mascot-character { transform: translateY(-8px); }
-.moi-mascot[data-state="driving"] .car-wheel-l,
-.moi-mascot[data-state="driving"] .car-wheel-r { transform-origin: 50% 50%; animation: mascot-spin 0.18s linear infinite; }
-.moi-mascot[data-state="driving"] .arm-l { transform: rotate(-30deg); transform-origin: 30px 46px; }
-.moi-mascot[data-state="driving"] .arm-r { transform: rotate(30deg);  transform-origin: 70px 46px; }
-
-/* Ракета — летит */
-.moi-mascot[data-state="rocket"] .mascot-rocket,
-.moi-mascot[data-state="rocket"] .mascot-rocket-flame { display: block; }
-.moi-mascot[data-state="rocket"] .mascot-rocket-flame { animation: mascot-flame 0.12s ease-in-out infinite; transform-origin: 50% 0%; }
-.moi-mascot[data-state="rocket"] .leg-l,
-.moi-mascot[data-state="rocket"] .leg-r,
-.moi-mascot[data-state="rocket"] .arm-l,
-.moi-mascot[data-state="rocket"] .arm-r { display: none; }
-.moi-mascot[data-state="rocket"] .mascot-character { transform: translateY(-6px); }
-
-/* Светлая тема — поярче обводка */
-html[data-theme="light"] .moi-mascot { filter: drop-shadow(0 6px 12px rgba(40,50,80,0.18)); }
-
-@keyframes mascot-bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+@media (prefers-reduced-motion: reduce) {
+  .moi-mascot, .moi-trail { display: none !important; }
 }
-@keyframes mascot-wave-l {
-  0%, 100% { transform: rotate(8deg); }
-  50% { transform: rotate(-22deg); }
+
+/* Анимации тела — общая «дышащая» пульсация антенны на голове */
+.mascot-antenna { transform-origin: 28px 8px; animation: moi-pulse 1.4s ease-in-out infinite; }
+.mascot-halo { transform-origin: 28px 14px; animation: moi-halo 2.2s ease-out infinite; transform-box: fill-box; }
+
+/* IDLE — танцует: корпус качается, руки в сторону вверх, подпрыгивает */
+.moi-mascot[data-state="idle"] .mascot-body { animation: moi-dance-bob 1.6s ease-in-out infinite; transform-origin: 28px 70px; }
+.moi-mascot[data-state="idle"] .arm-l { transform-origin: 28px 30px; animation: moi-dance-arm-l 1.6s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .arm-r { transform-origin: 28px 30px; animation: moi-dance-arm-r 1.6s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .leg-l { transform-origin: 28px 50px; animation: moi-dance-leg-l 1.6s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .leg-r { transform-origin: 28px 50px; animation: moi-dance-leg-r 1.6s ease-in-out infinite; }
+
+/* RUNNING — бежит: ноги/руки противофазно, корпус подпрыгивает */
+.moi-mascot[data-state="running"] .mascot-body { animation: moi-run-bob 0.36s ease-in-out infinite; transform-origin: 28px 70px; }
+.moi-mascot[data-state="running"] .arm-l { transform-origin: 28px 30px; animation: moi-run-arm-l 0.36s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .arm-r { transform-origin: 28px 30px; animation: moi-run-arm-r 0.36s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .leg-l { transform-origin: 28px 50px; animation: moi-run-leg-l 0.36s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .leg-r { transform-origin: 28px 50px; animation: moi-run-leg-r 0.36s ease-in-out infinite; }
+
+/* Светлая тема — слегка приглушённая тень */
+html[data-theme="light"] .moi-mascot { filter: drop-shadow(0 4px 8px rgba(60, 70, 100, 0.22)); }
+html[data-theme="light"] .moi-trail line { opacity: 0.5; }
+
+/* ---- keyframes ---- */
+@keyframes moi-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.18); opacity: 0.85; }
 }
-@keyframes mascot-wave-r {
-  0%, 100% { transform: rotate(-8deg); }
-  50% { transform: rotate(22deg); }
+@keyframes moi-halo {
+  0%   { r: 9; opacity: 0.55; }
+  70%  { r: 16; opacity: 0; }
+  100% { r: 16; opacity: 0; }
 }
-@keyframes mascot-step-l {
-  0%, 100% { transform: rotate(-22deg); }
-  50% { transform: rotate(22deg); }
+@keyframes moi-dance-bob {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  25%      { transform: translateY(-3px) rotate(2deg); }
+  50%      { transform: translateY(-6px) rotate(0deg); }
+  75%      { transform: translateY(-3px) rotate(-2deg); }
 }
-@keyframes mascot-step-r {
-  0%, 100% { transform: rotate(22deg); }
-  50% { transform: rotate(-22deg); }
-}
-@keyframes mascot-step-arm-l {
+@keyframes moi-dance-arm-l {
   0%, 100% { transform: rotate(20deg); }
-  50% { transform: rotate(-20deg); }
+  50%      { transform: rotate(-65deg); }
 }
-@keyframes mascot-step-arm-r {
+@keyframes moi-dance-arm-r {
   0%, 100% { transform: rotate(-20deg); }
-  50% { transform: rotate(20deg); }
+  50%      { transform: rotate(65deg); }
 }
-@keyframes mascot-flame {
-  0%, 100% { transform: scaleY(1) scaleX(0.95); opacity: 0.95; }
-  50%      { transform: scaleY(1.4) scaleX(1.1);  opacity: 0.7; }
+@keyframes moi-dance-leg-l {
+  0%, 100% { transform: rotate(-8deg); }
+  50%      { transform: rotate(8deg); }
 }
-@keyframes mascot-spin {
-  to { transform: rotate(360deg); }
+@keyframes moi-dance-leg-r {
+  0%, 100% { transform: rotate(8deg); }
+  50%      { transform: rotate(-8deg); }
 }
-@keyframes mascot-cloud {
-  from { transform: translate(0, 0); opacity: 0.55; }
-  to   { transform: translate(-22px, 0); opacity: 0; }
+@keyframes moi-run-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+@keyframes moi-run-arm-l {
+  0%, 100% { transform: rotate(45deg); }
+  50%      { transform: rotate(-45deg); }
+}
+@keyframes moi-run-arm-r {
+  0%, 100% { transform: rotate(-45deg); }
+  50%      { transform: rotate(45deg); }
+}
+@keyframes moi-run-leg-l {
+  0%, 100% { transform: rotate(-35deg); }
+  50%      { transform: rotate(35deg); }
+}
+@keyframes moi-run-leg-r {
+  0%, 100% { transform: rotate(35deg); }
+  50%      { transform: rotate(-35deg); }
 }
