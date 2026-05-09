@@ -63,14 +63,20 @@
     .stat-number { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 12px; }
     .stat-label { color: var(--muted); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 
-    /* Единые фильтры (объединили quick-routes + filter-buttons) */
-    .filters { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 0 auto 40px; max-width: var(--container); padding: 0 30px; }
-    .filter-pill { padding: 10px 20px; border-radius: 999px; border: 1.5px solid rgba(44,182,125,0.55); background: linear-gradient(145deg, rgba(44,182,125,0.14), rgba(44,182,125,0.04)); color: var(--accent); font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; font-family: inherit; line-height: 1.2; white-space: nowrap; }
+    /* Единые фильтры (объединили quick-routes + filter-buttons), sticky под шапкой */
+    .filters-wrap { position: sticky; top: 80px; z-index: 50; background: linear-gradient(180deg, rgba(26,31,46,0.92), rgba(26,31,46,0.82)); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%); border-bottom: 1px solid var(--line); padding: 16px 0; margin-bottom: 32px; }
+    html[data-theme="light"] .filters-wrap { background: linear-gradient(180deg, rgba(244,246,251,0.94), rgba(244,246,251,0.84)); border-bottom-color: var(--line); }
+    .filters { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 0 auto; max-width: var(--container); padding: 0 30px; }
+    .filter-pill { padding: 9px 18px; border-radius: 999px; border: 1.5px solid rgba(44,182,125,0.55); background: linear-gradient(145deg, rgba(44,182,125,0.14), rgba(44,182,125,0.04)); color: var(--accent); font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; font-family: inherit; line-height: 1.2; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
     .filter-pill:hover { background: var(--accent); color: #fff; transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 8px 22px rgba(44,182,125,0.35); }
     .filter-pill.active { background: linear-gradient(135deg, var(--accent), #1a9466); color: #fff; border-color: var(--accent); box-shadow: 0 10px 28px rgba(44,182,125,0.45); }
+    .filter-pill .count { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: rgba(255,255,255,0.18); color: inherit; font-size: 0.72rem; font-weight: 800; line-height: 1; }
+    .filter-pill:not(.active) .count { background: rgba(44,182,125,0.18); }
+    .filter-pill:hover .count { background: rgba(255,255,255,0.25); }
     html[data-theme="light"] .filter-pill { color: #1a9466; background: linear-gradient(145deg, #e8f7ef, #d6f0e2); border-color: #2cb67d; }
     html[data-theme="light"] .filter-pill:hover,
     html[data-theme="light"] .filter-pill.active { color: #fff; background: linear-gradient(135deg, var(--accent), #1a9466); }
+    html[data-theme="light"] .filter-pill:not(.active) .count { background: rgba(26,148,102,0.18); color: #1a9466; }
 
     /* Projects grid */
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; max-width: var(--container); margin: 0 auto; padding: 0 30px 60px; }
@@ -138,17 +144,19 @@
     <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5"><div class="stat-number">+45%</div><div class="stat-label" data-i18n="projects.statResult">Макс. рост конверсии</div></div>
   </div>
 
-  <div class="filters" data-aos="fade-up">
-    <button class="filter-pill active" data-filter="all" data-i18n="projects.filterAll">Все</button>
-    <button class="filter-pill" data-filter="leads" data-i18n="projects.filterLeads">🎯 Лиды и продажи</button>
-    <button class="filter-pill" data-filter="support" data-i18n="projects.filterSupport">💬 Поддержка и консультации</button>
-    <button class="filter-pill" data-filter="booking" data-i18n="projects.filterBooking">📅 Запись и бронирование</button>
-    <button class="filter-pill" data-filter="operations" data-i18n="projects.filterOperations">⚙️ Операционка и back office</button>
-    <button class="filter-pill" data-filter="content" data-i18n="projects.filterContent">📝 Контент и маркетинг</button>
-    <button class="filter-pill" data-filter="hr" data-i18n="projects.filterHR">👥 HR и обучение</button>
-    <button class="filter-pill" data-filter="paid-service" data-i18n="projects.filterPaidService">💎 Платные сервисы</button>
-    <button class="filter-pill" data-filter="agencies" data-i18n="projects.routeAgencies">🏢 Для агентств</button>
-    <button class="filter-pill" data-filter="smb" data-i18n="projects.routeSmb">🏪 Для малого бизнеса</button>
+  <div class="filters-wrap">
+    <div class="filters" data-aos="fade-up">
+      <button class="filter-pill active" data-filter="all"><span data-i18n="projects.filterAll">Все</span> <span class="count" data-count="all">0</span></button>
+      <button class="filter-pill" data-filter="leads"><span data-i18n="projects.filterLeads">🎯 Лиды и продажи</span> <span class="count" data-count="leads">0</span></button>
+      <button class="filter-pill" data-filter="support"><span data-i18n="projects.filterSupport">💬 Поддержка и консультации</span> <span class="count" data-count="support">0</span></button>
+      <button class="filter-pill" data-filter="booking"><span data-i18n="projects.filterBooking">📅 Запись и бронирование</span> <span class="count" data-count="booking">0</span></button>
+      <button class="filter-pill" data-filter="operations"><span data-i18n="projects.filterOperations">⚙️ Операционка и back office</span> <span class="count" data-count="operations">0</span></button>
+      <button class="filter-pill" data-filter="content"><span data-i18n="projects.filterContent">📝 Контент и маркетинг</span> <span class="count" data-count="content">0</span></button>
+      <button class="filter-pill" data-filter="hr"><span data-i18n="projects.filterHR">👥 HR и обучение</span> <span class="count" data-count="hr">0</span></button>
+      <button class="filter-pill" data-filter="paid-service"><span data-i18n="projects.filterPaidService">💎 Платные сервисы</span> <span class="count" data-count="paid-service">0</span></button>
+      <button class="filter-pill" data-filter="agencies"><span data-i18n="projects.routeAgencies">🏢 Для агентств</span> <span class="count" data-count="agencies">0</span></button>
+      <button class="filter-pill" data-filter="smb"><span data-i18n="projects.routeSmb">🏪 Для малого бизнеса</span> <span class="count" data-count="smb">0</span></button>
+    </div>
   </div>
 
   <div class="projects-grid" id="projectsGrid"></div>
@@ -219,10 +227,14 @@
     const filterBtns = document.querySelectorAll('.filter-pill');
 
     function projectText(idx, field) {
-      if (typeof moiLang === 'undefined' || moiLang.current() === 'ru') return projects[idx][field];
-      if (!window._moiResolve) return projects[idx][field];
+      // RU-fallback: в массиве поле описания зовётся subtitle, а в локалях — desc.
+      const ruFallback = (field === 'desc')
+        ? (projects[idx].subtitle || projects[idx].desc || '')
+        : projects[idx][field];
+      if (typeof moiLang === 'undefined' || moiLang.current() === 'ru') return ruFallback;
+      if (!window._moiResolve) return ruFallback;
       const v = window._moiResolve('projects.projects.' + idx + '.' + field);
-      return v !== null ? v : projects[idx][field];
+      return (v !== null && v !== undefined) ? v : ruFallback;
     }
 
     // В S3 файлы обложек лежат как {slug}/{slug}_cover.png. В projects.json и в fallback-массиве
@@ -254,11 +266,47 @@
       return v || 'Фото скоро появится';
     }
 
+    function projectsByFilter(filter) {
+      if (filter === 'all') return projects;
+      return projects.filter(p =>
+        (p.categories && p.categories.includes(filter)) ||
+        (p.segments && p.segments.includes(filter))
+      );
+    }
+
+    function updateCounts() {
+      document.querySelectorAll('.filter-pill .count').forEach(el => {
+        const f = el.getAttribute('data-count');
+        el.textContent = projectsByFilter(f).length;
+      });
+    }
+
+    function syncUrlFilter(filter) {
+      try {
+        const url = new URL(window.location.href);
+        if (filter && filter !== 'all') url.searchParams.set('filter', filter);
+        else url.searchParams.delete('filter');
+        history.replaceState({}, '', url);
+      } catch(e) {}
+    }
+
+    function getInitialFilter() {
+      try {
+        const m = window.location.search.match(/[?&]filter=([a-z\-]+)/i);
+        if (m) {
+          const allowed = new Set(['all','leads','support','booking','operations','content','hr','paid-service','agencies','smb']);
+          if (allowed.has(m[1])) return m[1];
+        }
+      } catch(e) {}
+      return 'all';
+    }
+
     function renderProjects(filter = 'all') {
       grid.innerHTML = '';
-      const filtered = filter === 'all' ? projects : projects.filter(p =>
-        p.categories.includes(filter) || (p.segments && p.segments.includes(filter))
-      );
+      const filtered = projectsByFilter(filter);
+      updateCounts();
+      // Подсветим активную кнопку (на случай вызова не из обработчика клика, например при смене языка)
+      filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
 
       const photoSoon = getPhotoSoon();
 
@@ -308,7 +356,9 @@
       btn.addEventListener('click', function() {
         filterBtns.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
-        renderProjects(this.dataset.filter);
+        const f = this.dataset.filter;
+        renderProjects(f);
+        syncUrlFilter(f);
       });
     });
 
@@ -338,14 +388,15 @@
     }
 
     // Один первичный рендер после загрузки локали, потом обновление с S3.
+    const initialFilter = getInitialFilter();
     if (window._moiLocaleLoaded) {
       window._moiLocaleLoaded.then(function() {
-        renderProjects();
+        renderProjects(initialFilter);
         setupI18n();
         loadProjects();
       });
     } else {
-      renderProjects();
+      renderProjects(initialFilter);
       setupI18n();
       loadProjects();
     }

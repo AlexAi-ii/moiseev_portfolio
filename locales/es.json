@@ -141,7 +141,8 @@
     "contactMessage": "Escribeme por Telegram lo que quieres automatizar — te propondre un plan de implementacion funcional",
     "contactDiscuss": "Discutir proyecto",
     "contactMax": "MAX",
-    "contactVK": "VKontakte"
+    "contactVK": "VKontakte",
+    "aboutResumeBtn": "📄 CV completo"
   },
   "projects": {
     "title": "Todos los casos",

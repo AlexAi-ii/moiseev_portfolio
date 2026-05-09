@@ -219,9 +219,10 @@
       </a>
       <ul class="nav-links">
         <li><a href="#solutions" data-i18n="nav.solutions">Решения</a></li>
-        <li><a href="projects.html" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="#cases" data-i18n="nav.cases">Кейсы</a></li>
         <li><a href="#agencies" data-i18n="nav.agencies">Для агентств</a></li>
         <li><a href="#process" data-i18n="nav.aboutWork">О работе</a></li>
+        <li><a href="resume-full.html" data-i18n="nav.resume">Резюме</a></li>
         <li><a href="#contact" data-i18n="nav.contacts">Контакты</a></li>
       </ul>
       <a class="btn" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" data-i18n="nav.contact">Связаться</a>
@@ -230,27 +231,10 @@
 
   <div class="hero" data-aos="fade-down">
     <h1 data-i18n="index.heroTitle">AI Automation Engineer для продаж, поддержки и операционки</h1>
-    <p class="hero-subtitle" data-i18n="index.heroDesc">Автоматизирую лиды, запись, CRM, ответы 24/7 и внутренние процессы с помощью Telegram, n8n, AI и Google Cloud</p>
     <p class="hero-message" data-i18n="index.heroMessage">Помогаю бизнесу меньше терять заявки, быстрее отвечать клиентам и убирать ручную рутину из процессов</p>
-
-    <div class="ai-terminal" data-aos="fade-up" data-aos-delay="100" aria-hidden="true">
-      <div class="ai-terminal-bar">
-        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="label">moi-ai · ~/automation</span>
-      </div>
-      <div class="ai-terminal-body" data-lines='[
-        {"prompt":"$","text":"analyze incoming leads...","suffix":"24/7","suffixClass":"accent","pause":420},
-        {"prompt":"$","text":"connect Claude → n8n → Telegram","pause":420},
-        {"prompt":"$","text":"qualify, score, hand off to CRM","pause":420},
-        {"prompt":"✓","text":"done — conversion","suffix":"+45%","suffixClass":"ok","pause":1400}
-      ]'>
-        <span class="ai-terminal-line is-visible"><span class="prompt">$</span> booting…</span>
-      </div>
-    </div>
-
     <div class="hero-buttons">
       <a href="https://t.me/avmoiseevspb" target="_blank" rel="noopener noreferrer" class="btn btn-white" data-i18n="index.heroDiscuss">💬 Обсудить задачу</a>
-      <a href="projects.html" class="btn btn-secondary" data-i18n="index.heroCases">📂 Смотреть кейсы</a>
+      <a href="#cases" class="btn btn-secondary" data-i18n="index.heroCases">📂 Смотреть кейсы</a>
     </div>
   </div>
 
@@ -338,6 +322,9 @@
         <p data-i18n="index.aboutP1">Привет! Я разработчик и аналитик с <strong>29‑летним опытом</strong> в ИТ‑индустрии. Основные компетенции — создание чат‑ботов, AI‑агентов и AI‑помощников. Специализируюсь на интеграции систем, автоматизации рабочих процессов и внедрении нейросетевых решений.</p>
         <p data-i18n="index.aboutP2">Мой главный инструмент — платформа <strong>n8n</strong>, которая позволяет быстро соединять разные сервисы и модели по API и через MCP. Для ускорения разработки использую <strong>Claude Code</strong> — интеллектуальный помощник для написания и рефакторинга кода.</p>
         <p data-i18n="index.aboutP3">Помимо разработки я занимаюсь аналитикой, проектированием архитектур и оптимизацией взаимодействия с нейронными моделями. Всегда стараюсь находить оптимальное решение задачи и уделяю особое внимание безопасности данных. Много времени уделяю тестированию — довожу каждый проект до полного завершения, постоянно держу фокус на качестве.</p>
+        <div style="margin-top: 24px;">
+          <a href="resume-full.html" class="btn btn-secondary" data-i18n="index.aboutResumeBtn">📄 Полное резюме</a>
+        </div>
       </div>
     </div>
   </section>
@@ -392,32 +379,6 @@
     </div>
   </section>
 
-  <section id="process" data-aos="fade-up">
-    <h2 data-i18n="index.processTitle">Как я работаю</h2>
-    <div class="process-steps">
-      <div class="process-step" data-aos="fade-up" data-aos-delay="0">
-        <h4 data-i18n="index.step1Title">Разбор задачи</h4>
-        <p data-i18n="index.step1Desc">Анализирую бизнес-процесс, выявляю узкие места и точки роста</p>
-      </div>
-      <div class="process-step" data-aos="fade-up" data-aos-delay="100">
-        <h4 data-i18n="index.step2Title">Проектирование сценария</h4>
-        <p data-i18n="index.step2Desc">Проектирую архитектуру решения, выбираю инструменты и интеграции</p>
-      </div>
-      <div class="process-step" data-aos="fade-up" data-aos-delay="200">
-        <h4 data-i18n="index.step3Title">Сборка логики</h4>
-        <p data-i18n="index.step3Desc">Реализую workflow, настраиваю API-интеграции и AI-агентов</p>
-      </div>
-      <div class="process-step" data-aos="fade-up" data-aos-delay="300">
-        <h4 data-i18n="index.step4Title">Тестирование</h4>
-        <p data-i18n="index.step4Desc">Тестирую сценарии, отлавливаю edge-кейсы, стабилизирую</p>
-      </div>
-      <div class="process-step" data-aos="fade-up" data-aos-delay="400">
-        <h4 data-i18n="index.step5Title">Запуск и поддержка</h4>
-        <p data-i18n="index.step5Desc">Запускаю в продакшн, мониторю, дорабатываю по результатам</p>
-      </div>
-    </div>
-  </section>
-
   <section id="agencies" data-aos="fade-up">
     <h2 data-i18n="index.whoTitle">Кому я подхожу</h2>
     <div class="who-grid">
@@ -440,6 +401,32 @@
       <div class="who-item" data-aos="fade-up" data-aos-delay="200">
         <span class="who-icon">🔧</span>
         <p data-i18n="index.who5">Тем, у кого хаотичная автоматизация, и её надо собрать в систему</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" data-aos="fade-up">
+    <h2 data-i18n="index.processTitle">Как я работаю</h2>
+    <div class="process-steps">
+      <div class="process-step" data-aos="fade-up" data-aos-delay="0">
+        <h4 data-i18n="index.step1Title">Разбор задачи</h4>
+        <p data-i18n="index.step1Desc">Анализирую бизнес-процесс, выявляю узкие места и точки роста</p>
+      </div>
+      <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+        <h4 data-i18n="index.step2Title">Проектирование сценария</h4>
+        <p data-i18n="index.step2Desc">Проектирую архитектуру решения, выбираю инструменты и интеграции</p>
+      </div>
+      <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+        <h4 data-i18n="index.step3Title">Сборка логики</h4>
+        <p data-i18n="index.step3Desc">Реализую workflow, настраиваю API-интеграции и AI-агентов</p>
+      </div>
+      <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+        <h4 data-i18n="index.step4Title">Тестирование</h4>
+        <p data-i18n="index.step4Desc">Тестирую сценарии, отлавливаю edge-кейсы, стабилизирую</p>
+      </div>
+      <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+        <h4 data-i18n="index.step5Title">Запуск и поддержка</h4>
+        <p data-i18n="index.step5Desc">Запускаю в продакшн, мониторю, дорабатываю по результатам</p>
       </div>
     </div>
   </section>

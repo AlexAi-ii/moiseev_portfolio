@@ -21,9 +21,9 @@ html[data-theme="light"] {
   color-scheme: light;
 }
 html[data-theme="light"] body {
-  background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,0.08) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 20%, rgba(0,183,255,0.06) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 80%, rgba(44,182,125,0.05) 0%, transparent 50%),
+  background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,0.18) 0%, transparent 55%),
+              radial-gradient(ellipse at 80% 25%, rgba(0,183,255,0.14) 0%, transparent 55%),
+              radial-gradient(ellipse at 50% 90%, rgba(44,182,125,0.12) 0%, transparent 55%),
               var(--bg) !important;
   color: var(--text) !important;
 }
@@ -85,6 +85,19 @@ html[data-theme="light"] .nav-links a {
 }
 html[data-theme="light"] .lang-select { background: #ffffff !important; color: var(--text) !important; }
 html[data-theme="light"] header { box-shadow: 0 6px 24px rgba(60, 70, 100, 0.06) !important; }
+/* Hero glow в светлой теме — усилить, чтобы фон не был «пустым» */
+html[data-theme="light"] .hero::before {
+  background: radial-gradient(circle, rgba(127,90,240,0.35) 0%, rgba(0,183,255,0.18) 40%, transparent 75%) !important;
+  filter: blur(80px) !important;
+}
+/* Page-hero на projects.html — добавим лёгкий акцент */
+html[data-theme="light"] .page-hero { position: relative; }
+html[data-theme="light"] .page-hero::before {
+  content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 360px;
+  background: radial-gradient(ellipse, rgba(127,90,240,0.25) 0%, rgba(44,182,125,0.12) 50%, transparent 80%);
+  filter: blur(70px); z-index: -1; pointer-events: none;
+}
 
 /* Контакты: в светлой теме нужен тёмный текст на светлом фоне; на ховере (бренд-цвета) — белый. */
 html[data-theme="light"] .social-link { color: var(--text) !important; }

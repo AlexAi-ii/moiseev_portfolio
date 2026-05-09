@@ -141,7 +141,8 @@
     "contactMessage": "Write to me on Telegram what you want to automate \u2014 I'll propose a working implementation plan",
     "contactDiscuss": "Discuss Project",
     "contactMax": "MAX",
-    "contactVK": "VKontakte"
+    "contactVK": "VKontakte",
+    "aboutResumeBtn": "\ud83d\udcc4 Full Resume"
   },
   "projects": {
     "title": "All Cases",
