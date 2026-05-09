@@ -5,6 +5,130 @@
 Сайт-портфолио на GitHub Pages — статический HTML/CSS/JS с мультиязычностью (6 языков).
 **GitHub:** https://github.com/AlexAi-ii/moiseev_portfolio
 **Домен:** https://portfolio.aisob.ru
+**Деплой-ветка:** `test-redesign` (не main!) — коммитить и пушить туда.
+
+## Маскот-стикмен (assets/common.js + common.css)
+
+Двое анимированных SVG-человечков на сайте: **курсорный** догоняет мышь и стоит слева от неё, **угловой** сидит на углах карточек/кнопок и переходит между ними по параболе.
+
+### SVG-структура (общая)
+```
+<svg viewBox="0 0 56 70">
+  <g class="mascot-character" stroke="#7f5af0" stroke-width="2.6" fill="none">
+    <circle class="mascot-head"  cx="28" cy="14" r="5" fill="#7f5af0"/>
+    <circle class="mascot-halo"  cx="28" cy="14" r="5" stroke="#7f5af0"/>
+    <line   class="mascot-spine" x1="28" y1="19" x2="28" y2="38"/>
+    <g class="upper-arm-l"> <line .../> <g class="forearm-l"><line .../></g> </g>
+    <g class="upper-arm-r"> <line .../> <g class="forearm-r"><line .../></g> </g>
+    <g class="thigh-l">    <line .../> <g class="shin-l">   <line .../></g> </g>
+    <g class="thigh-r">    <line .../> <g class="shin-r">   <line .../></g> </g>
+  </g>
+</svg>
+```
+
+### Архитектура поз (важно)
+Все позы возвращают **целевые углы суставов и transform корпуса**. Главный loop делает `lerpPose(state, target, k)` от текущего состояния к целевому. Это убрало щёлканье при смене поз.
+
+```js
+JOINT_NAMES = ['uArmL','fArmL','uArmR','fArmR','thighL','shinL','thighR','shinR']
+poseState = { uArmL:0, ..., tx:0, ty:0, rot:0 }
+lerpPose(state, target, k=0.10)   // 0.10 для idle, 0.45 для бега
+applyPoseState(refs, state)        // setRot для каждого сустава + transform character
+```
+
+Каждая поза-функция получает `t` (секунды от начала позы) и возвращает объект с углами. См. `poseSwayBreathe`, `poseSquats`, `poseGroove` и т.д. в `common.js`.
+
+### Курсорный маскот (`.moi-mascot`, 40×54 px)
+- Позиция: всегда **слева** от курсора (`TARGET_OFFSET_X = -34`).
+- Динамика: ease-out замедление к шагу 15%, без затухания до 0.
+  - `MAX_SPEED = 720` px/s, `WALK_SPEED_FACTOR = 0.15`
+  - `RUN_DIST = 280, WALK_DIST = 28, SNAP_DIST = 4`
+  - `speedFactor = WALK + (1-WALK) × (1 - (1-k)²)` — easeOutQuad
+- Бег: `runPhase += dt × 7 × max(0.55, speedFactor)` — на медленном шаге руки/ноги всё равно работают.
+- Idle: 20 поз (sway, hands on hips, arms side, stretch up, wave L/R, think, lean L/R, squats с реальным опусканием тела, tip toe, shrug, look around, sidestep, stretch side, tap foot, groove, salute, clap, deep breath). Каждая 3–5 с, без повторов подряд.
+- В idle всегда смотрит вправо на курсор (`lastDirX = 1` при переходе в idle).
+- Скрыт на тач-устройствах (`(hover: none), (pointer: coarse)`) и при `prefers-reduced-motion`.
+
+### Угловой маскот (`.moi-corner-mascot`, 30×40 px)
+- Сидит на углах элементов из селектора (карточки + кнопки): `.section-card, .case-card, .project-card, .feature-card, .tech-item, .psr-box, .skill-category, .offer-card, .who-item, .process-step, .stat-card, .showcase-stat, .ai-terminal, .gallery-item, .about-content, .cta-box, .btn, .btn-secondary, .btn-white, .social-link, .filter-btn, .offer-cta, .quick-route`.
+- Минимальный размер блока: width ≥ 80, height ≥ 32 px.
+- Угол: случайно `tr` или `tl` (`Math.random < 0.5`). На `tr` — `scaleX(1)` (лицо вправо, попа `r.right, r.top`), на `tl` — `scaleX(-1)` (лицо влево, попа `r.left, r.top`).
+- Поза «сидит свесив ноги»: бёдра идут горизонтально вперёд (`thighL = -100°, thighR = -72°`), голени вертикально вниз (`shinL = +90°, shinR = +82°`). Колебания накладываются.
+- 7 sit-действий: `sitSwingLegs, sitWaveR, sitWaveL, sitTapHands, sitLookAround, sitArmsUp, sitBreathe`.
+- Время сидения: **18–36 секунд** на одном блоке.
+- **Переход между блоками — по параболе, не телепорт**:
+  - `posY -= apex × 4t(1-t)` — высота параболы.
+  - `apex = max(60, min(180, dist × 0.32 + |dy| × 0.18 + 30))` — выше для длинных и вертикальных переходов (особенно нужно на телефоне).
+  - Длительность `0.9 + min(2.0, dist/700)` сек.
+  - Smoothstep `t² × (3 - 2t)` — мягкие старт и финиш.
+  - Поза `buildRunTarget` (бег) во время перехода, `scaleX` по направлению.
+  - Первое появление: «прибегает» из-за края экрана со стороны цели.
+- transform: `translate(-50%, -54%)` — попа точно на углу (расчёт: viewBox 56×70, scale 0.535, попа в SVG (28,38) → в wrap ≈ (15, 21.6) → 50%/54%).
+- Работает **и на тач-устройствах**, отключён только при `prefers-reduced-motion`.
+
+### Halo (кружочек у головы)
+**Управляется через JS, НЕ через CSS animation** — на iOS Safari `transform-box: fill-box` для SVG-элементов ненадёжен, halo там не отображался.
+
+```js
+function updateHalo(haloEl, now, visible) {
+  if (!visible) { haloEl.setAttribute('opacity', '0'); return; }
+  var phase = (now % 2400) / 2400;     // цикл 2.4 с
+  var s = 1 + 2.4 * phase;              // scale 1 → 3.4 (расходится)
+  var op = phase < 0.7 ? 0.55 * (1 - phase / 0.7) : 0;  // затухание
+  // scale вокруг (28,14):
+  haloEl.setAttribute('transform', `translate(${28-28*s} ${14-14*s}) scale(${s})`);
+  haloEl.setAttribute('opacity', op);
+}
+```
+
+Видим у курсорного в idle и у углового в sitting. У бегущего курсорного и у идущего углового — скрыт.
+
+### Грабли, которые ловили
+1. **`opacity="0"` SVG-attribute** перебивает CSS opacity → halo не показывался. Решение: управлять opacity через JS-`setAttribute`.
+2. **`transform-box: fill-box`** для SVG не работает на iOS Safari → CSS animation halo не масштабировалась вокруг центра головы. Решение: JS-анимация через SVG `transform`.
+3. **Резкие позы (jump, spin, boxer, twist)** выглядели «уродски» при прямом `setRot`. Решение: вся pose-система переехала на «целевые углы + lerp 0.10».
+4. **Курсорный со скоростью 1400 px/s** добегал слишком быстро — не было видно работу ног. Решение: 720 px/s + минимум 0.55 для частоты шага даже на медленном беге.
+5. **Угловой телепортировался** между блоками — некрасиво. Решение: реальный walk по параболе с smoothstep + apex.
+
+## Мобильная навигация (assets/common.js — `setupMobileNav`)
+
+На ≤768px шапка превращается в узкую плашку 52 px с бургером. Все ссылки nav-links + клон CTA «Связаться» — в выезжающей панели.
+
+### Шапка (`@media (max-width: 768px)`)
+- `header nav { flex-direction: row; min-height: 52px; padding: 6px 14px }` — узкая.
+- `header nav > a.btn { display: none }` — большая CTA скрыта (клон в меню).
+- Элементы: brand слева, theme-toggle, lang-select, burger справа.
+- Burger создаётся через JS, тогглит `is-open` на nav и `nav-open` на body.
+
+### Выезжающая панель `.nav-links`
+- `position: fixed; top: var(--moi-header-h, 52px)`. CSS-переменная обновляется JS из `header.offsetHeight`.
+- Закрытое состояние: `max-height: 0; overflow: hidden; visibility: hidden; padding: 0 24px; box-shadow: none; border-bottom: transparent`. Все эти штуки **обязательны вместе** — на iOS Safari `max-height: 0` сам по себе оставляет след от тени и border.
+- Открытое: `max-height: calc(100vh - var(--moi-header-h)); padding: 14px 24px 22px; box-shadow + border` обратно.
+- Селектор поднят до `html body header .nav-links` для перебивания inline-стилей на проектных страницах.
+
+### Клон CTA в мобильном меню
+- `.nav-cta-mobile-li { display: none }` по умолчанию (важно — иначе на десктопе ломает 7-м пунктом ряд nav-links).
+- В `@media (max-width: 768px)` показывается как `list-item`.
+
+### Закрытие меню
+- Клик на ссылку → `close()`.
+- Клик вне `nav` → `close()` (через `document.addEventListener('click')` с проверкой `nav.contains(e.target)`).
+- Resize > 768 px → `close()`.
+
+## iOS Safari фиксы (важно для всех страниц)
+
+1. **`body { overflow-x: hidden }` ломает sticky** — шапка скроллится вместе с контентом наверх. Решение в `common.css`:
+   ```css
+   @supports (overflow-x: clip) {
+     body { overflow-x: clip !important; }
+     html { overflow-x: clip !important; }
+   }
+   ```
+   `clip` обрезает overflow без создания scrolling-ancestor → sticky продолжает работать.
+
+2. **Прозрачная шапка показывает белый body** на проектных страницах (где нет hero-glow). Решение: дать шапке свой `linear-gradient` в тонах сайта (фиолетовый/голубой/зелёный, 6–10 % alpha).
+
+3. **CSS-анимация SVG halo не работает** → JS-driven через SVG `transform` атрибуты.
 
 ## Мультиязычность (i18n)
 
