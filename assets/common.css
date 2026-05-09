@@ -271,31 +271,31 @@ html[data-theme="light"] .ai-terminal { background: rgba(20, 24, 40, 0.92); }
    ============================================================ */
 .moi-mascot {
   position: fixed; top: 0; left: 0;
-  width: 56px; height: 76px;
+  width: 40px; height: 54px;
   pointer-events: none; z-index: 1500;
   will-change: transform;
   transform: translate(-200px, -200px);
   transform-origin: 50% 50%;
-  filter: drop-shadow(0 4px 8px rgba(127, 90, 240, 0.35));
+  filter: drop-shadow(0 3px 6px rgba(127, 90, 240, 0.32));
 }
 .moi-mascot svg { width: 100%; height: 100%; overflow: visible; display: block; }
 
-/* Пунктирный след от маскота к курсору */
+/* Пунктирный след от маскота к курсору — еле заметный */
 .moi-trail {
   position: fixed; inset: 0;
   pointer-events: none; z-index: 1499;
   width: 100%; height: 100%;
-  opacity: 0; transition: opacity 0.2s ease;
+  opacity: 0; transition: opacity 0.25s ease;
 }
 .moi-trail line {
   stroke: var(--primary, #7f5af0);
-  stroke-width: 1.2;
-  stroke-dasharray: 2 6;
+  stroke-width: 1;
+  stroke-dasharray: 1.5 7;
   stroke-linecap: round;
-  opacity: 0.32;
-  animation: moi-trail-flow 0.9s linear infinite;
+  opacity: 0.16;
+  animation: moi-trail-flow 1s linear infinite;
 }
-@keyframes moi-trail-flow { to { stroke-dashoffset: -16; } }
+@keyframes moi-trail-flow { to { stroke-dashoffset: -17; } }
 
 /* Скрыть на тач-экранах и при reduced-motion */
 @media (hover: none), (pointer: coarse) {
@@ -323,9 +323,18 @@ html[data-theme="light"] .ai-terminal { background: rgba(20, 24, 40, 0.92); }
 .moi-mascot[data-state="running"] .leg-l { transform-origin: 28px 50px; animation: moi-run-leg-l 0.36s ease-in-out infinite; }
 .moi-mascot[data-state="running"] .leg-r { transform-origin: 28px 50px; animation: moi-run-leg-r 0.36s ease-in-out infinite; }
 
+/* Прыжок при «приземлении» в курсор */
+.moi-mascot.is-landing .mascot-body { animation: moi-jump 0.42s cubic-bezier(.4,0,.2,1); transform-origin: 28px 70px; }
+@keyframes moi-jump {
+  0%   { transform: translateY(0) scale(1, 1); }
+  35%  { transform: translateY(-12px) scale(0.95, 1.08); }
+  65%  { transform: translateY(0) scale(1.1, 0.92); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+
 /* Светлая тема — слегка приглушённая тень */
-html[data-theme="light"] .moi-mascot { filter: drop-shadow(0 4px 8px rgba(60, 70, 100, 0.22)); }
-html[data-theme="light"] .moi-trail line { opacity: 0.5; }
+html[data-theme="light"] .moi-mascot { filter: drop-shadow(0 3px 6px rgba(60, 70, 100, 0.2)); }
+html[data-theme="light"] .moi-trail line { opacity: 0.28; }
 
 /* ---- keyframes ---- */
 @keyframes moi-pulse {

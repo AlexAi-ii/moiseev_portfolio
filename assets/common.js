@@ -182,25 +182,22 @@
     wrap.dataset.state = 'idle';
     wrap.innerHTML = ''
       + '<svg viewBox="0 0 56 76">'
-      +   '<g class="mascot-body" stroke="#7f5af0" stroke-width="2.4" stroke-linecap="round" fill="none">'
-      +     // антенна + лампочка (AI-маркер)
-      +     '<line class="mascot-antenna" x1="28" y1="14" x2="28" y2="6"/>'
-      +     '<circle class="mascot-bulb" cx="28" cy="4" r="1.8" fill="#2cb67d" stroke="none"/>'
-      +     // голова — кружок без лица
-      +     '<circle class="mascot-head" cx="28" cy="14" r="6" fill="#7f5af0" stroke="none"/>'
+      +   '<g class="mascot-body" stroke="#7f5af0" stroke-width="3" stroke-linecap="round" fill="none">'
+      +     // антенна + лампочка-«мысль» (AI)
+      +     '<line class="mascot-antenna" x1="28" y1="13" x2="28" y2="5"/>'
+      +     '<circle class="mascot-bulb" cx="28" cy="3" r="2" fill="#2cb67d" stroke="none"/>'
+      +     // голова — кружок без лица (фронтальный вид)
+      +     '<circle class="mascot-head" cx="28" cy="14" r="7" fill="#7f5af0" stroke="none"/>'
       +     // halo-волна вокруг головы (idle)
-      +     '<circle class="mascot-halo" cx="28" cy="14" r="9" stroke="#7f5af0" stroke-width="1" fill="none" opacity="0"/>'
-      +     // тело
-      +     '<line class="mascot-spine" x1="28" y1="20" x2="28" y2="50"/>'
-      +     // руки (пара отрезков от плеч 28,30 в стороны)
-      +     '<line class="arm arm-l" x1="28" y1="30" x2="14" y2="42"/>'
-      +     '<line class="arm arm-r" x1="28" y1="30" x2="42" y2="42"/>'
-      +     // ноги (от таза 28,50)
-      +     '<line class="leg leg-l" x1="28" y1="50" x2="20" y2="68"/>'
-      +     '<line class="leg leg-r" x1="28" y1="50" x2="36" y2="68"/>'
-      +     // ступни-точки
-      +     '<circle cx="20" cy="68" r="1.6" fill="#2cb67d" stroke="none"/>'
-      +     '<circle cx="36" cy="68" r="1.6" fill="#2cb67d" stroke="none"/>'
+      +     '<circle class="mascot-halo" cx="28" cy="14" r="10" stroke="#7f5af0" stroke-width="1" fill="none" opacity="0"/>'
+      +     // тело (короткая ось от плеч до таза)
+      +     '<line class="mascot-spine" x1="28" y1="22" x2="28" y2="44"/>'
+      +     // руки — широко в стороны (анфас): от плеча (28,28) к ладоням
+      +     '<line class="arm arm-l" x1="28" y1="28" x2="11" y2="42"/>'
+      +     '<line class="arm arm-r" x1="28" y1="28" x2="45" y2="42"/>'
+      +     // ноги — от таза (28,44) широко в стороны
+      +     '<line class="leg leg-l" x1="28" y1="44" x2="17" y2="66"/>'
+      +     '<line class="leg leg-r" x1="28" y1="44" x2="39" y2="66"/>'
       +   '</g>'
       + '</svg>';
     document.body.appendChild(wrap);
@@ -240,44 +237,57 @@
 
     function pickState(now, dist) {
       var idleFor = now - lastMoveT;
-      // Бежит, если до курсора заметное расстояние ИЛИ мышка только что двигалась
-      if (dist > 14 || idleFor < 250) return 'running';
+      if (dist > 18 || idleFor < 250) return 'running';
       return 'idle';
+    }
+
+    var landingTimer = null;
+    function triggerLanding() {
+      // мини-прыжок при добегании
+      wrap.classList.remove('is-landing');
+      // принудительный reflow, чтобы анимация перезапустилась
+      void wrap.offsetWidth;
+      wrap.classList.add('is-landing');
+      clearTimeout(landingTimer);
+      landingTimer = setTimeout(function () {
+        wrap.classList.remove('is-landing');
+      }, 460);
     }
 
     function loop() {
       var now = performance.now();
       if (now - lastMoveT > 100) speed *= 0.9;
 
-      // Цель — прямо в центр курсора
       var dx = mouseX - posX;
       var dy = mouseY - posY;
       var dist = Math.hypot(dx, dy);
 
-      // Плавный lerp: маленький коэффициент → медленно догоняет
-      // При большом расстоянии чуть ускоряемся, чтобы не отставать совсем
-      var lerp = 0.04 + Math.min(0.06, dist / 4000);
+      // Очень плавный lerp — маскот не должен догонять моментально.
+      // База 0.018 (~5x медленнее прежней). Чуть ускоряемся при большом дистанции.
+      var lerp = 0.018 + Math.min(0.022, dist / 8000);
       posX += dx * lerp;
       posY += dy * lerp;
 
-      // Направление (для зеркалирования) и состояние
       if (Math.abs(dx) > 20) lastDirX = dx >= 0 ? 1 : -1;
+
       var newState = pickState(now, dist);
       if (newState !== state) {
+        // переход running → idle (прибежал) — запускаем прыжок
+        if (state === 'running' && newState === 'idle') triggerLanding();
         state = newState;
         wrap.dataset.state = state;
       }
 
-      // Микро-наклон корпуса при беге
-      var tilt = Math.max(-12, Math.min(12, dx / 24));
+      // Лёгкий наклон корпуса при беге
+      var tilt = Math.max(-10, Math.min(10, dx / 30));
       wrap.style.transform =
         'translate3d(' + posX + 'px,' + posY + 'px,0) ' +
         'translate(-50%,-50%) ' +
         'rotateZ(' + (state === 'running' ? tilt : 0) + 'deg) ' +
         'scaleX(' + lastDirX + ')';
 
-      // Пунктирный след виден только в движении и если расстояние > 30px
-      if (state === 'running' && dist > 30) {
+      // Пунктирный след — только в беге, и только если расстояние > 40
+      if (state === 'running' && dist > 40) {
         trailLine.setAttribute('x1', mouseX);
         trailLine.setAttribute('y1', mouseY);
         trailLine.setAttribute('x2', posX);
