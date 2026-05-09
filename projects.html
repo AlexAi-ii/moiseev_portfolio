@@ -63,17 +63,14 @@
     .stat-number { font-size: 3rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 12px; }
     .stat-label { color: var(--muted); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 
-    /* Quick routes */
-    .quick-routes { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; max-width: var(--container); margin-left: auto; margin-right: auto; padding: 0 30px; }
-    .quick-route { padding: 10px 22px; border-radius: 999px; border: 1px solid var(--accent); background: linear-gradient(145deg, rgba(44,182,125,0.12), rgba(44,182,125,0.04)); color: var(--accent); font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all .3s ease; text-decoration: none; }
-    .quick-route:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
-
-    /* Filter buttons */
-    .filter-section { max-width: var(--container); margin: 0 auto 40px; padding: 0 30px; }
-    .filter-buttons { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-    .filter-btn { padding: 10px 22px; border-radius: 999px; border: 2px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); color: var(--text); font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); }
-    .filter-btn:hover { border-color: var(--primary); background: rgba(127, 90, 240, 0.15); transform: translateY(-3px); }
-    .filter-btn.active { background: linear-gradient(135deg, var(--primary), var(--primary-2)); color: #fff; border-color: var(--primary); box-shadow: 0 10px 30px rgba(127, 90, 240, 0.4); }
+    /* Единые фильтры (объединили quick-routes + filter-buttons) */
+    .filters { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 0 auto 40px; max-width: var(--container); padding: 0 30px; }
+    .filter-pill { padding: 10px 20px; border-radius: 999px; border: 1.5px solid rgba(44,182,125,0.55); background: linear-gradient(145deg, rgba(44,182,125,0.14), rgba(44,182,125,0.04)); color: var(--accent); font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: all .3s cubic-bezier(0.4, 0, 0.2, 1); text-decoration: none; font-family: inherit; line-height: 1.2; white-space: nowrap; }
+    .filter-pill:hover { background: var(--accent); color: #fff; transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 8px 22px rgba(44,182,125,0.35); }
+    .filter-pill.active { background: linear-gradient(135deg, var(--accent), #1a9466); color: #fff; border-color: var(--accent); box-shadow: 0 10px 28px rgba(44,182,125,0.45); }
+    html[data-theme="light"] .filter-pill { color: #1a9466; background: linear-gradient(145deg, #e8f7ef, #d6f0e2); border-color: #2cb67d; }
+    html[data-theme="light"] .filter-pill:hover,
+    html[data-theme="light"] .filter-pill.active { color: #fff; background: linear-gradient(135deg, var(--accent), #1a9466); }
 
     /* Projects grid */
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; max-width: var(--container); margin: 0 auto; padding: 0 30px 60px; }
@@ -103,8 +100,8 @@
       .nav-links { gap: 16px; }
       .page-hero { padding: 80px 20px 40px; }
       .projects-grid { grid-template-columns: 1fr; padding: 0 20px 40px; }
-      .quick-routes { padding: 0 20px; }
-      .filter-section { padding: 0 20px; }
+      .filters { padding: 0 20px; gap: 8px; }
+      .filter-pill { padding: 8px 16px; font-size: 0.8rem; }
       .stats-bar { padding: 0 20px; }
     }
   </style>
@@ -141,24 +138,17 @@
     <div class="stat-card" data-aos="fade-up" data-aos-delay="300" data-tilt data-tilt-max="5"><div class="stat-number">+45%</div><div class="stat-label" data-i18n="projects.statResult">Макс. рост конверсии</div></div>
   </div>
 
-  <div class="quick-routes" data-aos="fade-up">
-    <a class="quick-route" href="#" data-route="leads"><span data-i18n="projects.routeLeads">🎯 Лиды и продажи</span></a>
-    <a class="quick-route" href="#" data-route="booking"><span data-i18n="projects.routeBooking">📅 Запись и бронирование</span></a>
-    <a class="quick-route" href="#" data-route="agencies"><span data-i18n="projects.routeAgencies">🏢 Для агентств</span></a>
-    <a class="quick-route" href="#" data-route="smb"><span data-i18n="projects.routeSmb">🏪 Для малого бизнеса</span></a>
-  </div>
-
-  <div class="filter-section" data-aos="fade-up">
-    <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all" data-i18n="projects.filterAll">Все</button>
-      <button class="filter-btn" data-filter="leads" data-i18n="projects.filterLeads">🎯 Лиды и продажи</button>
-      <button class="filter-btn" data-filter="support" data-i18n="projects.filterSupport">💬 Поддержка и консультации</button>
-      <button class="filter-btn" data-filter="booking" data-i18n="projects.filterBooking">📅 Запись и бронирование</button>
-      <button class="filter-btn" data-filter="operations" data-i18n="projects.filterOperations">⚙️ Операционка и back office</button>
-      <button class="filter-btn" data-filter="content" data-i18n="projects.filterContent">📝 Контент и маркетинг</button>
-      <button class="filter-btn" data-filter="hr" data-i18n="projects.filterHR">👥 HR и обучение</button>
-      <button class="filter-btn" data-filter="paid-service" data-i18n="projects.filterPaidService">💎 Платные сервисы</button>
-    </div>
+  <div class="filters" data-aos="fade-up">
+    <button class="filter-pill active" data-filter="all" data-i18n="projects.filterAll">Все</button>
+    <button class="filter-pill" data-filter="leads" data-i18n="projects.filterLeads">🎯 Лиды и продажи</button>
+    <button class="filter-pill" data-filter="support" data-i18n="projects.filterSupport">💬 Поддержка и консультации</button>
+    <button class="filter-pill" data-filter="booking" data-i18n="projects.filterBooking">📅 Запись и бронирование</button>
+    <button class="filter-pill" data-filter="operations" data-i18n="projects.filterOperations">⚙️ Операционка и back office</button>
+    <button class="filter-pill" data-filter="content" data-i18n="projects.filterContent">📝 Контент и маркетинг</button>
+    <button class="filter-pill" data-filter="hr" data-i18n="projects.filterHR">👥 HR и обучение</button>
+    <button class="filter-pill" data-filter="paid-service" data-i18n="projects.filterPaidService">💎 Платные сервисы</button>
+    <button class="filter-pill" data-filter="agencies" data-i18n="projects.routeAgencies">🏢 Для агентств</button>
+    <button class="filter-pill" data-filter="smb" data-i18n="projects.routeSmb">🏪 Для малого бизнеса</button>
   </div>
 
   <div class="projects-grid" id="projectsGrid"></div>
@@ -226,28 +216,7 @@
     ];
 
     const grid = document.getElementById('projectsGrid');
-    const filterBtns = document.querySelectorAll('.filter-btn');
-
-    // Quick routes — filter by segment
-    document.querySelectorAll('.quick-route').forEach(route => {
-      route.addEventListener('click', function(e) {
-        e.preventDefault();
-        const routeType = this.dataset.route;
-        const mapping = {
-          'leads': 'leads',
-          'booking': 'booking',
-          'agencies': 'agencies',
-          'smb': 'smb'
-        };
-        const filter = mapping[routeType] || 'all';
-        filterBtns.forEach(b => b.classList.remove('active'));
-        const target = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
-        if (target) {
-          target.classList.add('active');
-          renderProjects(filter);
-        }
-      });
-    });
+    const filterBtns = document.querySelectorAll('.filter-pill');
 
     function projectText(idx, field) {
       if (typeof moiLang === 'undefined' || moiLang.current() === 'ru') return projects[idx][field];
@@ -351,7 +320,7 @@
         const data = await resp.json();
         if (Array.isArray(data.projects) && data.projects.length > 0) {
           projects = data.projects;
-          const activeBtn = document.querySelector('.filter-btn.active');
+          const activeBtn = document.querySelector('.filter-pill.active');
           renderProjects(activeBtn ? activeBtn.dataset.filter : 'all');
         }
       } catch (e) {
@@ -362,7 +331,7 @@
     // Re-render on language change
     function setupI18n() {
       document.addEventListener('moi:langchange', function() {
-        const activeBtn = document.querySelector('.filter-btn.active');
+        const activeBtn = document.querySelector('.filter-pill.active');
         const filter = activeBtn ? activeBtn.dataset.filter : 'all';
         renderProjects(filter);
       });

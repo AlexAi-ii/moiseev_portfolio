@@ -92,8 +92,27 @@ html[data-theme="light"] .social-link span { color: inherit !important; }
 html[data-theme="light"] .social-link:hover { color: #fff !important; }
 html[data-theme="light"] .social-link.telegram:hover,
 html[data-theme="light"] .social-link.vk:hover { color: #fff !important; }
-/* Телефон/email-ссылки в блоке контактов используют inline color: var(--text) — этого достаточно. */
-/* Кнопка "Обсудить проект" в контактах остаётся btn-white (фиолетовый текст на белом) — норм. */
+
+/* Дополнительные правки контраста в светлой теме */
+html[data-theme="light"] .tech-name { color: var(--text) !important; }
+html[data-theme="light"] .case-card-content h3,
+html[data-theme="light"] .card-content h3,
+html[data-theme="light"] .feature-card h4,
+html[data-theme="light"] .process-step h4,
+html[data-theme="light"] .offer-card h3,
+html[data-theme="light"] .skill-category h3,
+html[data-theme="light"] .who-item p,
+html[data-theme="light"] .contact h2,
+html[data-theme="light"] .case-title,
+html[data-theme="light"] .section-card h2,
+html[data-theme="light"] .stat-card { color: var(--text) !important; }
+html[data-theme="light"] .stat-card .stat-label { color: #4a5266 !important; }
+/* Тёмный фон под градиент-текстами в hero — он перекрывает основной текст в светлой теме */
+html[data-theme="light"] .hero h1 { filter: drop-shadow(0 0 20px rgba(127, 90, 240, 0.18)) !important; }
+/* Кнопки .btn (с фиолетовым/зелёным градиентом) — текст белый и в тёмной, и в светлой — оставляем. */
+/* .btn-secondary прозрачная — в светлой теме нужен тёмный текст. */
+html[data-theme="light"] .btn-secondary { color: var(--text) !important; border-color: rgba(127, 90, 240, 0.45) !important; }
+html[data-theme="light"] .btn-secondary:hover { background: rgba(127, 90, 240, 0.08) !important; }
 
 /* ---- Theme toggle button ---- */
 .theme-toggle {
