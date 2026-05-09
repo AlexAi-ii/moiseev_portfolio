@@ -171,39 +171,6 @@ html[data-theme="light"] .tech-icon {
   color: #5a37d8 !important;
 }
 
-/* ---- AI-themed custom cursor ----
-   Скрыт на тач-устройствах и при prefers-reduced-motion. */
-@media (hover: hover) and (pointer: fine) {
-  body.has-ai-cursor { cursor: none; }
-  body.has-ai-cursor a, body.has-ai-cursor button, body.has-ai-cursor .btn,
-  body.has-ai-cursor input, body.has-ai-cursor select, body.has-ai-cursor textarea,
-  body.has-ai-cursor [data-tilt], body.has-ai-cursor .case-card,
-  body.has-ai-cursor .project-card, body.has-ai-cursor .gallery-item { cursor: none; }
-  .ai-cursor {
-    position: fixed; top: 0; left: 0; width: 14px; height: 14px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(127,90,240,0.9), rgba(44,182,125,0.7));
-    box-shadow: 0 0 24px rgba(127,90,240,0.6);
-    pointer-events: none; z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width .25s ease, height .25s ease, background .25s ease, opacity .2s ease;
-    mix-blend-mode: screen;
-  }
-  .ai-cursor-ring {
-    position: fixed; top: 0; left: 0; width: 36px; height: 36px;
-    border: 1.5px solid rgba(127,90,240,0.5); border-radius: 50%;
-    pointer-events: none; z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width .25s ease, height .25s ease, border-color .25s ease, opacity .2s ease;
-  }
-  .ai-cursor.is-active { width: 28px; height: 28px; background: radial-gradient(circle, rgba(44,182,125,0.95), rgba(0,183,255,0.6)); }
-  .ai-cursor-ring.is-active { width: 56px; height: 56px; border-color: rgba(44,182,125,0.7); }
-}
-@media (prefers-reduced-motion: reduce) {
-  body.has-ai-cursor { cursor: auto; }
-  .ai-cursor, .ai-cursor-ring { display: none !important; }
-}
-
 /* ---- Magnetic / haptic feedback for buttons ---- */
 .btn, .filter-btn, .social-link, .offer-cta, .quick-route { will-change: transform; }
 .btn:active, .filter-btn:active, .social-link:active,
@@ -305,86 +272,158 @@ html[data-theme="light"] .ai-terminal { background: rgba(20, 24, 40, 0.92); }
   .moi-mascot, .moi-trail { display: none !important; }
 }
 
-/* Анимации тела — общая «дышащая» пульсация антенны на голове */
-.mascot-antenna { transform-origin: 28px 8px; animation: moi-pulse 1.4s ease-in-out infinite; }
-.mascot-halo { transform-origin: 28px 14px; animation: moi-halo 2.2s ease-out infinite; transform-box: fill-box; }
+/* Анимации общие */
+.mascot-antenna { transform-origin: 28px 8px; transform-box: fill-box; animation: moi-pulse 1.4s ease-in-out infinite; }
+.mascot-halo { transform-origin: 28px 12px; transform-box: fill-box; animation: moi-halo 2.2s ease-out infinite; }
 
-/* IDLE — танцует: корпус качается, руки в сторону вверх, подпрыгивает */
-.moi-mascot[data-state="idle"] .mascot-body { animation: moi-dance-bob 1.6s ease-in-out infinite; transform-origin: 28px 70px; }
-.moi-mascot[data-state="idle"] .arm-l { transform-origin: 28px 30px; animation: moi-dance-arm-l 1.6s ease-in-out infinite; }
-.moi-mascot[data-state="idle"] .arm-r { transform-origin: 28px 30px; animation: moi-dance-arm-r 1.6s ease-in-out infinite; }
-.moi-mascot[data-state="idle"] .leg-l { transform-origin: 28px 50px; animation: moi-dance-leg-l 1.6s ease-in-out infinite; }
-.moi-mascot[data-state="idle"] .leg-r { transform-origin: 28px 50px; animation: moi-dance-leg-r 1.6s ease-in-out infinite; }
+/* Шарниры суставов (transform-box: fill-box → координаты в локальной системе SVG) */
+.upper-arm-l { transform-origin: 23px 20px; transform-box: fill-box; }
+.forearm-l   { transform-origin: 18px 29px; transform-box: fill-box; }
+.upper-arm-r { transform-origin: 33px 20px; transform-box: fill-box; }
+.forearm-r   { transform-origin: 38px 29px; transform-box: fill-box; }
+.thigh-l     { transform-origin: 24px 30px; transform-box: fill-box; }
+.shin-l      { transform-origin: 21px 44px; transform-box: fill-box; }
+.thigh-r     { transform-origin: 32px 30px; transform-box: fill-box; }
+.shin-r      { transform-origin: 35px 44px; transform-box: fill-box; }
+.mascot-character { transform-origin: 28px 60px; transform-box: fill-box; }
 
-/* RUNNING — бежит: ноги/руки противофазно, корпус подпрыгивает */
-.moi-mascot[data-state="running"] .mascot-body { animation: moi-run-bob 0.36s ease-in-out infinite; transform-origin: 28px 70px; }
-.moi-mascot[data-state="running"] .arm-l { transform-origin: 28px 30px; animation: moi-run-arm-l 0.36s ease-in-out infinite; }
-.moi-mascot[data-state="running"] .arm-r { transform-origin: 28px 30px; animation: moi-run-arm-r 0.36s ease-in-out infinite; }
-.moi-mascot[data-state="running"] .leg-l { transform-origin: 28px 50px; animation: moi-run-leg-l 0.36s ease-in-out infinite; }
-.moi-mascot[data-state="running"] .leg-r { transform-origin: 28px 50px; animation: moi-run-leg-r 0.36s ease-in-out infinite; }
+/* IDLE — длинная танцевальная программа: руки, ноги, кружение, прыжок */
+.moi-mascot[data-state="idle"] .mascot-character { animation: moi-dance-body 6s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .upper-arm-l { animation: moi-dance-uarm-l 3s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .upper-arm-r { animation: moi-dance-uarm-r 3s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .forearm-l   { animation: moi-dance-farm   1.2s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .forearm-r   { animation: moi-dance-farm-r 1.2s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .thigh-l     { animation: moi-dance-thigh-l 2s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .thigh-r     { animation: moi-dance-thigh-r 2s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .shin-l      { animation: moi-dance-shin   1s ease-in-out infinite; }
+.moi-mascot[data-state="idle"] .shin-r      { animation: moi-dance-shin-r 1s ease-in-out infinite; }
 
-/* Прыжок при «приземлении» в курсор */
-.moi-mascot.is-landing .mascot-body { animation: moi-jump 0.42s cubic-bezier(.4,0,.2,1); transform-origin: 28px 70px; }
-@keyframes moi-jump {
+/* RUNNING — бежит: высокое колено, сгиб голени, активный взмах рук */
+.moi-mascot[data-state="running"] .mascot-character { animation: moi-run-body 0.42s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .upper-arm-l { animation: moi-run-uarm-l 0.42s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .upper-arm-r { animation: moi-run-uarm-r 0.42s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .forearm-l   { animation: moi-run-farm-l 0.42s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .forearm-r   { animation: moi-run-farm-r 0.42s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .thigh-l     { animation: moi-run-thigh-l 0.42s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .thigh-r     { animation: moi-run-thigh-r 0.42s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .shin-l      { animation: moi-run-shin-l  0.42s ease-in-out infinite; }
+.moi-mascot[data-state="running"] .shin-r      { animation: moi-run-shin-r  0.42s ease-in-out infinite; }
+
+/* Большой прыжок-приземление при добегании */
+.moi-mascot.is-landing .mascot-character { animation: moi-big-jump 0.8s cubic-bezier(.34,1.56,.64,1) !important; }
+@keyframes moi-big-jump {
   0%   { transform: translateY(0) scale(1, 1); }
-  35%  { transform: translateY(-12px) scale(0.95, 1.08); }
-  65%  { transform: translateY(0) scale(1.1, 0.92); }
+  20%  { transform: translateY(-24px) scale(0.85, 1.18); }
+  55%  { transform: translateY(-14px) scale(1.05, 0.95); }
+  82%  { transform: translateY(0) scale(1.2, 0.78); }
   100% { transform: translateY(0) scale(1, 1); }
 }
 
-/* Светлая тема — слегка приглушённая тень */
+/* Светлая тема — приглушённая тень */
 html[data-theme="light"] .moi-mascot { filter: drop-shadow(0 3px 6px rgba(60, 70, 100, 0.2)); }
 html[data-theme="light"] .moi-trail line { opacity: 0.28; }
 
 /* ---- keyframes ---- */
 @keyframes moi-pulse {
   0%, 100% { transform: scale(1); opacity: 1; }
-  50%      { transform: scale(1.18); opacity: 0.85; }
+  50%      { transform: scale(1.2); opacity: 0.85; }
 }
 @keyframes moi-halo {
-  0%   { r: 9; opacity: 0.55; }
-  70%  { r: 16; opacity: 0; }
-  100% { r: 16; opacity: 0; }
+  0%   { transform: scale(1);   opacity: 0.55; }
+  70%  { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
 }
-@keyframes moi-dance-bob {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  25%      { transform: translateY(-3px) rotate(2deg); }
-  50%      { transform: translateY(-6px) rotate(0deg); }
-  75%      { transform: translateY(-3px) rotate(-2deg); }
+
+/* IDLE: длинный танец 6s — bob, наклоны, спин в конце цикла */
+@keyframes moi-dance-body {
+  0%   { transform: translateY(0) rotate(0deg); }
+  10%  { transform: translateY(-3px) rotate(-4deg); }
+  20%  { transform: translateY(0) rotate(4deg); }
+  30%  { transform: translateY(-3px) rotate(-4deg); }
+  40%  { transform: translateY(-2px) rotate(0deg); }
+  55%  { transform: translateY(-10px) rotate(0deg); } /* мини-прыжок */
+  65%  { transform: translateY(0) rotate(0deg); }
+  78%  { transform: translateY(0) rotate(180deg); }    /* кружение */
+  90%  { transform: translateY(-2px) rotate(360deg); }
+  100% { transform: translateY(0) rotate(360deg); }
 }
-@keyframes moi-dance-arm-l {
-  0%, 100% { transform: rotate(20deg); }
-  50%      { transform: rotate(-65deg); }
+@keyframes moi-dance-uarm-l {
+  0%, 100% { transform: rotate(0deg); }
+  20%      { transform: rotate(-110deg); } /* рука вверх */
+  40%      { transform: rotate(40deg); }   /* в сторону вниз */
+  60%      { transform: rotate(-60deg); }
+  80%      { transform: rotate(20deg); }
 }
-@keyframes moi-dance-arm-r {
-  0%, 100% { transform: rotate(-20deg); }
-  50%      { transform: rotate(65deg); }
+@keyframes moi-dance-uarm-r {
+  0%, 100% { transform: rotate(0deg); }
+  20%      { transform: rotate(60deg); }   /* в сторону */
+  40%      { transform: rotate(110deg); }  /* рука вверх (зеркально) */
+  60%      { transform: rotate(20deg); }
+  80%      { transform: rotate(-40deg); }
 }
-@keyframes moi-dance-leg-l {
-  0%, 100% { transform: rotate(-8deg); }
-  50%      { transform: rotate(8deg); }
+@keyframes moi-dance-farm {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-50deg); }  /* сгиб локтя */
 }
-@keyframes moi-dance-leg-r {
-  0%, 100% { transform: rotate(8deg); }
-  50%      { transform: rotate(-8deg); }
+@keyframes moi-dance-farm-r {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(50deg); }
 }
-@keyframes moi-run-bob {
+@keyframes moi-dance-thigh-l {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(-15deg); }
+  50%      { transform: rotate(0deg); }
+  75%      { transform: rotate(10deg); }
+}
+@keyframes moi-dance-thigh-r {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(15deg); }
+  50%      { transform: rotate(0deg); }
+  75%      { transform: rotate(-10deg); }
+}
+@keyframes moi-dance-shin {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-40deg); } /* колено сгибается */
+}
+@keyframes moi-dance-shin-r {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(40deg); }
+}
+
+/* RUNNING: высокое колено + сгиб голени */
+@keyframes moi-run-body {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-3px); }
 }
-@keyframes moi-run-arm-l {
-  0%, 100% { transform: rotate(45deg); }
-  50%      { transform: rotate(-45deg); }
+@keyframes moi-run-uarm-l {
+  0%, 100% { transform: rotate(50deg); }
+  50%      { transform: rotate(-30deg); }
 }
-@keyframes moi-run-arm-r {
-  0%, 100% { transform: rotate(-45deg); }
-  50%      { transform: rotate(45deg); }
+@keyframes moi-run-uarm-r {
+  0%, 100% { transform: rotate(-50deg); }
+  50%      { transform: rotate(30deg); }
 }
-@keyframes moi-run-leg-l {
-  0%, 100% { transform: rotate(-35deg); }
-  50%      { transform: rotate(35deg); }
+@keyframes moi-run-farm-l {
+  0%, 100% { transform: rotate(-60deg); }
+  50%      { transform: rotate(-100deg); }
 }
-@keyframes moi-run-leg-r {
-  0%, 100% { transform: rotate(35deg); }
-  50%      { transform: rotate(-35deg); }
+@keyframes moi-run-farm-r {
+  0%, 100% { transform: rotate(60deg); }
+  50%      { transform: rotate(100deg); }
+}
+@keyframes moi-run-thigh-l {
+  0%, 100% { transform: rotate(-30deg); }
+  50%      { transform: rotate(40deg); }   /* высокое колено */
+}
+@keyframes moi-run-thigh-r {
+  0%, 100% { transform: rotate(40deg); }
+  50%      { transform: rotate(-30deg); }
+}
+@keyframes moi-run-shin-l {
+  0%, 100% { transform: rotate(60deg); }   /* голень согнута назад */
+  50%      { transform: rotate(0deg); }    /* выпрямлена */
+}
+@keyframes moi-run-shin-r {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(60deg); }
 }

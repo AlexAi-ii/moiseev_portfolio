@@ -44,58 +44,6 @@
     else nav.appendChild(btn);
   }
 
-  /* ---------- AI custom cursor + magnetic ---------- */
-  function initCursor() {
-    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    document.body.classList.add('has-ai-cursor');
-    var dot = document.createElement('div');
-    dot.className = 'ai-cursor';
-    var ring = document.createElement('div');
-    ring.className = 'ai-cursor-ring';
-    document.body.appendChild(dot);
-    document.body.appendChild(ring);
-
-    var x = window.innerWidth / 2, y = window.innerHeight / 2;
-    var rx = x, ry = y;
-    var raf = null;
-
-    document.addEventListener('mousemove', function (e) {
-      x = e.clientX; y = e.clientY;
-      dot.style.transform = 'translate(' + x + 'px,' + y + 'px) translate(-50%,-50%)';
-      if (!raf) raf = requestAnimationFrame(loop);
-    });
-    function loop() {
-      rx += (x - rx) * 0.18;
-      ry += (y - ry) * 0.18;
-      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
-      if (Math.abs(x - rx) > 0.4 || Math.abs(y - ry) > 0.4) {
-        raf = requestAnimationFrame(loop);
-      } else { raf = null; }
-    }
-
-    var hoverSel = 'a, button, .btn, [data-tilt], .case-card, .project-card, .gallery-item, .filter-btn, .quick-route, .social-link, .theme-toggle, .lang-select, input, select, textarea';
-    document.addEventListener('mouseover', function (e) {
-      if (e.target.closest(hoverSel)) {
-        dot.classList.add('is-active');
-        ring.classList.add('is-active');
-      }
-    });
-    document.addEventListener('mouseout', function (e) {
-      if (e.target.closest(hoverSel)) {
-        dot.classList.remove('is-active');
-        ring.classList.remove('is-active');
-      }
-    });
-    document.addEventListener('mouseleave', function () {
-      dot.style.opacity = '0'; ring.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', function () {
-      dot.style.opacity = '1'; ring.style.opacity = '1';
-    });
-  }
-
   /* ---------- AI terminal (typewriter) ---------- */
   function initTerminal() {
     var term = document.querySelector('.ai-terminal-body');
@@ -180,24 +128,48 @@
     wrap.className = 'moi-mascot';
     wrap.setAttribute('aria-hidden', 'true');
     wrap.dataset.state = 'idle';
+    // Скелет с шарнирами (локти, колени) — вложенные SVG-группы для двойного rotate.
+    // Шеи нет, тело — короткая ось от плеч (y=20) до таза (y=30). Анфас.
     wrap.innerHTML = ''
       + '<svg viewBox="0 0 56 76">'
-      +   '<g class="mascot-body" stroke="#7f5af0" stroke-width="3" stroke-linecap="round" fill="none">'
-      +     // антенна + лампочка-«мысль» (AI)
-      +     '<line class="mascot-antenna" x1="28" y1="13" x2="28" y2="5"/>'
-      +     '<circle class="mascot-bulb" cx="28" cy="3" r="2" fill="#2cb67d" stroke="none"/>'
-      +     // голова — кружок без лица (фронтальный вид)
-      +     '<circle class="mascot-head" cx="28" cy="14" r="7" fill="#7f5af0" stroke="none"/>'
-      +     // halo-волна вокруг головы (idle)
-      +     '<circle class="mascot-halo" cx="28" cy="14" r="10" stroke="#7f5af0" stroke-width="1" fill="none" opacity="0"/>'
-      +     // тело (короткая ось от плеч до таза)
-      +     '<line class="mascot-spine" x1="28" y1="22" x2="28" y2="44"/>'
-      +     // руки — широко в стороны (анфас): от плеча (28,28) к ладоням
-      +     '<line class="arm arm-l" x1="28" y1="28" x2="11" y2="42"/>'
-      +     '<line class="arm arm-r" x1="28" y1="28" x2="45" y2="42"/>'
-      +     // ноги — от таза (28,44) широко в стороны
-      +     '<line class="leg leg-l" x1="28" y1="44" x2="17" y2="66"/>'
-      +     '<line class="leg leg-r" x1="28" y1="44" x2="39" y2="66"/>'
+      +   '<g class="mascot-character" stroke="#7f5af0" stroke-width="3" stroke-linecap="round" fill="none">'
+      +     // антенна + лампочка
+      +     '<line class="mascot-antenna" x1="28" y1="9" x2="28" y2="3"/>'
+      +     '<circle class="mascot-bulb" cx="28" cy="2" r="1.8" fill="#2cb67d" stroke="none"/>'
+      +     // голова
+      +     '<circle class="mascot-head" cx="28" cy="11" r="6" fill="#7f5af0" stroke="none"/>'
+      +     // halo вокруг головы (idle pulse)
+      +     '<circle class="mascot-halo" cx="28" cy="11" r="6" stroke="#7f5af0" stroke-width="1" fill="none" opacity="0"/>'
+      +     // короткое тело (плечи 20 — таз 30)
+      +     '<line class="mascot-spine" x1="28" y1="17" x2="28" y2="30"/>'
+      +     // ЛЕВАЯ РУКА: плечо (23,20) → локоть (18,29) → кисть (14,38)
+      +     '<g class="upper-arm-l">'
+      +       '<line x1="23" y1="20" x2="18" y2="29"/>'
+      +       '<g class="forearm-l">'
+      +         '<line x1="18" y1="29" x2="14" y2="38"/>'
+      +       '</g>'
+      +     '</g>'
+      +     // ПРАВАЯ РУКА: плечо (33,20) → локоть (38,29) → кисть (42,38)
+      +     '<g class="upper-arm-r">'
+      +       '<line x1="33" y1="20" x2="38" y2="29"/>'
+      +       '<g class="forearm-r">'
+      +         '<line x1="38" y1="29" x2="42" y2="38"/>'
+      +       '</g>'
+      +     '</g>'
+      +     // ЛЕВАЯ НОГА: бедро (24,30) → колено (21,44) → ступня (18,58)
+      +     '<g class="thigh-l">'
+      +       '<line x1="24" y1="30" x2="21" y2="44"/>'
+      +       '<g class="shin-l">'
+      +         '<line x1="21" y1="44" x2="18" y2="58"/>'
+      +       '</g>'
+      +     '</g>'
+      +     // ПРАВАЯ НОГА: бедро (32,30) → колено (35,44) → ступня (38,58)
+      +     '<g class="thigh-r">'
+      +       '<line x1="32" y1="30" x2="35" y2="44"/>'
+      +       '<g class="shin-r">'
+      +         '<line x1="35" y1="44" x2="38" y2="58"/>'
+      +       '</g>'
+      +     '</g>'
       +   '</g>'
       + '</svg>';
     document.body.appendChild(wrap);
@@ -251,7 +223,7 @@
       clearTimeout(landingTimer);
       landingTimer = setTimeout(function () {
         wrap.classList.remove('is-landing');
-      }, 460);
+      }, 820);
     }
 
     function loop() {
@@ -262,9 +234,9 @@
       var dy = mouseY - posY;
       var dist = Math.hypot(dx, dy);
 
-      // Очень плавный lerp — маскот не должен догонять моментально.
-      // База 0.018 (~5x медленнее прежней). Чуть ускоряемся при большом дистанции.
-      var lerp = 0.018 + Math.min(0.022, dist / 8000);
+      // Очень плавный lerp — маскот не должен догонять быстро.
+      // 0.011 базово + лёгкое ускорение при большой дистанции (cap 0.014).
+      var lerp = 0.011 + Math.min(0.014, dist / 14000);
       posX += dx * lerp;
       posY += dy * lerp;
 
@@ -307,13 +279,11 @@
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       buildThemeToggle();
-      initCursor();
       initTerminal();
       initMascot();
     });
   } else {
     buildThemeToggle();
-    initCursor();
     initTerminal();
     initMascot();
   }
