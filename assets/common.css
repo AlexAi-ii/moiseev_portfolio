@@ -284,21 +284,9 @@ html[data-theme="light"] .ai-terminal { background: rgba(20, 24, 40, 0.92); }
   .moi-mascot, .moi-corner-mascot { display: none !important; }
 }
 
-/* Halo — кольцо от головы наружу с увеличением и затуханием.
-   Идёт волной от головы и растворяется. Применяется к курсорному
-   в idle и к угловому всегда. У бегущего курсорного — скрыт. */
-.mascot-halo {
-  transform-origin: 28px 14px;
-  transform-box: fill-box;
-}
-.moi-mascot[data-state="idle"] .mascot-halo,
-.moi-corner-mascot .mascot-halo {
-  animation: moi-halo 2.2s ease-out infinite;
-}
-.moi-mascot[data-state="running"] .mascot-halo {
-  opacity: 0 !important;
-  animation: none !important;
-}
+/* Halo управляется из JS через SVG transform/opacity-атрибуты.
+   CSS animation не используется: transform-box: fill-box ненадёжен
+   в мобильных Safari, и halo там просто не показывался. */
 
 /* Светлая тема — приглушённая тень */
 html[data-theme="light"] .moi-mascot,

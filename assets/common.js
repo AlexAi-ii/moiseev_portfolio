@@ -151,6 +151,7 @@
   function getMascotRefs(wrap) {
     return {
       character: wrap.querySelector('.mascot-character'),
+      halo:   wrap.querySelector('.mascot-halo'),
       uArmL:  wrap.querySelector('.upper-arm-l'),
       fArmL:  wrap.querySelector('.forearm-l'),
       uArmR:  wrap.querySelector('.upper-arm-r'),
@@ -163,6 +164,25 @@
   }
   function setRot(node, deg, hinge) {
     node.setAttribute('transform', 'rotate(' + deg.toFixed(1) + ' ' + hinge + ')');
+  }
+
+  // Halo: расходится от головы наружу с затуханием. Управляем через SVG-атрибуты,
+  // потому что CSS transform-box: fill-box не работает на iOS Safari.
+  // visible=false → halo скрыт (бегущий курсорный).
+  function updateHalo(haloEl, now, visible) {
+    if (!haloEl) return;
+    if (!visible) {
+      haloEl.setAttribute('opacity', '0');
+      return;
+    }
+    var phase = (now % 2200) / 2200;          // 0..1, 2.2 сек
+    var s = 1 + 1.2 * phase;                  // 1 → 2.2
+    var op = phase < 0.7 ? 0.55 * (1 - phase / 0.7) : 0;
+    // scale вокруг (28,14): translate(c - c*s) scale(s)
+    var tx = 28 - 28 * s;
+    var ty = 14 - 14 * s;
+    haloEl.setAttribute('transform', 'translate(' + tx.toFixed(2) + ' ' + ty.toFixed(2) + ') scale(' + s.toFixed(3) + ')');
+    haloEl.setAttribute('opacity', op.toFixed(3));
   }
 
   // Поза = объект целевых углов суставов + transform корпуса.
@@ -547,6 +567,8 @@
         'rotateZ(' + tilt.toFixed(1) + 'deg) ' +
         'scaleX(' + lastDirX + ')';
 
+      updateHalo(refs.halo, now, state === 'idle');
+
       requestAnimationFrame(loop);
     }
     nextPose();
@@ -837,6 +859,9 @@
           'translate3d(' + px.toFixed(1) + 'px,' + rc.top.toFixed(1) + 'px,0) ' +
           'translate(-50%,-54%) scaleX(' + sx + ')';
       }
+
+      // Halo: всегда видим у углового, кроме момента walking
+      updateHalo(refs.halo, now, state === 'sitting');
 
       requestAnimationFrame(loop);
     }
