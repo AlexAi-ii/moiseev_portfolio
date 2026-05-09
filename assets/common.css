@@ -283,31 +283,35 @@ html[data-theme="light"] .ai-terminal { background: rgba(20, 24, 40, 0.92); }
   .moi-mascot, .moi-corner-mascot { display: none !important; }
 }
 
-/* Halo — статичное кольцо вокруг головы, без пульсации.
+/* Halo — мягко «дышит»: маленькая амплитуда, без затухания до 0.
    Видно у курсорного в idle и у углового всегда. У бегущего курсорного — скрыт. */
 .mascot-halo {
   transform-origin: 28px 14px;
   transform-box: fill-box;
-  transition: opacity .3s ease, transform .3s ease;
 }
 .moi-mascot[data-state="idle"] .mascot-halo,
 .moi-corner-mascot .mascot-halo {
-  opacity: 0.5;
-  transform: scale(1.45);
+  animation: moi-halo-breathe 2.6s ease-in-out infinite;
 }
 .moi-mascot[data-state="running"] .mascot-halo {
   opacity: 0 !important;
-  transform: scale(1);
+  animation: none !important;
 }
 
 /* Светлая тема — приглушённая тень */
 html[data-theme="light"] .moi-mascot,
 html[data-theme="light"] .moi-corner-mascot { filter: drop-shadow(0 3px 6px rgba(60, 70, 100, 0.2)); }
 
+/* Старый keyframes оставлен на случай — но он давал резкий «пульс». */
 @keyframes moi-halo {
   0%   { transform: scale(1);   opacity: 0.55; }
   70%  { transform: scale(2.2); opacity: 0; }
   100% { transform: scale(2.2); opacity: 0; }
+}
+/* Мягкое дыхание: edge-to-edge плавное расширение и сжатие, всегда видимое */
+@keyframes moi-halo-breathe {
+  0%, 100% { transform: scale(1.35); opacity: 0.40; }
+  50%      { transform: scale(1.60); opacity: 0.65; }
 }
 
 /* ============================================================
