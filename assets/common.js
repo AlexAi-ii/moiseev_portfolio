@@ -846,19 +846,6 @@
     }, 800);
   }
 
-  /* ---------- Прогресс-бар: переносим внутрь шапки ----------
-     В исходных HTML #progress-bar лежит сразу за <body> на самом верху.
-     Из-за этого в светлой теме между прогрессом и текстом шапки видна
-     белая полоса. Перемещаем его внутрь <header> — теперь он на нижней
-     кромке шапки и «лежит» на её градиенте. */
-  function relocateProgressBar() {
-    var bar = document.getElementById('progress-bar');
-    var header = document.querySelector('header');
-    if (!bar || !header) return;
-    if (bar.parentElement === header) return;
-    header.appendChild(bar);
-  }
-
   /* ---------- Mobile nav: бургер + выезжающая панель ---------- */
   function setupMobileNav() {
     var nav = document.querySelector('header nav');
@@ -929,7 +916,6 @@
   initTheme();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
-      relocateProgressBar();
       buildThemeToggle();
       setupMobileNav();
       initTerminal();
@@ -937,7 +923,6 @@
       initCornerMascot();
     });
   } else {
-    relocateProgressBar();
     buildThemeToggle();
     setupMobileNav();
     initTerminal();

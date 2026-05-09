@@ -27,13 +27,14 @@ html[data-theme="light"] body {
               var(--bg) !important;
   color: var(--text) !important;
 }
-/* Шапка в светлой теме — полупрозрачная, чтобы прогресс-бар сверху не казался
-   отдельной полосой над «толстой белой шапкой», а лежал на общем градиенте. */
+/* Шапка в светлой теме — фон полностью прозрачный, видно тот же
+   градиентный фон body. Так наверху не образуется «белая плашка»
+   между прогресс-баром и контентом — он лежит на общем градиенте. */
 html[data-theme="light"] header {
-  background: rgba(255, 255, 255, 0.55) !important;
-  backdrop-filter: blur(24px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-  box-shadow: 0 1px 0 rgba(127, 90, 240, 0.12) !important;
+  background: transparent !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  box-shadow: 0 1px 0 rgba(127, 90, 240, 0.10) !important;
 }
 html[data-theme="light"] footer { background: rgba(240, 242, 248, 0.95) !important; }
 html[data-theme="light"] .particle { opacity: 0.18 !important; }
@@ -457,20 +458,5 @@ header nav.is-open .nav-burger span:nth-child(3) { top: 18px; transform: rotate(
   header .brand span { display: none !important; }
 }
 
-/* ============================================================
-   Прогресс-бар — внутри шапки, на её нижней кромке.
-   Изначально он лежал на самом верху страницы, и в светлой теме
-   между ним и текстом шапки оставалась видимая белая полоска.
-   Теперь прогресс ходит «по самой шапке» — на её градиенте.
-   ============================================================ */
-header { position: sticky; }
-header #progress-bar {
-  position: absolute !important;
-  top: auto !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  height: 3px !important;
-  z-index: 2 !important;
-  box-shadow: none !important;
-  pointer-events: none;
-}
+/* Прогресс-бар оставляем на самом верху страницы (исходное поведение).
+   Белая «полоса» под ним убирается через прозрачную шапку выше. */
