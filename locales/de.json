@@ -164,6 +164,14 @@
     "routeAgencies": "🏢 Für Agenturen",
     "routeSmb": "🏪 Für Kleinunternehmen",
     "photoSoon": "Foto kommt bald",
+    "segmentLabels": {
+      "smb": "Kleinunternehmen",
+      "personal": "Privatnutzung",
+      "agencies": "Agenturen",
+      "paid": "Bezahldienst",
+      "hr": "HR & Recruiting",
+      "internal": "Interne Prozesse"
+    },
     "projects": [
       {
         "name": "Tischbuchung 24/7 für Billardklub",

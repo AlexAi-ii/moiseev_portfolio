@@ -164,6 +164,14 @@
     "routeAgencies": "🏢 For Agencies",
     "routeSmb": "🏪 For Small Business",
     "photoSoon": "Photo coming soon",
+    "segmentLabels": {
+      "smb": "Small Business",
+      "personal": "Personal Use",
+      "agencies": "Agencies",
+      "paid": "Paid Service",
+      "hr": "HR & Recruiting",
+      "internal": "Internal Processes"
+    },
     "projects": [
       {"name": "Table Booking 24/7 for Billiard Club", "desc": "Telegram bot with calendar, payments and notifications", "metric": "40% admin load reduction"},
       {"name": "AI Assistant for Tasks, Email & Calendar", "desc": "Personal planner in Telegram with voice control", "metric": "2+ hours saved daily"},

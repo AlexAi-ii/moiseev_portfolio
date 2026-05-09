@@ -256,6 +256,30 @@
       return v !== null ? v : projects[idx][field];
     }
 
+    // В S3 файлы обложек лежат как {slug}/{slug}_cover.png. В projects.json и в fallback-массиве
+    // исторически записаны битые пути {slug}/cover.png — поэтому собираем URL сами из slug.
+    function coverUrl(slug) {
+      return S3_BASE + slug + '/' + slug + '_cover.png';
+    }
+
+    // Маппинг русских названий бизнес-сегментов на ключи перевода.
+    const SEGMENT_KEY_BY_RU = {
+      'Малый бизнес': 'smb',
+      'Частное использование': 'personal',
+      'Агентства': 'agencies',
+      'Платный сервис': 'paid',
+      'HR и рекрутинг': 'hr',
+      'Внутренние процессы': 'internal'
+    };
+    function segmentLabel(p) {
+      const key = p.segmentKey || SEGMENT_KEY_BY_RU[p.segment];
+      if (key && window._moiResolve) {
+        const v = window._moiResolve('projects.segmentLabels.' + key);
+        if (v) return v;
+      }
+      return p.segment || '';
+    }
+
     function getPhotoSoon() {
       const v = (window._moiResolve && window._moiResolve('projects.photoSoon'));
       return v || 'Фото скоро появится';
@@ -279,16 +303,20 @@
         card.setAttribute('data-aos-delay', (i * 50).toString());
 
         const tagsHTML = p.tags.map(t => `<span class="card-tag">${t}</span>`).join('');
-        const segHTML = p.segment ? `<span class="card-segment">${p.segment}</span>` : '';
+        const segLabel = segmentLabel(p);
+        const segHTML = segLabel ? `<span class="card-segment">${segLabel}</span>` : '';
 
         const name = projectText(origIdx, 'name');
         const subtitle = projectText(origIdx, 'desc');
         const metric = projectText(origIdx, 'metric');
 
+        // Реальный путь обложки в S3 — собираем сами из slug, игнорируя возможно битый img из projects.json.
+        const coverSrc = coverUrl(p.slug);
+
         // Если фото нет (hasImage=false) или картинка не загрузилась — показываем placeholder
         const imageHTML = p.hasImage === false
           ? `<div class="card-image empty" data-editable="Moiseev/portfolio/${p.slug}/${p.slug}_cover.png">${photoSoon}</div>`
-          : `<div class="card-image"><img src="${p.img}" alt="${name}" loading="lazy" data-editable="Moiseev/portfolio/${p.slug}/${p.slug}_cover.png"
+          : `<div class="card-image"><img src="${coverSrc}" alt="${name}" loading="lazy" data-editable="Moiseev/portfolio/${p.slug}/${p.slug}_cover.png"
                 onerror="this.parentElement.classList.add('empty');this.parentElement.innerHTML=${JSON.stringify(photoSoon)};"></div>`;
 
         card.innerHTML = `

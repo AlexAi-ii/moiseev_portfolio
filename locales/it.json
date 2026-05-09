@@ -164,6 +164,14 @@
     "routeAgencies": "🏢 Per le agenzie",
     "routeSmb": "🏪 Per le PMI",
     "photoSoon": "Foto in arrivo",
+    "segmentLabels": {
+      "smb": "Piccole imprese",
+      "personal": "Uso personale",
+      "agencies": "Agenzie",
+      "paid": "Servizio a pagamento",
+      "hr": "HR e Recruiting",
+      "internal": "Processi interni"
+    },
     "projects": [
       {
         "name": "Prenotazione tavoli 24/7 per club di biliardo",

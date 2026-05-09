@@ -164,6 +164,14 @@
     "routeAgencies": "🏢 Para agencias",
     "routeSmb": "🏪 Para PyMEs",
     "photoSoon": "Foto próximamente",
+    "segmentLabels": {
+      "smb": "Pequeña empresa",
+      "personal": "Uso personal",
+      "agencies": "Agencias",
+      "paid": "Servicio de pago",
+      "hr": "RR.HH. y selección",
+      "internal": "Procesos internos"
+    },
     "projects": [
       {
         "name": "Reserva de mesas 24/7 para club de billar",
