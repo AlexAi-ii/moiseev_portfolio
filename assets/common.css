@@ -141,6 +141,31 @@ html[data-theme="light"] .btn-secondary:hover { background: rgba(127, 90, 240, 0
 .theme-toggle:hover { border-color: var(--primary, #7f5af0); color: var(--primary, #7f5af0); transform: rotate(20deg); }
 .theme-toggle:active { transform: scale(0.92) rotate(20deg); }
 
+/* ---- Иконки-эмодзи в заголовках секций — обёртка-бейдж ----
+   Чтобы пиктограммки (💼, 🎓, 📚, 🛠️ и т.п.) хорошо читались в обеих темах.
+   Применяется и в тёмной, и в светлой — даёт стабильный визуальный якорь. */
+.section-card h2 .icon,
+.psr-icon,
+.tech-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'EmojiOne Color', sans-serif;
+  background: linear-gradient(135deg, rgba(127, 90, 240, 0.18), rgba(44, 182, 125, 0.12));
+  border: 1px solid rgba(127, 90, 240, 0.35);
+  border-radius: 12px;
+  line-height: 1;
+}
+.section-card h2 .icon { width: 46px; height: 46px; font-size: 1.5rem; flex-shrink: 0; }
+.tech-icon { width: 56px; height: 56px; font-size: 1.8rem; margin: 0 auto 10px; }
+.psr-icon { width: 40px; height: 40px; font-size: 1.3rem; margin-right: 8px; }
+html[data-theme="light"] .section-card h2 .icon,
+html[data-theme="light"] .psr-icon,
+html[data-theme="light"] .tech-icon {
+  background: linear-gradient(135deg, #ece4ff, #d6f0e2);
+  border-color: rgba(127, 90, 240, 0.35);
+}
+
 /* ---- AI-themed custom cursor ----
    Скрыт на тач-устройствах и при prefers-reduced-motion. */
 @media (hover: hover) and (pointer: fine) {
