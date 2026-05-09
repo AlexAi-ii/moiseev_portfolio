@@ -284,10 +284,12 @@ html[data-theme="light"] .ai-terminal { background: rgba(20, 24, 40, 0.92); }
 }
 
 /* Halo — мягко «дышит»: маленькая амплитуда, без затухания до 0.
-   Видно у курсорного в idle и у углового всегда. У бегущего курсорного — скрыт. */
+   В SVG-разметке у круга стоит opacity="0" (presentation attribute) —
+   перебиваем его CSS-свойством, иначе кольцо не видно вовсе. */
 .mascot-halo {
   transform-origin: 28px 14px;
   transform-box: fill-box;
+  opacity: 0.5;
 }
 .moi-mascot[data-state="idle"] .mascot-halo,
 .moi-corner-mascot .mascot-halo {
