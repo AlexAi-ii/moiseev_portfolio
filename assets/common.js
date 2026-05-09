@@ -135,7 +135,6 @@
       '<svg viewBox="0 0 56 70">',
         '<g class="mascot-character" stroke="#7f5af0" stroke-width="2.6" stroke-linecap="round" fill="none">',
           '<line class="mascot-antenna" x1="28" y1="9" x2="28" y2="4"/>',
-          '<circle class="mascot-bulb" cx="28" cy="3" r="1.5" fill="#2cb67d" stroke="none"/>',
           '<circle class="mascot-head" cx="28" cy="14" r="5" fill="#7f5af0" stroke="none"/>',
           '<circle class="mascot-halo" cx="28" cy="14" r="5" stroke="#7f5af0" stroke-width="1" fill="none" opacity="0"/>',
           '<line class="mascot-spine" x1="28" y1="19" x2="28" y2="38"/>',
@@ -161,6 +160,7 @@
 
     // Ссылки на шарниры
     var refs = {
+      character: wrap.querySelector('.mascot-character'),
       uArmL:  wrap.querySelector('.upper-arm-l'),
       fArmL:  wrap.querySelector('.forearm-l'),
       uArmR:  wrap.querySelector('.upper-arm-r'),
@@ -222,28 +222,26 @@
       return 'idle';
     }
 
-    var landingTimer = null;
-    function triggerLanding() {
-      // мини-прыжок при добегании
-      wrap.classList.remove('is-landing');
-      // принудительный reflow, чтобы анимация перезапустилась
-      void wrap.offsetWidth;
-      wrap.classList.add('is-landing');
-      clearTimeout(landingTimer);
-      landingTimer = setTimeout(function () {
-        wrap.classList.remove('is-landing');
-      }, 820);
-    }
+    // Маскот стоит над курсором, чтобы стрелка не мешала.
+    var TARGET_OFFSET_Y = -34; // px над курсором
+
+    var runPhase = 0;          // накопленная фаза бега (живёт между кадрами)
+    var lastFrameT = performance.now();
 
     function loop() {
       var now = performance.now();
+      var dt = Math.min(0.05, (now - lastFrameT) / 1000); // защита от больших скачков
+      lastFrameT = now;
       if (now - lastMoveT > 100) speed *= 0.9;
 
-      var dx = mouseX - posX;
-      var dy = mouseY - posY;
+      // Цель преследования — НАД курсором (низ ступней почти на уровне курсора)
+      var targetX = mouseX;
+      var targetY = mouseY + TARGET_OFFSET_Y;
+
+      var dx = targetX - posX;
+      var dy = targetY - posY;
       var dist = Math.hypot(dx, dy);
 
-      // Очень плавный lerp.
       var lerp = 0.011 + Math.min(0.014, dist / 14000);
       posX += dx * lerp;
       posY += dy * lerp;
@@ -252,64 +250,94 @@
 
       var newState = pickState(now, dist);
       if (newState !== state) {
-        if (state === 'running' && newState === 'idle') triggerLanding();
         state = newState;
         stateStart = now;
         wrap.dataset.state = state;
       }
 
-      // === Анимация суставов через JS (надёжный способ для вложенных <g>) ===
-      var t = (now - stateStart) / 1000; // секунды с начала состояния
+      var t = (now - stateStart) / 1000;
 
       if (state === 'running') {
-        // Бег: цикл 0.42с → ω = 2π/0.42 ≈ 15
-        var run = t * 14;
-        var s = Math.sin(run);
-        var c = Math.cos(run);
+        // Частота и амплитуда движения зависят от того, как далеко курсор:
+        //   dist > 250 → полный бег (1.0)
+        //   dist ≈ 50  → шаг (~0.3)
+        var speedFactor = Math.max(0.25, Math.min(1, dist / 250));
+        var ampFactor = 0.55 + 0.45 * speedFactor;
+        // Накопленная фаза, чтобы при изменении частоты не было скачков
+        runPhase += dt * 8 * speedFactor;
+        var s = Math.sin(runPhase);
+        var c = Math.cos(runPhase);
 
-        // Бёдра: махают вперёд-назад противофазно (-30..+40°)
-        setRot(refs.thighL,  35 * s,        H.hipL);
-        setRot(refs.thighR, -35 * s,        H.hipR);
-        // Голени: согнуты когда нога позади (cos ≈ -1) → выпрямляются вперёд
-        setRot(refs.shinL,  Math.max(0, -50 * c) + 10, H.kneeL);
-        setRot(refs.shinR,  Math.max(0,  50 * c) + 10, H.kneeR);
-        // Руки: противофазно ногам, локти всегда согнуты на ~50°
-        setRot(refs.uArmL, -45 * s, H.shoulderL);
-        setRot(refs.uArmR,  45 * s, H.shoulderR);
-        setRot(refs.fArmL, -50,     H.elbowL);
-        setRot(refs.fArmR,  50,     H.elbowR);
+        setRot(refs.thighL,  35 * s * ampFactor,                          H.hipL);
+        setRot(refs.thighR, -35 * s * ampFactor,                          H.hipR);
+        setRot(refs.shinL,  Math.max(0, -50 * c) * ampFactor + 10,        H.kneeL);
+        setRot(refs.shinR,  Math.max(0,  50 * c) * ampFactor + 10,        H.kneeR);
+        setRot(refs.uArmL, -40 * s * ampFactor,                           H.shoulderL);
+        setRot(refs.uArmR,  40 * s * ampFactor,                           H.shoulderR);
+        setRot(refs.fArmL, -55 - 15 * s * ampFactor,                      H.elbowL);
+        setRot(refs.fArmR,  55 + 15 * s * ampFactor,                      H.elbowR);
       } else {
-        // IDLE: длинная танцевальная программа (несколько ритмов одновременно)
+        // IDLE: разнообразная программа — приседания, махи, кружение, зарядка
+        var t6 = t % 6; // повторяющийся 6-секундный «номер»
         var s1 = Math.sin(t * 1.6);
         var s2 = Math.sin(t * 2.4);
         var s3 = Math.sin(t * 0.9);
         var s4 = Math.sin(t * 1.2);
 
-        // Плечи — широкие махи туда-сюда (-90..+50°)
+        // Базовый танец — плечи, локти, бёдра, колени
         setRot(refs.uArmL, -50 + 60 * s1, H.shoulderL);
         setRot(refs.uArmR,  50 - 60 * s1, H.shoulderR);
-        // Локти — постоянно согнуты, ритм быстрее
         setRot(refs.fArmL, -40 - 35 * s2, H.elbowL);
         setRot(refs.fArmR,  40 + 35 * s2, H.elbowR);
-        // Бёдра — мягкое раскачивание
-        setRot(refs.thighL,  18 * s3, H.hipL);
-        setRot(refs.thighR, -18 * s3, H.hipR);
-        // Колени — приседания, синхронны (приплясывает)
+        setRot(refs.thighL,  18 * s3,     H.hipL);
+        setRot(refs.thighR, -18 * s3,     H.hipR);
         var kneeBend = 25 + 25 * s4;
-        setRot(refs.shinL,  kneeBend, H.kneeL);
-        setRot(refs.shinR,  kneeBend, H.kneeR);
+        setRot(refs.shinL, kneeBend, H.kneeL);
+        setRot(refs.shinR, kneeBend, H.kneeR);
+
+        // Дополнительные «фишки» по фазам цикла:
+        var bob = 0;     // подпрыгивание
+        var spin = 0;    // кружение
+        var squat = 0;   // приседание (углубляет колени)
+        if (t6 < 1.2) {
+          // 0-1.2с: приседания
+          squat = Math.max(0, Math.sin(t6 * Math.PI / 0.6)) * 35;
+        } else if (t6 < 2.4) {
+          // 1.2-2.4с: подпрыгивания
+          bob = Math.max(0, Math.sin((t6 - 1.2) * Math.PI / 0.4)) * 14;
+        } else if (t6 < 3.8) {
+          // 2.4-3.8с: кружение на 360° (зарядка)
+          spin = ((t6 - 2.4) / 1.4) * 360;
+        } else {
+          // 3.8-6с: махи и приплясывания (базовые анимации остаются)
+        }
+
+        // Применяем приседание поверх обычного танца коленей
+        if (squat > 0) {
+          setRot(refs.shinL, kneeBend + squat, H.kneeL);
+          setRot(refs.shinR, kneeBend + squat, H.kneeR);
+        }
+        // Bob (подпрыгивание) и spin (кружение) — на mascot-character.
+        // SVG transform: сначала translate, потом rotate вокруг центра фигуры.
+        refs.character.setAttribute(
+          'transform',
+          'translate(0 ' + (-bob).toFixed(1) + ') rotate(' + spin.toFixed(1) + ' 28 40)'
+        );
+      }
+      if (state === 'running') {
+        // Сброс character transform при беге
+        refs.character.removeAttribute('transform');
       }
 
-      // Перемещение wrap — JS управляет позицией. Прыжок is-landing работает
-      // на внутреннем .mascot-character, не конфликтует с этим transform.
-      var tilt = Math.max(-10, Math.min(10, dx / 30));
+      // Перемещение wrap — JS-лерп
+      var tilt = Math.max(-8, Math.min(8, dx / 36));
       wrap.style.transform =
         'translate3d(' + posX + 'px,' + posY + 'px,0) ' +
         'translate(-50%,-50%) ' +
         'rotateZ(' + (state === 'running' ? tilt : 0) + 'deg) ' +
         'scaleX(' + lastDirX + ')';
 
-      // Пунктирный след
+      // Пунктирный след — от маскота к курсору
       if (state === 'running' && dist > 40) {
         trailLine.setAttribute('x1', mouseX);
         trailLine.setAttribute('y1', mouseY);
