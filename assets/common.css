@@ -283,17 +283,16 @@ html[data-theme="light"] .ai-terminal { background: rgba(20, 24, 40, 0.92); }
   .moi-mascot, .moi-corner-mascot { display: none !important; }
 }
 
-/* Halo — мягко «дышит»: маленькая амплитуда, без затухания до 0.
-   В SVG-разметке у круга стоит opacity="0" (presentation attribute) —
-   перебиваем его CSS-свойством, иначе кольцо не видно вовсе. */
+/* Halo — кольцо от головы наружу с увеличением и затуханием.
+   Идёт волной от головы и растворяется. Применяется к курсорному
+   в idle и к угловому всегда. У бегущего курсорного — скрыт. */
 .mascot-halo {
   transform-origin: 28px 14px;
   transform-box: fill-box;
-  opacity: 0.5;
 }
 .moi-mascot[data-state="idle"] .mascot-halo,
 .moi-corner-mascot .mascot-halo {
-  animation: moi-halo-breathe 2.6s ease-in-out infinite;
+  animation: moi-halo 2.2s ease-out infinite;
 }
 .moi-mascot[data-state="running"] .mascot-halo {
   opacity: 0 !important;
