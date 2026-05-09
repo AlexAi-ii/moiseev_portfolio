@@ -640,16 +640,19 @@
     { fn: sitBreathe,    duration: 4.0 }
   ];
 
-  /* ---------- Сидящий маскот на правом верхнем углу ---------- */
+  /* ---------- Сидящий маскот: сидит на правом верхнем углу, переходит по параболе ---------- */
   function initCornerMascot() {
-    // На тач-устройствах он работает — сидит на углу и анимируется.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    // Карточки + кнопки/ссылки — везде, где есть угол. Высокий приоритет: маскот будет
+    // садиться и на CTA-кнопки, и на пункты в контактах, не только на «облачка».
     var SELECTOR = [
       '.section-card', '.case-card', '.project-card', '.feature-card',
       '.tech-item', '.psr-box', '.skill-category', '.offer-card',
       '.who-item', '.process-step', '.stat-card', '.showcase-stat',
-      '.ai-terminal', '.gallery-item', '.about-content', '.cta-box'
+      '.ai-terminal', '.gallery-item', '.about-content', '.cta-box',
+      '.btn', '.btn-secondary', '.btn-white',
+      '.social-link', '.filter-btn', '.offer-cta', '.quick-route'
     ].join(',');
 
     var wrap = document.createElement('div');
@@ -659,18 +662,27 @@
     document.body.appendChild(wrap);
     var refs = getMascotRefs(wrap);
     var poseState = makePoseState();
-    // стартовое состояние = сидячая база, чтобы первый lerp не шёл от стоячей фигуры
     var sb = sitBaseTarget();
     poseState.thighL = sb.thighL; poseState.thighR = sb.thighR;
     poseState.shinL  = sb.shinL;  poseState.shinR  = sb.shinR;
     poseState.uArmL  = sb.uArmL;  poseState.uArmR  = sb.uArmR;
     poseState.fArmL  = sb.fArmL;  poseState.fArmR  = sb.fArmR;
 
+    var state = 'idle';   // 'idle' | 'sitting' | 'walking'
     var currentEl = null;
+    var nextEl = null;
     var nextSwitchAt = 0;
     var actionIndex = -1;
     var actionStart = performance.now();
     var actionDuration = 3;
+
+    // Walking
+    var walkStart = 0;
+    var walkDuration = 1.4;
+    var walkStartX = 0, walkStartY = 0;
+    var walkApex = 80;
+    var walkRunPhase = 0;
+    var walkDirX = 1;
 
     function findCandidates() {
       var els = Array.prototype.slice.call(document.querySelectorAll(SELECTOR));
@@ -679,8 +691,9 @@
       for (var i = 0; i < els.length; i++) {
         var el = els[i];
         var r = el.getBoundingClientRect();
-        if (r.width < 90 || r.height < 60) continue;
-        if (r.top < 30 || r.top > vh - 80) continue;
+        // Кнопки могут быть невысокие → 32 px достаточно
+        if (r.width < 80 || r.height < 32) continue;
+        if (r.top < 30 || r.top > vh - 60) continue;
         if (r.right < 60 || r.left > vw - 60) continue;
         var st = window.getComputedStyle(el);
         if (st.visibility === 'hidden' || st.display === 'none') continue;
@@ -698,44 +711,120 @@
       actionDuration = SIT_ACTIONS[idx].duration;
     }
 
-    function pickNew() {
-      var candidates = findCandidates();
-      if (!candidates.length) {
-        currentEl = null;
-        wrap.classList.remove('is-visible');
-        nextSwitchAt = performance.now() + 5000;
-        return;
+    function rectAnchor(el) {
+      var r = el.getBoundingClientRect();
+      return { x: r.right, y: r.top };
+    }
+
+    function startWalkTo(el) {
+      var fromX, fromY;
+      if (currentEl) {
+        var a = rectAnchor(currentEl);
+        fromX = a.x; fromY = a.y;
+      } else {
+        // Первое появление: «прибегает» из-за правого края экрана
+        fromX = window.innerWidth + 40;
+        fromY = Math.min(window.innerHeight * 0.35, 200);
       }
+      var to = rectAnchor(el);
+      walkStartX = fromX;
+      walkStartY = fromY;
+      var dx = to.x - fromX;
+      var dy = to.y - fromY;
+      var dist = Math.hypot(dx, dy);
+      // Высота параболы: больше для длинных переходов, особенно вертикальных
+      walkApex = Math.max(60, Math.min(180, dist * 0.32 + Math.abs(dy) * 0.18 + 30));
+      walkDuration = 0.9 + Math.min(2.0, dist / 700);
+      walkStart = performance.now();
+      walkDirX = dx >= 0 ? 1 : -1;
+      walkRunPhase = 0;
+      nextEl = el;
+      currentEl = null; // на время перехода нет «домашнего» блока
+      state = 'walking';
+      // Маскот видим во время перехода
+      wrap.classList.add('is-visible');
+    }
+
+    function settleOn(el) {
+      currentEl = el;
+      nextEl = null;
+      state = 'sitting';
+      // Время сидения уменьшено на 40 % (было 30–60с → теперь 18–36с)
+      nextSwitchAt = performance.now() + 18000 + Math.random() * 18000;
+      nextAction();
+    }
+
+    function chooseTarget() {
+      var candidates = findCandidates();
+      if (!candidates.length) return null;
       var pool = candidates.length > 1
         ? candidates.filter(function (e) { return e !== currentEl; })
         : candidates;
-      currentEl = pool[Math.floor(Math.random() * pool.length)];
-      // 30–60 секунд на одной карточке (раньше было 4.5–8)
-      nextSwitchAt = performance.now() + 30000 + Math.random() * 30000;
-      nextAction();
-      requestAnimationFrame(function () { wrap.classList.add('is-visible'); });
+      return pool[Math.floor(Math.random() * pool.length)];
     }
+
+    function tryTransition() {
+      var target = chooseTarget();
+      if (!target) {
+        // Кандидатов нет — попробуем позже
+        nextSwitchAt = performance.now() + 5000;
+        return;
+      }
+      startWalkTo(target);
+    }
+
+    var lastFrameT = performance.now();
 
     function loop() {
       var now = performance.now();
+      var dt = Math.min(0.05, (now - lastFrameT) / 1000);
+      lastFrameT = now;
 
-      if (!currentEl || now > nextSwitchAt) {
-        if (currentEl) {
-          wrap.classList.remove('is-visible');
-          var prev = currentEl;
-          currentEl = null;
-          setTimeout(function () {
-            if (currentEl !== prev) pickNew();
-          }, 360);
-        } else {
-          pickNew();
-        }
+      // Триггер смены места — только если сидим
+      if (state === 'sitting' && now > nextSwitchAt) {
+        tryTransition();
+      }
+      // Если ещё не появлялись — выберем первое место
+      if (state === 'idle') {
+        tryTransition();
       }
 
-      if (currentEl) {
-        var r = currentEl.getBoundingClientRect();
+      if (state === 'walking' && nextEl) {
+        // Конечная точка пересчитывается каждый кадр (на случай скролла)
+        var to = rectAnchor(nextEl);
+        var t = (now - walkStart) / (walkDuration * 1000);
+        if (t >= 1) {
+          // приземлились
+          var landX = to.x;
+          var landY = to.y;
+          wrap.style.transform =
+            'translate3d(' + landX.toFixed(1) + 'px,' + landY.toFixed(1) + 'px,0) ' +
+            'translate(-50%,-54%) scaleX(1)';
+          settleOn(nextEl);
+        } else {
+          // smoothstep по фазе перехода — мягкие старт и финиш
+          var easeT = t * t * (3 - 2 * t);
+          var posX_ = walkStartX + (to.x - walkStartX) * easeT;
+          var posY_ = walkStartY + (to.y - walkStartY) * easeT;
+          // Парабола: вверх от прямой линии, максимум в середине (4t(1-t))
+          posY_ -= walkApex * 4 * t * (1 - t);
+
+          // Поза бега
+          walkRunPhase += dt * 7.5;
+          var runT = buildRunTarget(walkRunPhase, 0.95);
+          lerpPose(poseState, runT, 0.45);
+          applyPoseState(refs, poseState);
+
+          wrap.style.transform =
+            'translate3d(' + posX_.toFixed(1) + 'px,' + posY_.toFixed(1) + 'px,0) ' +
+            'translate(-50%,-54%) ' +
+            'scaleX(' + walkDirX + ')';
+        }
+      } else if (state === 'sitting' && currentEl) {
+        // Если блок ушёл из вьюпорта — пора перебираться
+        var rc = currentEl.getBoundingClientRect();
         var vh = window.innerHeight, vw = window.innerWidth;
-        if (r.bottom < 0 || r.top > vh || r.right < 0 || r.left > vw) {
+        if (rc.bottom < 0 || rc.top > vh || rc.right < 0 || rc.left > vw) {
           nextSwitchAt = now;
         }
 
@@ -745,22 +834,15 @@
         lerpPose(poseState, target, 0.10);
         applyPoseState(refs, poseState);
 
-        // Правый верхний угол блока. Маскот лицом вправо, попа на углу.
-        // Размер wrap 30x40, viewBox 56x70 → шкала 0.535.
-        // Попа в SVG (28,38) → в wrap ≈ (15, 21.6) → translate(-50%, -54%).
-        var px = r.right;
-        var py = r.top;
         wrap.style.transform =
-          'translate3d(' + px.toFixed(1) + 'px,' + py.toFixed(1) + 'px,0) ' +
-          'translate(-50%,-54%) ' +
-          'scaleX(1)';
+          'translate3d(' + rc.right.toFixed(1) + 'px,' + rc.top.toFixed(1) + 'px,0) ' +
+          'translate(-50%,-54%) scaleX(1)';
       }
 
       requestAnimationFrame(loop);
     }
 
     setTimeout(function () {
-      pickNew();
       requestAnimationFrame(loop);
     }, 800);
   }

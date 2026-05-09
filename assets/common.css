@@ -27,7 +27,14 @@ html[data-theme="light"] body {
               var(--bg) !important;
   color: var(--text) !important;
 }
-html[data-theme="light"] header { background: rgba(255, 255, 255, 0.85) !important; }
+/* Шапка в светлой теме — полупрозрачная, чтобы прогресс-бар сверху не казался
+   отдельной полосой над «толстой белой шапкой», а лежал на общем градиенте. */
+html[data-theme="light"] header {
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  box-shadow: 0 1px 0 rgba(127, 90, 240, 0.12) !important;
+}
 html[data-theme="light"] footer { background: rgba(240, 242, 248, 0.95) !important; }
 html[data-theme="light"] .particle { opacity: 0.18 !important; }
 html[data-theme="light"] .hero h1,
@@ -84,7 +91,7 @@ html[data-theme="light"] .nav-links a {
   color: #4a5266 !important;
 }
 html[data-theme="light"] .lang-select { background: #ffffff !important; color: var(--text) !important; }
-html[data-theme="light"] header { box-shadow: 0 6px 24px rgba(60, 70, 100, 0.06) !important; }
+/* старое правило теневой плашки заменено на полупрозрачную шапку выше */
 /* Hero glow в светлой теме — усилить, чтобы фон не был «пустым» */
 html[data-theme="light"] .hero::before {
   background: radial-gradient(circle, rgba(127,90,240,0.35) 0%, rgba(0,183,255,0.18) 40%, transparent 75%) !important;
@@ -276,12 +283,12 @@ html[data-theme="light"] .ai-terminal { background: rgba(20, 24, 40, 0.92); }
   .moi-mascot, .moi-corner-mascot { display: none !important; }
 }
 
-/* Halo «дышит» только когда маскот стоит на месте.
-   Шарниры рук/ног управляются JS через SVG transform attribute. */
+/* Halo «дышит» только у курсорного маскота, когда он стоит на месте.
+   На угловом halo создаёт лишнее моргание поверх карточек — выключен. */
 .mascot-halo { transform-origin: 28px 14px; transform-box: fill-box; }
-.moi-mascot[data-state="idle"] .mascot-halo,
-.moi-corner-mascot .mascot-halo { animation: moi-halo 2.2s ease-out infinite; }
+.moi-mascot[data-state="idle"] .mascot-halo { animation: moi-halo 2.2s ease-out infinite; }
 .moi-mascot[data-state="running"] .mascot-halo { opacity: 0 !important; }
+.moi-corner-mascot .mascot-halo { display: none !important; }
 
 /* Светлая тема — приглушённая тень */
 html[data-theme="light"] .moi-mascot,
