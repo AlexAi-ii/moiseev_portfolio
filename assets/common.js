@@ -670,7 +670,9 @@
 
     var state = 'idle';   // 'idle' | 'sitting' | 'walking'
     var currentEl = null;
+    var currentCorner = 'tr';   // 'tr' | 'tl' — на какой угол сел
     var nextEl = null;
+    var nextCorner = 'tr';
     var nextSwitchAt = 0;
     var actionIndex = -1;
     var actionStart = performance.now();
@@ -711,45 +713,45 @@
       actionDuration = SIT_ACTIONS[idx].duration;
     }
 
-    function rectAnchor(el) {
+    function rectAnchor(el, corner) {
       var r = el.getBoundingClientRect();
+      if (corner === 'tl') return { x: r.left, y: r.top };
       return { x: r.right, y: r.top };
     }
 
-    function startWalkTo(el) {
+    function startWalkTo(el, corner) {
       var fromX, fromY;
       if (currentEl) {
-        var a = rectAnchor(currentEl);
+        var a = rectAnchor(currentEl, currentCorner);
         fromX = a.x; fromY = a.y;
       } else {
-        // Первое появление: «прибегает» из-за правого края экрана
-        fromX = window.innerWidth + 40;
+        // Первое появление: «прибегает» из-за края экрана со стороны цели
+        fromX = corner === 'tl' ? -40 : window.innerWidth + 40;
         fromY = Math.min(window.innerHeight * 0.35, 200);
       }
-      var to = rectAnchor(el);
+      var to = rectAnchor(el, corner);
       walkStartX = fromX;
       walkStartY = fromY;
       var dx = to.x - fromX;
       var dy = to.y - fromY;
       var dist = Math.hypot(dx, dy);
-      // Высота параболы: больше для длинных переходов, особенно вертикальных
       walkApex = Math.max(60, Math.min(180, dist * 0.32 + Math.abs(dy) * 0.18 + 30));
       walkDuration = 0.9 + Math.min(2.0, dist / 700);
       walkStart = performance.now();
       walkDirX = dx >= 0 ? 1 : -1;
       walkRunPhase = 0;
       nextEl = el;
-      currentEl = null; // на время перехода нет «домашнего» блока
+      nextCorner = corner;
+      currentEl = null;
       state = 'walking';
-      // Маскот видим во время перехода
       wrap.classList.add('is-visible');
     }
 
-    function settleOn(el) {
+    function settleOn(el, corner) {
       currentEl = el;
+      currentCorner = corner;
       nextEl = null;
       state = 'sitting';
-      // Время сидения уменьшено на 40 % (было 30–60с → теперь 18–36с)
       nextSwitchAt = performance.now() + 18000 + Math.random() * 18000;
       nextAction();
     }
@@ -760,17 +762,19 @@
       var pool = candidates.length > 1
         ? candidates.filter(function (e) { return e !== currentEl; })
         : candidates;
-      return pool[Math.floor(Math.random() * pool.length)];
+      return {
+        el: pool[Math.floor(Math.random() * pool.length)],
+        corner: Math.random() < 0.5 ? 'tr' : 'tl'
+      };
     }
 
     function tryTransition() {
       var target = chooseTarget();
       if (!target) {
-        // Кандидатов нет — попробуем позже
         nextSwitchAt = performance.now() + 5000;
         return;
       }
-      startWalkTo(target);
+      startWalkTo(target.el, target.corner);
     }
 
     var lastFrameT = performance.now();
@@ -790,26 +794,20 @@
       }
 
       if (state === 'walking' && nextEl) {
-        // Конечная точка пересчитывается каждый кадр (на случай скролла)
-        var to = rectAnchor(nextEl);
+        var to = rectAnchor(nextEl, nextCorner);
         var t = (now - walkStart) / (walkDuration * 1000);
         if (t >= 1) {
-          // приземлились
-          var landX = to.x;
-          var landY = to.y;
+          var sxLand = nextCorner === 'tl' ? -1 : 1;
           wrap.style.transform =
-            'translate3d(' + landX.toFixed(1) + 'px,' + landY.toFixed(1) + 'px,0) ' +
-            'translate(-50%,-54%) scaleX(1)';
-          settleOn(nextEl);
+            'translate3d(' + to.x.toFixed(1) + 'px,' + to.y.toFixed(1) + 'px,0) ' +
+            'translate(-50%,-54%) scaleX(' + sxLand + ')';
+          settleOn(nextEl, nextCorner);
         } else {
-          // smoothstep по фазе перехода — мягкие старт и финиш
           var easeT = t * t * (3 - 2 * t);
           var posX_ = walkStartX + (to.x - walkStartX) * easeT;
           var posY_ = walkStartY + (to.y - walkStartY) * easeT;
-          // Парабола: вверх от прямой линии, максимум в середине (4t(1-t))
           posY_ -= walkApex * 4 * t * (1 - t);
 
-          // Поза бега
           walkRunPhase += dt * 7.5;
           var runT = buildRunTarget(walkRunPhase, 0.95);
           lerpPose(poseState, runT, 0.45);
@@ -821,7 +819,6 @@
             'scaleX(' + walkDirX + ')';
         }
       } else if (state === 'sitting' && currentEl) {
-        // Если блок ушёл из вьюпорта — пора перебираться
         var rc = currentEl.getBoundingClientRect();
         var vh = window.innerHeight, vw = window.innerWidth;
         if (rc.bottom < 0 || rc.top > vh || rc.right < 0 || rc.left > vw) {
@@ -834,9 +831,11 @@
         lerpPose(poseState, target, 0.10);
         applyPoseState(refs, poseState);
 
+        var px = currentCorner === 'tl' ? rc.left : rc.right;
+        var sx = currentCorner === 'tl' ? -1 : 1;
         wrap.style.transform =
-          'translate3d(' + rc.right.toFixed(1) + 'px,' + rc.top.toFixed(1) + 'px,0) ' +
-          'translate(-50%,-54%) scaleX(1)';
+          'translate3d(' + px.toFixed(1) + 'px,' + rc.top.toFixed(1) + 'px,0) ' +
+          'translate(-50%,-54%) scaleX(' + sx + ')';
       }
 
       requestAnimationFrame(loop);
@@ -845,6 +844,19 @@
     setTimeout(function () {
       requestAnimationFrame(loop);
     }, 800);
+  }
+
+  /* ---------- Прогресс-бар: переносим внутрь шапки ----------
+     В исходных HTML #progress-bar лежит сразу за <body> на самом верху.
+     Из-за этого в светлой теме между прогрессом и текстом шапки видна
+     белая полоса. Перемещаем его внутрь <header> — теперь он на нижней
+     кромке шапки и «лежит» на её градиенте. */
+  function relocateProgressBar() {
+    var bar = document.getElementById('progress-bar');
+    var header = document.querySelector('header');
+    if (!bar || !header) return;
+    if (bar.parentElement === header) return;
+    header.appendChild(bar);
   }
 
   /* ---------- Mobile nav: бургер + выезжающая панель ---------- */
@@ -917,6 +929,7 @@
   initTheme();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
+      relocateProgressBar();
       buildThemeToggle();
       setupMobileNav();
       initTerminal();
@@ -924,6 +937,7 @@
       initCornerMascot();
     });
   } else {
+    relocateProgressBar();
     buildThemeToggle();
     setupMobileNav();
     initTerminal();
