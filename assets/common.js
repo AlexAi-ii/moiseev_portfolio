@@ -128,52 +128,36 @@
     wrap.className = 'moi-mascot';
     wrap.setAttribute('aria-hidden', 'true');
     wrap.dataset.state = 'idle';
-    // Стик-фигура «палка-палка-огуречек»: голова, вертикальное туловище,
-    // 2 руки сверху + 2 ноги снизу, у каждой руки есть локоть, у каждой ноги — колено.
-    // Все шарниры управляются JS через setAttribute('transform', 'rotate(angle cx cy)').
-    // Это работает 100% надёжно во всех браузерах (CSS на вложенных <g> — нет).
-    wrap.innerHTML = ''
-      + '<svg viewBox="0 0 56 70">'
-      +   '<g class="mascot-character" stroke="#7f5af0" stroke-width="2.6" stroke-linecap="round" fill="none">'
-      +     // антенна + лампочка
-      +     '<line class="mascot-antenna" x1="28" y1="9" x2="28" y2="4"/>'
-      +     '<circle class="mascot-bulb" cx="28" cy="3" r="1.5" fill="#2cb67d" stroke="none"/>'
-      +     // голова
-      +     '<circle class="mascot-head" cx="28" cy="14" r="5" fill="#7f5af0" stroke="none"/>'
-      +     // halo
-      +     '<circle class="mascot-halo" cx="28" cy="14" r="5" stroke="#7f5af0" stroke-width="1" fill="none" opacity="0"/>'
-      +     // ВЕРТИКАЛЬНОЕ ТУЛОВИЩЕ-ПАЛОЧКА: от плеч (y=19) до таза (y=38)
-      +     '<line class="mascot-spine" x1="28" y1="19" x2="28" y2="38"/>'
-      +     // ЛЕВАЯ РУКА: плечо(28,19) → локоть(20,28) → кисть(15,38)
-      +     '<g class="upper-arm-l">'
-      +       '<line x1="28" y1="19" x2="20" y2="28"/>'
-      +       '<g class="forearm-l">'
-      +         '<line x1="20" y1="28" x2="15" y2="38"/>'
-      +       '</g>'
-      +     '</g>'
-      +     // ПРАВАЯ РУКА: плечо(28,19) → локоть(36,28) → кисть(41,38)
-      +     '<g class="upper-arm-r">'
-      +       '<line x1="28" y1="19" x2="36" y2="28"/>'
-      +       '<g class="forearm-r">'
-      +         '<line x1="36" y1="28" x2="41" y2="38"/>'
-      +       '</g>'
-      +     '</g>'
-      +     // ЛЕВАЯ НОГА: бедро(28,38) → колено(24,50) → ступня(22,62)
-      +     '<g class="thigh-l">'
-      +       '<line x1="28" y1="38" x2="24" y2="50"/>'
-      +       '<g class="shin-l">'
-      +         '<line x1="24" y1="50" x2="22" y2="62"/>'
-      +       '</g>'
-      +     '</g>'
-      +     // ПРАВАЯ НОГА: бедро(28,38) → колено(32,50) → ступня(34,62)
-      +     '<g class="thigh-r">'
-      +       '<line x1="28" y1="38" x2="32" y2="50"/>'
-      +       '<g class="shin-r">'
-      +         '<line x1="32" y1="50" x2="34" y2="62"/>'
-      +       '</g>'
-      +     '</g>'
-      +   '</g>'
-      + '</svg>';
+    // Стик-фигура: голова + вертикальное туловище-палочка, 2 руки сверху,
+    // 2 ноги снизу. У каждой руки локоть, у каждой ноги — колено.
+    // Все шарниры управляются JS через SVG-атрибут transform="rotate(α cx cy)".
+    wrap.innerHTML = [
+      '<svg viewBox="0 0 56 70">',
+        '<g class="mascot-character" stroke="#7f5af0" stroke-width="2.6" stroke-linecap="round" fill="none">',
+          '<line class="mascot-antenna" x1="28" y1="9" x2="28" y2="4"/>',
+          '<circle class="mascot-bulb" cx="28" cy="3" r="1.5" fill="#2cb67d" stroke="none"/>',
+          '<circle class="mascot-head" cx="28" cy="14" r="5" fill="#7f5af0" stroke="none"/>',
+          '<circle class="mascot-halo" cx="28" cy="14" r="5" stroke="#7f5af0" stroke-width="1" fill="none" opacity="0"/>',
+          '<line class="mascot-spine" x1="28" y1="19" x2="28" y2="38"/>',
+          '<g class="upper-arm-l">',
+            '<line x1="28" y1="19" x2="20" y2="28"/>',
+            '<g class="forearm-l"><line x1="20" y1="28" x2="15" y2="38"/></g>',
+          '</g>',
+          '<g class="upper-arm-r">',
+            '<line x1="28" y1="19" x2="36" y2="28"/>',
+            '<g class="forearm-r"><line x1="36" y1="28" x2="41" y2="38"/></g>',
+          '</g>',
+          '<g class="thigh-l">',
+            '<line x1="28" y1="38" x2="24" y2="50"/>',
+            '<g class="shin-l"><line x1="24" y1="50" x2="22" y2="62"/></g>',
+          '</g>',
+          '<g class="thigh-r">',
+            '<line x1="28" y1="38" x2="32" y2="50"/>',
+            '<g class="shin-r"><line x1="32" y1="50" x2="34" y2="62"/></g>',
+          '</g>',
+        '</g>',
+      '</svg>'
+    ].join('');
 
     // Ссылки на шарниры
     var refs = {
