@@ -49,8 +49,13 @@
 
   /* кастомный курсор (десктоп) */
   .cursor{position:fixed;top:0;left:0;width:9px;height:9px;border-radius:50%;background:var(--accent);
-    z-index:9999;pointer-events:none;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),background .25s,opacity .3s;opacity:0;mix-blend-mode:normal}
+    z-index:9999;pointer-events:none;transform:translate(-50%,-50%);overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    transition:width .3s var(--ease),height .3s var(--ease),background .3s,border-color .3s,opacity .3s;opacity:0}
   .cursor.big{width:54px;height:54px;background:transparent;border:1.5px solid var(--accent)}
+  .cursor.label{width:106px;height:106px;background:var(--accent);border:none}
+  .cursor span{opacity:0;font-size:.72rem;font-weight:600;color:#fff;white-space:nowrap;transition:opacity .25s}
+  .cursor.label span{opacity:1}
   @media (hover:none),(pointer:coarse){.cursor{display:none}}
 
   .wrap{max-width:var(--container);margin:0 auto;padding:0 26px;position:relative;z-index:2}
@@ -75,6 +80,7 @@
   .eyebrow .d{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:beat 2.4s infinite}
   @keyframes beat{50%{opacity:.35;transform:scale(.7)}}
   h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.7rem,5.4vw,4.7rem);line-height:1.04;letter-spacing:-.02em}
+  h1 .line{display:block;overflow:hidden;padding-bottom:.09em;margin-bottom:-.09em}
   h1 em{font-style:italic;color:var(--accent);font-weight:500}
   .lede{margin-top:26px;font-size:clamp(1.05rem,1.5vw,1.24rem);color:var(--ink-soft);max-width:46ch;font-weight:450}
   .hero-cta{margin-top:36px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
@@ -88,8 +94,11 @@
   .hero-note b{color:var(--ink-soft);font-weight:600}
 
   /* фото + вращающийся бейдж */
-  .portrait{position:relative;width:100%;max-width:400px;margin-left:auto;will-change:transform}
-  .portrait .frame{border-radius:200px 200px 26px 26px;overflow:hidden;aspect-ratio:4/4.7;
+  .portrait{position:relative;width:100%;max-width:392px;margin-left:auto;will-change:transform}
+  .portrait::before{content:'';position:absolute;inset:0;border-radius:30px;background:var(--accent);opacity:.15;
+    transform:translate(22px,22px);transition:transform .7s var(--ease)}
+  .portrait:hover::before{transform:translate(12px,12px)}
+  .portrait .frame{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:4/4.55;
     background:var(--paper-2);box-shadow:0 40px 80px -40px rgba(28,23,18,.5)}
   .portrait .frame img{width:100%;height:100%;object-fit:cover;filter:saturate(.96) contrast(1.02)}
   .badge{position:absolute;left:-38px;bottom:-38px;width:128px;height:128px;animation:spin 22s linear infinite}
@@ -168,8 +177,7 @@
     .nav-l{display:none}
     .nums{grid-template-columns:repeat(2,1fr);gap:26px 18px}
     .chap{grid-template-columns:auto 1fr;gap:18px}
-    .chap .meta{grid-column:1/-1;text-align:left;display:flex;align-items:center;justify-content:space-between;
-      border-top:1px dashed var(--line);padding-top:14px;margin-top:4px}
+    .chap .meta{grid-column:1/-1;text-align:left;border-top:1px dashed var(--line);padding-top:14px;margin-top:2px}
     .chap .go{margin-top:0}
     .cursor{display:none}
     .glow{display:none}            /* на телефоне — спокойнее, без бликов */
@@ -188,7 +196,7 @@
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
+<div class="cursor" id="cursor"><span>Смотреть →</span></div>
 <div class="glow a"></div><div class="glow b"></div>
 
 <nav>
@@ -208,7 +216,7 @@
   <section class="hero">
     <div>
       <div class="eyebrow rv"><span class="d"></span> Свободен для новых проектов</div>
-      <h1><span class="rv-l">Освобождаю ваше время</span><br><span class="rv-l">и не даю <em>терять клиентов</em>.</span></h1>
+      <h1><span class="line"><span class="rv-l">Освобождаю ваше время</span></span><span class="line"><span class="rv-l">и не даю <em>терять клиентов</em>.</span></span></h1>
       <p class="lede rv">Собираю понятные инструменты для небольшого дела — ботов, автоматизации и сайты. Они тихо делают рутину за вас: отвечают клиентам, ведут запись, приносят заявки.</p>
       <div class="hero-cta rv">
         <a class="btn btn-primary" data-magnetic href="https://t.me/avmoiseevspb" target="_blank" rel="noopener">Рассказать о задаче</a>
@@ -232,8 +240,8 @@
 
   <!-- STACK -->
   <div class="stack rv">
-    <span class="lbl">Собрано на</span>
-    <span>n8n</span><span>Python</span><span>OpenAI · Claude</span><span>Supabase</span><span>Telegram</span><span>1С</span><span>Google</span>
+    <span class="lbl">На чём собираю</span>
+    <span>Python</span><span>свой код на VPS</span><span>OpenAI · Claude</span><span>Telegram · VK · MAX</span><span>Supabase</span><span>1С</span><span>n8n</span>
   </div>
 
   <!-- HELP / направления -->
@@ -252,7 +260,7 @@
           <p>Отвечают клиентам круглосуточно, ведут запись, прогревают и продают — вместо потерянных заявок и уставшего администратора.</p>
           <div class="tags"><span class="tag">Telegram · VK · MAX</span><span class="tag">Запись · оплата</span><span class="tag">Ответы 24/7</span></div>
         </div>
-        <div class="meta"><div class="price">от 60 000 ₽<small>коробка · 5–10 дней</small></div><span class="go">Смотреть →</span></div>
+        <div class="meta"><span class="go">Смотреть →</span></div>
       </a>
 
       <a class="chap rv" href="#">
@@ -260,9 +268,9 @@
         <div class="body">
           <h3>Автоматизация и парсеры</h3>
           <p>Рутина, сбор данных, лиды и отчёты работают сами. Например, поток новых клиентов в таблицу каждый день — без ручной возни.</p>
-          <div class="tags"><span class="tag">Лиды под ключ</span><span class="tag">n8n · интеграции</span><span class="tag">1С · CRM</span></div>
+          <div class="tags"><span class="tag">Лиды под ключ</span><span class="tag">Python · интеграции</span><span class="tag">1С · CRM</span></div>
         </div>
-        <div class="meta"><div class="price">от 40 000 ₽<small>или подписка / мес</small></div><span class="go">Смотреть →</span></div>
+        <div class="meta"><span class="go">Смотреть →</span></div>
       </a>
 
       <a class="chap rv" href="#">
@@ -272,7 +280,7 @@
           <p>Полноценные продукты с личным кабинетом, оплатой и AI внутри. Web и Android — от первой рабочей версии до магазина приложений.</p>
           <div class="tags"><span class="tag">Web + Android</span><span class="tag">Подписки</span><span class="tag">Личный кабинет</span></div>
         </div>
-        <div class="meta"><div class="price">от 150 000 ₽<small>первая версия</small></div><span class="go">Смотреть →</span></div>
+        <div class="meta"><span class="go">Смотреть →</span></div>
       </a>
 
       <a class="chap rv" href="#">
@@ -282,7 +290,7 @@
           <p>Сайты, которые запоминаются и работают на доверие: чисто, живо, с характером. Как сайт храма в Вырице с живой картой России.</p>
           <div class="tags"><span class="tag">Лендинги</span><span class="tag">Живые эффекты</span><span class="tag">Под задачу</span></div>
         </div>
-        <div class="meta"><div class="price">от 25 000 ₽<small>лендинг</small></div><span class="go">Смотреть →</span></div>
+        <div class="meta"><span class="go">Смотреть →</span></div>
       </a>
     </div>
     <p class="boxes-note rv"><b>Честно про деньги:</b> заранее называю цену и срок — и не меняю их по ходу. Вы точно знаете, за что платите.</p>
@@ -303,8 +311,8 @@
 
   <!-- CONTACT -->
   <section class="contact" id="talk">
-    <h2 class="rv">Расскажите, что <em>болит</em> —<br>разберёмся вместе.</h2>
-    <p class="rv">Напишите пару слов о задаче удобным способом. Отвечу сам, по делу и без воды — предложу рабочую схему.</p>
+    <h2 class="rv">Расскажите про задачу —<br>придумаем, как её <em>закрыть</em>.</h2>
+    <p class="rv">Напишите пару слов удобным способом. Отвечу сам, по делу и без воды — предложу рабочую схему.</p>
     <div class="channels rv">
       <a class="ch tg" data-magnetic href="https://t.me/avmoiseevspb" target="_blank" rel="noopener">✈️ Telegram</a>
       <a class="ch max" data-magnetic href="https://max.ru/u/f9LHodD0cOL9D1QBbAqai6N2XjZQqq_3m9Tk0fGgkLsTrUmzuNi4ax9rsP8" target="_blank" rel="noopener">💬 MAX</a>
@@ -349,9 +357,13 @@
     addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;cur.style.opacity=1});
     (function loop(){ x+=(mx-x)*.2; y+=(my-y)*.2;
       cur.style.left=x+'px'; cur.style.top=y+'px'; requestAnimationFrame(loop); })();
-    document.querySelectorAll('a, [data-magnetic]').forEach(el=>{
+    document.querySelectorAll('a:not(.chap), [data-magnetic]').forEach(el=>{
       el.addEventListener('pointerenter',()=>cur.classList.add('big'));
       el.addEventListener('pointerleave',()=>{cur.classList.remove('big'); el.style.transform='';});
+    });
+    document.querySelectorAll('.chap').forEach(el=>{
+      el.addEventListener('pointerenter',()=>cur.classList.add('label'));
+      el.addEventListener('pointerleave',()=>cur.classList.remove('label'));
     });
     document.querySelectorAll('[data-magnetic]').forEach(el=>{
       el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();
