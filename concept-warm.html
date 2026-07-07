@@ -137,30 +137,13 @@
   .chap .price small{display:block;color:var(--muted);font-weight:500;font-size:.8rem;margin-top:3px}
   .chap .go{margin-top:14px;display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--accent);font-size:.92rem;transition:gap .35s var(--ease)}
   .chap:hover .go{gap:13px}
-  /* фоновые «фишки» направлений — тихо в покое, расцветают на hover (десктоп) */
-  .chap{overflow:hidden}
-  .chap>.no,.chap>.body,.chap>.meta{position:relative;z-index:1}
-  .chap-fx{position:absolute;inset:0;z-index:0;opacity:.3;pointer-events:none;overflow:hidden;
-    transition:opacity .6s var(--ease);
-    -webkit-mask:linear-gradient(90deg,transparent 34%,#000 84%);mask:linear-gradient(90deg,transparent 34%,#000 84%)}
-  .chap:hover .chap-fx{opacity:.72}
-  .fx-bots::before,.fx-bots::after{content:'';position:absolute;right:7%;top:50%;width:130px;height:130px;
-    border:1.6px solid var(--accent);border-radius:50%;opacity:0;transform:translate(50%,-50%) scale(.3);
-    animation:ring 5s var(--ease) infinite}
-  .fx-bots::after{animation-delay:2.5s}
-  @keyframes ring{0%{opacity:.5;transform:translate(50%,-50%) scale(.3)}70%{opacity:0}100%{opacity:0;transform:translate(50%,-50%) scale(1.7)}}
-  .fx-auto{background:repeating-linear-gradient(118deg,transparent 0 20px,rgba(189,79,38,.16) 20px 21px);
-    background-size:180% 180%;animation:slide 8s linear infinite}
-  @keyframes slide{to{background-position:110px 0}}
-  .fx-apps span{position:absolute;right:9%;top:50%;width:150px;height:94px;border-radius:14px;
-    border:1.6px solid rgba(189,79,38,.5);transform:translate(50%,-50%)}
-  .fx-apps span:nth-child(2){transform:translate(42%,-63%) rotate(-6deg);opacity:.6;animation:floaty 7s var(--ease) infinite}
-  .fx-apps span:nth-child(3){transform:translate(58%,-37%) rotate(6deg);opacity:.4;animation:floaty 7s var(--ease) infinite reverse}
-  @keyframes floaty{50%{transform:translate(48%,-58%) rotate(-2deg)}}
-  .fx-sites::before{content:'';position:absolute;right:3%;top:50%;width:190px;height:190px;transform:translate(42%,-50%);
-    background:radial-gradient(circle at 42% 40%,rgba(189,79,38,.5),transparent 62%);filter:blur(5px);
-    border-radius:42% 58% 63% 37%/38% 43% 57% 62%;animation:morph 11s var(--ease) infinite}
-  @keyframes morph{50%{border-radius:60% 40% 35% 65%/55% 62% 38% 45%;transform:translate(48%,-55%) rotate(12deg)}}
+  /* «тихая роскошь»: редакторский hover вместо шумных подложек */
+  .chap .no{font-size:1.95rem;transition:color .4s var(--ease)}
+  .chap h3{transition:color .35s var(--ease)}
+  .chap:hover h3{font-style:italic;color:var(--accent)}
+  .chap::after{content:'';position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);
+    transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+  .chap:hover::after{transform:scaleX(1)}
   .boxes-note{margin-top:22px;font-size:.94rem;color:var(--muted)}
   .boxes-note b{color:var(--ink-soft);font-weight:600}
 
@@ -205,8 +188,6 @@
     .chap .go{margin-top:0}
     .cursor{display:none}
     .glow{display:none}            /* на телефоне — спокойнее, без бликов */
-    .chap-fx{opacity:.16}          /* подложки видны, но статичны */
-    .fx-auto,.fx-bots::before,.fx-bots::after,.fx-sites::before,.fx-apps span{animation:none}
     .proof{padding:44px 26px;border-radius:24px}
   }
   @media(max-width:520px){
@@ -280,7 +261,6 @@
 
     <div class="chapters">
       <a class="chap rv" href="projects.html">
-        <div class="chap-fx fx-bots" aria-hidden="true"></div>
         <div class="no">01</div>
         <div class="body">
           <h3>Боты и AI-помощники</h3>
@@ -291,7 +271,6 @@
       </a>
 
       <a class="chap rv" href="#">
-        <div class="chap-fx fx-auto" aria-hidden="true"></div>
         <div class="no">02</div>
         <div class="body">
           <h3>Автоматизация и парсеры</h3>
@@ -302,7 +281,6 @@
       </a>
 
       <a class="chap rv" href="#">
-        <div class="chap-fx fx-apps" aria-hidden="true"><span></span><span></span><span></span></div>
         <div class="no">03</div>
         <div class="body">
           <h3>Приложения и сервисы</h3>
@@ -313,7 +291,6 @@
       </a>
 
       <a class="chap rv" href="#">
-        <div class="chap-fx fx-sites" aria-hidden="true"></div>
         <div class="no">04</div>
         <div class="body">
           <h3>Сайты</h3>
