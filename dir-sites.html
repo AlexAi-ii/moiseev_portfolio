@@ -10,7 +10,7 @@
 <style>
   :root{
     --paper:#f3ede2;--paper-2:#ebe3d5;--ink:#1c1712;--ink-soft:#4b433a;--muted:#8c8171;
-    --accent:#bd4f26;--accent-deep:#a5401c;--line:rgba(28,23,18,.12);--line-2:rgba(28,23,18,.2);
+    --accent:#b06a2f;--accent-deep:#8a5220;--line:rgba(28,23,18,.12);--line-2:rgba(28,23,18,.2);
     --gold:#e0a44e;--ease:cubic-bezier(.22,1,.36,1);--container:1120px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -28,6 +28,8 @@
     transition:width .3s var(--ease),height .3s var(--ease),background .3s,opacity .3s;opacity:0}
   .cursor.big{width:52px;height:52px;background:transparent;border:1.5px solid var(--accent)}
   @media(hover:none),(pointer:coarse){.cursor{display:none}}
+  .glow{position:fixed;z-index:-1;border-radius:50%;filter:blur(72px);opacity:.4;pointer-events:none;
+    width:42vw;height:42vw;top:-14vw;right:-10vw;background:radial-gradient(circle,rgba(176,106,47,.28),transparent 65%)}
 
   .wrap{max-width:var(--container);margin:0 auto;padding:0 26px;position:relative;z-index:2}
 
@@ -136,6 +138,7 @@
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
+<div class="glow"></div>
 
 <nav>
   <a class="back" href="concept-warm.html#help">← Ко всем направлениям</a>
