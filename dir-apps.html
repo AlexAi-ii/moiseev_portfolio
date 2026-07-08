@@ -21,65 +21,93 @@
   ::selection{background:var(--accent);color:#fff}
   body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.4;mix-blend-mode:multiply;
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>")}
-  .glow{position:fixed;z-index:-1;border-radius:50%;filter:blur(72px);opacity:.4;pointer-events:none;
-    width:42vw;height:42vw;top:-14vw;right:-10vw;background:radial-gradient(circle,rgba(163,68,56,.28),transparent 65%)}
+  .glow{position:fixed;z-index:-1;border-radius:50%;filter:blur(72px);opacity:.4;pointer-events:none;width:42vw;height:42vw;top:-14vw;right:-10vw;background:radial-gradient(circle,rgba(163,68,56,.28),transparent 65%)}
 
-  .cursor{position:fixed;top:0;left:0;width:9px;height:9px;border-radius:50%;background:var(--accent);z-index:9999;
-    pointer-events:none;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),background .3s,opacity .3s;opacity:0}
+  .cursor{position:fixed;top:0;left:0;width:9px;height:9px;border-radius:50%;background:var(--accent);z-index:9999;pointer-events:none;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),background .3s,opacity .3s;opacity:0}
   .cursor.big{width:52px;height:52px;background:transparent;border:1.5px solid var(--accent)}
   @media(hover:none),(pointer:coarse){.cursor{display:none}}
 
   .wrap{max-width:var(--container);margin:0 auto;padding:0 26px;position:relative;z-index:2}
-  nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:24px;max-width:var(--container);margin:0 auto;padding:20px 26px;background:linear-gradient(var(--paper),rgba(243,237,226,.6) 70%,transparent)}
+  nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:24px;max-width:var(--container);margin:0 auto;padding:20px 26px;background:linear-gradient(color-mix(in srgb,#a34438 5%,var(--paper)),rgba(243,237,226,.5) 70%,transparent)}
   .back{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;color:var(--ink-soft);margin-right:auto;transition:gap .3s var(--ease),color .3s}
   .back:hover{gap:13px;color:var(--accent)}
   .nav-cta{font-size:.9rem;font-weight:600;padding:11px 20px;border-radius:100px;border:1.5px solid var(--ink);transition:background .35s var(--ease),color .35s}
   .nav-cta:hover{background:var(--ink);color:var(--paper)}
 
-  .dhero{padding:60px 0 40px}
+  .dhero{padding:56px 0 34px}
   .dnum{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--accent);font-weight:600}
   .dhero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.6rem,7vw,5rem);line-height:1;letter-spacing:-.03em;margin-top:6px}
   .dhero p{margin-top:22px;font-size:clamp(1.1rem,1.8vw,1.4rem);color:var(--ink-soft);max-width:46ch;font-weight:450}
   .rule{height:1px;background:var(--line);margin:20px 0 0}
 
-  .case{padding:64px 0;border-top:1px solid var(--line)}
+  .case{padding:68px 0;border-top:1px solid var(--line)}
   .case:first-of-type{border-top:none}
-  .case .eyebrow{font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-  .case h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.1;letter-spacing:-.02em;margin-top:12px;max-width:22ch}
-  .case .lead{margin-top:16px;font-size:1.1rem;color:var(--ink-soft);max-width:56ch}
-  .case-grid{margin-top:38px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
-  .case.rev .beats{order:2}
-  .beats{display:flex;flex-direction:column}
-  .beat{padding:22px 0;border-top:1px solid var(--line)}
-  .beat:last-child{border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .status{font-size:.68rem;font-weight:700;letter-spacing:.03em;padding:3px 10px;border-radius:100px;background:color-mix(in srgb,var(--accent) 14%,#fff);color:var(--accent-deep)}
+  .status.dev{background:var(--paper-2);color:var(--ink-soft)}
+  .case h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.9rem,3.8vw,2.9rem);line-height:1.08;letter-spacing:-.02em;margin-top:14px;max-width:24ch}
+  .lead{margin-top:16px;font-size:1.14rem;color:var(--ink-soft);max-width:62ch}
+
+  /* реальный скриншот в единой clay-рамке */
+  .shot{margin-top:34px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 40px 90px -50px rgba(28,23,18,.55);position:relative}
+  .shot .top{height:36px;background:#efe7dc;display:flex;align-items:center;gap:7px;padding:0 15px;border-bottom:1px solid var(--line)}
+  .shot .top i{width:9px;height:9px;border-radius:50%;background:var(--accent);opacity:.5}
+  .shot .top i:nth-child(2){opacity:.32}.shot .top i:nth-child(3){opacity:.2}
+  .shot .top span{margin-left:8px;font-size:.72rem;color:var(--muted);font-family:'Inter'}
+  .shot img{display:block;width:100%;height:clamp(360px,54vh,580px);object-fit:cover;object-position:top}
+  .shot::after{content:'';position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(0deg,rgba(255,255,255,.9),transparent);pointer-events:none}
+  .cap{margin-top:12px;font-size:.92rem;color:var(--muted);max-width:70ch}
+
+  /* метрики оверсайз-цифрами */
+  .metrics{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .metric{border-top:2px solid color-mix(in srgb,var(--accent) 40%,var(--line));padding-top:14px}
+  .metric .num{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2.3rem,4.6vw,3.6rem);color:var(--accent);line-height:1;letter-spacing:-.02em}
+  .metric .lbl{margin-top:8px;color:var(--ink-soft);font-size:.9rem;line-height:1.4}
+
+  /* поток кейса: задача/что сделал/результат */
+  .beats{margin-top:46px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
   .beat .lbl{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  .beat h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.24rem;margin-top:7px;color:var(--ink)}
-  .beat p{margin-top:7px;color:var(--ink-soft);font-size:1rem}
+  .beat h3{font-family:'Fraunces',serif;font-weight:500;font-size:1.28rem;margin-top:8px}
+  .beat p{margin-top:9px;color:var(--ink-soft);font-size:1rem}
   .beat.win .lbl,.beat.win h3{color:var(--accent)}
-  .live-link{display:inline-block;margin-top:26px;color:var(--accent);font-weight:600;font-size:1rem;border-bottom:1px solid color-mix(in srgb,var(--accent) 40%,transparent);padding-bottom:2px;transition:color .3s,border-color .3s}
-  .live-link:hover{color:var(--accent-deep);border-color:var(--accent)}
-  .badge{display:inline-block;margin-left:10px;font-size:.7rem;font-weight:700;letter-spacing:.04em;padding:3px 10px;border-radius:100px;background:color-mix(in srgb,var(--accent) 14%,#fff);color:var(--accent-deep);vertical-align:middle}
 
-  /* живой 3D-экран приложения */
-  .appview{position:sticky;top:96px;aspect-ratio:1/1.06;border-radius:24px;overflow:hidden;perspective:1300px;
-    display:grid;place-items:center;background:radial-gradient(130% 130% at 50% 12%,#f8f0e9,#e9dccf);border:1px solid var(--line);box-shadow:0 40px 90px -52px rgba(28,23,18,.55)}
-  .astack{position:relative;width:60%;aspect-ratio:9/17;transform-style:preserve-3d;transition:transform .25s var(--ease);will-change:transform}
-  .screen{position:absolute;inset:0;border-radius:26px;background:#fff;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(28,23,18,.4);overflow:hidden}
-  .screen.s2{transform:translateZ(-70px) translateX(-22%) rotate(-5deg) scale(.9);opacity:.5}
-  .screen.s3{transform:translateZ(-36px) translateX(14%) rotate(4deg) scale(.95);opacity:.75}
-  .sc-bar{height:40px;background:color-mix(in srgb,var(--accent) 12%,#fff);display:flex;align-items:center;gap:7px;padding:0 15px}
-  .sc-bar i{width:9px;height:9px;border-radius:50%;background:var(--accent);opacity:.5}
-  .sc-bar i:nth-child(2){opacity:.32}.sc-bar i:nth-child(3){opacity:.2}
-  .sc-body{padding:16px;display:grid;gap:9px}
-  .sc-row{height:13px;border-radius:6px;background:rgba(28,23,18,.08)}
-  .sc-row.a{width:66%}.sc-row.b{width:88%}.sc-row.c{width:52%}
-  .sc-pill{height:32px;border-radius:10px;background:var(--accent);width:58%;margin-top:4px}
-  .sc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
-  .sc-tile{height:50px;border-radius:10px;background:color-mix(in srgb,var(--accent) 9%,rgba(28,23,18,.05))}
+  /* галерея экранов */
+  .gallery{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .gitem .shot{margin-top:0}
+  .gitem .shot img{height:300px}
+  .gitem .shot::after{display:none}
+  .gitem .cap{margin-top:10px}
 
-  .cta{margin:44px 0 20px;padding:56px 40px;text-align:center;background:var(--ink);color:var(--paper);border-radius:28px;position:relative;overflow:hidden}
+  /* мобильная история — телефон в рамке */
+  .mobrow{margin-top:44px;display:grid;grid-template-columns:230px 1fr;gap:40px;align-items:center}
+  .phone{border-radius:30px;overflow:hidden;border:6px solid #201a15;box-shadow:0 40px 80px -44px rgba(28,23,18,.6);background:#000}
+  .phone img{display:block;width:100%;height:auto}
+  .mobrow .txt h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.4rem}
+  .mobrow .txt p{margin-top:10px;color:var(--ink-soft)}
+
+  /* почему это сложно */
+  .why{margin-top:44px}
+  .why h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.5rem;margin-bottom:18px}
+  .why ul{list-style:none;display:grid;gap:14px}
+  .why li{padding-left:26px;position:relative;color:var(--ink-soft);max-width:82ch}
+  .why li::before{content:'';position:absolute;left:2px;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .why li b{color:var(--ink);font-weight:600}
+
+  .links{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px}
+  .lnk{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:100px;border:1.5px solid var(--line-2);font-weight:600;font-size:.94rem;transition:transform .35s var(--ease),background .3s,color .3s,border-color .3s}
+  .lnk:hover{transform:translateY(-3px)}
+  .lnk.main{background:var(--accent-deep);color:#fff;border-color:var(--accent-deep)}
+
+  /* бренд-полоса Lielo */
+  .brand{margin-top:34px;display:grid;grid-template-columns:280px 1fr;gap:36px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;box-shadow:0 30px 70px -50px rgba(28,23,18,.4)}
+  .brand img{width:100%;height:auto;border-radius:10px}
+  .brand .txt h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.3rem}
+  .brand .txt p{margin-top:10px;color:var(--ink-soft)}
+  .devnote{margin-top:24px;padding:16px 20px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 5%,#fff);border-radius:0 12px 12px 0;color:var(--ink-soft);font-size:.96rem}
+
+  .cta{margin:44px 0 20px;padding:58px 40px;text-align:center;background:var(--ink);color:var(--paper);border-radius:28px;position:relative;overflow:hidden}
   .cta::after{content:'';position:absolute;width:36vw;height:36vw;border-radius:50%;right:-12vw;bottom:-16vw;background:radial-gradient(circle,rgba(163,68,56,.45),transparent 65%);filter:blur(40px);opacity:.6}
-  .cta h3{position:relative;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.6rem,3.2vw,2.4rem);max-width:22ch;margin:0 auto}
+  .cta h3{position:relative;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,3.4vw,2.5rem);max-width:22ch;margin:0 auto}
   .cta .btn{position:relative;display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:16px 30px;border-radius:100px;background:#fff;color:var(--ink);font-weight:600;transition:transform .4s var(--ease)}
   .cta .btn:hover{transform:translateY(-3px)}
   footer{padding:36px 26px;text-align:center;color:var(--muted);font-size:.86rem;border-top:1px solid var(--line);position:relative;z-index:2}
@@ -88,11 +116,13 @@
   .js .rv.in{opacity:1;transform:none}
 
   @media(max-width:860px){
-    .case-grid{grid-template-columns:1fr;gap:26px}
-    .appview{position:relative;top:0;order:-1;aspect-ratio:4/3.4}
-    .case.rev .beats{order:0}
+    .metrics{grid-template-columns:repeat(2,1fr);gap:18px}
+    .beats{grid-template-columns:1fr;gap:22px}
+    .gallery{grid-template-columns:1fr}
+    .mobrow{grid-template-columns:1fr;gap:22px}.phone{max-width:230px;margin:0 auto}
+    .brand{grid-template-columns:1fr;gap:20px}
+    .shot img{height:clamp(300px,64vw,440px)}
     .cursor,.glow{display:none}
-    .astack{width:44%}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important}.js .rv{opacity:1!important;transform:none!important}}
 </style>
@@ -110,74 +140,125 @@
   <section class="dhero">
     <div class="dnum rv">03 — Направление</div>
     <h1 class="rv">Приложения и SaaS</h1>
-    <p class="rv">Полноценные приложения с рабочей начинкой — логика, данные и AI внутри. Веб и мобильные, с оплатой, подписками и личным кабинетом.</p>
+    <p class="rv">Полноценные продукты с рабочей начинкой — логика, данные и AI внутри. Веб и мобильные, с оплатой, подписками и личным кабинетом. Не «сайт с формой», а система.</p>
     <div class="rule"></div>
   </section>
 
-  <!-- PLANORIA -->
+  <!-- ===== PLANORIA ===== -->
   <section class="case">
-    <div class="eyebrow rv">Кейс — Planoria</div>
-    <h2 class="rv">Сервис, который собирает подготовку события в одном месте</h2>
-    <p class="lead rv">Подготовка свадьбы или мероприятия — это хаос из таблиц, чатов и заметок. Planoria собирает всё в одно приложение — и для пары, и для подрядчиков.</p>
-    <div class="case-grid">
-      <div class="beats">
-        <div class="beat rv"><div class="lbl">Задача</div><h3>Убрать хаос подготовки</h3>
-          <p>Задачи, бюджет, гости и договорённости разбросаны по таблицам и чатам — легко что-то упустить в самый ответственный момент.</p></div>
-        <div class="beat rv"><div class="lbl">Что сделал</div><h3>Единое приложение — веб и Android</h3>
-          <p>Проекты, задачи, таймлайн, бюджет, гости и рассылки, чек-листы. Чат проекта с зеркалом в Telegram и MAX, AI-ассистент внутри. Роли: пара → организатор.</p></div>
-        <div class="beat win rv"><div class="lbl">Результат</div><h3>Всё в одном контуре</h3>
-          <p>Пара и подрядчики видят одну картину, ничего не теряется. Продукт в проде на planoria.ru, есть мобильное приложение для Android.</p></div>
-      </div>
-      <div class="appview rv">
-        <div class="astack" data-tilt>
-          <div class="screen s2"></div>
-          <div class="screen s3"></div>
-          <div class="screen s1">
-            <div class="sc-bar"><i></i><i></i><i></i></div>
-            <div class="sc-body">
-              <div class="sc-row a"></div><div class="sc-row b"></div>
-              <div class="sc-pill"></div>
-              <div class="sc-grid"><div class="sc-tile"></div><div class="sc-tile"></div><div class="sc-tile"></div><div class="sc-tile"></div></div>
-              <div class="sc-row c"></div><div class="sc-row b"></div>
-            </div>
-          </div>
-        </div>
+    <div class="eyebrow rv">Продуктовый кейс · SaaS для событий <span class="status">в проде</span></div>
+    <h2 class="rv">Одна платформа для всего события — от задач до гостей, на пяти поверхностях</h2>
+    <p class="lead rv">Подготовка свадьбы или корпоратива — это зоопарк из Excel, чатов, форм и Word, где версии расходятся, а дедлайны теряются. Planoria собирает задачи, бюджет, гостей, тайминг, чат и AI-ассистента в один контур и синхронно раздаёт их по вебу, Android-приложению, Telegram-боту, российскому MAX и гостевому порталу.</p>
+
+    <div class="shot rv">
+      <div class="top"><i></i><i></i><i></i><span>planoria.ru — дашборд проекта</span></div>
+      <img src="assets/apps/planoria/dashboard.webp" alt="Дашборд проекта Planoria" loading="lazy">
+    </div>
+    <p class="cap rv">Дашборд проекта: обратный отсчёт до события, прогресс этапов, ближайшие задачи, бюджет и гости — одна картина, которую видят и пара, и команда.</p>
+
+    <div class="metrics rv">
+      <div class="metric"><div class="num">5</div><div class="lbl">поверхностей на одну модель данных</div></div>
+      <div class="metric"><div class="num">2</div><div class="lbl">мессенджера с полным паритетом чата (Telegram + MAX)</div></div>
+      <div class="metric"><div class="num">75</div><div class="lbl">миграций базы — глубина эволюции схемы</div></div>
+      <div class="metric"><div class="num">50</div><div class="lbl">экранов · 34 backend-модуля</div></div>
+    </div>
+
+    <div class="beats">
+      <div class="beat rv"><div class="lbl">Задача</div><h3>Подготовка события — зоопарк инструментов</h3>
+        <p>Задачи в Excel без общего доступа, бюджет в отдельном файле, гости в Google-форме, RSVP — звонками, программа дня в Word, фото вразнобой. Версии расходятся, а организатор пяти свадеб тонет в личке.</p></div>
+      <div class="beat rv"><div class="lbl">Что сделал</div><h3>Одна модель данных — пять синхронных поверхностей</h3>
+        <p>Веб, Android-приложение, Telegram-бот, MAX и гостевой портал читают и пишут одни данные. Внутри — задачи с ролями и напоминаниями, бюджет с подрядчиками, гости с импортом и рассадкой, чат с зеркалом в мессенджеры, AI-ассистент на RAG.</p></div>
+      <div class="beat win rv"><div class="lbl">Результат</div><h3>Один проект — одна правда</h3>
+        <p>Гости подтверждают приход сами, без обзвона; бюджет пересчитывается на лету; напоминания приходят в мессенджер и push. Рутина уходит в систему — событие готовится без хаоса.</p></div>
+    </div>
+
+    <div class="gallery">
+      <div class="gitem rv"><div class="shot"><div class="top"><i></i><i></i><i></i></div><img src="assets/apps/planoria/budget.webp" alt="Бюджет" loading="lazy"></div><p class="cap">Бюджет и платежи: статьи, подрядчики, процент исполнения, донат-диаграмма, защита от переплаты.</p></div>
+      <div class="gitem rv"><div class="shot"><div class="top"><i></i><i></i><i></i></div><img src="assets/apps/planoria/guests.webp" alt="Гости и RSVP" loading="lazy"></div><p class="cap">Гости и RSVP: группировка по семьям, импорт CSV с дедупом, три статуса, сегментированные рассылки.</p></div>
+      <div class="gitem rv"><div class="shot"><div class="top"><i></i><i></i><i></i></div><img src="assets/apps/planoria/chat.webp" alt="Чат с зеркалом" loading="lazy"></div><p class="cap">Чат проекта с двусторонним зеркалом в Telegram и MAX — пишешь в мессенджере, появляется в приложении.</p></div>
+      <div class="gitem rv"><div class="shot"><div class="top"><i></i><i></i><i></i></div><img src="assets/apps/planoria/ai.webp" alt="AI-ассистент" loading="lazy"></div><p class="cap">AI-ассистент на RAG: отвечает строго по данным проекта, с историей переписки и ссылками на разделы.</p></div>
+      <div class="gitem rv"><div class="shot"><div class="top"><i></i><i></i><i></i></div><img src="assets/apps/planoria/seating.webp" alt="Рассадка" loading="lazy"></div><p class="cap">Рассадка гостей по столам drag-and-drop — отдельный модуль.</p></div>
+      <div class="gitem rv"><div class="shot"><div class="top"><i></i><i></i><i></i></div><img src="assets/apps/planoria/portal.webp" alt="Гостевой портал" loading="lazy"></div><p class="cap">Гостевой портал по личной ссылке — без регистрации: программа, подарки, RSVP в один тап.</p></div>
+    </div>
+
+    <div class="mobrow rv">
+      <div class="phone"><img src="assets/apps/planoria/mobile.webp" alt="Мобильное приложение Planoria" loading="lazy"></div>
+      <div class="txt">
+        <h4>Настоящее мобильное приложение, а не «сайт в webview»</h4>
+        <p>Android на Capacitor 6: биометрический вход, push-уведомления, выбор гостя из контактов телефона, полный офлайн-режим (добавляешь без сети — синхронизируется само) и обновления «по воздуху» мимо Google Play. APK живой, раздаётся по QR.</p>
       </div>
     </div>
-    <a class="live-link rv" href="https://planoria.ru" target="_blank" rel="noopener">Открыть Planoria вживую →</a>
+
+    <div class="why rv">
+      <h4>Почему это было сложно и интересно</h4>
+      <ul>
+        <li><b>Паритет двух мессенджеров.</b> Telegram и российский MAX — не «ещё одни уведомления», а двустороннее зеркало чата с edit/delete, вложениями, приглашениями и мини-дашбордом на кнопках. Такой паритет двух ботов встречается редко.</li>
+        <li><b>MAX под российскую специфику.</b> Пришлось вшить в контейнер нестандартную TLS-цепочку УЦ Минцифры — без неё падает любой запрос. Это интеграционная зрелость, а не демо-бот.</li>
+        <li><b>AI сделан правильно.</b> RAG на pgvector с graceful-деградацией: ассистент отвечает по данным проекта и не падает, если векторов ещё нет.</li>
+        <li><b>Решения по итогам реальных граблей.</b> OTP вместо magic-link (iOS Mail «протыкивал» ссылку), TTL-лок планировщика вместо утекающего через pgbouncer, Robokassa с фискализацией по 54-ФЗ, RLS-изоляция данных, сквозной 15-блочный аудит безопасности.</li>
+      </ul>
+    </div>
+
+    <div class="links rv">
+      <a class="lnk main" href="https://planoria.ru" target="_blank" rel="noopener">Открыть Planoria вживую →</a>
+      <a class="lnk" href="https://planoria.ru/about/" target="_blank" rel="noopener">Презентация продукта</a>
+      <a class="lnk" href="https://t.me/PlanoriaBot" target="_blank" rel="noopener">Telegram-бот</a>
+      <a class="lnk" href="https://planoria.ru/api/app/download" target="_blank" rel="noopener">Android-приложение</a>
+    </div>
   </section>
 
-  <!-- LIELO -->
-  <section class="case rev">
-    <div class="eyebrow rv">Кейс — Lielo <span class="badge">в разработке</span></div>
-    <h2 class="rv">Личный AI-помощник вместо десяти приложений</h2>
-    <p class="lead rv">Заметки, голос, календарь, задачи — обычно всё это в разных приложениях. Lielo собирает их в одно, с AI внутри.</p>
-    <div class="case-grid">
-      <div class="beats">
-        <div class="beat rv"><div class="lbl">Задача</div><h3>Собрать личную рутину в одном месте</h3>
-          <p>Мысли — в заметках, встречи — в календаре, дела — в задачнике, и всё это в разных местах. Хочется один помощник, который держит контекст.</p></div>
-        <div class="beat rv"><div class="lbl">Что делаю</div><h3>Одно приложение с AI внутри</h3>
-          <p>Заметки и голосовая диктовка, свой календарь с импортом из Google / CalDAV, задачи и привычки, AI-чат с контекстом. Android, дальше iOS.</p></div>
-        <div class="beat win rv"><div class="lbl">Куда идёт</div><h3>Меньше приложений — больше порядка</h3>
-          <p>Один тёплый помощник вместо десятка вкладок. Проект в активной разработке — можно посмотреть, к чему идём.</p></div>
-      </div>
-      <div class="appview rv">
-        <div class="astack" data-tilt>
-          <div class="screen s2"></div>
-          <div class="screen s3"></div>
-          <div class="screen s1">
-            <div class="sc-bar"><i></i><i></i><i></i></div>
-            <div class="sc-body">
-              <div class="sc-row b"></div><div class="sc-row a"></div>
-              <div class="sc-grid"><div class="sc-tile"></div><div class="sc-tile"></div></div>
-              <div class="sc-pill"></div>
-              <div class="sc-row c"></div><div class="sc-row b"></div><div class="sc-row a"></div>
-            </div>
-          </div>
-        </div>
+  <!-- ===== LIELO ===== -->
+  <section class="case">
+    <div class="eyebrow rv">Продуктовый кейс · личный AI-помощник <span class="status dev">в разработке</span></div>
+    <h2 class="rv">Один личный слой поверх всей жизни — наговорил, а система разложила</h2>
+    <p class="lead rv">Заметки, голос, календарь, задачи, привычки, счётчик калорий, AI-чат — обычно всё это в разных приложениях, и ничто не связано. Lielo собирает их в один слой: быстро записал текстом или голосом — а система сама превратит в задачу с напоминанием, привязанную к цели, посчитает КБЖУ по фото и ответит по твоим же данным.</p>
+
+    <div class="shot rv">
+      <div class="top"><i></i><i></i><i></i><span>lielo.ru — вход в приложение</span></div>
+      <img src="assets/apps/lielo/login.webp" alt="Экран входа Lielo" loading="lazy" style="height:auto;object-fit:contain;background:#f6f7fb">
+    </div>
+    <p class="cap rv">Живой экран входа lielo.ru: e-mail/пароль и вход через Google, Яндекс, VK, Mail.ru. Продуктовые экраны — за авторизацией; здесь показан реальный кадр живого приложения.</p>
+
+    <div class="metrics rv">
+      <div class="metric"><div class="num">288</div><div class="lbl">коммитов · ~31 500 строк кода</div></div>
+      <div class="metric"><div class="num">144</div><div class="lbl">API-эндпоинта в 23 модулях</div></div>
+      <div class="metric"><div class="num">34k</div><div class="lbl">продуктов в своей базе КБЖУ (+12k блюд)</div></div>
+      <div class="metric"><div class="num">12</div><div class="lbl">нативных Android-модулей (гео, виджет, плитка…)</div></div>
+    </div>
+
+    <div class="beats">
+      <div class="beat rv"><div class="lbl">Задача</div><h3>Жизнь размазана по десятку приложений</h3>
+        <p>Заметки в одном, календарь в другом, задачи в третьем, калории в четвёртом, AI-чат отдельно — и ничто не связано. «Захватить мысль» — это трение. Нужен один слой, где достаточно наговорить.</p></div>
+      <div class="beat rv"><div class="lbl">Что делаю</div><h3>Наговорил — система разложила</h3>
+        <p>Android (Capacitor 6) и 100%-й десктоп-веб на одном коде, backend в РФ. Заметки и голос, свой календарь, цели-привычки, AI-разнос заметки в сущности с самообучением, чат по своим данным, КБЖУ по фото, гео-напоминания, «пульт к ПК».</p></div>
+      <div class="beat win rv"><div class="lbl">Куда идёт</div><h3>Меньше приложений — больше порядка</h3>
+        <p>Наговорил мысль — она стала задачей с напоминанием, привязанной к цели; сфотографировал тарелку — получил КБЖУ против нормы; отметил привычку голосом — прогресс дня считается сам. Один аккаунт синхронит телефон и компьютер.</p></div>
+    </div>
+
+    <div class="brand rv">
+      <img src="assets/apps/lielo/lockup.webp" alt="Логотип Lielo">
+      <div class="txt">
+        <h4>Свой бренд и дизайн-система</h4>
+        <p>Символ «L» из стекла и жидкости, градиент iris→aqua, словесный знак и lockup под светлую и тёмную тему, иконка приложения, splash. Продукт оформлен как завершённый бренд, а не «проект на коленке».</p>
       </div>
     </div>
-    <a class="live-link rv" href="https://lielo.ru" target="_blank" rel="noopener">Посмотреть Lielo →</a>
+
+    <div class="why rv">
+      <h4>Почему это интересно и сложно</h4>
+      <ul>
+        <li><b>Широта домена в одном продукте.</b> Заметки, голос, календарь, задачи, привычки, дневник, питание-КБЖУ, гео, AI-чат и агент к ПК — каждый на рынке живёт как отдельное приложение, здесь они связаны в один слой.</li>
+        <li><b>Настоящая мобильная инженерия.</b> 12 нативных Java-классов: гео-напоминания в фоне, домашний виджет, плитка шторки, фоновая запись голоса, биометрия, действия прямо в пуше; локальный бандл + обновления по воздуху.</li>
+        <li><b>AI промышленного уровня.</b> Multi-provider STT и LLM с авто-failover, выбор моделей под тип задачи с BYO-ключом, многоуровневый RAG. Vision по еде и этикеткам с реальной оптимизацией стоимости (5,09 ₽ → 0,58 ₽ за скан).</li>
+        <li><b>Своя КБЖУ-база.</b> ~34 000 продуктов и ~12 200 блюд с микронутриентами из USDA, RU-источников и рецептов — с научным нюансом (удержание витаминов по типу готовки).</li>
+      </ul>
+    </div>
+
+    <div class="devnote rv">Продукт за логином — поэтому боевые экраны (дневник, заметки, календарь, КБЖУ, AI-чат) добавлю сюда сразу после релиза и авторизации. Пока — честно: живой вход и завершённый бренд.</div>
+
+    <div class="links rv">
+      <a class="lnk main" href="https://lielo.ru" target="_blank" rel="noopener">Посмотреть Lielo →</a>
+      <a class="lnk" href="https://app.aisob.ru/liel/" target="_blank" rel="noopener">Витрина функционала</a>
+    </div>
   </section>
 
   <section class="cta rv">
@@ -193,8 +274,8 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('js');
   if(!reduce && window.Lenis){ new Lenis({autoRaf:true, lerp:0.09}); }
-  const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12, rootMargin:'0px 0px -6% 0px'});
-  document.querySelectorAll('.rv').forEach((el,i)=>{ el.style.transitionDelay=Math.min(i%5*70,300)+'ms'; io.observe(el); });
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.1, rootMargin:'0px 0px -5% 0px'});
+  document.querySelectorAll('.rv').forEach((el,i)=>{ el.style.transitionDelay=Math.min(i%4*60,220)+'ms'; io.observe(el); });
   if(matchMedia('(hover:hover)').matches && !reduce){
     const cur=document.getElementById('cursor'); let mx=0,my=0,x=0,y=0;
     addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;cur.style.opacity=1});
@@ -206,15 +287,6 @@
     document.querySelectorAll('[data-magnetic]').forEach(el=>{
       el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();
         el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`;});
-    });
-    // 3D-наклон экранов приложения за курсором
-    document.querySelectorAll('.appview').forEach(av=>{
-      const st=av.querySelector('.astack'); if(!st) return;
-      av.addEventListener('pointermove',e=>{const r=av.getBoundingClientRect();
-        const rx=((e.clientY-r.top)/r.height-.5)*-14, ry=((e.clientX-r.left)/r.width-.5)*18;
-        st.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg)`;});
-      av.addEventListener('pointerleave',()=>st.style.transform='');
-      let f=0;(function idle(){ if(!av.matches(':hover')){ f+=0.008; st.style.transform=`rotateY(${Math.sin(f)*7}deg) rotateX(${Math.cos(f)*3}deg)`; } requestAnimationFrame(idle); })();
     });
   }
 </script>
