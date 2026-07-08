@@ -40,15 +40,12 @@
     transition:background .35s var(--ease),color .35s}
   .nav-cta:hover{background:var(--ink);color:var(--paper)}
 
-  /* hero направления */
   .dhero{padding:60px 0 40px}
   .dnum{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--accent);font-weight:600;letter-spacing:.02em}
   .dhero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(3rem,8vw,6rem);line-height:1;letter-spacing:-.03em;margin-top:6px}
   .dhero p{margin-top:22px;font-size:clamp(1.1rem,1.8vw,1.4rem);color:var(--ink-soft);max-width:44ch;font-weight:450}
-
   .rule{height:1px;background:var(--line);margin:20px 0 0}
 
-  /* кейс — «поток» */
   .case{padding:70px 0}
   .case .eyebrow{font-size:.76rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
   .case h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;letter-spacing:-.02em;margin-top:14px;max-width:20ch}
@@ -62,38 +59,58 @@
   .beat p{margin-top:8px;color:var(--ink-soft);font-size:1.02rem}
   .beat.win .lbl{color:var(--accent)}
   .beat.win h3{color:var(--accent)}
+  .live-link{display:inline-block;margin-top:30px;color:var(--accent);font-weight:600;font-size:1.02rem;
+    border-bottom:1px solid rgba(189,79,38,.4);padding-bottom:2px;transition:color .3s,border-color .3s}
+  .live-link:hover{color:var(--accent-deep);border-color:var(--accent)}
 
-  /* живой визуал — золотые дуги к Вырице */
-  .map{position:sticky;top:100px;border-radius:24px;overflow:hidden;background:radial-gradient(120% 120% at 50% 10%,#3a1f1a,#160d0b);
-    box-shadow:0 40px 90px -50px rgba(28,23,18,.8);aspect-ratio:6/5}
-  .map svg{position:absolute;inset:0;width:100%;height:100%}
-  .arc{fill:none;stroke:url(#g);stroke-width:1.6;stroke-linecap:round;
-    stroke-dasharray:100;stroke-dashoffset:100;animation:draw 2.4s var(--ease) forwards}
-  .arc.run{stroke:var(--gold);stroke-width:1.4;stroke-dasharray:4 96;stroke-dashoffset:0;opacity:.9;
-    animation:run 3.2s linear infinite}
-  @keyframes draw{to{stroke-dashoffset:0}}
-  @keyframes run{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
-  .city{fill:var(--gold);opacity:0;animation:spark .6s ease forwards}
-  @keyframes spark{to{opacity:.9}}
-  .heart{transform-origin:center;animation:beat 2.6s var(--ease) infinite}
-  @keyframes beat{0%,100%{opacity:.9}50%{opacity:.45}}
-  .map .cap{position:absolute;left:0;bottom:0;padding:22px 24px;color:#f0d9b0;font-size:.82rem;z-index:2;
-    background:linear-gradient(0deg,rgba(10,6,5,.7),transparent)}
-  .map .cap b{color:#fff;font-weight:600}
+  /* НАСТОЯЩАЯ соборная карта (перенос с сайта Вырицы) */
+  .map{position:sticky;top:100px;border-radius:24px;overflow:hidden;aspect-ratio:6/5;
+    background:radial-gradient(130% 130% at 50% 18%,#f7f0dd,#ece0c2);
+    border:1px solid rgba(176,142,66,.3);box-shadow:0 40px 90px -50px rgba(28,23,18,.5)}
+  .sobmap{position:absolute;inset:0}
+  .map .live{position:absolute;right:14px;top:14px;z-index:6;display:inline-flex;align-items:center;gap:7px;
+    padding:7px 14px;border-radius:100px;background:rgba(142,42,43,.94);color:#f6efdd;font-size:.8rem;font-weight:600;
+    box-shadow:0 8px 20px -8px rgba(142,42,43,.6);transition:transform .3s var(--ease)}
+  .map .live:hover{transform:translateY(-2px)}
+  .map .cap{position:absolute;left:0;right:0;bottom:0;padding:16px 20px;z-index:5;font-size:.82rem;color:#6E1F20;
+    background:linear-gradient(0deg,rgba(246,240,221,.94),rgba(246,240,221,0));pointer-events:none}
+  .map .cap b{color:#8E2A2B;font-weight:700}
+  .sob-svg{display:block;width:100%;height:100%}
+  .sob-land{fill:#e7d7b2;stroke:rgba(176,142,66,.55);stroke-width:.7;stroke-linejoin:round;filter:drop-shadow(0 1px 1px rgba(120,92,40,.18))}
+  .sob-night{fill:rgba(16,24,54,.28);pointer-events:none}
+  .sob-arc{fill:none;stroke:#8E2A2B;stroke-width:.9;stroke-opacity:.6;stroke-linecap:round}
+  .sob-arc.big{stroke-width:1.2;stroke-opacity:.72}
+  .sob-arc.hot{stroke:#C2A14D;stroke-opacity:1;stroke-width:1.8;filter:drop-shadow(0 0 3px rgba(194,161,77,.95))}
+  @keyframes sob-run{to{stroke-dashoffset:calc(-1 * var(--L))}}
+  .sob-city{cursor:pointer}
+  .sob-halo{fill:#8E2A2B;opacity:.26;transform-box:fill-box;transform-origin:center;animation:sob-pulse 2.8s ease-out infinite}
+  .sob-core{fill:#8E2A2B}
+  .sob-city.hot .sob-core{fill:#C2A14D}
+  .sob-city.hot .sob-halo{fill:#C2A14D;opacity:.5}
+  @keyframes sob-pulse{0%,100%{opacity:.26;transform:scale(1)}50%{opacity:.1;transform:scale(1.55)}}
+  .sob-lbl{fill:#6E1F20;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;paint-order:stroke;stroke:#f3ead7;stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+  .sob-lbl.big{font-size:13px;fill:#5a1718}
+  .sob-lbl.vyritsa{font-size:15.5px;fill:#1E3A8A;stroke-width:3.5px}
+  .sob-labels{pointer-events:none}
+  .sob-hcore{fill:#2552D6;transform-box:fill-box;transform-origin:center;animation:sob-beat 2.4s infinite}
+  .sob-hglow{fill:#2552D6;opacity:.4}
+  .sob-ring{fill:none;stroke:#2552D6;stroke-width:1.4;transform-box:fill-box;transform-origin:center;animation:sob-ringexp 2.4s ease-out infinite;opacity:0}
+  @keyframes sob-ringexp{0%{r:6px;opacity:.7}100%{r:24px;opacity:0}}
+  @keyframes sob-beat{0%,100%{transform:scale(1)}14%{transform:scale(1.16)}28%{transform:scale(1)}42%{transform:scale(1.09)}}
+  .sob-tip{position:absolute;transform:translate(-50%,-150%);background:#6E1F20;color:#F4ECD9;border:1px solid rgba(217,190,120,.5);
+    border-radius:8px;padding:5px 10px;font-size:12.5px;font-weight:500;pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap;z-index:7}
 
-  /* ещё сайты */
   .more{padding:20px 0 40px}
   .more h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.4rem;margin-bottom:20px}
   .more-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .site{display:block;padding:26px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.4);
-    transition:transform .4s var(--ease),border-color .4s,box-shadow .4s;position:relative;overflow:hidden}
+    transition:transform .4s var(--ease),border-color .4s,box-shadow .4s}
   .site:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--accent) 40%,var(--line));box-shadow:0 24px 50px -30px rgba(28,23,18,.4)}
   .site .st{font-family:'Fraunces',serif;font-weight:500;font-size:1.25rem}
   .site p{margin-top:8px;color:var(--ink-soft);font-size:.96rem}
   .site .go{margin-top:14px;display:inline-flex;gap:7px;color:var(--accent);font-weight:600;font-size:.9rem;transition:gap .3s}
   .site:hover .go{gap:12px}
 
-  /* CTA */
   .cta{margin:40px 0 20px;padding:60px 40px;text-align:center;background:var(--ink);color:var(--paper);border-radius:28px;position:relative;overflow:hidden}
   .cta::after{content:'';position:absolute;width:36vw;height:36vw;border-radius:50%;right:-12vw;bottom:-16vw;
     background:radial-gradient(circle,rgba(189,79,38,.4),transparent 65%);filter:blur(40px);opacity:.6}
@@ -113,8 +130,7 @@
     .more-grid{grid-template-columns:1fr}
     .cursor{display:none}
   }
-  @media(prefers-reduced-motion:reduce){*{animation:none!important}.js .rv{opacity:1!important;transform:none!important}
-    .arc{stroke-dashoffset:0}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}.js .rv{opacity:1!important;transform:none!important}}
 </style>
 </head>
 <body>
@@ -133,69 +149,30 @@
     <div class="rule"></div>
   </section>
 
-  <!-- КЕЙС ВЫРИЦА -->
+  <!-- КЕЙС «ЦАРСКИЙ ХРАМ · ВЫРИЦА» -->
   <section class="case">
-    <div class="eyebrow rv">Кейс · приход в Вырице</div>
+    <div class="eyebrow rv">Кейс · «Царский храм» · Вырица</div>
     <h2 class="rv">Сайт, который объединяет людей со всей страны</h2>
-    <p class="lead rv">Строящемуся храму нужен был не «сайт-визитка», а место, куда хочется вернуться: помочь, оставить записку, почувствовать сопричастность — даже если ты за тысячи километров.</p>
+    <p class="lead rv">Строящемуся храму Святых Царственных Страстотерпцев нужен был не «сайт-визитка», а место, куда хочется вернуться: подать записку, помочь, помолиться вместе — даже если ты за тысячи километров. Слоган прихода — «Вырица: место молитвы, которое меняет жизнь».</p>
 
     <div class="case-grid">
       <div class="beats">
         <div class="beat rv"><div class="lbl">Задача</div><h3>Не информировать, а вовлекать</h3>
-          <p>Собрать пожертвования на стройку и объединить людей вокруг общего дела. Сухие тексты и реквизиты этого не делают — нужна душа и доверие.</p></div>
-        <div class="beat rv"><div class="lbl">Что сделал</div><h3>Сайт с характером и «живой картой»</h3>
-          <p>Записки и требы, целевые сборы с наглядной динамикой, «Книга ктиторов», видеообращение настоятеля. И главная изюминка — карта, где из городов России тянутся золотые дуги к сердцу-Вырице, а по ним бегут огоньки.</p></div>
+          <p>Собрать пожертвования на стройку и объединить людей вокруг общего дела. Сухие реквизиты этого не делают — нужны душа, доверие и живое соучастие.</p></div>
+        <div class="beat rv"><div class="lbl">Что сделал</div><h3>Сайт с характером и «соборной картой»</h3>
+          <p>Записки и требы, целевые сборы с наглядной динамикой («дал 1000 ₽ — через месяц вставили окна»), Книга ктиторов, видеообращение священника, знаменное пение. И главная изюминка — соборная карта: города со всей России тянутся золотыми нитями к сердцу-Вырице, огоньки разгораются, по нитям бежит импульс.</p></div>
         <div class="beat win rv"><div class="lbl">Результат</div><h3>Сопричастность, а не просто «инфо»</h3>
-          <p>Человек видит, что он не один — со всей страны люди тянутся к одному месту. Сайт вызывает эмоцию и доверие, а значит — желание помочь.</p></div>
+          <p>Человек видит, что он не один: со всей страны и даже из-за рубежа люди тянутся к одному месту. Сайт вызывает эмоцию и доверие — а значит, желание помочь и вернуться.</p></div>
       </div>
 
       <div class="map rv">
-        <svg viewBox="0 0 600 500" aria-hidden="true">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#e0a44e"/><stop offset="1" stop-color="#bd4f26"/>
-            </linearGradient>
-            <radialGradient id="halo"><stop offset="0" stop-color="#ffd98a" stop-opacity=".9"/><stop offset="1" stop-color="#ffd98a" stop-opacity="0"/></radialGradient>
-          </defs>
-          <!-- дуги от городов к центру (300,300) -->
-          <g>
-            <path class="arc" pathLength="100" style="animation-delay:.1s"  d="M70,120 Q160,90 300,300"/>
-            <path class="arc" pathLength="100" style="animation-delay:.3s"  d="M180,70 Q250,120 300,300"/>
-            <path class="arc" pathLength="100" style="animation-delay:.5s"  d="M330,50 Q330,160 300,300"/>
-            <path class="arc" pathLength="100" style="animation-delay:.7s"  d="M470,80 Q400,150 300,300"/>
-            <path class="arc" pathLength="100" style="animation-delay:.9s"  d="M545,150 Q430,180 300,300"/>
-            <path class="arc" pathLength="100" style="animation-delay:1.1s" d="M80,240 Q180,240 300,300"/>
-            <path class="arc" pathLength="100" style="animation-delay:1.3s" d="M540,300 Q430,280 300,300"/>
-            <path class="arc" pathLength="100" style="animation-delay:1.5s" d="M150,420 Q240,360 300,300"/>
-            <path class="arc" pathLength="100" style="animation-delay:1.7s" d="M450,430 Q370,360 300,300"/>
-          </g>
-          <!-- бегущие огоньки по тем же дугам -->
-          <g>
-            <path class="arc run" pathLength="100" style="animation-delay:2.4s"  d="M70,120 Q160,90 300,300"/>
-            <path class="arc run" pathLength="100" style="animation-delay:2.9s"  d="M330,50 Q330,160 300,300"/>
-            <path class="arc run" pathLength="100" style="animation-delay:3.4s"  d="M545,150 Q430,180 300,300"/>
-            <path class="arc run" pathLength="100" style="animation-delay:3.9s"  d="M450,430 Q370,360 300,300"/>
-          </g>
-          <!-- города -->
-          <g>
-            <circle class="city" cx="70"  cy="120" r="3.2" style="animation-delay:.1s"/>
-            <circle class="city" cx="180" cy="70"  r="3.2" style="animation-delay:.3s"/>
-            <circle class="city" cx="330" cy="50"  r="3.2" style="animation-delay:.5s"/>
-            <circle class="city" cx="470" cy="80"  r="3.2" style="animation-delay:.7s"/>
-            <circle class="city" cx="545" cy="150" r="3.2" style="animation-delay:.9s"/>
-            <circle class="city" cx="80"  cy="240" r="3.2" style="animation-delay:1.1s"/>
-            <circle class="city" cx="540" cy="300" r="3.2" style="animation-delay:1.3s"/>
-            <circle class="city" cx="150" cy="420" r="3.2" style="animation-delay:1.5s"/>
-            <circle class="city" cx="450" cy="430" r="3.2" style="animation-delay:1.7s"/>
-          </g>
-          <!-- сердце-Вырица -->
-          <circle cx="300" cy="300" r="60" fill="url(#halo)" class="heart"/>
-          <circle cx="300" cy="300" r="7" fill="#fff"/>
-          <circle cx="300" cy="300" r="12" fill="none" stroke="#ffd98a" stroke-width="1.5" opacity=".7"/>
-        </svg>
-        <div class="cap"><b>Живая карта:</b> золотые дуги со всей России сходятся к Вырице</div>
+        <div class="sobmap" id="sobmap"></div>
+        <a class="live" href="https://app.aisob.ru/vyritsa-hram/karta.html" target="_blank" rel="noopener">● вживую →</a>
+        <div class="cap"><b>Соборная карта:</b> тот самый живой элемент прямо с сайта — города тянутся золотыми нитями к Вырице</div>
       </div>
     </div>
+
+    <a class="live-link rv" href="https://app.aisob.ru/vyritsa-hram/" target="_blank" rel="noopener">Открыть сайт «Царский храм · Вырица» вживую →</a>
   </section>
 
   <!-- ЕЩЁ САЙТЫ -->
@@ -207,9 +184,9 @@
         <p>Браузерная игра на чистом Canvas: 12 уровней, два героя, без единой сторонней библиотеки. Идею придумала дочка.</p>
         <span class="go">Поиграть →</span>
       </a>
-      <a class="site rv" href="index.html">
-        <div class="st">Это портфолио</div>
-        <p>Сайт с мультиязычностью, анимациями и живыми деталями. Тот, что вы читаете прямо сейчас.</p>
+      <a class="site rv" href="https://app.aisob.ru/aggregators/" target="_blank" rel="noopener">
+        <div class="st">Витрина: агрегаторы нейросетей</div>
+        <p>Демо-сайт с фильтрами и таблицами: 660 моделей и тарифы 12 сервисов, собранные парсером.</p>
         <span class="go">Открыть →</span>
       </a>
     </div>
@@ -224,11 +201,17 @@
 
 <footer>© 2026 Александр Моисеев · направление «Сайты» · <a href="concept-warm.html#help" style="color:var(--accent)">ко всем направлениям</a></footer>
 
+<script src="assets/vyritsa/world.js"></script>
+<script src="assets/vyritsa/cities.js"></script>
+<script src="assets/vyritsa/map.js"></script>
 <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
 <script>
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('js');
   if(!reduce && window.Lenis){ new Lenis({autoRaf:true, lerp:0.09}); }
+  // настоящая соборная карта (preview — без зума)
+  try{ if(window.sobornayaMap && document.getElementById('sobmap')) sobornayaMap('sobmap', {preview:true}); }catch(e){ console.warn('map', e); }
+
   const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.14, rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.rv').forEach((el,i)=>{ el.style.transitionDelay=Math.min(i%5*70,300)+'ms'; io.observe(el); });
   if(matchMedia('(hover:hover)').matches && !reduce){
