@@ -137,13 +137,32 @@
   .chap .price small{display:block;color:var(--muted);font-weight:500;font-size:.8rem;margin-top:3px}
   .chap .go{margin-top:14px;display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--accent);font-size:.92rem;transition:gap .35s var(--ease)}
   .chap:hover .go{gap:13px}
-  /* «тихая роскошь»: редакторский hover вместо шумных подложек */
+  /* редакторский hover: имя в акцент-курсив + тонкая линия проезжает снизу (толще в движении) */
+  .chap{overflow:hidden}
+  .chap>.no,.chap>.body,.chap>.meta{position:relative;z-index:1}
   .chap .no{font-size:1.95rem;transition:color .4s var(--ease)}
   .chap h3{transition:color .35s var(--ease)}
   .chap:hover h3{font-style:italic;color:var(--accent)}
-  .chap::after{content:'';position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);
+  .chap::after{content:'';position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--accent);z-index:2;
     transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
   .chap:hover::after{transform:scaleX(1)}
+  /* подложки-«фишки» направлений: в покое едва видны, на hover (десктоп) чуть ярче */
+  .chap-fx{position:absolute;inset:0;z-index:0;opacity:.26;pointer-events:none;overflow:hidden;transition:opacity .6s var(--ease);
+    -webkit-mask:linear-gradient(90deg,transparent 36%,#000 86%);mask:linear-gradient(90deg,transparent 36%,#000 86%)}
+  .chap:hover .chap-fx{opacity:.6}
+  .fx-bots::before,.fx-bots::after{content:'';position:absolute;right:8%;top:50%;width:120px;height:120px;border:1.6px solid var(--accent);border-radius:50%;opacity:0;transform:translate(50%,-50%) scale(.3);animation:pulse 5s var(--ease) infinite}
+  .fx-bots::after{animation-delay:2.5s}
+  @keyframes pulse{0%{opacity:.5;transform:translate(50%,-50%) scale(.3)}70%{opacity:0}100%{opacity:0;transform:translate(50%,-50%) scale(1.7)}}
+  .fx-auto{background:repeating-linear-gradient(118deg,transparent 0 22px,rgba(189,79,38,.14) 22px 23px);background-size:200% 200%;animation:slide 9s linear infinite}
+  @keyframes slide{to{background-position:120px 0}}
+  .fx-apps span{position:absolute;right:9%;top:50%;width:150px;height:94px;border-radius:14px;border:1.6px solid rgba(189,79,38,.5);transform:translate(50%,-50%)}
+  .fx-apps span:nth-child(2){transform:translate(42%,-64%) rotate(-6deg);opacity:.6;animation:floaty 7s var(--ease) infinite}
+  .fx-apps span:nth-child(3){transform:translate(58%,-36%) rotate(6deg);opacity:.4;animation:floaty 7s var(--ease) infinite reverse}
+  @keyframes floaty{50%{transform:translate(48%,-58%) rotate(-2deg)}}
+  .fx-sites span{position:absolute;right:9%;top:50%;width:186px;height:122px;border:1.6px solid rgba(189,79,38,.5);border-radius:12px;transform:translate(50%,-50%);animation:floaty2 8s var(--ease) infinite}
+  @keyframes floaty2{0%,100%{transform:translate(50%,-50%)}50%{transform:translate(46%,-54%)}}
+  .fx-sites span::before{content:'';position:absolute;left:12px;top:11px;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:13px 0 rgba(189,79,38,.6),26px 0 rgba(189,79,38,.4)}
+  .fx-sites span::after{content:'';position:absolute;left:12px;right:12px;top:34px;height:1.6px;background:rgba(189,79,38,.4);box-shadow:0 16px 0 rgba(189,79,38,.3),0 32px 0 rgba(189,79,38,.22),0 48px 0 rgba(189,79,38,.15)}
   .boxes-note{margin-top:22px;font-size:.94rem;color:var(--muted)}
   .boxes-note b{color:var(--ink-soft);font-weight:600}
 
@@ -156,6 +175,8 @@
   .nums{position:relative;margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
   .nums .n{font-family:'Fraunces',serif;font-size:clamp(2.1rem,4vw,3rem);font-weight:500;color:#fff}
   .nums .nl{font-size:.86rem;color:rgba(243,237,226,.6);margin-top:6px;line-height:1.4}
+  .proof .resume-link{position:relative;display:inline-block;margin-top:34px;color:#e9975f;font-weight:600;font-size:.98rem;border-bottom:1px solid rgba(233,151,95,.45);padding-bottom:2px;transition:color .3s,border-color .3s}
+  .proof .resume-link:hover{color:#fff;border-color:#fff}
 
   /* ===== контакт ===== */
   .contact{padding:100px 0 70px;text-align:center;position:relative;z-index:2}
@@ -188,6 +209,8 @@
     .chap .go{margin-top:0}
     .cursor{display:none}
     .glow{display:none}            /* на телефоне — спокойнее, без бликов */
+    .chap-fx{opacity:.12}          /* подложки видны, но статичные */
+    .fx-auto,.fx-bots::before,.fx-bots::after,.fx-apps span,.fx-sites span{animation:none}
     .proof{padding:44px 26px;border-radius:24px}
   }
   @media(max-width:520px){
@@ -224,12 +247,12 @@
     <div>
       <div class="eyebrow rv"><span class="d"></span> Свободен для новых проектов</div>
       <h1><span class="line"><span class="rv-l">Освобождаю ваше время</span></span><span class="line"><span class="rv-l">и не даю <em>терять клиентов</em>.</span></span></h1>
-      <p class="lede rv">Собираю понятные инструменты для небольшого дела — ботов, автоматизации и сайты. Они тихо делают рутину за вас: отвечают клиентам, ведут запись, приносят заявки.</p>
+      <p class="lede rv">Собираю рабочие инструменты для бизнеса — от ботов и автоматизаций до полноценных приложений и сайтов. Простые снимают рутину: отвечают клиентам, ведут запись, приносят заявки. Сложные решают серьёзные задачи под ключ.</p>
       <div class="hero-cta rv">
         <a class="btn btn-primary" data-magnetic href="https://t.me/avmoiseevspb" target="_blank" rel="noopener">Рассказать о задаче</a>
         <a class="btn-text" href="#help">Чем я помогаю <span class="ar">↓</span></a>
       </div>
-      <p class="hero-note rv">Работаю один, от начала до конца: сам разбираю задачу, собираю, запускаю и сопровождаю. <b>Кого видите на связи — тот и делает.</b></p>
+      <p class="hero-note rv">Работаю один, от начала до конца — <b>кого видите на связи, тот и делает.</b> Но не в одиночку: со мной 29 лет в ИТ, опыт в бизнесе и арсенал AI-инструментов (вайб-кодинг, Claude Code). Один человек, а по скорости и охвату — команда.</p>
     </div>
 
     <div class="portrait rv" id="portrait">
@@ -247,8 +270,8 @@
 
   <!-- STACK -->
   <div class="stack rv">
-    <span class="lbl">На чём собираю</span>
-    <span>Python</span><span>свой код на VPS</span><span>OpenAI · Claude</span><span>Telegram · VK · MAX</span><span>Supabase</span><span>1С</span><span>n8n</span>
+    <span class="lbl">Инструменты, которыми работаю</span>
+    <span>Claude Code · вайб-кодинг</span><span>Python</span><span>OpenAI · Claude</span><span>Telegram · VK · MAX</span><span>Supabase</span><span>n8n</span><span>1С</span><span>свои сервисы на VPS</span>
   </div>
 
   <!-- HELP / направления -->
@@ -256,21 +279,23 @@
     <div class="sec-lead rv">
       <div class="sec-lbl">Четыре направления</div>
       <h2>Чем я помогаю</h2>
-      <p>Не «делаю нейросети», а закрываю конкретную задачу. Начинаю с того, чтобы разобраться в вашем деле — потом предлагаю решение.</p>
+      <p>Начинаю не с технологий, а с вашей задачи: сначала разбираюсь в деле, потом предлагаю решение. Важен результат, а не модные слова.</p>
     </div>
 
     <div class="chapters">
       <a class="chap rv" href="projects.html">
+        <div class="chap-fx fx-bots" aria-hidden="true"></div>
         <div class="no">01</div>
         <div class="body">
           <h3>Боты и AI-помощники</h3>
-          <p>Отвечают клиентам круглосуточно, ведут запись, прогревают и продают — вместо потерянных заявок и уставшего администратора.</p>
-          <div class="tags"><span class="tag">Telegram · VK · MAX</span><span class="tag">Запись · оплата</span><span class="tag">Ответы 24/7</span></div>
+          <p>Отвечают клиентам круглосуточно, ведут запись, поддерживают, прогревают и продают — вместо потерянных заявок и уставшего администратора.</p>
+          <div class="tags"><span class="tag">Telegram · VK · MAX</span><span class="tag">Запись · оплата</span><span class="tag">Поддержка 24/7</span></div>
         </div>
         <div class="meta"><span class="go">Смотреть →</span></div>
       </a>
 
       <a class="chap rv" href="#">
+        <div class="chap-fx fx-auto" aria-hidden="true"></div>
         <div class="no">02</div>
         <div class="body">
           <h3>Автоматизация и парсеры</h3>
@@ -281,38 +306,41 @@
       </a>
 
       <a class="chap rv" href="#">
+        <div class="chap-fx fx-apps" aria-hidden="true"><span></span><span></span><span></span></div>
         <div class="no">03</div>
         <div class="body">
-          <h3>Приложения и сервисы</h3>
-          <p>Полноценные продукты с личным кабинетом, оплатой и AI внутри. Web и Android — от первой рабочей версии до магазина приложений.</p>
-          <div class="tags"><span class="tag">Web + Android</span><span class="tag">Подписки</span><span class="tag">Личный кабинет</span></div>
+          <h3>Приложения и SaaS</h3>
+          <p>Полноценные приложения с рабочей начинкой — логика, данные и AI внутри. Оплата, подписки, личный кабинет. От первой версии до публикации в магазинах.</p>
+          <div class="tags"><span class="tag">Веб</span><span class="tag">Android</span><span class="tag">iOS · скоро</span><span class="tag">SaaS · подписки</span></div>
         </div>
         <div class="meta"><span class="go">Смотреть →</span></div>
       </a>
 
       <a class="chap rv" href="#">
+        <div class="chap-fx fx-sites" aria-hidden="true"><span></span></div>
         <div class="no">04</div>
         <div class="body">
           <h3>Сайты</h3>
-          <p>Сайты, которые запоминаются и работают на доверие: чисто, живо, с характером. Как сайт храма в Вырице с живой картой России.</p>
+          <p>Сайты, которые запоминаются и работают на доверие: чисто, живо, с характером — с изюминками и спецэффектами там, где они к месту.</p>
           <div class="tags"><span class="tag">Лендинги</span><span class="tag">Живые эффекты</span><span class="tag">Под задачу</span></div>
         </div>
         <div class="meta"><span class="go">Смотреть →</span></div>
       </a>
     </div>
-    <p class="boxes-note rv"><b>Честно про деньги:</b> заранее называю цену и срок — и не меняю их по ходу. Вы точно знаете, за что платите.</p>
+    <p class="boxes-note rv"><b>Честно про деньги:</b> сначала вместе формулируем задачу, я всё уточняю — и называю фиксированную цену и срок. Дальше цена не меняется, а проект довожу до конца.</p>
   </section>
 
   <!-- PROOF -->
   <section class="block" id="about" style="padding-top:20px">
     <div class="proof rv">
-      <p class="p-lead">За плечами <em>29 лет в ИТ</em> и десятки живых запусков. Тепло — это хорошо, но за ним всегда стоит работа, которая просто <em>работает</em>.</p>
+      <p class="p-lead">За плечами <em>29 лет в ИТ</em>, опыт в бизнесе и десятки живых запусков. Делаю не для галочки, а так, чтобы <em>работало</em> и приносило результат.</p>
       <div class="nums">
         <div><div class="n" data-to="29">29</div><div class="nl">лет в ИТ и аналитике</div></div>
-        <div><div class="n" data-to="30" data-suf="+">30+</div><div class="nl">запущенных решений</div></div>
-        <div><div class="n" data-to="8000" data-suf="+">8 000+</div><div class="nl">заявок обработано ботами</div></div>
-        <div><div class="n" data-to="20" data-suf="+">20+</div><div class="nl">лет в 1С — редкий бонус</div></div>
+        <div><div class="n" data-to="40" data-suf="+">40+</div><div class="nl">запущенных решений</div></div>
+        <div><div class="n" data-to="100000" data-suf="+">100 000+</div><div class="nl">обращений обработано ботами</div></div>
+        <div><div class="n" data-to="20" data-suf="+">20+</div><div class="nl">лет в 1С — аналитик</div></div>
       </div>
+      <a class="resume-link" href="resume-full.html">Познакомиться подробнее — полное резюме →</a>
     </div>
   </section>
 
@@ -328,7 +356,7 @@
   </section>
 </main>
 
-<footer>© 2026 Александр Моисеев · боты · автоматизация · приложения · сайты · по-человечески</footer>
+<footer>© 2026 Александр Моисеев · боты · автоматизация · приложения · SaaS · сайты · по-человечески</footer>
 
 <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
 <script>
