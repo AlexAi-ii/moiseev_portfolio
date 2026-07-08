@@ -121,13 +121,13 @@
   .sec-lead p{margin-top:16px;color:var(--ink-soft);font-size:1.08rem;max-width:44ch}
 
   .chapters{margin-top:30px;border-top:1px solid var(--line)}
-  .chap{--c:var(--accent);display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;
+  .chap{--c:var(--accent);background:color-mix(in srgb,var(--c) 4%,transparent);display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;
     padding:38px 6px;border-bottom:1px solid var(--line);position:relative;transition:padding .5s var(--ease)}
-  .chap::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:14px;transition:opacity .5s var(--ease);opacity:.5;
-    background:radial-gradient(135% 150% at 100% 50%,color-mix(in srgb,var(--c) 9%,transparent),transparent 66%)}
+  .chap::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:14px;transition:opacity .5s var(--ease);opacity:.85;
+    background:radial-gradient(140% 160% at 100% 50%,color-mix(in srgb,var(--c) 20%,transparent),transparent 62%)}
   .chap:hover{padding-left:26px;padding-right:20px}
   .chap:hover::before{opacity:1}
-  .chap .no{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--muted);font-weight:500;transition:color .4s}
+  .chap .no{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--c);font-weight:500;transition:color .4s}
   .chap:hover .no{color:var(--c)}
   .chap .body h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.5rem,2.6vw,2.15rem);letter-spacing:-.01em;line-height:1.1}
   .chap .body p{margin-top:10px;color:var(--ink-soft);font-size:1.04rem;max-width:52ch}
@@ -148,9 +148,9 @@
     transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
   .chap:hover::after{transform:scaleX(1)}
   /* подложки-«фишки» направлений: в покое едва видны, на hover (десктоп) чуть ярче */
-  .chap-fx{position:absolute;inset:0;z-index:0;opacity:.26;pointer-events:none;overflow:hidden;transition:opacity .6s var(--ease);
+  .chap-fx{position:absolute;inset:0;z-index:0;opacity:.5;pointer-events:none;overflow:hidden;transition:opacity .6s var(--ease);
     -webkit-mask:linear-gradient(90deg,transparent 36%,#000 86%);mask:linear-gradient(90deg,transparent 36%,#000 86%)}
-  .chap:hover .chap-fx{opacity:.6}
+  .chap:hover .chap-fx{opacity:.8}
   .fx-bots::before,.fx-bots::after{content:'';position:absolute;right:8%;top:50%;width:120px;height:120px;border:1.6px solid var(--c);border-radius:50%;opacity:0;transform:translate(50%,-50%) scale(.3);animation:pulse 5s var(--ease) infinite}
   .fx-bots::after{animation-delay:2.5s}
   @keyframes pulse{0%{opacity:.5;transform:translate(50%,-50%) scale(.3)}70%{opacity:0}100%{opacity:0;transform:translate(50%,-50%) scale(1.7)}}
