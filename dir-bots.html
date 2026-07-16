@@ -16,6 +16,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
   body{font-family:'Inter',system-ui,sans-serif;background:color-mix(in srgb,#bd4f26 5%,var(--paper));color:var(--ink);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body.locked{overflow:hidden}
   a{color:inherit;text-decoration:none}
   .serif{font-family:'Fraunces',Georgia,serif}
   ::selection{background:var(--accent);color:#fff}
@@ -43,40 +44,60 @@
   .statbar .num{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4.4vw,3.2rem);color:var(--accent);line-height:1;letter-spacing:-.02em}
   .statbar .lbl{margin-top:6px;color:var(--ink-soft);font-size:.88rem;line-height:1.4}
 
-  /* featured кейс — чередующиеся ряды */
-  .fcase{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;padding:60px 0;border-bottom:1px solid var(--line)}
+  .fcase{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;padding:56px 0;border-bottom:1px solid var(--line)}
   .fcase.rev .media{order:2}
-  .media{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 36px 80px -46px rgba(28,23,18,.5);background:#fff}
-  .media img{display:block;width:100%;height:auto}
+  .media{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 36px 80px -46px rgba(28,23,18,.5);background:#fff;aspect-ratio:4/3}
+  .media img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
   .status{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:color-mix(in srgb,var(--accent) 14%,#fff);color:var(--accent-deep)}
   .fcase h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.1;letter-spacing:-.01em;margin-top:14px}
   .fcase .lead{margin-top:14px;color:var(--ink-soft);font-size:1.06rem}
-  .mrow{margin-top:22px;display:flex;gap:30px;flex-wrap:wrap}
-  .mrow .m .n{font-family:'Fraunces',serif;font-weight:500;font-size:1.9rem;color:var(--accent);line-height:1}
-  .mrow .m .l{color:var(--muted);font-size:.82rem;margin-top:3px}
+  .mrow{margin-top:22px;display:flex;gap:26px 34px;flex-wrap:wrap}
+  .mrow .m .n{font-family:'Fraunces',serif;font-weight:500;font-size:1.85rem;color:var(--accent);line-height:1}
+  .mrow .m .l{color:var(--muted);font-size:.8rem;margin-top:3px}
   .why{margin-top:20px;list-style:none;display:grid;gap:9px}
   .why li{padding-left:22px;position:relative;color:var(--ink-soft);font-size:.98rem}
   .why li::before{content:'';position:absolute;left:2px;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
 
-  /* особый стат-блок (молитвослов) */
-  .statcase{margin:60px 0;padding:52px 44px;border-radius:26px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden;border-bottom:none}
+  .statcase{margin:56px 0;padding:52px 44px;border-radius:26px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
   .statcase::after{content:'';position:absolute;width:40vw;height:40vw;border-radius:50%;right:-14vw;top:-16vw;background:radial-gradient(circle,rgba(189,79,38,.5),transparent 62%);filter:blur(42px);opacity:.6}
   .statcase .st{position:relative;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e9b48f}
   .statcase h3{position:relative;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,3.4vw,2.6rem);margin-top:12px;max-width:26ch;color:#fff}
-  .statcase p{position:relative;margin-top:14px;color:#d8d2e8;max-width:64ch}
+  .statcase p{position:relative;margin-top:14px;color:#e7dccf;max-width:64ch}
   .statcase .nums{position:relative;margin-top:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
   .statcase .nums .n{font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:500;color:#fff}
-  .statcase .nums .l{font-size:.82rem;color:#b7afd0;margin-top:5px;line-height:1.4}
+  .statcase .nums .l{font-size:.82rem;color:#c8bba8;margin-top:5px;line-height:1.4}
 
-  /* ещё боты — компактная сетка */
   .more{padding:56px 0 30px}
-  .more h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,3.4vw,2.6rem);letter-spacing:-.02em;margin-bottom:26px}
+  .more h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,3.4vw,2.6rem);letter-spacing:-.02em}
+  .more .sub{color:var(--muted);margin-top:8px;margin-bottom:26px}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .bcard{padding:24px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.45);transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+  .bcard{text-align:left;font:inherit;cursor:pointer;padding:24px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.5);transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;position:relative}
   .bcard:hover{transform:translateY(-5px);box-shadow:0 22px 46px -30px rgba(28,23,18,.4);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
   .bcard h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.18rem}
   .bcard p{margin-top:8px;color:var(--ink-soft);font-size:.94rem}
-  .bcard .met{margin-top:12px;font-weight:700;color:var(--accent-deep);font-size:.92rem}
+  .bcard .met{margin-top:12px;font-weight:700;color:var(--accent-deep);font-size:.9rem}
+  .bcard .more-link{margin-top:12px;display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:600;font-size:.86rem;transition:gap .3s}
+  .bcard:hover .more-link{gap:11px}
+
+  /* модалка */
+  .modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;padding:5vh 20px}
+  .modal.open{display:flex}
+  .modal-bg{position:fixed;inset:0;background:rgba(28,23,18,.5);backdrop-filter:blur(6px);opacity:0;transition:opacity .35s var(--ease)}
+  .modal.open .modal-bg{opacity:1}
+  .modal-card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:24px;max-width:680px;width:100%;padding:46px 42px;box-shadow:0 60px 120px -40px rgba(28,23,18,.65);margin:auto;
+    opacity:0;transform:translateY(24px) scale(.98);transition:opacity .4s var(--ease),transform .4s var(--ease);max-height:90vh;overflow:auto}
+  .modal.open .modal-card{opacity:1;transform:none}
+  .modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);background:#fff;cursor:pointer;font-size:1.2rem;line-height:1;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s}
+  .modal-close:hover{background:var(--ink);color:var(--paper)}
+  .modal .m-status{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:color-mix(in srgb,var(--accent) 14%,#fff);color:var(--accent-deep)}
+  .modal h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.5rem,3vw,2rem);margin-top:14px;line-height:1.12}
+  .modal .m-desc{margin-top:14px;color:var(--ink-soft);font-size:1.04rem}
+  .modal .m-metrics{margin-top:22px;display:flex;gap:22px 30px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line)}
+  .modal .m-metrics .n{font-family:'Fraunces',serif;font-weight:500;font-size:1.6rem;color:var(--accent);line-height:1}
+  .modal .m-metrics .l{color:var(--muted);font-size:.8rem;margin-top:3px}
+  .modal .m-why{margin-top:22px;list-style:none;display:grid;gap:9px}
+  .modal .m-why li{padding-left:22px;position:relative;color:var(--ink-soft);font-size:.98rem}
+  .modal .m-why li::before{content:'';position:absolute;left:2px;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
 
   .cta{margin:44px 0 20px;padding:58px 40px;text-align:center;background:var(--ink);color:var(--paper);border-radius:28px;position:relative;overflow:hidden}
   .cta::after{content:'';position:absolute;width:36vw;height:36vw;border-radius:50%;right:-12vw;bottom:-16vw;background:radial-gradient(circle,rgba(189,79,38,.45),transparent 65%);filter:blur(40px);opacity:.6}
@@ -90,11 +111,12 @@
 
   @media(max-width:860px){
     .statbar{grid-template-columns:repeat(2,1fr);gap:18px}
-    .fcase{grid-template-columns:1fr;gap:24px;padding:44px 0}
+    .fcase{grid-template-columns:1fr;gap:22px;padding:44px 0}
     .fcase.rev .media{order:0}
     .statcase .nums{grid-template-columns:repeat(2,1fr)}
     .grid{grid-template-columns:1fr}
     .cursor,.glow{display:none}
+    .modal-card{padding:38px 26px}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important}.js .rv{opacity:1!important;transform:none!important}}
 </style>
@@ -127,9 +149,10 @@
     <div class="body">
       <span class="status">в бою</span>
       <h3>Нейросотрудник HR — AI-скрининг откликов</h3>
-      <p class="lead">AI-рекрутёр сам ведёт переписку с кандидатами на HeadHunter: задаёт вопросы по чек-листу профессии, разбирает свободные ответы, отсеивает неподходящих и передаёт готовых рекрутёру с досье. Обработал 8000+ откликов и сэкономил HR-отделу 1166 часов — как год работы отдельного сотрудника, без зарплаты и выходных.</p>
+      <p class="lead">AI-рекрутёр сам ведёт переписку с кандидатами на HeadHunter: задаёт вопросы по чек-листу профессии, разбирает свободные ответы, отсеивает неподходящих и передаёт готовых рекрутёру с досье. Заменил год работы отдельного HR-сотрудника — без зарплаты и выходных.</p>
       <div class="mrow">
         <div class="m"><div class="n">8 000+</div><div class="l">откликов обработано</div></div>
+        <div class="m"><div class="n">3 500+</div><div class="l">кандидатов проинтервьюировано</div></div>
         <div class="m"><div class="n">1 166 ч</div><div class="l">экономии HR</div></div>
         <div class="m"><div class="n">2 нед → 3 дня</div><div class="l">срок найма</div></div>
       </div>
@@ -146,11 +169,12 @@
     <div class="body">
       <span class="status">в проде</span>
       <h3>Ленремонт — AI-продажник в 10 каналах</h3>
-      <p class="lead">Боевой ИИ-консультант по ремонту мебели: ведёт клиента до лида и передаёт менеджерам одновременно в Telegram, VK, MAX, WhatsApp, Avito и на сайте. Держит поток 10 000+ диалогов в сутки со стабильностью 99.8%, считает стоимость по прайсу, записывает на замер и не теряет ни одной заявки — даже голос и фото понимает.</p>
+      <p class="lead">Боевой ИИ-консультант по ремонту мебели: ведёт клиента до лида и передаёт менеджерам одновременно в Telegram, VK, MAX, WhatsApp, Avito и на сайте. Считает стоимость по прайсу, записывает на замер, понимает голос и фото — и не теряет ни одной заявки.</p>
       <div class="mrow">
         <div class="m"><div class="n">10</div><div class="l">каналов сразу</div></div>
         <div class="m"><div class="n">10 000+</div><div class="l">диалогов в сутки</div></div>
         <div class="m"><div class="n">99.8%</div><div class="l">успешных прогонов</div></div>
+        <div class="m"><div class="n">+35%</div><div class="l">к записи на замер</div></div>
       </div>
       <ul class="why">
         <li>Гейт владения диалогом и 3 заглушки по каналу — бот никогда не задевает поток живого оператора.</li>
@@ -159,21 +183,22 @@
     </div>
   </section>
 
-  <!-- Салон -->
+  <!-- Аюрпак -->
   <section class="fcase rv">
-    <div class="media"><img src="assets/bots/salon-cover.webp" alt="Салон — онлайн-запись с 1С" loading="lazy"></div>
+    <div class="media"><img src="assets/bots/aurpak-cover.webp" alt="Аюрпак AI-консультант" loading="lazy"></div>
     <div class="body">
-      <span class="status">в проде</span>
-      <h3>Салон красоты — онлайн-запись с интеграцией 1С</h3>
-      <p class="lead">Telegram-бот записи, который в реальном времени синхронизируется с 1С. Клиент сам выбирает мастера, услугу и время 24/7; расписание и финансовые документы обновляются в 1С автоматически, напоминания и предоплата — прямо в боте. Работа администратора сократилась на 60%, ошибки и дубли в расписании ушли в ноль.</p>
+      <span class="status">завершён</span>
+      <h3>Аюрпак — AI-консультант для B2B-заявок</h3>
+      <p class="lead">Telegram-бот для производителя упаковки: в диалоге консультирует по каталогу, квалифицирует оптового клиента (объём, позиция, сроки) и передаёт готовую заявку менеджеру в Bitrix24. Быстрый ответ 24/7 — ни один опт не уходит из-за того, что «не успели перезвонить».</p>
       <div class="mrow">
-        <div class="m"><div class="n">−60%</div><div class="l">работы администратора</div></div>
-        <div class="m"><div class="n">24/7</div><div class="l">онлайн-запись</div></div>
-        <div class="m"><div class="n">1С</div><div class="l">живая синхронизация</div></div>
+        <div class="m"><div class="n">−60%</div><div class="l">рутины менеджеров</div></div>
+        <div class="m"><div class="n">+25%</div><div class="l">к конверсии обращений</div></div>
+        <div class="m"><div class="n">24/7</div><div class="l">мгновенный ответ</div></div>
+        <div class="m"><div class="n">CRM</div><div class="l">заявки сразу в Bitrix24</div></div>
       </div>
       <ul class="why">
-        <li>Двусторонняя синхронизация с 1С на лету — не выгрузка раз в день, а обновление расписания и документов сразу.</li>
-        <li>Защита от дублей и коллизий слотов при параллельных записях.</li>
+        <li>Квалификация оптовика по чек-листу (тип продукции, тираж, печать, сроки) прямо в диалоге.</li>
+        <li>Многоканальный вход (WhatsApp, Telegram, VK, MAX, сайт) с передачей готового лида в CRM.</li>
       </ul>
     </div>
   </section>
@@ -197,11 +222,12 @@
     <div class="body">
       <span class="status">завершён</span>
       <h3>Контроль платежей — напоминания о дебиторке</h3>
-      <p class="lead">Система авто-напоминаний о долгах в Telegram и WhatsApp с оплатой в один клик прямо из уведомления. Отслеживает неоплаченные счета и дедлайны, эскалирует просрочку, показывает дашборд задолженности в реальном времени. Просроченная дебиторка снизилась на 45%, ручной обзвон должников исчез.</p>
+      <p class="lead">Система авто-напоминаний о долгах в Telegram и WhatsApp с оплатой в один клик прямо из уведомления. Отслеживает неоплаченные счета и дедлайны, эскалирует просрочку, показывает дашборд задолженности в реальном времени.</p>
       <div class="mrow">
         <div class="m"><div class="n">−45%</div><div class="l">просроченной дебиторки</div></div>
         <div class="m"><div class="n">80%</div><div class="l">сбора платежей на автопилоте</div></div>
         <div class="m"><div class="n">2</div><div class="l">канала: TG + WhatsApp</div></div>
+        <div class="m"><div class="n">1 клик</div><div class="l">оплата из уведомления</div></div>
       </div>
       <ul class="why">
         <li>Мультиканальные напоминания с гибкими сценариями по сегментам (новые/постоянные).</li>
@@ -210,20 +236,11 @@
     </div>
   </section>
 
-  <!-- ЕЩЁ БОТЫ -->
+  <!-- ЕЩЁ БОТЫ (клик → модалка) -->
   <section class="more">
     <h2 class="rv">Ещё боты в бою</h2>
-    <div class="grid">
-      <div class="bcard rv"><h4>ZZOK — бот-продавец</h4><p>Прогревает холодные лиды серией касаний, скорит готовность к покупке и отдаёт тёплых в CRM с историей.</p><div class="met">+45% к конверсии в продажу</div></div>
-      <div class="bcard rv"><h4>Biohacker</h4><p>Подписной AI-консультант по биохакингу на своей базе знаний (RAG), с оплатой подписки на автопилоте.</p><div class="met">~344 ноды · рекуррент 500/1000 ₽/мес</div></div>
-      <div class="bcard rv"><h4>Личный AI-ассистент</h4><p>Помощник в Telegram с голосом: ставит задачи, разбирает почту и ведёт календарь по одной фразе.</p><div class="met">2+ часа экономии в день</div></div>
-      <div class="bcard rv"><h4>Бильярд-бот</h4><p>Бронирование столов с календарём свободного времени, онлайн-оплатой и уведомлениями администратору.</p><div class="met">−40% нагрузки на администратора</div></div>
-      <div class="bcard rv"><h4>Аюрпак</h4><p>AI-консультант для производителя упаковки: консультирует по каталогу и квалифицирует оптового клиента.</p><div class="met">−60% рутины · +25% к конверсии</div></div>
-      <div class="bcard rv"><h4>AUDIO MinusPlus</h4><p>Telegram-сервис 24/7: разделяет треки на стемы с автоматической оплатой — продажи без участия человека.</p><div class="met">полностью автономные продажи</div></div>
-      <div class="bcard rv"><h4>ZZOK HR</h4><p>Обучение и аттестация сотрудников через бота с базой знаний (RAG): материалы, тесты, контроль.</p><div class="met">адаптация новичка в 2–3 раза быстрее</div></div>
-      <div class="bcard rv"><h4>AI-автопостинг</h4><p>Берёт ссылку или RSS, сам пишет пост нужного стиля и публикует в Telegram-канал по расписанию.</p><div class="met">−5 часов в неделю редактору</div></div>
-      <div class="bcard rv"><h4>SMM-бот</h4><p>Контент-календарь для beauty-мастеров: подсказывает темы и ведёт публикации.</p><div class="met">−10 часов в неделю</div></div>
-    </div>
+    <p class="sub rv">Нажмите на карточку — откроется подробнее, не уходя со страницы.</p>
+    <div class="grid" id="grid"></div>
   </section>
 
   <section class="cta rv">
@@ -232,10 +249,79 @@
   </section>
 </main>
 
+<!-- модалка -->
+<div class="modal" id="modal">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Закрыть">✕</button>
+    <span class="m-status" id="m-status"></span>
+    <h3 id="m-title"></h3>
+    <p class="m-desc" id="m-desc"></p>
+    <div class="m-metrics" id="m-metrics"></div>
+    <ul class="m-why" id="m-why"></ul>
+  </div>
+</div>
+
 <footer>© 2026 Александр Моисеев · направление «Боты и AI-помощники» · <a href="concept-warm.html#help" style="color:var(--accent)">ко всем направлениям</a></footer>
 
 <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
 <script>
+  const BOTS=[
+   {k:'biohacker',t:'Biohacker — подписной AI-консультант по здоровью',s:'в бою',short:'AI-эксперт по биохакингу с базой знаний и платной подпиской.',met:[['~344','ноды в воркфлоу'],['500/1000 ₽','рекуррент/мес'],['21 день','бесплатный триал']],
+    d:'Подписной Telegram-бот-эксперт по биохакингу (питание, сон, энергия) с AI-чатом на базе знаний эксперта (RAG). Существует, по сути, в двух ботах: основной n8n-бот (~344 ноды, текст/голос/фото на входе, «отдел заботы» с тикетами) и отдельный Telegram Mini App (фото-разбор тарелки, «Спросить Юлю», план дня и КБЖУ) — он ещё дописывается. Превращает экспертизу в источник дохода на автопилоте.',
+    why:['Полноценный платёжный контур с рекуррентом на CloudPayments: HMAC-верификация, дедуп по TransactionId, refund/cancel','Динамическая ценовая матрица (акция, закрепление цены, продление) по дате и состоянию пользователя','RAG поверх базы эксперта — бот отвечает её голосом и рецептами, а не «на глаз»']},
+   {k:'zzok-sale',t:'ZZOK — бот-продавец',s:'завершён',short:'Прогревает холодные лиды и отдаёт тёплых в CRM.',met:[['+45%','к конверсии в продажу'],['80%','воронки автоматизировано'],['24/7','прогрев лидов']],
+    d:'Telegram-бот-продавец ведёт клиента по воронке: пошаговый прогрев с триггерами и трипваерами, скоринг готовности к покупке по поведению, аналитика конверсии по этапам и автоматическая передача тёплых лидов в CRM с полной историей. Заменяет менеджера на первом контакте — не устаёт, не забывает и не «сливает» лида.',
+    why:['Скоринг готовности к покупке на основе поведения, а не по анкете','Двусторонняя интеграция с CRM: передача лида с историей + приём событий','Разные сценарии под сегменты и учёт брошенных корзин']},
+   {k:'salon',t:'Салон красоты — онлайн-запись с 1С',s:'в проде',short:'Запись клиентов 24/7 с живой синхронизацией с 1С.',met:[['−60%','работы администратора'],['0','ошибок в расписании'],['1С','живая синхронизация']],
+    d:'Telegram-бот записи, который в реальном времени синхронизируется с 1С:Предприятие. Клиент сам выбирает мастера, услугу и время 24/7; расписание и финансовые документы по каждой услуге создаются в 1С автоматически, напоминания за день и час и предоплата — прямо в боте. Работа администратора сократилась на 60%, дубли в расписании ушли в ноль.',
+    why:['Двусторонняя синхронизация с 1С на лету — не выгрузка раз в день, а обновление сразу','Защита от дублей и коллизий слотов при параллельных записях','Автосоздание финансовых документов в 1С по каждой оказанной услуге']},
+   {k:'assistant',t:'Личный AI-ассистент — задачи, почта, календарь',s:'в бою',short:'Помощник в Telegram с голосом: задачи, почта, календарь.',met:[['2+ часа','экономии в день'],['3','Google-сервиса'],['голос','управление речью']],
+    d:'Персональный помощник в Telegram: понимает текст и голос, интегрирован с Gmail, Google Calendar и Tasks. По одной фразе создаёт задачи, читает и суммирует почту, планирует встречи и напоминает о них. Управление голосом из одного окна вместо переключения между сервисами.',
+    why:['Распознавание голоса и извлечение намерения из свободной речи','Оркестрация нескольких Google API из одного диалога','Контекст и память между сообщениями, чтобы довести задачу/встречу до конца']},
+   {k:'billiard',t:'Бильярд-бот — бронирование столов',s:'в проде',short:'Бронирование столов с оплатой и уведомлениями.',met:[['−40%','нагрузки на администратора'],['24/7','брони без звонков'],['онлайн','оплата в боте']],
+    d:'Telegram-бот для бильярдного клуба: бронирование столов с календарём свободного времени, онлайн-оплата, уведомления администратору. Брони идут сами, без звонков, круглосуточно — меньше простоя столов и потерянных клиентов, которые не дозвонились.',
+    why:['Календарь свободного времени с защитой от двойных броней','Онлайн-оплата брони прямо в диалоге','Уведомления администратору о каждой новой брони']},
+   {k:'amp',t:'AUDIO MinusPlus — платный сервис 24/7',s:'в проде',short:'Разделяет треки на стемы с автоматической оплатой.',met:[['24/7','автономные продажи'],['0','участия человека'],['∞','заказов параллельно']],
+    d:'Telegram-сервис, который разделяет музыкальные треки на стемы (вокал, минус, инструменты) с автоматической оплатой. Полностью автономные продажи — от заказа до выдачи файла без участия человека. Приносит доход круглосуточно, обрабатывает сколько угодно заказов параллельно, себестоимость обслуживания почти ноль.',
+    why:['Полный цикл продажи без человека: заказ → оплата → обработка → выдача файла','Параллельная обработка множества заказов','Автоматическая оплата и выдача результата']},
+   {k:'zzok-hr',t:'ZZOK HR — база знаний и тесты',s:'завершён',short:'Обучение и аттестация сотрудников через бота (RAG).',met:[['×2–3','быстрее адаптация'],['RAG','база знаний'],['авто','контроль тестов']],
+    d:'Обучение и аттестация сотрудников через Telegram-бота с базой знаний (RAG): материалы, тесты, контроль прохождения. Ускоряет адаптацию новичка в 2–3 раза — вместо наставника отвечает бот, знания проверяются автоматически. Один инструмент вместо папок с инструкциями, которые никто не читает.',
+    why:['RAG по внутренним материалам компании — бот отвечает по регламентам, а не «в общем»','Автоматические тесты и контроль прохождения','Единая база знаний вместо разрозненных документов']},
+   {k:'autopost',t:'AI-автопостинг в Telegram',s:'завершён',short:'Из ссылки или RSS сам пишет пост и публикует по расписанию.',met:[['−5 ч','в неделю редактору'],['авто','по расписанию'],['RSS','и ссылки на входе']],
+    d:'Бот берёт ссылку или RSS, сам пишет пост нужного стиля и публикует в Telegram-канал по расписанию. Экономит редактору около 5 часов в неделю — контент выходит регулярно, без ручной вёрстки и «забыл запостить». Канал живёт сам, наполняется даже когда автор занят.',
+    why:['Генерация поста нужного стиля из ссылки/RSS','Публикация по расписанию без ручного участия','Регулярность контента без нагрузки на редактора']},
+   {k:'smm',t:'SMM-бот — контент-календарь для beauty',s:'завершён',short:'Контент-план и ведение публикаций для мастеров.',met:[['−10 ч','в неделю'],['план','контент-календарь'],['beauty','под нишу']],
+    d:'Контент-календарь для beauty-мастеров: подсказывает темы, ведёт план публикаций и снимает рутину ведения соцсетей. Экономит около 10 часов в неделю — мастер занимается клиентами, а контент выходит по плану.',
+    why:['Готовый контент-план под нишу','Ведение расписания публикаций','Снятие рутины планирования контента']},
+   {k:'mchs',t:'МЧС — ассистент подготовки КП',s:'завершён',short:'Готовит коммерческие предложения быстрее и без ошибок.',met:[['быстрее','подготовка КП'],['меньше','ошибок'],['шаблоны','под задачу']],
+    d:'Ассистент для подготовки коммерческих предложений: помогает собрать КП быстрее и с меньшим числом ошибок, работая по шаблонам и проверяя данные. Ускоряет рутинную, но ответственную работу по подготовке документов.',
+    why:['Работа по проверенным шаблонам КП','Проверка данных и снижение числа ошибок','Ускорение подготовки документов']},
+  ];
+
+  const grid=document.getElementById('grid');
+  BOTS.forEach(b=>{
+    const el=document.createElement('button');
+    el.className='bcard rv'; el.type='button'; el.dataset.k=b.k;
+    el.innerHTML=`<h4>${b.t.split(' — ')[0]}</h4><p>${b.short}</p><div class="met">${b.met[0][0]} ${b.met[0][1]}</div><span class="more-link">Подробнее →</span>`;
+    grid.appendChild(el);
+  });
+
+  // модалка
+  const modal=document.getElementById('modal');
+  function openModal(b){
+    document.getElementById('m-status').textContent=b.s;
+    document.getElementById('m-title').textContent=b.t;
+    document.getElementById('m-desc').textContent=b.d;
+    document.getElementById('m-metrics').innerHTML=b.met.map(m=>`<div><div class="n">${m[0]}</div><div class="l">${m[1]}</div></div>`).join('');
+    document.getElementById('m-why').innerHTML=b.why.map(w=>`<li>${w}</li>`).join('');
+    modal.classList.add('open'); document.body.classList.add('locked');
+  }
+  function closeModal(){ modal.classList.remove('open'); document.body.classList.remove('locked'); }
+  grid.addEventListener('click',e=>{ const c=e.target.closest('.bcard'); if(!c)return; const b=BOTS.find(x=>x.k===c.dataset.k); if(b)openModal(b); });
+  modal.addEventListener('click',e=>{ if(e.target.hasAttribute('data-close'))closeModal(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape')closeModal(); });
+
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('js');
   if(!reduce && window.Lenis){ new Lenis({autoRaf:true, lerp:0.09}); }
@@ -245,7 +331,7 @@
     const cur=document.getElementById('cursor'); let mx=0,my=0,x=0,y=0;
     addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;cur.style.opacity=1});
     (function loop(){ x+=(mx-x)*.2; y+=(my-y)*.2; cur.style.left=x+'px'; cur.style.top=y+'px'; requestAnimationFrame(loop); })();
-    document.querySelectorAll('a,[data-magnetic]').forEach(el=>{
+    document.querySelectorAll('a,button,[data-magnetic]').forEach(el=>{
       el.addEventListener('pointerenter',()=>cur.classList.add('big'));
       el.addEventListener('pointerleave',()=>{cur.classList.remove('big');el.style.transform='';});
     });
