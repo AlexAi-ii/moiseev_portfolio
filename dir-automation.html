@@ -228,7 +228,7 @@
   const grid=document.getElementById('grid');
   SVC.forEach(b=>{
     const el=document.createElement('button'); el.className='bcard rv'; el.type='button'; el.dataset.k=b.k;
-    el.innerHTML=`<h4>${b.t.split(' — ')[0]}</h4><p>${b.short}</p><div class="met">${b.met[0][0]} ${b.met[0][1]}</div><span class="more-link">Подробнее →</span>`;
+    el.innerHTML=`<h4>${b.t.split(' — ')[0]}</h4><p>${b.short}</p><div class="met">${b.met[0][0]} ${b.met[0][1]}</div>`;
     grid.appendChild(el);
   });
   const modal=document.getElementById('modal');
