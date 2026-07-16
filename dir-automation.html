@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автоматизация и парсеры — Александр Моисеев</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f3ede2;--paper-2:#ebe3d5;--ink:#1c1712;--ink-soft:#4b433a;--muted:#8c8171;
+    --accent:#c58326;--accent-deep:#a5661a;--line:rgba(28,23,18,.12);--line-2:rgba(28,23,18,.2);
+    --ease:cubic-bezier(.22,1,.36,1);--container:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Inter',system-ui,sans-serif;background:color-mix(in srgb,#c58326 5%,var(--paper));color:var(--ink);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body.locked{overflow:hidden}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:'Fraunces',Georgia,serif}
+  ::selection{background:var(--accent);color:#fff}
+  body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.4;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>")}
+  .glow{position:fixed;z-index:-1;border-radius:50%;filter:blur(72px);opacity:.4;pointer-events:none;width:42vw;height:42vw;top:-14vw;right:-10vw;background:radial-gradient(circle,rgba(197,131,38,.28),transparent 65%)}
+  .cursor{position:fixed;top:0;left:0;width:9px;height:9px;border-radius:50%;background:var(--accent);z-index:9999;pointer-events:none;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),background .3s,opacity .3s;opacity:0}
+  .cursor.big{width:52px;height:52px;background:transparent;border:1.5px solid var(--accent)}
+  @media(hover:none),(pointer:coarse){.cursor{display:none}}
+
+  .wrap{max-width:var(--container);margin:0 auto;padding:0 26px;position:relative;z-index:2}
+  nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:24px;max-width:var(--container);margin:0 auto;padding:20px 26px;background:linear-gradient(color-mix(in srgb,#c58326 5%,var(--paper)),rgba(243,237,226,.5) 70%,transparent)}
+  .back{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;color:var(--ink-soft);margin-right:auto;transition:gap .3s var(--ease),color .3s}
+  .back:hover{gap:13px;color:var(--accent)}
+  .nav-cta{font-size:.9rem;font-weight:600;padding:11px 20px;border-radius:100px;border:1.5px solid var(--ink);transition:background .35s var(--ease),color .35s}
+  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+
+  .dhero{padding:56px 0 30px}
+  .dnum{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--accent);font-weight:600}
+  .dhero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.6rem,7vw,5rem);line-height:1;letter-spacing:-.03em;margin-top:6px}
+  .dhero p{margin-top:22px;font-size:clamp(1.1rem,1.8vw,1.36rem);color:var(--ink-soft);max-width:56ch;font-weight:450}
+  .statbar{margin-top:38px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
+  .statbar .num{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,4.4vw,3.2rem);color:var(--accent);line-height:1;letter-spacing:-.02em}
+  .statbar .lbl{margin-top:6px;color:var(--ink-soft);font-size:.88rem;line-height:1.4}
+
+  /* Lead-Hunter — тёмный стат-кейс */
+  .statcase{margin:56px 0;padding:52px 44px;border-radius:26px;background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+  .statcase::after{content:'';position:absolute;width:40vw;height:40vw;border-radius:50%;right:-14vw;top:-16vw;background:radial-gradient(circle,rgba(197,131,38,.5),transparent 62%);filter:blur(42px);opacity:.6}
+  .statcase .st{position:relative;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#eecb8f}
+  .statcase h3{position:relative;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.8rem,3.6vw,2.8rem);margin-top:12px;max-width:24ch;color:#fff}
+  .statcase p{position:relative;margin-top:14px;color:#e8e0d0;max-width:66ch}
+  .statcase .nums{position:relative;margin-top:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .statcase .nums .n{font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:500;color:#fff}
+  .statcase .nums .l{font-size:.82rem;color:#cbbfa8;margin-top:5px;line-height:1.4}
+  .statcase .why{position:relative;margin-top:26px;list-style:none;display:grid;gap:9px;max-width:80ch}
+  .statcase .why li{padding-left:22px;position:relative;color:#ddd5c6;font-size:.98rem}
+  .statcase .why li::before{content:'';position:absolute;left:2px;top:.55em;width:7px;height:7px;border-radius:50%;background:#eecb8f}
+
+  /* агрегаторы — featured со скрином */
+  .fcase{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:56px 0;border-bottom:1px solid var(--line)}
+  .shot{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 36px 80px -46px rgba(28,23,18,.5);background:#fff}
+  .shot .top{height:34px;background:#efe7dc;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--line)}
+  .shot .top i{width:9px;height:9px;border-radius:50%;background:var(--accent);opacity:.5}
+  .shot img{display:block;width:100%;height:auto}
+  .status{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:color-mix(in srgb,var(--accent) 16%,#fff);color:var(--accent-deep)}
+  .fcase h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.1;margin-top:14px}
+  .fcase .lead{margin-top:14px;color:var(--ink-soft);font-size:1.06rem}
+  .mrow{margin-top:22px;display:flex;gap:26px 34px;flex-wrap:wrap}
+  .mrow .m .n{font-family:'Fraunces',serif;font-weight:500;font-size:1.85rem;color:var(--accent);line-height:1}
+  .mrow .m .l{color:var(--muted);font-size:.8rem;margin-top:3px}
+  .lnk{margin-top:20px;display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:100px;background:var(--accent-deep);color:#fff;font-weight:600;font-size:.94rem;transition:transform .35s var(--ease)}
+  .lnk:hover{transform:translateY(-3px)}
+
+  .more{padding:56px 0 30px}
+  .more h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,3.4vw,2.6rem);letter-spacing:-.02em}
+  .more .sub{color:var(--muted);margin-top:8px;margin-bottom:26px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .bcard{text-align:left;font:inherit;cursor:pointer;padding:24px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.5);transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+  .bcard:hover{transform:translateY(-5px);box-shadow:0 22px 46px -30px rgba(28,23,18,.4);border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+  .bcard h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.18rem}
+  .bcard p{margin-top:8px;color:var(--ink-soft);font-size:.94rem}
+  .bcard .met{margin-top:12px;font-weight:700;color:var(--accent-deep);font-size:.9rem}
+  .bcard .more-link{margin-top:12px;display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:600;font-size:.86rem;transition:gap .3s}
+  .bcard:hover .more-link{gap:11px}
+
+  .modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;padding:6vh 20px}
+  .modal.open{display:flex}
+  .modal-bg{position:fixed;inset:0;background:rgba(28,23,18,.5);backdrop-filter:blur(6px);opacity:0;transition:opacity .35s var(--ease)}
+  .modal.open .modal-bg{opacity:1}
+  .modal-card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:24px;max-width:640px;width:100%;padding:46px 42px;box-shadow:0 60px 120px -40px rgba(28,23,18,.65);margin:auto;opacity:0;transform:translateY(24px) scale(.98);transition:opacity .4s var(--ease),transform .4s var(--ease);max-height:88vh;overflow:auto}
+  .modal.open .modal-card{opacity:1;transform:none}
+  .modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);background:#fff;cursor:pointer;font-size:1.2rem;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s}
+  .modal-close:hover{background:var(--ink);color:var(--paper)}
+  .modal .m-status{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:color-mix(in srgb,var(--accent) 16%,#fff);color:var(--accent-deep)}
+  .modal h3{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.5rem,3vw,2rem);margin-top:14px;line-height:1.12}
+  .modal .m-desc{margin-top:14px;color:var(--ink-soft);font-size:1.04rem}
+  .modal .m-metrics{margin-top:22px;display:flex;gap:22px 30px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line)}
+  .modal .m-metrics .n{font-family:'Fraunces',serif;font-weight:500;font-size:1.5rem;color:var(--accent);line-height:1}
+  .modal .m-metrics .l{color:var(--muted);font-size:.8rem;margin-top:3px}
+  .modal .m-why{margin-top:22px;list-style:none;display:grid;gap:9px}
+  .modal .m-why li{padding-left:22px;position:relative;color:var(--ink-soft);font-size:.98rem}
+  .modal .m-why li::before{content:'';position:absolute;left:2px;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+
+  .cta{margin:44px 0 20px;padding:58px 40px;text-align:center;background:var(--ink);color:var(--paper);border-radius:28px;position:relative;overflow:hidden}
+  .cta::after{content:'';position:absolute;width:36vw;height:36vw;border-radius:50%;right:-12vw;bottom:-16vw;background:radial-gradient(circle,rgba(197,131,38,.45),transparent 65%);filter:blur(40px);opacity:.6}
+  .cta h3{position:relative;font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.7rem,3.4vw,2.5rem);max-width:24ch;margin:0 auto}
+  .cta .btn{position:relative;display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:16px 30px;border-radius:100px;background:#fff;color:var(--ink);font-weight:600;transition:transform .4s var(--ease)}
+  .cta .btn:hover{transform:translateY(-3px)}
+  footer{padding:36px 26px;text-align:center;color:var(--muted);font-size:.86rem;border-top:1px solid var(--line);position:relative;z-index:2}
+
+  .js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .js .rv.in{opacity:1;transform:none}
+  @media(max-width:860px){
+    .statbar{grid-template-columns:repeat(2,1fr);gap:18px}
+    .statcase .nums{grid-template-columns:repeat(2,1fr)}
+    .fcase{grid-template-columns:1fr;gap:24px;padding:44px 0}
+    .grid{grid-template-columns:1fr}
+    .cursor,.glow{display:none}.modal-card{padding:38px 26px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}.js .rv{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="glow"></div>
+
+<nav>
+  <a class="back" href="index.html#help">← Ко всем направлениям</a>
+  <a class="nav-cta" data-magnetic href="https://t.me/avmoiseevspb" target="_blank" rel="noopener">Написать</a>
+</nav>
+
+<main class="wrap">
+  <section class="dhero">
+    <div class="dnum rv">02 — Направление</div>
+    <h1 class="rv">Автоматизация и парсеры</h1>
+    <p class="rv">Собираю данные там, где их «нельзя собрать»: карты, реестры, мессенджеры, биржи заказов. Готовые сервисы парсят источники, обогащают записи из ФНС и финотчётности, сегментируют ИИ и отдают чистые выгрузки — с обходом капч, антибота и юридических граблей. Рутина уходит на автопилот.</p>
+    <div class="statbar rv">
+      <div><div class="num">×7–10</div><div class="lbl">ускорение сбора (11 ч → ~1.5 ч)</div></div>
+      <div><div class="num">3,17M</div><div class="lbl">ИНН в базе финотчётности РСБУ</div></div>
+      <div><div class="num">660</div><div class="lbl">моделей собрано с 12 агрегаторов</div></div>
+      <div><div class="num">6</div><div class="lbl">источников парсинга у одного сервиса</div></div>
+    </div>
+  </section>
+
+  <!-- Lead-Hunter -->
+  <section class="statcase rv">
+    <div class="st">Флагман · в проде 24/7 · app.aisob.ru/leadhunter</div>
+    <h3>Lead-Hunter — фабрика B2B-лидов под ключ</h3>
+    <p>Единый пульт: 6 парсеров карт и реестров (Google Maps, 2ГИС, OpenStreetMap, HH, Apify, Yandex) + каскад обогащения (email и роли контактов со страниц сайта, ФНС ЕГРЮЛ, Rusprofile, финансы РСБУ, ИИ-сегментация) + выгрузки Excel / Google Sheets / PDF. Поиск, который раньше занимал ~11 часов, идёт ~1,5 часа — обогащение стартует одновременно с парсингом, и лиды «созревают» в реальном времени.</p>
+    <div class="nums">
+      <div><div class="n">×7–10</div><div class="l">быстрее ручного поиска</div></div>
+      <div><div class="n">3,17M</div><div class="l">ИНН с выручкой и размером бизнеса</div></div>
+      <div><div class="n">6+6</div><div class="l">источников + фаз обогащения на лид</div></div>
+      <div><div class="n">1 клик</div><div class="l">выгрузка в Excel / Sheets / PDF</div></div>
+    </div>
+    <ul class="why">
+      <li>Pipelined-архитектура: 6 фаз бегут параллельными воркерами с каскадными зависимостями (Rusprofile только если ФНС не нашёл, финансы — только при наличии ИНН).</li>
+      <li>Adaptive concurrency: сервис читает RAM/CPU и сам пересчитывает лимиты воркеров — при апгрейде VPS масштабируется без правок кода.</li>
+      <li>Обход граблей: геолокация Apify, Cloudflare на Rusprofile, юридический запрет Yandex на лидген — всё заложено в архитектуру.</li>
+    </ul>
+  </section>
+
+  <!-- Агрегаторы (реальный скрин) -->
+  <section class="fcase rv">
+    <div class="shot">
+      <div class="top"><i></i><i></i><i></i></div>
+      <img src="assets/auto/aggregators.webp" alt="Каталог агрегаторов нейросетей" loading="lazy">
+    </div>
+    <div class="body">
+      <span class="status">завершён · демо публичное</span>
+      <h3>Парсер агрегаторов нейросетей</h3>
+      <p class="lead">Собрал каталог моделей и тарифов с 12 российских агрегаторов ИИ в единую базу с нормализацией цен в ₽ за 1M токенов. 12 отдельных парсеров под каждый сайт (HTTP+BeautifulSoup, где можно, и Playwright для SPA с пагинацией). То, что вручную заняло бы недели сравнения по 12 сайтам, обновляется одним прогоном. Живой веб-каталог с фильтрами и выгрузкой Excel.</p>
+      <div class="mrow">
+        <div class="m"><div class="n">660</div><div class="l">моделей в базе</div></div>
+        <div class="m"><div class="n">27</div><div class="l">тарифов</div></div>
+        <div class="m"><div class="n">12</div><div class="l">агрегаторов</div></div>
+        <div class="m"><div class="n">под ключ</div><div class="l">заказ сдан клиенту</div></div>
+      </div>
+      <a class="lnk" href="https://app.aisob.ru/aggregators/" target="_blank" rel="noopener">Открыть каталог вживую →</a>
+    </div>
+  </section>
+
+  <!-- ЕЩЁ СЕРВИСЫ (модалка) -->
+  <section class="more">
+    <h2 class="rv">Ещё сервисы сбора данных</h2>
+    <p class="sub rv">Нажмите на карточку — откроется подробнее, не уходя со страницы.</p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="cta rv">
+    <h3>Нужно собрать лиды, данные или мониторить рынок на автопилоте?</h3>
+    <a class="btn" data-magnetic href="https://t.me/avmoiseevspb" target="_blank" rel="noopener">Рассказать о задаче →</a>
+  </section>
+</main>
+
+<div class="modal" id="modal">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Закрыть">✕</button>
+    <span class="m-status" id="m-status"></span>
+    <h3 id="m-title"></h3>
+    <p class="m-desc" id="m-desc"></p>
+    <div class="m-metrics" id="m-metrics"></div>
+    <ul class="m-why" id="m-why"></ul>
+  </div>
+</div>
+
+<footer>© 2026 Александр Моисеев · направление «Автоматизация и парсеры» · <a href="index.html#help" style="color:var(--accent)">ко всем направлениям</a></footer>
+
+<script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+<script>
+  const SVC=[
+   {k:'kwork',t:'Kwork-Parser — парсер биржи с ИИ-оценкой и автооткликом',s:'в проде',short:'Парсит заказы Kwork, оценивает fit к профилю и готовит отклик.',met:[['без капчи','мобильный API'],['3','уровня категорий'],['авто','отклик доставлен']],
+    d:'Свой клиент к мобильному API Kwork (без Cloudflare и браузера, с РФ-IP без капчи): лента заказов, коннекты, избранные категории. ИИ (gpt-5.4-mini) даёт batch-скоринг fit_score по профилю. Двухколоночный UI как настоящий Kwork. Автоотправка отклика — Playwright заполняет реальную форму /new_offer. Автообновление по cron 3 раза в день.',
+    why:['Реверс мобильного протокола Kwork (банят по IP, не по аккаунту)','Level-3 категории недоступны в mobile → гибрид: веб-токен + парсинг stateData из HTML','Первый боевой автоотклик доставлен, коннект списан — подтверждение отправки']},
+   {k:'maxfinder',t:'MAX-Finder — поиск лидов в мессенджере MAX',s:'работает E2E',short:'Парсер каналов в госмессенджере MAX через reverse-протокол.',met:[['31','лид за 15 ключевиков'],['1→24','ИИ-веер запросов'],['РФ-IP','24/7 стек']],
+    d:'Реверс-инжинирил внутренний WebSocket-протокол личного аккаунта MAX (нет публичного API): handshake, опкод PUBLIC_SEARCH=60 для поиска каналов, извлечение контактов из описаний. ИИ (gpt-5.4) генерирует семантический веер запросов из брифа вместо ручных ключевиков и скорит каждый канал. Развёрнут на РФ-IP (для госмессенджера иностранный IP — риск).',
+    why:['Реверс закрытого бинарного WebSocket-протокола вживую — документации нет','Выдача капается ~3 канала на запрос → охват через веер ключевик×город×синонимы','Переиспользование ИИ-сегментации и экспортёров из Lead-Hunter — единый почерк']},
+   {k:'tgmon',t:'Telegram-Monitor — мониторинг каналов на заказы',s:'в проде 24/7',short:'Ловит заказы во фриланс-каналах по ключевикам в реальном времени.',met:[['24/7','мониторинг'],['30 мин','watchdog'],['tri-state','фильтр заказов']],
+    d:'Telethon-клиент на зарубежном VPS (MTProto заблокирован для РФ-VPS) слушает подписанные каналы, матчит ключевые слова и пересылает заказы в целевой чат. UI на Next.js с tri-state фильтром Все/Непросмотренные/Просмотренные, группировкой каналов и поиском. Watchdog: при тишине событий 30 минут перезапускает клиента (фикс «залипания»).',
+    why:['MTProto заблокирован для российских VPS → Telethon вынесен на зарубежный сервер + SSH reverse tunnel','Wedge-режим: клиент молча перестаёт получать события → watchdog по таймауту','Гонки состояния: фильтр удалённого заказа, чтобы карточка не «всплывала» обратно']},
+   {k:'tgfinder',t:'TG-Finder — поиск Telegram-каналов по нише',s:'в проде',short:'Crawler находит каналы ниши по ключевикам, отсекая мусор стоп-словами.',met:[['48+47','ключевиков и стоп-слов'],['realtime','стрим результатов'],['resume','после рестарта']],
+    d:'Telethon-crawler: посевной поиск по названию и описанию каналов (48 узких ключевиков), фильтрация 47 стоп-словами (барахолки, знакомства, курсы, крипта). Stateless-воркер над очередью в Supabase — состояние в БД, безопасный resume при рестарте. Фоновый enricher докачивает число подписчиков. UI с realtime-подпиской и сортируемыми колонками.',
+    why:['Отдельный session-файл от Telegram-Monitor (иначе SQLite-lock двух процессов)','Stateless-воркер: при рестарте сам находит running-run и вызывает resume','Rate-limit и обработка FloodWait до 600 сек, чтобы не словить бан']},
+   {k:'avito',t:'Avito-парсер с авто-диалогом и GPT',s:'рабочая связка',short:'Парсит Авито, сам пишет продавцу, а GPT ведёт диалог → Google Sheets.',met:[['без человека','полный цикл'],['GPT','уточняющий диалог'],['Sheets','структурированные данные']],
+    d:'FastAPI+Playwright на VPS исполняет операции Авито (парсинг фильтра, открытие чата, отправка сообщений), а n8n оркеструет: парс → открытие чата → первое сообщение → при ответе продавца GPT задаёт уточняющие вопросы и пишет структурированные данные в Google Sheets. Credentials шифруются, доступ закрыт токеном, стелс-плагины и SOCKS5 против банов.',
+    why:['Avito API не создаёт чат — диалог инициируется через Playwright (кликом), дальше уже API','Риск банов заложен в архитектуру: стелс-плагины, релогин сессии, SOCKS5-прокси','Двухконтурная оркестрация: FastAPI держит только Avito-операции, ключи живут в n8n']},
+  ];
+  const grid=document.getElementById('grid');
+  SVC.forEach(b=>{
+    const el=document.createElement('button'); el.className='bcard rv'; el.type='button'; el.dataset.k=b.k;
+    el.innerHTML=`<h4>${b.t.split(' — ')[0]}</h4><p>${b.short}</p><div class="met">${b.met[0][0]} ${b.met[0][1]}</div><span class="more-link">Подробнее →</span>`;
+    grid.appendChild(el);
+  });
+  const modal=document.getElementById('modal');
+  function openModal(b){
+    document.getElementById('m-status').textContent=b.s;
+    document.getElementById('m-title').textContent=b.t;
+    document.getElementById('m-desc').textContent=b.d;
+    document.getElementById('m-metrics').innerHTML=b.met.map(m=>`<div><div class="n">${m[0]}</div><div class="l">${m[1]}</div></div>`).join('');
+    document.getElementById('m-why').innerHTML=b.why.map(w=>`<li>${w}</li>`).join('');
+    modal.classList.add('open'); document.body.classList.add('locked');
+  }
+  function closeModal(){ modal.classList.remove('open'); document.body.classList.remove('locked'); }
+  grid.addEventListener('click',e=>{ const c=e.target.closest('.bcard'); if(!c)return; const b=SVC.find(x=>x.k===c.dataset.k); if(b)openModal(b); });
+  modal.addEventListener('click',e=>{ if(e.target.hasAttribute('data-close'))closeModal(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape')closeModal(); });
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+  if(!reduce && window.Lenis){ new Lenis({autoRaf:true, lerp:0.09}); }
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.1, rootMargin:'0px 0px -5% 0px'});
+  document.querySelectorAll('.rv').forEach((el,i)=>{ el.style.transitionDelay=Math.min(i%3*70,200)+'ms'; io.observe(el); });
+  if(matchMedia('(hover:hover)').matches && !reduce){
+    const cur=document.getElementById('cursor'); let mx=0,my=0,x=0,y=0;
+    addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;cur.style.opacity=1});
+    (function loop(){ x+=(mx-x)*.2; y+=(my-y)*.2; cur.style.left=x+'px'; cur.style.top=y+'px'; requestAnimationFrame(loop); })();
+    document.querySelectorAll('a,button,[data-magnetic]').forEach(el=>{
+      el.addEventListener('pointerenter',()=>cur.classList.add('big'));
+      el.addEventListener('pointerleave',()=>{cur.classList.remove('big');el.style.transform='';});
+    });
+    document.querySelectorAll('[data-magnetic]').forEach(el=>{
+      el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();
+        el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`;});
+    });
+  }
+</script>
+</body>
+</html>
