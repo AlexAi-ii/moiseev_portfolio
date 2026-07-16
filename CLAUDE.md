@@ -2,10 +2,38 @@
 
 ## Описание
 
-Сайт-портфолио на GitHub Pages — статический HTML/CSS/JS с мультиязычностью (6 языков).
+Сайт-портфолио на GitHub Pages — статический HTML/CSS/JS.
 **GitHub:** https://github.com/AlexAi-ii/moiseev_portfolio
 **Домен:** https://portfolio.aisob.ru
-**Деплой-ветка:** `test-redesign` (не main!) — коммитить и пушить туда.
+**Деплой-ветка:** `main` (единственная ветка; с 2026-07-16 Pages отдаёт с неё, зоопарк test-redesign/redesign-2026/text-hero-redesign убран).
+
+**Деплой:** `git push origin main` → затем `gh api -X POST repos/AlexAi-ii/moiseev_portfolio/pages/builds`
+(без этого сборка Pages иногда залипает в «building»). Пушить через `gh auth setup-git` — в старом
+remote-URL был протухший токен.
+
+## Текущий сайт (редизайн 2026-07)
+
+Тёплая «бумага» + editorial serif (Fraunces/Inter) + Lenis-скролл. Структура:
+
+| Файл | Что это |
+|---|---|
+| `index.html` | Главная: фото + вращающийся бейдж (**кликается только бейдж** → Telegram), 4 плитки-направления, proof-блок, контакты |
+| `dir-bots.html` | Боты (терракота #bd4f26) |
+| `dir-automation.html` | Автоматизация и парсеры (амбер #c58326) |
+| `dir-apps.html` | Приложения и SaaS (глина #a34438) |
+| `dir-sites.html` | Сайты (бронза #b06a2f, живой 3D-глобус Вырицы) |
+| `resume-full.html` | Полное резюме (золото #b0742a) |
+| `portfolio-legacy.html` | **Старый тёмный портфолио** — сохранён как копия, живой по адресу /portfolio-legacy.html |
+| `projects/*.html`, `projects.html` | Страницы старого сайта (пока как есть) |
+
+**Паттерн «матрёшка»** (на dir-bots и dir-automation): карточка сетки — чистая (только заголовок,
+описание, цифра; **без фото и без слова «Подробнее»**) → клик открывает модалку поверх страницы →
+в модалке справа вверху превью (`#m-thumbs`) → клик по превью → лайтбокс `#lb` на весь экран.
+У верхних основных кейсов (`.fcase`, `.statcase`) — полоска `.fthumbs` с тем же лайтбоксом.
+
+**Картинки:** реальные, неповторяющиеся. Источник — `D:\!!! aisob.store\Портфолио\`, НЕ S3
+(там дубли). Панели парсеров сняты вживую с ретушью ПДн. Подробности — в авто-памяти
+`reference_portfolio_media_sources.md`.
 
 ## Маскот-стикмен (assets/common.js + common.css)
 
