@@ -104,6 +104,14 @@
   .m-thumbs img{width:57px;height:57px;object-fit:cover;object-position:top;border-radius:10px;border:1px solid var(--line);cursor:zoom-in;background:#fff;
     transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
   .m-thumbs img:hover{transform:translateY(-3px) scale(1.06);border-color:var(--accent);box-shadow:0 10px 22px -10px rgba(28,23,18,.5)}
+  .fthumbs{margin-top:22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .fthumbs img{width:66px;height:66px;object-fit:cover;object-position:top left;border-radius:10px;border:1px solid var(--line);
+    background:#fff;cursor:zoom-in;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+  .fthumbs img:hover{transform:translateY(-3px) scale(1.06);border-color:var(--accent);box-shadow:0 10px 22px -10px rgba(28,23,18,.5)}
+  .fthumbs .fhint{font-size:.8rem;color:var(--muted);font-style:italic;max-width:34ch;line-height:1.35}
+  .fthumbs.dark{position:relative;margin-top:26px}
+  .fthumbs.dark img{border-color:rgba(255,255,255,.16)}
+  .fthumbs.dark .fhint{color:#a89d8c}
   .lb{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:5vh 20px;background:rgba(20,15,12,.86);backdrop-filter:blur(4px);cursor:zoom-out}
   .lb.open{display:flex}
   .lb img{max-width:92vw;max-height:90vh;border-radius:12px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7)}
@@ -171,6 +179,10 @@
         <li>У HH нет вебхука на новое сообщение — переписка опрашивается поллингом с нарастающими интервалами.</li>
         <li>LLM-агент ведёт живой диалог: дозадаёт только незакрытые вопросы, ловит раздражение и отказы.</li>
       </ul>
+      <div class="fthumbs">
+        <img src="assets/bots/m/hr-1.webp" alt="Разбор ответов кандидатов по чек-листу" loading="lazy">
+        <span class="fhint">Реальный разбор: чек-лист, ответы, вердикт. Данные кандидатов отрезаны.</span>
+      </div>
     </div>
   </section>
 
@@ -191,6 +203,11 @@
         <li>Гейт владения диалогом и 3 заглушки по каналу — бот никогда не задевает поток живого оператора.</li>
         <li>Отказоустойчивость: ретраи, error-workflow возвращает диалог людям при сбое LLM, watchdog против OOM.</li>
       </ul>
+      <div class="fthumbs">
+        <img src="assets/bots/m/lenremont-1.webp" alt="Сайт Ленремонта с виджетом ИИ-консультанта" loading="lazy">
+        <img src="assets/bots/m/lenremont-2.webp" alt="Схема обработки заявок в n8n" loading="lazy">
+        <span class="fhint">Живой виджет на сайте и схема, которая всё это разводит.</span>
+      </div>
     </div>
   </section>
 
@@ -211,6 +228,11 @@
         <li>Квалификация оптовика по чек-листу (тип продукции, тираж, печать, сроки) прямо в диалоге.</li>
         <li>Многоканальный вход (WhatsApp, Telegram, VK, MAX, сайт) с передачей готового лида в CRM.</li>
       </ul>
+      <div class="fthumbs">
+        <img src="assets/bots/m/aurpak-1.webp" alt="Диалог бота с оптовым клиентом" loading="lazy">
+        <img src="assets/bots/m/aurpak-2.webp" alt="Схема квалификации заявки в n8n" loading="lazy">
+        <span class="fhint">Реальный диалог с клиентом. Имена и фото собеседников заретушированы.</span>
+      </div>
     </div>
   </section>
 
@@ -224,6 +246,11 @@
       <div><div class="n">~5 500</div><div class="l">сообщений в день без потерь</div></div>
       <div><div class="n">15</div><div class="l">n8n-воркфлоу, 2 канала</div></div>
       <div><div class="n">5</div><div class="l">молитвенных слотов/сутки по своему часовому поясу</div></div>
+    </div>
+    <div class="fthumbs dark">
+      <img src="assets/bots/m/holy-1.webp" alt="Приветствие бота «День с молитвой»" loading="lazy">
+      <img src="assets/bots/m/holy-2.webp" alt="Отрывок Евангелия с аудиоверсией" loading="lazy">
+      <span class="fhint">Так это видит человек: текст, аудио и фото приходят сами, в свой час.</span>
     </div>
   </section>
 
@@ -244,6 +271,11 @@
         <li>Мультиканальные напоминания с гибкими сценариями по сегментам (новые/постоянные).</li>
         <li>Оплата прямо из уведомления + дашборд и отчётность по дебиторке в реальном времени.</li>
       </ul>
+      <div class="fthumbs">
+        <img src="assets/bots/m/payments-1.webp" alt="Схема напоминаний о платежах в n8n" loading="lazy">
+        <img src="assets/bots/m/payments-2.webp" alt="Таблица платежей со статусами" loading="lazy">
+        <span class="fhint">Рабочая таблица заказчика: статусы, отсрочки, остатки. ФИО и телефоны скрыты.</span>
+      </div>
     </div>
   </section>
 
@@ -318,13 +350,13 @@
   ];
 
   const P='assets/bots/m/';
+  // Только реальные, неповторяющиеся кадры: рабочие схемы, диалоги, таблицы.
   const IMGS={
-    salon:[P+'salon.webp',P+'salon-2.webp',P+'salon-3.webp',P+'salon-4.webp'],
-    assistant:[P+'assistant.webp',P+'assistant-2.webp',P+'assistant-3.webp'],
-    billiard:[P+'billiard.webp'],
-    amp:[P+'amp.webp',P+'amp-2.webp',P+'amp-3.webp',P+'amp-4.webp'],
-    'zzok-hr':[P+'zzok-hr.webp',P+'zzok-hr-2.webp',P+'zzok-hr-3.webp',P+'zzok-hr-4.webp'],
-    autopost:[P+'autopost.webp',P+'autopost-2.webp',P+'autopost-3.webp',P+'autopost-4.webp'],
+    salon:[P+'salon-1.webp'],
+    assistant:[P+'assistant-1.webp'],
+    billiard:[P+'billiard-1.webp',P+'billiard-2.webp',P+'billiard-3.webp'],
+    amp:[P+'amp-1.webp',P+'amp-2.webp'],
+    'zzok-hr':[P+'zzok-hr-1.webp',P+'zzok-hr-2.webp'],
   };
   const grid=document.getElementById('grid');
   BOTS.forEach(b=>{
@@ -352,6 +384,9 @@
   const lb=document.getElementById('lb');
   document.getElementById('m-thumbs').addEventListener('click',e=>{ if(e.target.tagName!=='IMG')return; document.getElementById('lb-img').src=e.target.src; lb.classList.add('open'); });
   lb.addEventListener('click',()=>lb.classList.remove('open'));
+  document.querySelectorAll('.fthumbs img').forEach(im=>{
+    im.addEventListener('click',()=>{ document.getElementById('lb-img').src=im.src; lb.classList.add('open'); });
+  });
   addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeModal(); lb.classList.remove('open'); } });
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;

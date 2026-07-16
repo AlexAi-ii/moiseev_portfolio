@@ -54,6 +54,11 @@
   .statcase .why{position:relative;margin-top:26px;list-style:none;display:grid;gap:9px;max-width:80ch}
   .statcase .why li{padding-left:22px;position:relative;color:#ddd5c6;font-size:.98rem}
   .statcase .why li::before{content:'';position:absolute;left:2px;top:.55em;width:7px;height:7px;border-radius:50%;background:#eecb8f}
+  .stshot{position:relative;margin-top:30px}
+  .stshot img{width:100%;display:block;border-radius:14px;border:1px solid rgba(255,255,255,.13);cursor:zoom-in;
+    box-shadow:0 34px 70px -34px rgba(0,0,0,.85);transition:transform .5s var(--ease)}
+  .stshot img:hover{transform:translateY(-4px)}
+  .stshot figcaption{margin-top:12px;font-size:.84rem;color:#a89d8c;font-style:italic}
 
   /* агрегаторы — featured со скрином */
   .fcase{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:56px 0;border-bottom:1px solid var(--line)}
@@ -88,6 +93,16 @@
   .modal.open .modal-bg{opacity:1}
   .modal-card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:24px;max-width:640px;width:100%;padding:46px 42px;box-shadow:0 60px 120px -40px rgba(28,23,18,.65);margin:auto;opacity:0;transform:translateY(24px) scale(.98);transition:opacity .4s var(--ease),transform .4s var(--ease);max-height:88vh;overflow:auto}
   .modal.open .modal-card{opacity:1;transform:none}
+  .m-head{display:flex;gap:22px;align-items:flex-start;justify-content:space-between;padding-right:46px}
+  .m-head-l{flex:1;min-width:0}
+  .m-thumbs{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap;max-width:252px;justify-content:flex-end}
+  .m-thumbs img{width:57px;height:57px;object-fit:cover;object-position:top left;border-radius:10px;border:1px solid var(--line);cursor:zoom-in;background:#fff;
+    transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+  .m-thumbs img:hover{transform:translateY(-3px) scale(1.06);border-color:var(--accent);box-shadow:0 10px 22px -10px rgba(28,23,18,.5)}
+  .lb{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:5vh 20px;background:rgba(20,15,12,.86);backdrop-filter:blur(4px);cursor:zoom-out}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:90vh;border-radius:12px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7)}
+  .m-note{margin-top:14px;font-size:.84rem;color:var(--muted);font-style:italic}
   .modal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-2);background:#fff;cursor:pointer;font-size:1.2rem;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;transition:background .3s,color .3s}
   .modal-close:hover{background:var(--ink);color:var(--paper)}
   .modal .m-status{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:color-mix(in srgb,var(--accent) 16%,#fff);color:var(--accent-deep)}
@@ -115,6 +130,8 @@
     .fcase{grid-template-columns:1fr;gap:24px;padding:44px 0}
     .grid{grid-template-columns:1fr}
     .cursor,.glow{display:none}.modal-card{padding:38px 26px}
+    .m-head{flex-direction:column;gap:14px;padding-right:40px}
+    .m-thumbs{max-width:none;justify-content:flex-start}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important}.js .rv{opacity:1!important;transform:none!important}}
 </style>
@@ -157,6 +174,10 @@
       <li>Adaptive concurrency: сервис читает RAM/CPU и сам пересчитывает лимиты воркеров — при апгрейде VPS масштабируется без правок кода.</li>
       <li>Обход граблей: геолокация Apify, Cloudflare на Rusprofile, юридический запрет Yandex на лидген — всё заложено в архитектуру.</li>
     </ul>
+    <figure class="stshot">
+      <img src="assets/auto/lh.webp" alt="Панель Lead-Hunter: история поисков и собранные лиды" loading="lazy">
+      <figcaption>Рабочая панель: 12 поисков по нишам и городам, от 1 до 203 лидов за прогон. Названия клиентских групп заретушированы.</figcaption>
+    </figure>
   </section>
 
   <!-- Агрегаторы (реальный скрин) -->
@@ -196,13 +217,21 @@
   <div class="modal-bg" data-close></div>
   <div class="modal-card">
     <button class="modal-close" data-close aria-label="Закрыть">✕</button>
-    <span class="m-status" id="m-status"></span>
-    <h3 id="m-title"></h3>
+    <div class="m-head">
+      <div class="m-head-l">
+        <span class="m-status" id="m-status"></span>
+        <h3 id="m-title"></h3>
+      </div>
+      <div class="m-thumbs" id="m-thumbs"></div>
+    </div>
     <p class="m-desc" id="m-desc"></p>
     <div class="m-metrics" id="m-metrics"></div>
     <ul class="m-why" id="m-why"></ul>
+    <p class="m-note" id="m-note"></p>
   </div>
 </div>
+
+<div class="lb" id="lb"><img id="lb-img" alt=""></div>
 
 <footer>© 2026 Александр Моисеев · направление «Автоматизация и парсеры» · <a href="index.html#help" style="color:var(--accent)">ко всем направлениям</a></footer>
 
@@ -225,6 +254,9 @@
     d:'FastAPI+Playwright на VPS исполняет операции Авито (парсинг фильтра, открытие чата, отправка сообщений), а n8n оркеструет: парс → открытие чата → первое сообщение → при ответе продавца GPT задаёт уточняющие вопросы и пишет структурированные данные в Google Sheets. Credentials шифруются, доступ закрыт токеном, стелс-плагины и SOCKS5 против банов.',
     why:['Avito API не создаёт чат — диалог инициируется через Playwright (кликом), дальше уже API','Риск банов заложен в архитектуру: стелс-плагины, релогин сессии, SOCKS5-прокси','Двухконтурная оркестрация: FastAPI держит только Avito-операции, ключи живут в n8n']},
   ];
+  const A='assets/auto/';
+  const IMGS={ kwork:[A+'kwork.webp'], maxfinder:[A+'maxf.webp'], tgmon:[A+'tgmon.webp'], tgfinder:[A+'finder.webp'] };
+  const NOTE='Рабочая панель, снятая вживую. Данные заказчиков и контакты заретушированы.';
   const grid=document.getElementById('grid');
   SVC.forEach(b=>{
     const el=document.createElement('button'); el.className='bcard rv'; el.type='button'; el.dataset.k=b.k;
@@ -238,12 +270,25 @@
     document.getElementById('m-desc').textContent=b.d;
     document.getElementById('m-metrics').innerHTML=b.met.map(m=>`<div><div class="n">${m[0]}</div><div class="l">${m[1]}</div></div>`).join('');
     document.getElementById('m-why').innerHTML=b.why.map(w=>`<li>${w}</li>`).join('');
+    const imgs=IMGS[b.k]||[];
+    document.getElementById('m-thumbs').innerHTML=imgs.map(u=>`<img src="${u}" alt="" loading="lazy">`).join('');
+    document.getElementById('m-note').textContent=imgs.length?NOTE:'';
     modal.classList.add('open'); document.body.classList.add('locked');
   }
+  const lb=document.getElementById('lb');
+  document.getElementById('m-thumbs').addEventListener('click',e=>{
+    if(e.target.tagName!=='IMG')return;
+    document.getElementById('lb-img').src=e.target.src; lb.classList.add('open');
+  });
+  lb.addEventListener('click',()=>lb.classList.remove('open'));
+  document.querySelectorAll('.stshot img, .fcase .shot img').forEach(im=>{
+    im.style.cursor='zoom-in';
+    im.addEventListener('click',()=>{ document.getElementById('lb-img').src=im.src; lb.classList.add('open'); });
+  });
   function closeModal(){ modal.classList.remove('open'); document.body.classList.remove('locked'); }
   grid.addEventListener('click',e=>{ const c=e.target.closest('.bcard'); if(!c)return; const b=SVC.find(x=>x.k===c.dataset.k); if(b)openModal(b); });
   modal.addEventListener('click',e=>{ if(e.target.hasAttribute('data-close'))closeModal(); });
-  addEventListener('keydown',e=>{ if(e.key==='Escape')closeModal(); });
+  addEventListener('keydown',e=>{ if(e.key==='Escape'){ if(lb.classList.contains('open')) lb.classList.remove('open'); else closeModal(); } });
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('js');
