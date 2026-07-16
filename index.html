@@ -104,8 +104,13 @@
   .badge{position:absolute;left:-38px;bottom:-38px;width:128px;height:128px;animation:spin 22s linear infinite}
   .badge text{font-size:12.2px;font-weight:600;letter-spacing:.06em;fill:var(--ink);font-family:'Inter',sans-serif;text-transform:uppercase}
   .badge .disc{fill:var(--paper)}
-  .badge .core{fill:var(--accent)}
+  .badge .core{fill:var(--accent);transition:r .5s var(--ease)}
+  .badge .plane{fill:#fff}
   @keyframes spin{to{transform:rotate(360deg)}}
+  .portrait-link{display:block;color:inherit}
+  .portrait-link .badge{transition:filter .5s var(--ease)}
+  .portrait-link:hover .badge{filter:drop-shadow(0 10px 22px rgba(28,23,18,.28))}
+  .portrait-link:hover .badge .core{r:24}
 
   /* ===== тихая строка стека ===== */
   .stack{padding:26px 0 70px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
@@ -257,15 +262,19 @@
     </div>
 
     <div class="portrait rv" id="portrait">
-      <div class="frame">
-        <img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/profile.jpg" alt="Александр Моисеев">
-      </div>
-      <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
-        <defs><path id="bp" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
-        <circle class="disc" cx="100" cy="100" r="86"/>
-        <circle class="core" cx="100" cy="100" r="20"/>
-        <text><textPath href="#bp" startOffset="0">открыт для новых проектов · напишите · </textPath></text>
-      </svg>
+      <a class="portrait-link" href="https://t.me/avmoiseevspb" target="_blank" rel="noopener"
+         data-cursor="Написать →" aria-label="Написать Александру в Telegram">
+        <div class="frame">
+          <img src="https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/profile.jpg" alt="Александр Моисеев">
+        </div>
+        <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+          <defs><path id="bp" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+          <circle class="disc" cx="100" cy="100" r="86"/>
+          <circle class="core" cx="100" cy="100" r="20"/>
+          <path class="plane" d="M100,91.5 l11,5.5 -11,5.5 0,-3.6 -6.4,-1.9 6.4,-1.9 z"/>
+          <text><textPath href="#bp" startOffset="0">открыт для новых проектов · напишите · </textPath></text>
+        </svg>
+      </a>
     </div>
   </section>
 
@@ -393,13 +402,14 @@
     addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;cur.style.opacity=1});
     (function loop(){ x+=(mx-x)*.2; y+=(my-y)*.2;
       cur.style.left=x+'px'; cur.style.top=y+'px'; requestAnimationFrame(loop); })();
-    document.querySelectorAll('a:not(.chap), [data-magnetic]').forEach(el=>{
+    document.querySelectorAll('a:not(.chap):not([data-cursor]), [data-magnetic]').forEach(el=>{
       el.addEventListener('pointerenter',()=>cur.classList.add('big'));
       el.addEventListener('pointerleave',()=>{cur.classList.remove('big'); el.style.transform='';});
     });
-    document.querySelectorAll('.chap').forEach(el=>{
-      el.addEventListener('pointerenter',()=>cur.classList.add('label'));
-      el.addEventListener('pointerleave',()=>cur.classList.remove('label'));
+    const curTxt=cur.querySelector('span'), curDefault=curTxt.textContent;
+    document.querySelectorAll('.chap,[data-cursor]').forEach(el=>{
+      el.addEventListener('pointerenter',()=>{ curTxt.textContent=el.dataset.cursor||curDefault; cur.classList.add('label'); });
+      el.addEventListener('pointerleave',()=>{ cur.classList.remove('label'); curTxt.textContent=curDefault; });
     });
     document.querySelectorAll('[data-magnetic]').forEach(el=>{
       el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();

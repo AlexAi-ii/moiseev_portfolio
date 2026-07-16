@@ -49,10 +49,22 @@
   .rphoto img{position:relative;width:230px;height:270px;object-fit:cover;border-radius:26px;box-shadow:0 34px 70px -38px rgba(28,23,18,.5)}
   .eyebrow{font-size:.76rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
   .rhero h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2.3rem,5vw,3.4rem);line-height:1.02;letter-spacing:-.02em;margin-top:10px}
-  .rhero .sub{margin-top:12px;font-size:1.12rem;color:var(--ink-soft);font-weight:500}
-  .rhero .desc{margin-top:16px;color:var(--ink-soft);max-width:60ch}
+  .rhero h1 .hl{font-style:italic;background:linear-gradient(100deg,#c98a2e 0%,#bd4f26 52%,#8a591c 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .rhero .sub{margin-top:12px;font-size:1.08rem;color:var(--ink-soft);font-weight:600;max-width:44ch}
+  .credo{margin-top:18px;list-style:none;display:grid;gap:9px;max-width:52ch}
+  .credo li{position:relative;padding-left:24px;color:var(--ink-soft);font-size:1.02rem}
+  .credo li::before{content:'—';position:absolute;left:0;top:0;color:var(--accent);font-weight:700}
+  .credo li b{color:var(--ink);font-weight:600}
   .chips{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
   .chip{font-size:.82rem;font-weight:600;padding:6px 14px;border-radius:100px;border:1px solid var(--line-2);color:var(--ink-soft)}
+
+  /* цифры под шапкой */
+  .rnums{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:34px 0 6px;border-top:1px solid var(--line);margin-top:14px}
+  .rnums div{padding:4px 0}
+  .rnums .v{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1;letter-spacing:-.03em;color:var(--accent-deep)}
+  .rnums .l{margin-top:8px;font-size:.86rem;color:var(--muted);font-weight:500;line-height:1.35}
+  @media(max-width:820px){.rnums{grid-template-columns:1fr 1fr;gap:20px 14px;text-align:center}}
   .acts{margin-top:24px;display:flex;gap:14px;flex-wrap:wrap}
   .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.98rem;padding:14px 26px;border-radius:100px;transition:transform .4s var(--ease),box-shadow .4s}
   .btn-primary{background:var(--accent-deep);color:#fff;box-shadow:0 14px 30px -14px var(--accent)}
@@ -92,6 +104,20 @@
   .skill:hover{transform:translateY(-4px);box-shadow:0 20px 44px -28px rgba(28,23,18,.4)}
   .skill h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.1rem}
   .skill p{margin-top:8px;color:var(--ink-soft);font-size:.95rem}
+
+  /* о себе */
+  .about{display:grid;grid-template-columns:1fr 300px;gap:38px;align-items:start}
+  .about p{color:var(--ink-soft);margin-bottom:14px;max-width:64ch}
+  .about p:last-child{margin-bottom:0}
+  .about aside{padding:24px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.42)}
+  .about aside h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.05rem;margin-bottom:12px}
+  .about aside ul{list-style:none;display:grid;gap:9px}
+  .about aside li{position:relative;padding-left:18px;font-size:.94rem;color:var(--ink-soft)}
+  .about aside li::before{content:'';position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.75}
+  .fmt{padding:26px 28px;border-left:3px solid var(--accent);border-radius:0 16px 16px 0;background:rgba(255,255,255,.42)}
+  .fmt p{color:var(--ink-soft);max-width:70ch}
+  .fmt p+p{margin-top:12px}
+  @media(max-width:820px){.about{grid-template-columns:1fr;gap:24px}}
 
   /* CTA */
   .cta{margin:44px 0 20px;padding:56px 40px;text-align:center;background:var(--ink);color:var(--paper);border-radius:28px;position:relative;overflow:hidden}
@@ -133,12 +159,18 @@
     </div>
     <div>
       <div class="eyebrow rv">Полное резюме</div>
-      <h1 class="rv">Александр Моисеев</h1>
-      <p class="sub rv">AI-разработчик: боты, агенты, автоматизация — под ключ</p>
-      <p class="desc rv">20+ проектов под ключ за 2 года: боты обработали 100 000+ обращений клиентов, HR-бот закрыл 8 000+ откликов и сэкономил заказчику 1 166 часов, бот записи снял с администратора салона 40% звонков. За плечами 29 лет в бизнесе и ИТ — вижу процессы и с технической, и с управленческой стороны: финансы, логистика, документооборот, 20+ лет в 1С. От постановки задачи до сдачи в прод сам разбираюсь в бизнес-процессе и предлагаю решение. Работаю удалённо (инвалид с детства, II группа) — стабильно и без простоев.</p>
+      <h1 class="rv">Александр <span class="hl">Моисеев</span></h1>
+      <p class="sub rv">Chief of Staff по AI и автоматизации бизнеса · разработчик и архитектор решений</p>
+      <ul class="credo rv">
+        <li><b>Довожу до работающего результата</b> — без надзора и переспрашиваний: от идеи и разбора процесса до прода и сопровождения.</li>
+        <li><b>Говорю на языке бизнеса, а не только кода</b> — 29 лет в ИТ и управлении: финансы, логистика, документооборот, 1С:ERP.</li>
+        <li><b>Работаю в связке с Claude Code</b> (вайб-кодинг) — отсюда скорость: 20+ проектов за 2 года силами одного человека, без штата.</li>
+        <li><b>Делаю так, чтобы прижилось</b> — решение, которым пользуются каждый день, а не пилот в презентации.</li>
+      </ul>
       <div class="chips rv">
         <span class="chip">29 лет в ИТ</span><span class="chip">20+ лет в 1С</span>
-        <span class="chip">AI · LLM · n8n</span><span class="chip">Боты · приложения · сайты</span>
+        <span class="chip">AI-агенты · LLM · RAG</span><span class="chip">n8n · Python · Claude Code</span>
+        <span class="chip">Боты · приложения · сайты · SaaS</span><span class="chip">Парсинг и лидген</span>
       </div>
       <div class="acts rv">
         <a class="btn btn-primary" data-magnetic href="https://t.me/avmoiseevspb" target="_blank" rel="noopener">Написать в Telegram</a>
@@ -147,20 +179,28 @@
     </div>
   </section>
 
+  <section class="rnums rv">
+    <div><div class="v">20+</div><div class="l">проектов в проде<br>за 2 года</div></div>
+    <div><div class="v">100 000+</div><div class="l">обращений клиентов<br>обработали боты</div></div>
+    <div><div class="v">8 000+</div><div class="l">откликов закрыл<br>один HR-бот</div></div>
+    <div><div class="v">1 166</div><div class="l">часов ручной работы<br>сэкономлено заказчику</div></div>
+  </section>
+
   <!-- ОПЫТ -->
   <section class="block">
     <div class="sec-h rv"><span class="n">01</span><h2>Опыт работы</h2></div>
     <div class="sec-line"></div>
 
     <div class="job rv"><div class="when">Ноя 2024 — н.в.</div><div>
-      <h3>Разработчик / аналитик</h3><div class="co">Фриланс</div>
-      <div class="pos">Создание AI-решений для бизнеса</div>
+      <h3>Инженер по ИИ, разработчик AI-решений</h3><div class="co">Фриланс</div>
+      <div class="pos">AI-решения и автоматизация для бизнеса — от архитектуры до прода</div>
       <ul>
-        <li>Чат-боты и AI-ассистенты для Telegram, VK, MAX, WhatsApp</li>
-        <li>AI-агенты и помощники с интеграцией LLM и базами знаний (RAG)</li>
-        <li>Автоматизация бизнес-процессов на n8n и на собственном коде (Python, VPS)</li>
-        <li>Промпт-инженерия: разработка и оптимизация промптов для LLM</li>
-        <li>Интеграции: OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT, Supabase, 1С, CRM</li>
+        <li>20+ реализованных проектов: Telegram / VK / MAX-боты с оплатой, записью и воронками; AI-ассистенты и консультанты с RAG и базами знаний — на n8n и Python, с интеграцией OpenAI, Claude, DeepSeek, GigaChat, Qwen, YandexGPT</li>
+        <li>Полноценный SaaS с мобильным приложением (Android, Capacitor) и интеграцией мессенджеров — от архитектуры на Supabase / PostgreSQL до релиза</li>
+        <li>Реверс-инжиниринг протокола мессенджера MAX (разбор WebSocket без документации) — рабочая интеграция там, где официального API нет</li>
+        <li>Лидген-платформа промышленного масштаба: парсеры карт и агрегаторов на очередях задач (Dramatiq); под заказ клиента собрано 660+ моделей и тарифов с 12 сервисов</li>
+        <li>Мультиканальная контент-платформа для соцсетей: RLS, автопостинг, скедулинг, множество ботов и каналов из одной системы</li>
+        <li>Работаю в связке с Claude Code (вайб-кодинг) — это и даёт скорость 20+ проектов за 2 года силами одного человека без штата разработчиков</li>
       </ul>
     </div></div>
 
@@ -180,10 +220,10 @@
     </div></div>
 
     <div class="job rv"><div class="when">Июль 2015 — Окт 2023</div><div>
-      <h3>Руководитель ИТ-отдела</h3><div class="co">ООО «РТК»</div>
-      <div class="pos">Холдинг, численность более 5000 человек</div>
+      <h3>Руководитель ИТ-отдела (Северо-Запад)</h3><div class="co">ООО «РТК»</div>
+      <div class="pos">Региональное ИТ-направление, 300+ сотрудников</div>
       <ul>
-        <li>Внедрение 1С:Предприятие 8 (ERP) для холдинга</li>
+        <li>Внедрение 1С:Предприятие 8 (ERP) для регионального направления</li>
         <li>Консолидация данных в единой системе 1С для сквозного учёта</li>
         <li>Электронный документооборот на десяти складах</li>
         <li>Внедрение системы казначейства для бюджетного контроля</li>
@@ -237,12 +277,20 @@
   <section class="block">
     <div class="sec-h rv"><span class="n">02</span><h2>Образование и квалификация</h2></div>
     <div class="sec-line"></div>
-    <div class="edu rv"><div class="when">1998</div><div>
-      <h3>Экономист-менеджер · «Экономика и управление на предприятии связи»</h3>
-      <div class="school">СПбГУТ им. проф. М. А. Бонч-Бруевича</div>
+    <div class="edu rv"><div class="when">2025</div><div>
+      <h3>Разработчик чат-ботов под ключ: от простого бота до AI-ассистента</h3>
+      <div class="school">Зерокодер · курс</div>
+    </div></div>
+    <div class="edu rv"><div class="when">2025</div><div>
+      <h3>Промпт-инженер · Анализ данных · FlutterFlow</h3>
+      <div class="school">Зерокодер · интенсивы</div>
     </div></div>
     <div class="edu rv"><div class="when">2024</div><div>
-      <h3>Тендеры и госзакупки (44-ФЗ и 223-ФЗ)</h3><div class="school">ИП Иванова Т. Н.</div>
+      <h3>Тендеры и госзакупки: 44-ФЗ и 223-ФЗ для поставщиков</h3><div class="school">ИП Иванова Т. Н.</div>
+    </div></div>
+    <div class="edu rv"><div class="when">1998</div><div>
+      <h3>Экономист-менеджер · «Экономика и управление на предприятии связи»</h3>
+      <div class="school">СПбГУТ им. проф. М. А. Бонч-Бруевича · высшее</div>
     </div></div>
     <div class="edu rv"><div class="when">1996</div><div>
       <h3>Менеджер по финансам и экономике</h3><div class="school">Академия науки и бизнеса</div>
@@ -254,12 +302,47 @@
     <div class="sec-h rv"><span class="n">03</span><h2>Навыки и компетенции</h2></div>
     <div class="sec-line"></div>
     <div class="skills">
-      <div class="skill rv"><h4>Платформы и инструменты</h4><p>n8n, Python, Supabase, Google API, Claude Code, 1С:Предприятие 8 (Бух, УТ, УПП, ERP)</p></div>
-      <div class="skill rv"><h4>LLM и AI</h4><p>OpenAI, Claude, DeepSeek, Llama, GigaChat, Qwen, YandexGPT, Gemini; промпт-инженерия, RAG</p></div>
-      <div class="skill rv"><h4>Автоматизация</h4><p>Боты для Telegram / VK / MAX / WhatsApp, AI-агенты, интеграции API, парсинг, лидген</p></div>
-      <div class="skill rv"><h4>Приложения и сайты</h4><p>Веб- и мобильные приложения (Capacitor), SaaS, лендинги и сайты с живыми эффектами</p></div>
-      <div class="skill rv"><h4>Анализ и проектирование</h4><p>Описание и анализ бизнес-процессов, техническая документация, ТЗ</p></div>
-      <div class="skill rv"><h4>Бизнес и управление</h4><p>Руководство ИТ до 150+ сотрудников, финансовый и бухгалтерский учёт, бюджетирование</p></div>
+      <div class="skill rv"><h4>AI и LLM</h4><p>AI-агенты и RAG, промпт-инжиниринг, базы знаний и векторный поиск. OpenAI, Claude, DeepSeek, Llama, GigaChat, Qwen, YandexGPT, Gemini. Оптимизация точности и стоимости эксплуатации, выбор открытых / закрытых моделей под требования к данным</p></div>
+      <div class="skill rv"><h4>Вайб-кодинг (Claude Code)</h4><p>Основной рабочий инструмент: разработка в связке с AI-агентом — архитектура, код, тесты, деплой. Именно это даёт 20+ проектов за 2 года без штата разработчиков</p></div>
+      <div class="skill rv"><h4>Разработка и стек</h4><p>Python, n8n, Supabase / PostgreSQL, Docker, VPS и nginx, очереди задач (Dramatiq), Google API, REST и вебхуки, MCP</p></div>
+      <div class="skill rv"><h4>Боты и каналы</h4><p>Telegram / VK / MAX / WhatsApp Bot API, оплата (Робокасса, ЮKassa, CloudPayments, Prodamus), воронки, запись, рассылки. Реверс-инжиниринг протокола там, где API нет</p></div>
+      <div class="skill rv"><h4>Приложения и SaaS</h4><p>Архитектура SaaS, мультитенантность и RLS, веб- и мобильные приложения (Android, Capacitor), релиз в сторы, сайты и лендинги</p></div>
+      <div class="skill rv"><h4>Данные, парсинг, лидген</h4><p>Парсеры карт, площадок и агрегаторов, дедупликация и обогащение баз, выгрузки в Google Sheets и Excel, мониторинг и сопровождение в проде</p></div>
+      <div class="skill rv"><h4>Интеграции и 1С</h4><p>1С:Предприятие 8 (Бух, УТ, УПП, ERP) — 20+ лет, интеграции 1С и CRM (Битрикс24), hh.ru, Авито, Wazzup / Chat2Desk, документооборот, казначейство</p></div>
+      <div class="skill rv"><h4>Бизнес и управление</h4><p>8 лет руководил ИТ-отделом регионального направления (300+ сотрудников), владел франчайзи 1С. Бизнес-анализ, управление ИТ-проектами, ТЗ и регламенты, финансовый и бухгалтерский учёт, тендеры 44-ФЗ / 223-ФЗ</p></div>
+    </div>
+  </section>
+
+  <!-- О СЕБЕ -->
+  <section class="block">
+    <div class="sec-h rv"><span class="n">04</span><h2>О себе</h2></div>
+    <div class="sec-line"></div>
+    <div class="about">
+      <div class="rv">
+        <p>Довожу AI-инициативы и задачи автоматизации первого лица компании от идеи до работающего результата — без надзора и переспрашиваний. За 2 года на фрилансе так сделал 20+ проектов: от Telegram-ботов до полноценных SaaS-платформ с мобильными приложениями. Боты обработали 100 000+ обращений клиентов; один только HR-бот закрыл 8 000+ откликов и сэкономил заказчику 1 166 часов ручной работы.</p>
+        <p>До этого 29 лет в бизнесе и ИТ: прошёл путь от программиста 1С до владельца франчайзи, 8 лет руководил ИТ-отделом регионального направления (300+ сотрудников, Северо-Запад) — внедрял 1С:ERP, документооборот на десяти складах, казначейство. Это то, чего не хватает большинству «чистых» разработчиков: говорю на языке бизнеса, руководителей и финансистов, вижу процесс целиком и довожу решения до состояния, в котором они реально приживаются в компании, а не остаются пилотом.</p>
+        <p>Ищу постоянную роль рядом с первым лицом компании — организовать и довести AI и автоматизацию как стратегическую линию, а не разовую задачу. Параллельно беру проекты под ключ: обычно веду 1–2 одновременно.</p>
+      </div>
+      <aside class="rv">
+        <h4>Коротко</h4>
+        <ul>
+          <li>Санкт-Петербург, работаю удалённо</li>
+          <li>Постоянная роль и проекты под ключ</li>
+          <li>Обычно 1–2 проекта параллельно</li>
+          <li>Внимателен к деталям, довожу до конца</li>
+          <li>Женат, трое детей. Водительские права кат. B</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ФОРМАТ РАБОТЫ -->
+  <section class="block">
+    <div class="sec-h rv"><span class="n">05</span><h2>Формат работы</h2></div>
+    <div class="sec-line"></div>
+    <div class="fmt rv">
+      <p>Работаю удалённо. Инвалид с детства (II группа), передвигаюсь самостоятельно на электроколяске — это причина, по которой я два года выдаю стабильный результат без простоев и выгорания на офисной рутине. В офисе тоже могу работать при наличии безбарьерной среды.</p>
+      <p>На результат это не влияет: всё общение — в Telegram, MAX или созвонах, вся работа — в проде и видна по ссылке.</p>
     </div>
   </section>
 
