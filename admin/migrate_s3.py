@@ -1,3 +1,4 @@
+import os
 """
 Одноразовая миграция S3 для портфолио:
 1. Копирует существующие cover-картинки в новые латинские пути portfolio/<slug>/cover.png
@@ -14,8 +15,8 @@ from botocore.config import Config
 
 BUCKET = '5a0ee524b59d-s3-storage'
 ENDPOINT = 'https://s3.ru1.storage.beget.cloud'
-ACCESS_KEY = 'TRVDEW618IQRCPVWVCFJ'
-SECRET_KEY = 'CoBnAD2rG5dvW9RuGXAshfm0DwY45ykxX6wYbxyi'
+ACCESS_KEY = os.environ.get('S3_ACCESS_KEY', '')  # never hardcode: repo is public
+SECRET_KEY = os.environ.get('S3_SECRET_KEY', '')
 PUBLIC_BASE = f'{ENDPOINT}/{BUCKET}'
 
 # boto3 1.36+ по умолчанию добавляет checksum-заголовки, которые Beget S3 отвергает
