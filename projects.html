@@ -192,28 +192,23 @@
     });
     document.getElementById('scrollTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Fallback-данные используются если projects.json не загрузился (offline / ошибка S3).
-    // Реальные данные приходят с https://s3.ru1.storage.beget.cloud/.../Moiseev/projects.json
-    const PROJECTS_JSON_URL = 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/projects.json';
-    // Fallback: те же данные что и в projects.json, на случай если S3 заблокирован CORS.
-    // После настройки CORS на бакете loadProjects() заменит этот массив актуальной версией.
-    const S3_BASE = 'https://s3.ru1.storage.beget.cloud/5a0ee524b59d-s3-storage/Moiseev/portfolio/';
-    let projects = [
-      { slug: 'billiard', name: 'Бронирование столов 24/7 для бильярдного клуба', subtitle: 'Telegram-бот с календарём, оплатой и уведомлениями', img: S3_BASE+'billiard/cover.png', link: 'projects/billiard.html', hasImage: true, categories: ['leads', 'booking'], metric: 'Снижение нагрузки на 40%', tags: ['Telegram', 'Payments', 'Booking'], segment: 'Малый бизнес', segments: ['smb', 'booking'] },
-      { slug: 'assistant', name: 'AI-ассистент для задач, почты и календаря', subtitle: 'Личный помощник в Telegram с голосовым управлением', img: S3_BASE+'assistant/cover.png', link: 'projects/assistant.html', hasImage: true, categories: ['support'], metric: 'Экономия 2+ часов в день', tags: ['Telegram', 'AI', 'Google API'], segment: 'Частное использование', segments: ['support'] },
-      { slug: 'autopublish', name: 'AI-автопостинг в Telegram из ссылок', subtitle: 'Автоматическая публикация постов из RSS и статей', img: S3_BASE+'autopublish/cover.png', link: 'projects/autopublish.html', hasImage: true, categories: ['content'], metric: 'Экономия 5 часов в неделю', tags: ['Telegram', 'AI', 'RSS'], segment: 'Агентства', segments: ['agencies', 'content'] },
-      { slug: 'amp', name: 'Платный Telegram-сервис обработки аудио 24/7', subtitle: 'Разделение треков на стемы с автоматической оплатой', img: S3_BASE+'amp/cover.png', link: 'projects/amp.html', hasImage: true, categories: ['paid-service'], metric: 'Полная автоматизация продаж', tags: ['Telegram', 'Payments', 'AI'], segment: 'Платный сервис', segments: ['paid-service'] },
-      { slug: 'hr-neuro', name: 'AI-скрининг откликов и первичная квалификация кандидатов', subtitle: 'Нейросотрудник HR для автоматизации обработки резюме', img: S3_BASE+'hr-neuro/cover.png', link: 'projects/hr-neuro.html', hasImage: true, categories: ['hr'], metric: '8000+ откликов · 1166 ч экономии', tags: ['AI', 'HR', 'Telegram', 'hh.ru'], segment: 'HR и рекрутинг', segments: ['hr'] },
-      { slug: 'aurpak', name: 'AI-консультант для входящих B2B-запросов и каталога', subtitle: 'Бот-консультант для производителя пакетов — обработка заявок 24/7', img: S3_BASE+'aurpak/cover.png', link: 'projects/aurpak.html', hasImage: true, categories: ['leads', 'support'], metric: '-60% нагрузки на менеджеров, +25% конверсии', tags: ['AI', 'Telegram', 'B2B', 'Каталог'], segment: 'Агентства', segments: ['agencies', 'leads', 'support'] },
-      { slug: 'lenremont', name: 'AI-квалификация лидов и калькулятор ремонта', subtitle: 'Умный помощник Ленремонт для расчёта стоимости и записи', img: S3_BASE+'lenremont/cover.png', link: 'projects/lenremont.html', hasImage: true, categories: ['leads', 'booking'], metric: '+35% к записи на замер', tags: ['AI', 'Calculator', 'Booking', 'Telegram'], segment: 'Малый бизнес', segments: ['smb', 'leads', 'booking'] },
-      { slug: 'mchs', name: 'Ассистент для подготовки коммерческих предложений', subtitle: 'Автоматизация подготовки КП для МЧС', img: S3_BASE+'mchs/cover.png', link: 'projects/mchs.html', hasImage: true, categories: ['operations'], metric: 'Быстрее КП, меньше ошибок', tags: ['AI', 'Documents', 'B2B'], segment: 'Агентства', segments: ['agencies', 'operations'] },
-      { slug: 'zzok-sale', name: 'AI-воронка прогрева и передача лидов в CRM', subtitle: 'Бот-продавец ZZOK: прогрев, квалификация, передача в CRM', img: S3_BASE+'zzok-sale/cover.png', link: 'projects/zzok-sale.html', hasImage: true, categories: ['leads'], metric: '+45% к конверсии в продажу', tags: ['AI', 'Sales', 'CRM', 'Telegram'], segment: 'Агентства', segments: ['agencies', 'leads'] },
-      { slug: 'zzok-hr', name: 'База знаний и тестирование сотрудников в Telegram', subtitle: 'ZZOK HR: обучение и аттестация через бота', img: S3_BASE+'zzok-hr/cover.png', link: 'projects/zzok-hr.html', hasImage: true, categories: ['hr'], metric: 'Ускорение адаптации сотрудников', tags: ['AI', 'HR', 'Telegram', 'RAG'], segment: 'Внутренние процессы', segments: ['hr'] },
-      { slug: 'smm-bot', name: 'AI-контент-календарь и автопланирование для соцсетей', subtitle: 'SMM-бот для beauty-мастеров: планирование и публикация контента', img: S3_BASE+'smm-bot/cover.png', link: 'projects/smm-bot.html', hasImage: true, categories: ['content'], metric: 'Экономия 10 часов в неделю', tags: ['AI', 'Content', 'Telegram', 'SMM'], segment: 'Агентства', segments: ['agencies', 'content'] },
-      { slug: 'biohacking', name: 'Подписной AI-консультант с базой знаний', subtitle: 'Биохакинг: Telegram-бот с подпиской на экспертный контент', img: S3_BASE+'biohacking/cover.png', link: 'projects/biohacking.html', hasImage: true, categories: ['paid-service', 'support'], metric: 'Монетизация экспертизы', tags: ['AI', 'Payments', 'RAG', 'Telegram'], segment: 'Платный сервис', segments: ['paid-service', 'support'] },
-      { slug: 'salon', name: 'Онлайн-запись и синхронизация с 1С', subtitle: 'Салон красоты: Telegram-бот для записи клиентов с интеграцией 1С', img: S3_BASE+'salon/cover.png', link: 'projects/salon.html', hasImage: true, categories: ['leads', 'booking'], metric: 'Сокращение работы админа', tags: ['Booking', '1C', 'Telegram', 'CRM'], segment: 'Малый бизнес', segments: ['smb', 'leads', 'booking'] },
-      { slug: 'payments', name: 'Автоматизация напоминаний о платежах и дебиторке', subtitle: 'Система автоматических напоминаний через Telegram и WhatsApp', img: S3_BASE+'payments/cover.png', link: 'projects/payments.html', hasImage: true, categories: ['operations'], metric: 'Снижение просрочки на 45%', tags: ['Payments', 'Telegram', 'WhatsApp', 'CRM'], segment: 'Малый бизнес', segments: ['smb', 'operations'] },
-      { slug: 'holy-scriptures', name: 'Мобильное приложение для ежедневной молитвенной практики', subtitle: 'Вырицкий молитвослов — ежедневные напоминания и тексты', img: S3_BASE+'holy-scriptures/cover.png', link: 'projects/holy-scriptures.html', hasImage: true, categories: ['paid-service'], metric: 'Ежедневная практика', tags: ['Mobile', 'Notifications'], segment: 'Платный сервис', segments: ['paid-service'] }
+    // Данные проектов живут здесь, в самой странице (внешнее хранилище Beget S3 уничтожено 03.11.2026).
+    const projects = [
+      { slug: 'billiard', name: 'Бронирование столов 24/7 для бильярдного клуба', subtitle: 'Telegram-бот с календарём, оплатой и уведомлениями', link: 'projects/billiard.html', hasImage: true, categories: ['leads', 'booking'], metric: 'Снижение нагрузки на 40%', tags: ['Telegram', 'Payments', 'Booking'], segment: 'Малый бизнес', segments: ['smb', 'booking'] },
+      { slug: 'assistant', name: 'AI-ассистент для задач, почты и календаря', subtitle: 'Личный помощник в Telegram с голосовым управлением', link: 'projects/assistant.html', hasImage: true, categories: ['support'], metric: 'Экономия 2+ часов в день', tags: ['Telegram', 'AI', 'Google API'], segment: 'Частное использование', segments: ['support'] },
+      { slug: 'autopublish', name: 'AI-автопостинг в Telegram из ссылок', subtitle: 'Автоматическая публикация постов из RSS и статей', link: 'projects/autopublish.html', hasImage: true, categories: ['content'], metric: 'Экономия 5 часов в неделю', tags: ['Telegram', 'AI', 'RSS'], segment: 'Агентства', segments: ['agencies', 'content'] },
+      { slug: 'amp', name: 'Платный Telegram-сервис обработки аудио 24/7', subtitle: 'Разделение треков на стемы с автоматической оплатой', link: 'projects/amp.html', hasImage: true, categories: ['paid-service'], metric: 'Полная автоматизация продаж', tags: ['Telegram', 'Payments', 'AI'], segment: 'Платный сервис', segments: ['paid-service'] },
+      { slug: 'hr-neuro', name: 'AI-скрининг откликов и первичная квалификация кандидатов', subtitle: 'Нейросотрудник HR для автоматизации обработки резюме', link: 'projects/hr-neuro.html', hasImage: true, categories: ['hr'], metric: '8000+ откликов · 1166 ч экономии', tags: ['AI', 'HR', 'Telegram', 'hh.ru'], segment: 'HR и рекрутинг', segments: ['hr'] },
+      { slug: 'aurpak', name: 'AI-консультант для входящих B2B-запросов и каталога', subtitle: 'Бот-консультант для производителя пакетов — обработка заявок 24/7', link: 'projects/aurpak.html', hasImage: true, categories: ['leads', 'support'], metric: '-60% нагрузки на менеджеров, +25% конверсии', tags: ['AI', 'Telegram', 'B2B', 'Каталог'], segment: 'Агентства', segments: ['agencies', 'leads', 'support'] },
+      { slug: 'lenremont', name: 'AI-квалификация лидов и калькулятор ремонта', subtitle: 'Умный помощник Ленремонт для расчёта стоимости и записи', link: 'projects/lenremont.html', hasImage: true, categories: ['leads', 'booking'], metric: '+35% к записи на замер', tags: ['AI', 'Calculator', 'Booking', 'Telegram'], segment: 'Малый бизнес', segments: ['smb', 'leads', 'booking'] },
+      { slug: 'mchs', name: 'Ассистент для подготовки коммерческих предложений', subtitle: 'Автоматизация подготовки КП для МЧС', link: 'projects/mchs.html', hasImage: true, categories: ['operations'], metric: 'Быстрее КП, меньше ошибок', tags: ['AI', 'Documents', 'B2B'], segment: 'Агентства', segments: ['agencies', 'operations'] },
+      { slug: 'zzok-sale', name: 'AI-воронка прогрева и передача лидов в CRM', subtitle: 'Бот-продавец ZZOK: прогрев, квалификация, передача в CRM', link: 'projects/zzok-sale.html', hasImage: true, categories: ['leads'], metric: '+45% к конверсии в продажу', tags: ['AI', 'Sales', 'CRM', 'Telegram'], segment: 'Агентства', segments: ['agencies', 'leads'] },
+      { slug: 'zzok-hr', name: 'База знаний и тестирование сотрудников в Telegram', subtitle: 'ZZOK HR: обучение и аттестация через бота', link: 'projects/zzok-hr.html', hasImage: true, categories: ['hr'], metric: 'Ускорение адаптации сотрудников', tags: ['AI', 'HR', 'Telegram', 'RAG'], segment: 'Внутренние процессы', segments: ['hr'] },
+      { slug: 'smm-bot', name: 'AI-контент-календарь и автопланирование для соцсетей', subtitle: 'SMM-бот для beauty-мастеров: планирование и публикация контента', link: 'projects/smm-bot.html', hasImage: true, categories: ['content'], metric: 'Экономия 10 часов в неделю', tags: ['AI', 'Content', 'Telegram', 'SMM'], segment: 'Агентства', segments: ['agencies', 'content'] },
+      { slug: 'biohacking', name: 'Подписной AI-консультант с базой знаний', subtitle: 'Биохакинг: Telegram-бот с подпиской на экспертный контент', link: 'projects/biohacking.html', hasImage: true, categories: ['paid-service', 'support'], metric: 'Монетизация экспертизы', tags: ['AI', 'Payments', 'RAG', 'Telegram'], segment: 'Платный сервис', segments: ['paid-service', 'support'] },
+      { slug: 'salon', name: 'Онлайн-запись и синхронизация с 1С', subtitle: 'Салон красоты: Telegram-бот для записи клиентов с интеграцией 1С', link: 'projects/salon.html', hasImage: true, categories: ['leads', 'booking'], metric: 'Сокращение работы админа', tags: ['Booking', '1C', 'Telegram', 'CRM'], segment: 'Малый бизнес', segments: ['smb', 'leads', 'booking'] },
+      { slug: 'payments', name: 'Автоматизация напоминаний о платежах и дебиторке', subtitle: 'Система автоматических напоминаний через Telegram и WhatsApp', link: 'projects/payments.html', hasImage: true, categories: ['operations'], metric: 'Снижение просрочки на 45%', tags: ['Payments', 'Telegram', 'WhatsApp', 'CRM'], segment: 'Малый бизнес', segments: ['smb', 'operations'] },
+      { slug: 'holy-scriptures', name: 'Мобильное приложение для ежедневной молитвенной практики', subtitle: 'Вырицкий молитвослов — ежедневные напоминания и тексты', link: 'projects/holy-scriptures.html', hasImage: true, categories: ['paid-service'], metric: 'Ежедневная практика', tags: ['Mobile', 'Notifications'], segment: 'Платный сервис', segments: ['paid-service'] }
     ];
 
     const grid = document.getElementById('projectsGrid');
@@ -230,8 +225,7 @@
       return (v !== null && v !== undefined) ? v : ruFallback;
     }
 
-    // В S3 файлы обложек лежат как {slug}/{slug}_cover.png. В projects.json и в fallback-массиве
-    // исторически записаны битые пути {slug}/cover.png — поэтому собираем URL сами из slug.
+    // Обложки лежат в репо: assets/covers/{slug}.svg.
     function coverUrl(slug) {
       return 'assets/covers/' + slug + '.svg';
     }
@@ -341,7 +335,6 @@
         const subtitle = projectText(origIdx, 'desc');
         const metric = projectText(origIdx, 'metric');
 
-        // Реальный путь обложки в S3 — собираем сами из slug, игнорируя возможно битый img из projects.json.
         const coverSrc = coverUrl(p.slug);
 
         // Если фото нет (hasImage=false) или картинка не загрузилась — показываем placeholder
@@ -376,22 +369,6 @@
       });
     });
 
-    // Загружаем актуальные данные с S3, потом перерисовываем
-    async function loadProjects() {
-      try {
-        const resp = await fetch(PROJECTS_JSON_URL + '?t=' + Date.now(), { cache: 'no-store' });
-        if (!resp.ok) throw new Error('HTTP ' + resp.status);
-        const data = await resp.json();
-        if (Array.isArray(data.projects) && data.projects.length > 0) {
-          projects = data.projects;
-          const activeBtn = document.querySelector('.filter-pill.active');
-          renderProjects(activeBtn ? activeBtn.dataset.filter : 'all');
-        }
-      } catch (e) {
-        console.warn('Не удалось загрузить projects.json, использую fallback:', e);
-      }
-    }
-
     // Re-render on language change
     function setupI18n() {
       document.addEventListener('moi:langchange', function() {
@@ -401,18 +378,16 @@
       });
     }
 
-    // Один первичный рендер после загрузки локали, потом обновление с S3.
+    // Один рендер после загрузки локали.
     const initialFilter = getInitialFilter();
     if (window._moiLocaleLoaded) {
       window._moiLocaleLoaded.then(function() {
         renderProjects(initialFilter);
         setupI18n();
-        loadProjects();
       });
     } else {
       renderProjects(initialFilter);
       setupI18n();
-      loadProjects();
     }
   </script>
 </body>
